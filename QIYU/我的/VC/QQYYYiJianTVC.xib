@@ -1,0 +1,114 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="14490.70" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+    <device id="retina6_1" orientation="portrait">
+        <adaptation id="fullscreen"/>
+    </device>
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14490.49"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="QQYYYiJianTVC">
+            <connections>
+                <outlet property="confirmBt" destination="vCF-Kt-VUu" id="GCq-Ew-Hvn"/>
+                <outlet property="grayV" destination="8Xc-q1-dJ1" id="fm6-D9-hr0"/>
+                <outlet property="keFuBt" destination="dPG-LL-Och" id="cuD-JG-zTg"/>
+                <outlet property="view" destination="i5M-Pr-FkT" id="sfx-zR-JGt"/>
+            </connections>
+        </placeholder>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <view clearsContextBeforeDrawing="NO" contentMode="scaleToFill" id="i5M-Pr-FkT">
+            <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+            <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+            <subviews>
+                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="联系我们" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Age-uc-6b8">
+                    <rect key="frame" x="15" y="64" width="384" height="20"/>
+                    <constraints>
+                        <constraint firstAttribute="height" constant="20" id="Q7W-eo-qgR"/>
+                    </constraints>
+                    <fontDescription key="fontDescription" type="system" pointSize="16"/>
+                    <nil key="textColor"/>
+                    <nil key="highlightedColor"/>
+                </label>
+                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="在线客服 (对话将移至您的消息列表)" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="aeX-Tb-9G4">
+                    <rect key="frame" x="15" y="99" width="384" height="20"/>
+                    <constraints>
+                        <constraint firstAttribute="height" constant="20" id="bUt-74-lGp"/>
+                    </constraints>
+                    <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                    <color key="textColor" red="0.15686274510000001" green="0.15686274510000001" blue="0.15686274510000001" alpha="1" colorSpace="calibratedRGB"/>
+                    <nil key="highlightedColor"/>
+                </label>
+                <button opaque="NO" tag="100" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="dPG-LL-Och">
+                    <rect key="frame" x="15" y="139" width="180" height="44"/>
+                    <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                    <constraints>
+                        <constraint firstAttribute="height" constant="44" id="TfU-2J-Tyc"/>
+                        <constraint firstAttribute="width" constant="180" id="Zle-g7-LMh"/>
+                    </constraints>
+                    <state key="normal" title="联系在线客服" backgroundImage="backr">
+                        <color key="titleColor" red="0.96078431369999995" green="0.96078431369999995" blue="0.96078431369999995" alpha="1" colorSpace="calibratedRGB"/>
+                    </state>
+                    <connections>
+                        <action selector="keFuAction:" destination="-1" eventType="touchUpInside" id="rs2-hk-GKl"/>
+                    </connections>
+                </button>
+                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="意见反馈" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="b0H-vn-c1f">
+                    <rect key="frame" x="15" y="198" width="384" height="20"/>
+                    <constraints>
+                        <constraint firstAttribute="height" constant="20" id="vxx-28-w3f"/>
+                    </constraints>
+                    <fontDescription key="fontDescription" type="system" pointSize="16"/>
+                    <nil key="textColor"/>
+                    <nil key="highlightedColor"/>
+                </label>
+                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="8Xc-q1-dJ1">
+                    <rect key="frame" x="15" y="233" width="384" height="150"/>
+                    <color key="backgroundColor" cocoaTouchSystemColor="groupTableViewBackgroundColor"/>
+                    <constraints>
+                        <constraint firstAttribute="height" constant="150" id="6wk-lh-I3H"/>
+                    </constraints>
+                </view>
+                <button opaque="NO" tag="101" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="vCF-Kt-VUu">
+                    <rect key="frame" x="15" y="403" width="384" height="44"/>
+                    <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                    <constraints>
+                        <constraint firstAttribute="height" constant="44" id="oE7-oC-PQO"/>
+                    </constraints>
+                    <fontDescription key="fontDescription" type="system" pointSize="15"/>
+                    <state key="normal" title="提交反馈" backgroundImage="backr"/>
+                    <connections>
+                        <action selector="keFuAction:" destination="-1" eventType="touchUpInside" id="7pe-Mv-LMV"/>
+                    </connections>
+                </button>
+            </subviews>
+            <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+            <constraints>
+                <constraint firstItem="b0H-vn-c1f" firstAttribute="leading" secondItem="Q5M-cg-NOt" secondAttribute="leading" constant="15" id="09Y-2j-d0h"/>
+                <constraint firstItem="vCF-Kt-VUu" firstAttribute="top" secondItem="8Xc-q1-dJ1" secondAttribute="bottom" constant="20" id="2s3-Ru-8Jh"/>
+                <constraint firstItem="dPG-LL-Och" firstAttribute="leading" secondItem="Q5M-cg-NOt" secondAttribute="leading" constant="15" id="BYc-1O-hHj"/>
+                <constraint firstItem="Age-uc-6b8" firstAttribute="top" secondItem="Q5M-cg-NOt" secondAttribute="top" constant="20" id="H9s-sq-dfP"/>
+                <constraint firstItem="Q5M-cg-NOt" firstAttribute="trailing" secondItem="vCF-Kt-VUu" secondAttribute="trailing" constant="15" id="Im3-iU-cjw"/>
+                <constraint firstItem="vCF-Kt-VUu" firstAttribute="leading" secondItem="Q5M-cg-NOt" secondAttribute="leading" constant="15" id="Lpa-gy-XTT"/>
+                <constraint firstItem="Q5M-cg-NOt" firstAttribute="trailing" secondItem="b0H-vn-c1f" secondAttribute="trailing" constant="15" id="MGP-lJ-vBy"/>
+                <constraint firstItem="Q5M-cg-NOt" firstAttribute="trailing" secondItem="8Xc-q1-dJ1" secondAttribute="trailing" constant="15" id="OCl-Cd-15w"/>
+                <constraint firstItem="aeX-Tb-9G4" firstAttribute="top" secondItem="Age-uc-6b8" secondAttribute="bottom" constant="15" id="U0W-vK-pmZ"/>
+                <constraint firstItem="dPG-LL-Och" firstAttribute="top" secondItem="aeX-Tb-9G4" secondAttribute="bottom" constant="20" id="Zhs-4W-jPL"/>
+                <constraint firstItem="8Xc-q1-dJ1" firstAttribute="top" secondItem="b0H-vn-c1f" secondAttribute="bottom" constant="15" id="jFA-TU-TkM"/>
+                <constraint firstItem="aeX-Tb-9G4" firstAttribute="leading" secondItem="Q5M-cg-NOt" secondAttribute="leading" constant="15" id="kHX-4R-XoG"/>
+                <constraint firstItem="Q5M-cg-NOt" firstAttribute="trailing" secondItem="aeX-Tb-9G4" secondAttribute="trailing" constant="15" id="kWl-ah-9TY"/>
+                <constraint firstItem="b0H-vn-c1f" firstAttribute="top" secondItem="dPG-LL-Och" secondAttribute="bottom" constant="15" id="oxR-zR-vC2"/>
+                <constraint firstItem="8Xc-q1-dJ1" firstAttribute="leading" secondItem="Q5M-cg-NOt" secondAttribute="leading" constant="15" id="rmY-VR-dgV"/>
+                <constraint firstItem="Q5M-cg-NOt" firstAttribute="trailing" secondItem="Age-uc-6b8" secondAttribute="trailing" constant="15" id="tZF-4n-Faj"/>
+                <constraint firstItem="Age-uc-6b8" firstAttribute="leading" secondItem="Q5M-cg-NOt" secondAttribute="leading" constant="15" id="u5n-3h-JRD"/>
+            </constraints>
+            <viewLayoutGuide key="safeArea" id="Q5M-cg-NOt"/>
+            <point key="canvasLocation" x="57.971014492753625" y="-15.401785714285714"/>
+        </view>
+    </objects>
+    <resources>
+        <image name="backr" width="74" height="34"/>
+    </resources>
+</document>

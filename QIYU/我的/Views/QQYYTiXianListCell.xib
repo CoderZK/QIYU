@@ -1,0 +1,85 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="14490.70" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+    <device id="retina6_1" orientation="portrait">
+        <adaptation id="fullscreen"/>
+    </device>
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14490.49"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <tableViewCell contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" rowHeight="101" id="KGk-i7-Jjw" customClass="QQYYTiXianListCell">
+            <rect key="frame" x="0.0" y="0.0" width="528" height="101"/>
+            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+            <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="KGk-i7-Jjw" id="H2p-sc-9uM">
+                <rect key="frame" x="0.0" y="0.0" width="528" height="100.5"/>
+                <autoresizingMask key="autoresizingMask"/>
+                <subviews>
+                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="提现到工商银行 *5678" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="tRU-PM-YoX">
+                        <rect key="frame" x="15" y="15" width="403" height="20"/>
+                        <constraints>
+                            <constraint firstAttribute="height" constant="20" id="NqB-b9-iS6"/>
+                        </constraints>
+                        <fontDescription key="fontDescription" type="system" pointSize="15"/>
+                        <nil key="textColor"/>
+                        <nil key="highlightedColor"/>
+                    </label>
+                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="2018-12-28" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ZNS-4r-GEt">
+                        <rect key="frame" x="433" y="15" width="80" height="20"/>
+                        <constraints>
+                            <constraint firstAttribute="width" constant="80" id="hTg-dW-5am"/>
+                            <constraint firstAttribute="height" constant="20" id="w2x-VI-WS6"/>
+                        </constraints>
+                        <fontDescription key="fontDescription" type="system" pointSize="13"/>
+                        <color key="textColor" red="0.43529411759999997" green="0.4431372549" blue="0.47450980390000003" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                        <nil key="highlightedColor"/>
+                    </label>
+                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="提现中" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Voo-1G-R7w">
+                        <rect key="frame" x="453" y="50" width="60" height="20"/>
+                        <constraints>
+                            <constraint firstAttribute="height" constant="20" id="Vzs-Da-kWu"/>
+                            <constraint firstAttribute="width" constant="60" id="rF1-D2-k0a"/>
+                        </constraints>
+                        <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                        <nil key="textColor"/>
+                        <nil key="highlightedColor"/>
+                    </label>
+                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="提现到工商银行 *5678" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="qBZ-0a-GUE">
+                        <rect key="frame" x="15" y="50" width="423" height="20"/>
+                        <constraints>
+                            <constraint firstAttribute="height" constant="20" id="4oT-66-myz"/>
+                            <constraint firstAttribute="height" relation="greaterThanOrEqual" constant="20" id="TvP-vE-Ded"/>
+                        </constraints>
+                        <fontDescription key="fontDescription" type="system" pointSize="15"/>
+                        <color key="textColor" red="1" green="0.0" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                        <nil key="highlightedColor"/>
+                    </label>
+                </subviews>
+                <constraints>
+                    <constraint firstItem="tRU-PM-YoX" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leading" constant="15" id="1HC-Jm-n50"/>
+                    <constraint firstItem="ZNS-4r-GEt" firstAttribute="leading" secondItem="tRU-PM-YoX" secondAttribute="trailing" constant="15" id="Abf-fE-ipa"/>
+                    <constraint firstItem="qBZ-0a-GUE" firstAttribute="centerY" secondItem="Voo-1G-R7w" secondAttribute="centerY" id="CcZ-q5-lXf"/>
+                    <constraint firstItem="ZNS-4r-GEt" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="top" constant="15" id="ZTp-9n-xcu"/>
+                    <constraint firstItem="tRU-PM-YoX" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="top" constant="15" id="epc-Fp-esp"/>
+                    <constraint firstItem="qBZ-0a-GUE" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leading" constant="15" id="ht8-FM-u5b"/>
+                    <constraint firstItem="Voo-1G-R7w" firstAttribute="top" secondItem="ZNS-4r-GEt" secondAttribute="bottom" constant="15" id="htI-VN-jSG"/>
+                    <constraint firstItem="Voo-1G-R7w" firstAttribute="leading" secondItem="qBZ-0a-GUE" secondAttribute="trailing" constant="15" id="xY8-1x-ke8"/>
+                    <constraint firstAttribute="trailing" secondItem="Voo-1G-R7w" secondAttribute="trailing" constant="15" id="zEd-sl-iaH"/>
+                    <constraint firstAttribute="trailing" secondItem="ZNS-4r-GEt" secondAttribute="trailing" constant="15" id="zVt-9d-Mky"/>
+                </constraints>
+            </tableViewCellContentView>
+            <viewLayoutGuide key="safeArea" id="aW0-zy-SZf"/>
+            <connections>
+                <outlet property="moneyLB" destination="qBZ-0a-GUE" id="xa2-uQ-sya"/>
+                <outlet property="statusLB" destination="Voo-1G-R7w" id="wea-oC-XhM"/>
+                <outlet property="timeLB" destination="ZNS-4r-GEt" id="iup-Mp-Uxx"/>
+                <outlet property="titleLB" destination="tRU-PM-YoX" id="z7Y-HN-k89"/>
+            </connections>
+            <point key="canvasLocation" x="50.724637681159422" y="58.59375"/>
+        </tableViewCell>
+    </objects>
+</document>

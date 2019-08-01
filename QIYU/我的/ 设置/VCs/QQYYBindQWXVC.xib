@@ -1,0 +1,82 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="14490.70" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+    <device id="retina6_1" orientation="portrait">
+        <adaptation id="fullscreen"/>
+    </device>
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14490.49"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="QQYYBindQWXVC">
+            <connections>
+                <outlet property="view" destination="i5M-Pr-FkT" id="sfx-zR-JGt"/>
+            </connections>
+        </placeholder>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <view clearsContextBeforeDrawing="NO" contentMode="scaleToFill" id="i5M-Pr-FkT">
+            <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+            <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+            <subviews>
+                <button opaque="NO" tag="101" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="oS3-8F-09S">
+                    <rect key="frame" x="167" y="84" width="80" height="80"/>
+                    <constraints>
+                        <constraint firstAttribute="height" constant="80" id="797-mY-5is"/>
+                        <constraint firstAttribute="width" constant="80" id="ZLS-Di-6cu"/>
+                    </constraints>
+                    <state key="normal" backgroundImage="wx"/>
+                    <connections>
+                        <action selector="action:" destination="-1" eventType="touchUpInside" id="3mZ-qS-gmI"/>
+                    </connections>
+                </button>
+                <button opaque="NO" tag="100" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="psg-9x-Cff">
+                    <rect key="frame" x="72" y="84" width="80" height="80"/>
+                    <state key="normal" backgroundImage="QQ"/>
+                    <connections>
+                        <action selector="action:" destination="-1" eventType="touchUpInside" id="5x6-dA-tXB"/>
+                    </connections>
+                </button>
+                <button opaque="NO" tag="102" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="LKu-DO-qXG">
+                    <rect key="frame" x="262" y="84" width="80" height="80"/>
+                    <state key="normal" backgroundImage="wb"/>
+                    <connections>
+                        <action selector="action:" destination="-1" eventType="touchUpInside" id="fXO-vs-aPG"/>
+                    </connections>
+                </button>
+                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="选择要绑定的第三方" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="0v4-cu-yf0">
+                    <rect key="frame" x="15" y="194" width="384" height="21"/>
+                    <constraints>
+                        <constraint firstAttribute="height" constant="21" id="q0C-6L-FlU"/>
+                    </constraints>
+                    <fontDescription key="fontDescription" type="system" pointSize="15"/>
+                    <nil key="textColor"/>
+                    <nil key="highlightedColor"/>
+                </label>
+            </subviews>
+            <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+            <constraints>
+                <constraint firstItem="oS3-8F-09S" firstAttribute="leading" secondItem="psg-9x-Cff" secondAttribute="trailing" constant="15" id="0ot-rK-3Gr"/>
+                <constraint firstItem="psg-9x-Cff" firstAttribute="height" secondItem="oS3-8F-09S" secondAttribute="height" id="4NI-Ud-uxN"/>
+                <constraint firstItem="Q5M-cg-NOt" firstAttribute="trailing" secondItem="0v4-cu-yf0" secondAttribute="trailing" constant="15" id="9oJ-tB-f5N"/>
+                <constraint firstItem="0v4-cu-yf0" firstAttribute="leading" secondItem="Q5M-cg-NOt" secondAttribute="leading" constant="15" id="BLg-wh-7xr"/>
+                <constraint firstItem="psg-9x-Cff" firstAttribute="top" secondItem="oS3-8F-09S" secondAttribute="top" id="E0n-o6-zbv"/>
+                <constraint firstItem="LKu-DO-qXG" firstAttribute="leading" secondItem="oS3-8F-09S" secondAttribute="trailing" constant="15" id="MWg-gb-i5X"/>
+                <constraint firstItem="oS3-8F-09S" firstAttribute="centerX" secondItem="Q5M-cg-NOt" secondAttribute="centerX" id="ZxU-1a-6wO"/>
+                <constraint firstItem="oS3-8F-09S" firstAttribute="top" secondItem="Q5M-cg-NOt" secondAttribute="top" constant="40" id="dxo-dU-gKM"/>
+                <constraint firstItem="0v4-cu-yf0" firstAttribute="top" secondItem="oS3-8F-09S" secondAttribute="bottom" constant="30" id="hLQ-RG-Qgb"/>
+                <constraint firstItem="psg-9x-Cff" firstAttribute="width" secondItem="oS3-8F-09S" secondAttribute="width" id="j2X-6a-STh"/>
+                <constraint firstItem="LKu-DO-qXG" firstAttribute="top" secondItem="oS3-8F-09S" secondAttribute="top" id="q3w-F6-sx0"/>
+                <constraint firstItem="LKu-DO-qXG" firstAttribute="width" secondItem="oS3-8F-09S" secondAttribute="width" id="rgi-In-Z2L"/>
+                <constraint firstItem="LKu-DO-qXG" firstAttribute="height" secondItem="oS3-8F-09S" secondAttribute="height" id="vlL-6z-BUx"/>
+            </constraints>
+            <viewLayoutGuide key="safeArea" id="Q5M-cg-NOt"/>
+        </view>
+    </objects>
+    <resources>
+        <image name="QQ" width="60" height="60"/>
+        <image name="wb" width="60" height="60"/>
+        <image name="wx" width="60" height="60"/>
+    </resources>
+</document>

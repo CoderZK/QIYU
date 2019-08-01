@@ -1,0 +1,73 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="14490.70" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+    <device id="retina6_1" orientation="portrait">
+        <adaptation id="fullscreen"/>
+    </device>
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14490.49"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="QQYYJuBaoVC">
+            <connections>
+                <outlet property="confirmBt" destination="pcG-ld-bOE" id="OBw-k9-omF"/>
+                <outlet property="grayV" destination="Usj-Lz-UPN" id="tfH-dj-0qf"/>
+                <outlet property="view" destination="i5M-Pr-FkT" id="sfx-zR-JGt"/>
+            </connections>
+        </placeholder>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <view clearsContextBeforeDrawing="NO" contentMode="scaleToFill" id="i5M-Pr-FkT">
+            <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+            <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+            <subviews>
+                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="请输入举报内容" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="fHK-cg-aXD">
+                    <rect key="frame" x="15" y="94" width="384" height="20"/>
+                    <constraints>
+                        <constraint firstAttribute="height" constant="20" id="0Ca-DN-aZW"/>
+                        <constraint firstAttribute="height" relation="greaterThanOrEqual" constant="20" id="8e3-K3-7mJ"/>
+                    </constraints>
+                    <fontDescription key="fontDescription" type="system" pointSize="16"/>
+                    <nil key="textColor"/>
+                    <nil key="highlightedColor"/>
+                </label>
+                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Usj-Lz-UPN">
+                    <rect key="frame" x="15" y="129" width="384" height="150"/>
+                    <color key="backgroundColor" cocoaTouchSystemColor="groupTableViewBackgroundColor"/>
+                    <constraints>
+                        <constraint firstAttribute="height" constant="150" id="fzd-Jn-f0U"/>
+                    </constraints>
+                </view>
+                <button opaque="NO" tag="101" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="pcG-ld-bOE">
+                    <rect key="frame" x="15" y="299" width="384" height="44"/>
+                    <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                    <constraints>
+                        <constraint firstAttribute="height" constant="44" id="T8z-De-fx5"/>
+                    </constraints>
+                    <fontDescription key="fontDescription" type="system" pointSize="15"/>
+                    <state key="normal" title="确认举报" backgroundImage="backr"/>
+                    <connections>
+                        <action selector="keFuAction:" destination="-1" eventType="touchUpInside" id="Sjf-70-sjN"/>
+                    </connections>
+                </button>
+            </subviews>
+            <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+            <constraints>
+                <constraint firstItem="fHK-cg-aXD" firstAttribute="top" secondItem="Q5M-cg-NOt" secondAttribute="top" constant="50" id="5TQ-L7-Jro"/>
+                <constraint firstItem="Usj-Lz-UPN" firstAttribute="leading" secondItem="Q5M-cg-NOt" secondAttribute="leading" constant="15" id="9ZD-y5-3X8"/>
+                <constraint firstItem="Usj-Lz-UPN" firstAttribute="top" secondItem="fHK-cg-aXD" secondAttribute="bottom" constant="15" id="EGF-Nt-QIS"/>
+                <constraint firstItem="Q5M-cg-NOt" firstAttribute="trailing" secondItem="Usj-Lz-UPN" secondAttribute="trailing" constant="15" id="ENO-5C-wxk"/>
+                <constraint firstItem="Q5M-cg-NOt" firstAttribute="trailing" secondItem="fHK-cg-aXD" secondAttribute="trailing" constant="15" id="Fl7-KA-K4q"/>
+                <constraint firstItem="pcG-ld-bOE" firstAttribute="top" secondItem="Usj-Lz-UPN" secondAttribute="bottom" constant="20" id="MG1-2T-5cC"/>
+                <constraint firstItem="fHK-cg-aXD" firstAttribute="leading" secondItem="Q5M-cg-NOt" secondAttribute="leading" constant="15" id="MJQ-QM-XnX"/>
+                <constraint firstItem="Q5M-cg-NOt" firstAttribute="trailing" secondItem="pcG-ld-bOE" secondAttribute="trailing" constant="15" id="TVG-lN-zsa"/>
+                <constraint firstItem="pcG-ld-bOE" firstAttribute="leading" secondItem="Q5M-cg-NOt" secondAttribute="leading" constant="15" id="lyu-v9-sRp"/>
+            </constraints>
+            <viewLayoutGuide key="safeArea" id="Q5M-cg-NOt"/>
+        </view>
+    </objects>
+    <resources>
+        <image name="backr" width="74" height="34"/>
+    </resources>
+</document>

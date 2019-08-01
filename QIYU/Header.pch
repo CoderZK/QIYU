@@ -1,0 +1,105 @@
+//
+//  Header.pch
+//  比由技术工场
+//
+//  Created by 李炎 on 2017/9/26.
+//  Copyright © 2017年 李炎. All rights reserved.
+//
+
+#ifndef Header_h
+#define Header_h
+
+#import <UIKit/UIKit.h>
+#import <Foundation/Foundation.h>
+#import <WebKit/WebKit.h>
+//基类
+#import "BaseNavigationController.h"
+#import "BaseViewController.h"
+#import "BaseTableViewController.h"
+#import "BaseTableViewHeaderFooterView.h"
+#import "BaseCollectionReusableView.h"
+#import "BaseCollectionViewController.h"
+#import "BaseViewController+PublicMethod.h"
+
+#import "SVProgressHUD.h"
+#import <MJExtension.h>
+#import <MJRefresh.h>
+#import "UIView+BSExtension.h"
+#import "UIImageView+WebCache.h"
+#import <UIButton+WebCache.h>
+#import <IQKeyboardManager.h>
+#import <UMSocialCore/UMSocialCore.h>
+#import <UShareUI/UShareUI.h>
+#import "NSString+Size.h"
+#import "UIButton+Badge.h"
+#import "UIViewController+AlertShow.h"
+
+#import "TZImagePickerController.h"
+#import <Masonry.h>
+#import "zkPhotoShowVC.h"
+#import "MXPhotoPickerController.h"
+#import "UIViewController+MXPhotoPicker.h"
+#import "UIViewController+shareAction.h"
+#import "QQYYURLDefineTool.h"
+#import "importHead.h"
+
+//环信的appkey
+#define huanXinAppKey @"1188170828178867#hhy"
+//环信登录的统一密码
+#define huanXinMiMa @"hhy123456!@#$%"
+
+
+#define sxeArr @[@"",@"男",@"女"]
+
+
+#define iOS11Later ([UIDevice currentDevice].systemVersion.floatValue >= 11.0f)
+
+#define Weak(weakSelf) __weak typeof(self) weakSelf = self;
+
+//#define WeakWeak __weak typeof(self) weakSelf = self;
+
+
+//状态栏
+#define sstatusHeight [[UIApplication sharedApplication] statusBarFrame].size.height
+//导航栏
+#define NaviH  44
+
+//屏幕的长宽
+#define ScreenW [UIScreen mainScreen].bounds.size.width
+#define ScreenH [UIScreen mainScreen].bounds.size.height
+
+#define kFont(x) [UIFont systemFontOfSize:x]
+#define Kscale(x) (ScreenW * x) / 375
+
+//黄底字体纯黑
+#define WhiteColor [UIColor colorWithRed:255.0/255.0 green:255.0/255.0 blue:255.0/255.0 alpha:1]
+//白底黑字
+#define CharacterBlackColor [UIColor colorWithRed:98/255.0 green:116/255.0 blue:126/255.0 alpha:1]
+//白底淡黑
+//#define CharacterGrayColor [UIColor colorWithRed:102/255.0 green:102/255.0 blue:102/255.0 alpha:1]
+//白底灰字
+#define CharacterBackColor [UIColor colorWithRed:181/255.0 green:193/255.0 blue:199/255.0 alpha:1]
+//时间用
+//#define CharacterLightGrayColor [UIColor colorWithRed:180/255.0 green:180/255.0 blue:180/255.0 alpha:1]
+#define CharacterBlack40 [UIColor colorWithRed:70/255.0 green:70/255.0 blue:70/255.0 alpha:1]
+//红色
+#define CharacterRedColor [UIColor colorWithRed:228/255.0 green:135/255.0 blue:207/255.0 alpha:1]
+
+//背景灰
+#define BackgroundColor [UIColor colorWithRed:247/255.0 green:249/255.0 blue:252/255.0 alpha:1]
+//线的颜色
+#define lineBackColor [UIColor colorWithRed:180/255.0 green:180/255.0 blue:180/255.0 alpha:1]
+
+#define BlueColor [UIColor colorWithRed:63/255.0 green:136/255.0 blue:189/255.0 alpha:1]
+
+#define PurpleColor [UIColor colorWithRed:228/255.0 green:135/255.0 blue:207/255.0 alpha:1]
+
+//tabbar的字体颜色
+#define TabberGreen [UIColor colorWithRed:228/255.0 green:135/255.0 blue:207/255.0 alpha:1]
+
+#define RGB(R,G,B) [UIColor colorWithRed:R/255.0 green:G/255.0 blue:B/255.0 alpha:1]
+
+
+#define ShadowColor [UIColor colorWithRed:6/255.0 green:0/255.0 blue:1/255.0 alpha:1]
+
+#endif /* Header_h */
