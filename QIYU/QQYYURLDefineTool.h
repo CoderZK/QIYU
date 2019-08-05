@@ -12,9 +12,9 @@ NS_ASSUME_NONNULL_BEGIN
 
 
 ////测试本地
-#define URLOne @"http://192.168.1.179"
+#define URLOne @"http://192.168.1.113"
 ////图片地址
-#define ImgURL @"http://192.168.1.179:80/upload"
+#define ImgURL @"http://192.168.1.113:80/upload"
 
 ////测试本地映射
 //#define URLOne @"http://jgcbxt.natappfree.cc"

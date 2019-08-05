@@ -32,7 +32,20 @@
     _model = model;
     
     self.timeLB.text = [NSString stringWithTime:model.createTime];
-    self.titleLB.text = model.name;
+    self.titleLB.text = model.title;
+    
+    if ([model.orderType integerValue] == 4 || [model.orderType integerValue] == 6) {
+        
+        self.moneyLB.text = [NSString stringWithFormat:@"+ %@爱豆",model.orderFee];
+        
+    }else {
+        if ([model.orderType integerValue] == 1 || [model.orderType integerValue] == 2) {
+            self.moneyLB.text = [NSString stringWithFormat:@"- %@元",model.orderFee];
+        }else {
+            self.moneyLB.text = [NSString stringWithFormat:@"- %@爱豆",model.orderFee];
+        }
+    }
+    
     if (model.status == 1) {
         self.typeLB.text = @"待支付";
     }else if (model.status == 2) {
