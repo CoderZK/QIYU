@@ -11,7 +11,8 @@
 NS_ASSUME_NONNULL_BEGIN
 
 @interface QQYYRgisterVC : BaseViewController
-
+@property(nonatomic,assign)BOOL isTherd;
+@property(nonatomic,strong)NSString *appOpenId,*apptype;
 @end
 
 NS_ASSUME_NONNULL_END

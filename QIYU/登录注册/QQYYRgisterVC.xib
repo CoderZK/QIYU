@@ -14,10 +14,16 @@
             <connections>
                 <outlet property="codeBt" destination="IYV-E4-x4b" id="yCd-kR-CsI"/>
                 <outlet property="codeTF" destination="EeE-T6-xwn" id="SGi-b2-gRa"/>
+                <outlet property="conH1" destination="p13-RU-F1u" id="C1j-Qb-4Al"/>
+                <outlet property="conH2" destination="gck-nA-goZ" id="U3H-Oc-jBo"/>
+                <outlet property="conH3" destination="VUl-aP-Ncg" id="Jsm-Sz-kmT"/>
                 <outlet property="confrimBt" destination="zYm-Fm-rvx" id="GzM-dh-Paz"/>
                 <outlet property="gouBt" destination="Lxb-Rb-eVy" id="2rG-7R-abl"/>
                 <outlet property="passWordTF" destination="UEG-o2-8pK" id="MzV-Xq-2A5"/>
                 <outlet property="phoneTF" destination="b99-Cq-2cz" id="jNv-O9-1p2"/>
+                <outlet property="space1" destination="THI-FQ-MtM" id="56g-IH-fi8"/>
+                <outlet property="space2" destination="Hj7-vs-BrC" id="oyi-e6-gHc"/>
+                <outlet property="space3" destination="ghb-Lm-KOY" id="Do3-np-I4E"/>
                 <outlet property="view" destination="i5M-Pr-FkT" id="sfx-zR-JGt"/>
                 <outlet property="view1" destination="kQm-Ke-Wrk" id="vFg-9R-Stx"/>
                 <outlet property="view2" destination="HWg-Hp-eSi" id="Qq1-fD-5XX"/>

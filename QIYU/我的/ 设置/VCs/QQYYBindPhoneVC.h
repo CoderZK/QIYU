@@ -11,7 +11,7 @@
 NS_ASSUME_NONNULL_BEGIN
 
 @interface QQYYBindPhoneVC : BaseViewController
-
+@property(nonatomic,assign)BOOL isBangDing;
 @end
 
 NS_ASSUME_NONNULL_END

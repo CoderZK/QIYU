@@ -21,6 +21,13 @@
 @property (weak, nonatomic) IBOutlet UITextField *yaoQingCodeTF;
 @property (weak, nonatomic) IBOutlet UIButton *gouBt;
 
+@property (weak, nonatomic) IBOutlet NSLayoutConstraint *conH3;
+@property (weak, nonatomic) IBOutlet NSLayoutConstraint *conH2;
+@property (weak, nonatomic) IBOutlet NSLayoutConstraint *conH1;
+@property (weak, nonatomic) IBOutlet NSLayoutConstraint *space1;
+@property (weak, nonatomic) IBOutlet NSLayoutConstraint *space2;
+@property (weak, nonatomic) IBOutlet NSLayoutConstraint *space3;
+
 @property(nonatomic,strong)NSTimer *timer;
 /** 注释 */
 @property(nonatomic,assign)NSInteger number;
@@ -37,6 +44,9 @@
    self.view4.clipsToBounds = self.view3.clipsToBounds =self.view2.clipsToBounds = self.view1.clipsToBounds = self.confrimBt.clipsToBounds = YES;
     self.view4.layer.borderWidth =  self.view3.layer.borderWidth = self.view1.layer.borderWidth =  self.view2.layer.borderWidth = 0.5;
    self.view4.layer.borderColor = self.view3.layer.borderColor = self.view1.layer.borderColor = self.view2.layer.borderColor = CharacterBlack40.CGColor;
+    if (self.isTherd) {
+        self.conH1.constant = self.conH2.constant = self.conH3.constant = self.space1.constant = self.space2.constant = self.space3.constant = 0;
+    }
 }
 
 - (IBAction)action:(UIButton *)button {

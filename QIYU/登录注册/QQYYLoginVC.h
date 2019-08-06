@@ -11,7 +11,8 @@
 NS_ASSUME_NONNULL_BEGIN
 
 @interface QQYYLoginVC : BaseViewController
-
+@property(nonatomic,assign)NSInteger loginType;
+@property(nonatomic,strong)NSString *phoneStr,*passwordStr;
 @end
 
 NS_ASSUME_NONNULL_END

@@ -11,7 +11,8 @@
 NS_ASSUME_NONNULL_BEGIN
 
 @interface QQYYAddZiLiaoTVC : BaseTableViewController
-@property(nonatomic,strong)NSString *phoneStr,*passdWord,*yaoQingStr;
+@property(nonatomic,strong)NSString *phoneStr,*passdWord,*yaoQingStr,*appOpenId,*appType;
+@property(nonatomic,assign)BOOL isThred;
 @end
 
 NS_ASSUME_NONNULL_END
