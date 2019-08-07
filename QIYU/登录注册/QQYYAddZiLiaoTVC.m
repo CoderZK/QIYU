@@ -277,10 +277,11 @@
             QQYYLoginVC * vc = (QQYYLoginVC *)[self.navigationController.childViewControllers firstObject];
             if (self.isThred) {
                 vc.loginType = 1;
-                vc.phoneStr = self.phoneStr;
-                vc.passwordStr = self.passdWord;
+     
             }else {
                 vc.loginType = 0;
+                vc.phoneStr = self.phoneStr;
+                vc.passwordStr = self.passdWord;
             }
             [self.navigationController popToViewController:vc animated:YES];
             
