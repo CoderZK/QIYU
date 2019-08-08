@@ -50,8 +50,8 @@
     UIButton * rightBt =[UIButton new];
     rightBt.titleLabel.font =[UIFont systemFontOfSize:14];
     rightBt.frame = CGRectMake(0, 0, 40, 40);
-//    [rightBt setTitle:@"删除" forState:UIControlStateNormal];
-    [rightBt setImage:[UIImage imageNamed:@"24"] forState:UIControlStateNormal];
+    [rightBt setTitle:@"删除" forState:UIControlStateNormal];
+//    [rightBt setImage:[UIImage imageNamed:@"24"] forState:UIControlStateNormal];
     [rightBt setTitleColor:CharacterBlackColor forState:UIControlStateNormal];
     [rightBt addTarget:self action:@selector(deleteAllMessage) forControlEvents:UIControlEventTouchUpInside];
     
@@ -179,24 +179,11 @@
 
 - (void)deleteAllMessage {
     
-    QQYYQunSettingTVC * vc =[[QQYYQunSettingTVC alloc] init];
-    vc.hidesBottomBarWhenPushed = YES;
-    vc.delegateSignl = [RACSubject subject];
-    [vc.delegateSignl subscribeNext:^(id  _Nullable x) {
-       
-        [self.conversation deleteAllMessages:nil];
-        [self.messsagesSource removeAllObjects];
-        [self.dataArray removeAllObjects];
-
-        self.lastText = @"  ";
-        [self.tableView reloadData];
-        
-    }];
-    [self.navigationController pushViewController:vc animated:YES];
-    
-    
-//    UIAlertController * alertVC =[UIAlertController alertControllerWithTitle:nil message:@"是否删除聊天记录" preferredStyle:(UIAlertControllerStyleAlert)] ;
-//    UIAlertAction * action1 =[UIAlertAction actionWithTitle:@"确定" style:(UIAlertActionStyleDefault) handler:^(UIAlertAction * _Nonnull action) {
+//    QQYYQunSettingTVC * vc =[[QQYYQunSettingTVC alloc] init];
+//    vc.hidesBottomBarWhenPushed = YES;
+//    vc.delegateSignl = [RACSubject subject];
+//    [vc.delegateSignl subscribeNext:^(id  _Nullable x) {
+//
 //        [self.conversation deleteAllMessages:nil];
 //        [self.messsagesSource removeAllObjects];
 //        [self.dataArray removeAllObjects];
@@ -205,12 +192,25 @@
 //        [self.tableView reloadData];
 //
 //    }];
-//    UIAlertAction * action2 =[UIAlertAction actionWithTitle:@"取消" style:(UIAlertActionStyleDefault) handler:^(UIAlertAction * _Nonnull action) {
-//
-//    }];
-//    [alertVC addAction:action1];
-//    [alertVC addAction:action2];
-//    [self presentViewController:alertVC animated:YES completion:nil];
+//    [self.navigationController pushViewController:vc animated:YES];
+    
+    
+    UIAlertController * alertVC =[UIAlertController alertControllerWithTitle:nil message:@"是否删除聊天记录" preferredStyle:(UIAlertControllerStyleAlert)] ;
+    UIAlertAction * action1 =[UIAlertAction actionWithTitle:@"确定" style:(UIAlertActionStyleDefault) handler:^(UIAlertAction * _Nonnull action) {
+        [self.conversation deleteAllMessages:nil];
+        [self.messsagesSource removeAllObjects];
+        [self.dataArray removeAllObjects];
+
+        self.lastText = @"  ";
+        [self.tableView reloadData];
+
+    }];
+    UIAlertAction * action2 =[UIAlertAction actionWithTitle:@"取消" style:(UIAlertActionStyleDefault) handler:^(UIAlertAction * _Nonnull action) {
+
+    }];
+    [alertVC addAction:action1];
+    [alertVC addAction:action2];
+    [self presentViewController:alertVC animated:YES completion:nil];
 
 }
 

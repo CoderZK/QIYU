@@ -21,7 +21,7 @@
 #import "QQYYHomeFiveCell.h"
 #import "QQYYMineDongTaiTVC.h"
 #import "LxmWebViewController.h"
-
+#import "QQYYPostMessageTVC.h"
 @interface HomeVC ()<SDCycleScrollViewDelegate,QQYYHomeDongTaiCellDelegate,QQYYYongBaoViewDeletage,UITabBarControllerDelegate>
 @property(nonatomic,strong)UIView *headView;
 @property(nonatomic,strong)SDCycleScrollView *sdcycView;
@@ -34,6 +34,7 @@
 @property(nonatomic,assign)NSInteger pageNo,tagId;
 @property(nonatomic,strong)NSMutableArray<QQYYTongYongModel *> *dataArrayDaLei;
 @property(nonatomic,assign)NSInteger type; // 1 热度 2 时间 3 关注
+@property(nonatomic,strong)UIButton *faBuBt;
 @end
 
 @implementation HomeVC
@@ -79,6 +80,12 @@
     
 //    self.tableView.frame = CGRectMake(0, -sstatusHeight, ScreenW, ScreenH + sstatusHeight);
     
+    
+    self.faBuBt = [[UIButton alloc] initWithFrame:CGRectMake(ScreenW - 100, ScreenH - 240, 70, 70)];
+    [self.faBuBt setBackgroundImage:[UIImage imageNamed:@"qy34"] forState:UIControlStateNormal];
+    [self.faBuBt addTarget:self action:@selector(fabuAction) forControlEvents:UIControlEventTouchUpInside];
+    [self.view addSubview:self.faBuBt];
+    
     self.titleArr = @[].mutableCopy;
     self.selectIndex = 0;
     self.tagId = 1;
@@ -113,6 +120,16 @@
     }];
     
     [self getDataDaLei];
+    
+}
+
+
+//点击发忒
+- (void)fabuAction {
+    
+    QQYYPostMessageTVC * vc =[[QQYYPostMessageTVC alloc] init];
+    vc.hidesBottomBarWhenPushed = YES;
+    [self.navigationController pushViewController:vc animated:YES];
     
 }
 

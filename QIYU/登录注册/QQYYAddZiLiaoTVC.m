@@ -259,10 +259,9 @@
     if (self.isThred) {
         dict[@"appKey"] = self.appOpenId;
         dict[@"appName"] = self.appType;
-    }else {
-        dict[@"phone"] = self.phoneStr;
-        dict[@"password"] = self.passdWord;
     }
+    dict[@"phone"] = self.phoneStr;
+    dict[@"password"] = self.passdWord;
     dict[@"birthday"] = self.birthday;
     dict[@"avatar"] = self.headImgStr;
     dict[@"gender"] = @(self.gender);

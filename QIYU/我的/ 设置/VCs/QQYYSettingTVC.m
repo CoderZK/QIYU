@@ -137,15 +137,15 @@
     if (indexPath.section == 0) {
         if (indexPath.row == 0) {
             
-            if (self.phoneStr.length > 0) {
-                [SVProgressHUD showErrorWithStatus:@"您已经绑定手机号了!"];
-                return;
-            }
-            
-            QQYYBindPhoneVC * vc =[[QQYYBindPhoneVC alloc] init];
-            vc.hidesBottomBarWhenPushed = YES;
-            vc.isBangDing = YES;
-            [self.navigationController pushViewController:vc animated:YES];
+//            if (self.phoneStr.length > 0) {
+//                [SVProgressHUD showErrorWithStatus:@"您已经绑定手机号了!"];
+//                return;
+//            }
+//
+//            QQYYBindPhoneVC * vc =[[QQYYBindPhoneVC alloc] init];
+//            vc.hidesBottomBarWhenPushed = YES;
+//            vc.isBangDing = YES;
+//            [self.navigationController pushViewController:vc animated:YES];
         }else if (indexPath.row == 1) {
             if (self.phoneStr.length <11) {
                 [SVProgressHUD showErrorWithStatus:@"您还没有绑定手机号!"];

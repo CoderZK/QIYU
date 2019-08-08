@@ -17,9 +17,9 @@ NS_ASSUME_NONNULL_BEGIN
 #define ImgURL @"http://192.168.1.113:80/upload"
 
 ////测试本地映射
-//#define URLOne @"http://jgcbxt.natappfree.cc"
+//#define URLOne @"http://4r7s5y.natappfree.cc"
 ////图片映射
-//#define ImgURL @"http://jgcbxt.natappfree.cc:80/upload"
+//#define ImgURL @"http://4r7s5y.natappfree.cc:80/upload"
 
 
 
@@ -213,8 +213,8 @@ NS_ASSUME_NONNULL_BEGIN
 +(NSString *)contactKefURL;
 /** 银行卡列表*/
 +(NSString *)deletePostURL;
-///** 删除银行卡*/
-//+(NSString *)deleteMyBankCardURL;
+/** 绑定手机和第三方*/
++(NSString *)bindPhoneAndAppKeyURL;
 ///** 取消点赞*/
 //+(NSString *)notlikeURL;
 

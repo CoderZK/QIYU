@@ -26,7 +26,7 @@
         self.leftBt = [[UIButton alloc] initWithFrame:CGRectMake(15, 0, 85, 40)];
         self.leftBt.contentHorizontalAlignment = UIControlContentHorizontalAlignmentCenter;
         self.leftBt.contentVerticalAlignment = UIControlContentVerticalAlignmentBottom;
-        [self.leftBt setTitle:@"附件的人" forState:UIControlStateNormal];
+        [self.leftBt setTitle:@"附近的人" forState:UIControlStateNormal];
         [self.leftBt setTitleColor:[UIColor blackColor] forState:UIControlStateSelected];
         [self.leftBt setTitleColor:CharacterBlackColor forState:UIControlStateNormal];
         self.leftBt.titleLabel.font = kFont(15);

@@ -378,7 +378,11 @@
     return [NSString stringWithFormat:@"%@%@",URLOne,@"/api/postInfo/delete"];
 }
 
-
+/** 绑定手机和第三方*/
++(NSString *)bindPhoneAndAppKeyURL{
+    
+    return [NSString stringWithFormat:@"%@%@",URLOne,@"/common/bindPhoneAndAppKey"];
+}
 
 
 //图片地址

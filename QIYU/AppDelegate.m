@@ -18,14 +18,14 @@
 #import <MediaPlayer/MediaPlayer.h>
 #import "QQYYMovieVC.h"
 
-#define UMKey @"567a0b8767e58e04b70070c0"
+#define UMKey @"5d43d8d13fc195f5a2000497"
 //友盟安全密钥//r6xbw5gy0zenei6x56xtm9wmkrrz653y
-#define SinaAppKey @"3443149913"
-#define SinaAppSecret @"2d6bac14bc37989170ba9ab6214f06c3"
-#define WXAppID @"wx013aad9217dedd99"
-#define WXAppSecret @"c8ad8b1d626b309c3f3e3b7b271b11e7"
-#define QQAppID @"1104758682"
-#define QQAppKey @"h97lgfazyRUzXJKy"
+#define SinaAppKey @"2593734403"
+#define SinaAppSecret @"f021858321817f3b0e3bdb570fb87401"
+#define WXAppID @"wx0e4284e5ce1faacf"
+#define WXAppSecret @"0a977030a1b23d21ce2478015aefb202"
+#define QQAppID @"101755968"
+#define QQAppKey @"c735a72f6f30331957a435c6ad80980a"
 
 
 @interface AppDelegate ()<EMChatManagerDelegate,RBDMuteSwitchDelegate,UNUserNotificationCenterDelegate,WXApiDelegate>

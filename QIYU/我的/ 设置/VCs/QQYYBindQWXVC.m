@@ -20,6 +20,61 @@
 }
 - (IBAction)action:(UIButton *)button {
     
+    if (button.tag == 100) {
+        //QQ
+        [self getUserInfoForPlatform:UMSocialPlatformType_QQ];
+    }else if (button.tag == 101) {
+        //wx
+        [self getUserInfoForPlatform:UMSocialPlatformType_WechatSession];
+    }else if (button.tag == 102) {
+        //WB
+        [self getUserInfoForPlatform:UMSocialPlatformType_Sina];
+    }
+    
+}
+
+- (void)getUserInfoForPlatform:(UMSocialPlatformType)platformType
+{
+    [[UMSocialManager defaultManager] getUserInfoWithPlatform:platformType currentViewController:nil completion:^(id result, NSError *error) {
+        UMSocialUserInfoResponse *resp = result;
+
+        
+        [self logWithUMSocialUserInfoResponse:resp];
+        
+        
+    }];
+}
+
+//绑定第三方
+- (void)logWithUMSocialUserInfoResponse:(UMSocialUserInfoResponse *)resp {
+    
+    NSMutableDictionary * dict = @{}.mutableCopy;
+    dict[@"appkey"] = resp.openid;
+    if (resp.platformType == UMSocialPlatformType_WechatSession) {
+        dict[@"type"] = @"wechat";
+    }else if (resp.platformType == UMSocialPlatformType_Sina) {
+        dict[@"type"] = @"xinlang";
+    }else if (resp.platformType == UMSocialPlatformType_QQ) {
+        dict[@"type"] = @"qq";
+    }
+    
+    [zkRequestTool networkingPOST:[QQYYURLDefineTool updateThirdAppURL] parameters:dict success:^(NSURLSessionDataTask *task, id responseObject) {
+        if ([responseObject[@"code"] intValue]== 0) {
+            [SVProgressHUD showSuccessWithStatus:@"绑定第三方成功"];
+            dispatch_after(dispatch_time(DISPATCH_TIME_NOW, (int64_t)(0.8 * NSEC_PER_SEC)), dispatch_get_main_queue(), ^{
+                
+                [self.navigationController popViewControllerAnimated:YES];
+            });
+        }else {
+            [self showAlertWithKey:[NSString stringWithFormat:@"%@",responseObject[@"code"]] message:responseObject[@"message"]];
+        }
+        
+    } failure:^(NSURLSessionDataTask *task, NSError *error) {
+        
+        
+        
+    }];
+    
     
     
 }
