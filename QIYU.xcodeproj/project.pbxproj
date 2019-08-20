@@ -317,6 +317,7 @@
 		589ABFEE2297AF20000BBD89 /* BSCustom.m in Sources */ = {isa = PBXBuildFile; fileRef = 589ABFED2297AF20000BBD89 /* BSCustom.m */; };
 		589ABFF12297B02D000BBD89 /* TabBarController.m in Sources */ = {isa = PBXBuildFile; fileRef = 589ABFEF2297B02C000BBD89 /* TabBarController.m */; };
 		58BAF3BE22CDEAB800FAFEDD /* gesture_selected@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 58BAF3BD22CDEAB800FAFEDD /* gesture_selected@2x.png */; };
+		58FBEF9A22FD4B030011B765 /* UIViewController+shareAction.m in Sources */ = {isa = PBXBuildFile; fileRef = 58FBEF9822FD4B020011B765 /* UIViewController+shareAction.m */; };
 		AE1A7CF29DF9D6E7166E507C /* libPods-QIYU.a in Frameworks */ = {isa = PBXBuildFile; fileRef = D3E49E1E01514DB2F4C7786C /* libPods-QIYU.a */; };
 /* End PBXBuildFile section */
 
@@ -817,6 +818,8 @@
 		589ABFEF2297B02C000BBD89 /* TabBarController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TabBarController.m; sourceTree = "<group>"; };
 		589ABFF02297B02C000BBD89 /* TabBarController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TabBarController.h; sourceTree = "<group>"; };
 		58BAF3BD22CDEAB800FAFEDD /* gesture_selected@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "gesture_selected@2x.png"; sourceTree = "<group>"; };
+		58FBEF9822FD4B020011B765 /* UIViewController+shareAction.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIViewController+shareAction.m"; sourceTree = "<group>"; };
+		58FBEF9922FD4B030011B765 /* UIViewController+shareAction.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIViewController+shareAction.h"; sourceTree = "<group>"; };
 		93517C6A5478579AE5177242 /* Pods-QIYU.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-QIYU.release.xcconfig"; path = "Pods/Target Support Files/Pods-QIYU/Pods-QIYU.release.xcconfig"; sourceTree = "<group>"; };
 		C0333005ECB5A67F63F21483 /* Pods-QIYU.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-QIYU.debug.xcconfig"; path = "Pods/Target Support Files/Pods-QIYU/Pods-QIYU.debug.xcconfig"; sourceTree = "<group>"; };
 		D3E49E1E01514DB2F4C7786C /* libPods-QIYU.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-QIYU.a"; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -1050,6 +1053,8 @@
 				335010DC20EDF9AE00F8486B /* zkRequestTool.m */,
 				335010E120EDFC9300F8486B /* zkSignleTool.h */,
 				335010E220EDFC9300F8486B /* zkSignleTool.m */,
+				58FBEF9922FD4B030011B765 /* UIViewController+shareAction.h */,
+				58FBEF9822FD4B020011B765 /* UIViewController+shareAction.m */,
 				582FD54E22C0A68D00A29CC1 /* UIViewController+NewWorkTwo.h */,
 				582FD54F22C0A68D00A29CC1 /* UIViewController+NewWorkTwo.m */,
 			);
@@ -2061,6 +2066,7 @@
 				58917DAA22DC0C5B00C46E04 /* QQYYYongBaoView.m in Sources */,
 				582FFA5A229B8AA00039971E /* zkHomelModel.m in Sources */,
 				58917E3D22DC0D1E00C46E04 /* QQYYUserModel.m in Sources */,
+				58FBEF9A22FD4B030011B765 /* UIViewController+shareAction.m in Sources */,
 				58917E7822DC0D3A00C46E04 /* QQYYFlowerListTVC.m in Sources */,
 				58917EBC22DC0D5600C46E04 /* QQYYHuaDuoOneCell.m in Sources */,
 				337F3E5E20E9FE3C00C5526A /* ViewController.m in Sources */,
@@ -2376,7 +2382,7 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_IDENTITY = "iPhone Developer";
 				CODE_SIGN_STYLE = Manual;
-				DEVELOPMENT_TEAM = KXWZ464PKG;
+				DEVELOPMENT_TEAM = N6ZU25A67U;
 				ENABLE_BITCODE = YES;
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
@@ -2402,7 +2408,7 @@
 				PRODUCT_BUNDLE_IDENTIFIER = com.yiqu.app;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE = "3bdcf4b3-e396-4d7a-ab2b-739f2269ddaa";
-				PROVISIONING_PROFILE_SPECIFIER = comcomzk;
+				PROVISIONING_PROFILE_SPECIFIER = xuxuecom;
 				TARGETED_DEVICE_FAMILY = 1;
 			};
 			name = Debug;

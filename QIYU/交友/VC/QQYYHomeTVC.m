@@ -134,6 +134,7 @@
     [zkRequestTool networkingPOST:url parameters:dict success:^(NSURLSessionDataTask *task, id responseObject) {
         [self.tableView.mj_header endRefreshing];
         [self.tableView.mj_footer endRefreshing];
+        self.tableView.userInteractionEnabled = YES;
         if ([responseObject[@"code"] intValue]== 0) {
             
             NSArray * arr = [zkHomelModel mj_objectArrayWithKeyValuesArray:responseObject[@"rows"]];
@@ -153,7 +154,7 @@
         }
         
     } failure:^(NSURLSessionDataTask *task, NSError *error) {
-        
+        self.tableView.userInteractionEnabled = YES;
         [self.tableView.mj_header endRefreshing];
         [self.tableView.mj_footer endRefreshing];
         
@@ -266,6 +267,7 @@
                 weakSelf.pageNo = 1;
                 weakSelf.isHot = index;
                 [weakSelf.dataArray removeAllObjects];
+                weakSelf.tableView.userInteractionEnabled = NO;
                 [weakSelf getData];
             }
             
@@ -376,7 +378,7 @@
         
     }else if (index == 5) {
         
-        [self shareWithSetPreDefinePlatforms:@[@(UMSocialPlatformType_Sina),@(UMSocialPlatformType_QQ),@(UMSocialPlatformType_WechatSession)] withUrl:@"123" shareModel:nil];
+       [self shareWithSetPreDefinePlatforms:@[@(UMSocialPlatformType_WechatSession),@(UMSocialPlatformType_QQ),@(UMSocialPlatformType_Sina)] withUrl:@"123" shareModel:nil];
         
     }else if (index == 6) {
         

@@ -81,7 +81,7 @@
 //    self.tableView.frame = CGRectMake(0, -sstatusHeight, ScreenW, ScreenH + sstatusHeight);
     
     
-    self.faBuBt = [[UIButton alloc] initWithFrame:CGRectMake(ScreenW - 100, ScreenH - 240, 70, 70)];
+    self.faBuBt = [[UIButton alloc] initWithFrame:CGRectMake(ScreenW - 100, ScreenH - 240, 60, 60)];
     [self.faBuBt setBackgroundImage:[UIImage imageNamed:@"qy34"] forState:UIControlStateNormal];
     [self.faBuBt addTarget:self action:@selector(fabuAction) forControlEvents:UIControlEventTouchUpInside];
     [self.view addSubview:self.faBuBt];
@@ -402,7 +402,18 @@
         
     }else if (index == 5) {
         
-          [self shareWithSetPreDefinePlatforms:@[@(UMSocialPlatformType_Sina),@(UMSocialPlatformType_QQ),@(UMSocialPlatformType_WechatSession)] withUrl:@"123" shareModel:nil];
+        
+        
+         [self shareWithSetPreDefinePlatforms:@[@(UMSocialPlatformType_WechatSession),@(UMSocialPlatformType_QQ),@(UMSocialPlatformType_Sina)] withUrl:@"123" shareModel:nil];
+//        [UMSocialUIManager showShareMenuViewInWindowWithPlatformSelectionBlock:^(UMSocialPlatformType platformType, NSDictionary *userInfo) {
+//           
+//            
+//            NSLog(@"---\n%@",userInfo);
+//
+//            self 
+//            
+//        }];
+        
         
     }else if (index == 6) {
         

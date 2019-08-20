@@ -40,5 +40,6 @@
 //#import <ReactiveCocoa.h>
 
 #import <ReactiveObjC/ReactiveObjC.h>
+#import "UIViewController+shareAction.h"
 
 #endif /* importHead_h */
