@@ -108,7 +108,11 @@
         return;
     }
     NSMutableDictionary * dict = @{@"phone":self.phoneTF.text}.mutableCopy;
-    dict[@"type"] = @(0);
+    if (self.isTherd) {
+        dict[@"type"] = @"0";
+    }else {
+        dict[@"type"] = @"1";
+    }
     [zkRequestTool networkingPOST:[QQYYURLDefineTool sendValidCodeURL] parameters:dict success:^(NSURLSessionDataTask *task, id responseObject) {
         if ([responseObject[@"code"] intValue]== 0) {
             [self timeAction];
