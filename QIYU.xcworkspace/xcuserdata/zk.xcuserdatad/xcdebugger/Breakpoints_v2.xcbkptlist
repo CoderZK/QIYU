@@ -116,29 +116,13 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "QIYU/&#x5176;&#x5b83;/UIViewController+shareAction.m"
-            timestampString = "587030050.7612979"
-            startingColumnNumber = "9223372036854775807"
-            endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "20"
-            endingLineNumber = "20"
-            landmarkName = "-shareWithSetPreDefinePlatforms:withUrl:shareModel:"
-            landmarkType = "7">
-         </BreakpointContent>
-      </BreakpointProxy>
-      <BreakpointProxy
-         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
-         <BreakpointContent
-            shouldBeEnabled = "Yes"
-            ignoreCount = "0"
-            continueAfterRunningActions = "No"
-            filePath = "QIYU/&#x5176;&#x5b83;/UIViewController+shareAction.m"
             timestampString = "587030050.762395"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
             startingLineNumber = "40"
             endingLineNumber = "40"
-            landmarkName = "-shareWebPageToPlatformType:"
-            landmarkType = "7">
+            landmarkName = "@implementation UIViewController(shareAction)"
+            landmarkType = "3">
          </BreakpointContent>
       </BreakpointProxy>
       <BreakpointProxy
@@ -155,54 +139,6 @@
             endingLineNumber = "49"
             landmarkName = "-shareWebPageToPlatformType:"
             landmarkType = "7">
-         </BreakpointContent>
-      </BreakpointProxy>
-      <BreakpointProxy
-         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
-         <BreakpointContent
-            shouldBeEnabled = "Yes"
-            ignoreCount = "0"
-            continueAfterRunningActions = "No"
-            filePath = "QIYU/&#x5176;&#x5b83;/UIViewController+shareAction.m"
-            timestampString = "587030050.76345"
-            startingColumnNumber = "9223372036854775807"
-            endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "17"
-            endingLineNumber = "17"
-            landmarkName = "-shareWithSetPreDefinePlatforms:withUrl:shareModel:"
-            landmarkType = "7">
-            <Locations>
-               <Location
-                  shouldBeEnabled = "Yes"
-                  ignoreCount = "0"
-                  continueAfterRunningActions = "No"
-                  symbolName = "-[UIViewController(shareAction) shareWithSetPreDefinePlatforms:withUrl:shareModel:]"
-                  moduleName = "QIYU"
-                  usesParentBreakpointCondition = "Yes"
-                  urlString = "file:///Users/zk/Documents/QIYU/QIYU/%E5%85%B6%E5%AE%83/UIViewController+shareAction.m"
-                  timestampString = "587030051.372412"
-                  startingColumnNumber = "9223372036854775807"
-                  endingColumnNumber = "9223372036854775807"
-                  startingLineNumber = "17"
-                  endingLineNumber = "17"
-                  offsetFromSymbolStart = "164">
-               </Location>
-               <Location
-                  shouldBeEnabled = "Yes"
-                  ignoreCount = "0"
-                  continueAfterRunningActions = "No"
-                  symbolName = "__83-[UIViewController(shareAction) shareWithSetPreDefinePlatforms:withUrl:shareModel:]_block_invoke"
-                  moduleName = "QIYU"
-                  usesParentBreakpointCondition = "Yes"
-                  urlString = "file:///Users/zk/Documents/QIYU/QIYU/%E5%85%B6%E5%AE%83/UIViewController+shareAction.m"
-                  timestampString = "587030051.374106"
-                  startingColumnNumber = "9223372036854775807"
-                  endingColumnNumber = "9223372036854775807"
-                  startingLineNumber = "17"
-                  endingLineNumber = "17"
-                  offsetFromSymbolStart = "16">
-               </Location>
-            </Locations>
          </BreakpointContent>
       </BreakpointProxy>
       <BreakpointProxy

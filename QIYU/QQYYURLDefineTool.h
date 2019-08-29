@@ -218,7 +218,8 @@ NS_ASSUME_NONNULL_BEGIN
 ///** 取消点赞*/
 //+(NSString *)notlikeURL;
 
-
+/** 分享*/
++(NSString *)shareURL;
 
 
 

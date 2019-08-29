@@ -383,6 +383,12 @@
     
     return [NSString stringWithFormat:@"%@%@",URLOne,@"/common/bindPhoneAndAppKey"];
 }
+/** 分享*/
++(NSString *)shareURL{
+    return [NSString stringWithFormat:@"%@%@",URLOne,@"/api/postInfo/share"];
+}
+
+
 
 
 //图片地址

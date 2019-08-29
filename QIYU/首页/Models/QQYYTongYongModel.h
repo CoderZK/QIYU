@@ -71,6 +71,7 @@ NS_ASSUME_NONNULL_BEGIN
 @property(nonatomic,strong)NSString *heatGift;
 @property(nonatomic,strong)NSString *price;
 @property(nonatomic,strong)NSString *orderType;//2爱豆套餐3爱豆提现4任务奖励5爱豆打赏支出6爱豆打赏收入
+@property(nonatomic,strong)NSString *payType;
 @property(nonatomic,strong)NSString *title;
 @property(nonatomic,strong)NSString *flowerNum;
 

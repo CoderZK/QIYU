@@ -34,15 +34,15 @@
     self.timeLB.text = [NSString stringWithTime:model.createTime];
     self.titleLB.text = model.title;
     
-    if ([model.orderType integerValue] == 4 || [model.orderType integerValue] == 6) {
+    if ([model.payType integerValue] == 1 || [model.payType integerValue] == 7 || [model.payType integerValue] == 8) {
         
-        self.moneyLB.text = [NSString stringWithFormat:@"+ %@爱豆",model.orderFee];
+        self.moneyLB.text = [NSString stringWithFormat:@"+ %@朵花",model.orderFee];
         
     }else {
-        if ([model.orderType integerValue] == 1 || [model.orderType integerValue] == 2) {
+        if ([model.payType integerValue] == 3 || [model.payType integerValue] == 4 || [model.payType integerValue] == 5) {
             self.moneyLB.text = [NSString stringWithFormat:@"- %@元",model.orderFee];
         }else {
-            self.moneyLB.text = [NSString stringWithFormat:@"- %@爱豆",model.orderFee];
+            self.moneyLB.text = [NSString stringWithFormat:@"- %@朵花",model.orderFee];
         }
     }
     

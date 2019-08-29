@@ -7,11 +7,11 @@
 //
 
 #import <UIKit/UIKit.h>
-@class zkShareModel;
+@class zkHomelModel;
 @interface UIViewController (shareAction)
-- (void)shareWithSetPreDefinePlatforms:(NSArray *)platforms withUrl:(NSString *)url shareModel:(zkShareModel *)model;
+- (void)shareWithSetPreDefinePlatforms:(NSArray *)platforms withUrl:(NSString *)url shareModel:(zkHomelModel *)model;
 
 - (NSDictionary *)getUseInfoWithToken:(NSString *)token;
-
+@property(nonatomic,strong)NSString *url;
 
 @end
