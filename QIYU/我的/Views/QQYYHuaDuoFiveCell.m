@@ -57,7 +57,7 @@
     self.leftBt.hidden = self.centerBt.hidden = self.rightBt.hidden = YES;
     if (dataArray.count > 0) {
         self.leftBt.hidden = NO;
-        self.leftBt.LB2.text = [NSString stringWithFormat:@"%@个爱豆",dataArray[0].name];
+        self.leftBt.LB2.text = [NSString stringWithFormat:@"%@个爱豆",dataArray[0].heat];
         if ([dataArray[0].heatGift floatValue] > 0) {
             self.leftBt.LB1.hidden = NO;
             self.leftBt.LB3.hidden = NO;
@@ -75,7 +75,7 @@
     }
     if (dataArray.count > 1) {
         self.centerBt.hidden = NO;
-        self.centerBt.LB2.text = [NSString stringWithFormat:@"%@个爱豆",dataArray[1].name];
+        self.centerBt.LB2.text = [NSString stringWithFormat:@"%@个爱豆",dataArray[1].heat];
         if ([dataArray[1].heatGift floatValue] > 0) {
             self.centerBt.LB1.hidden = NO;
             self.centerBt.LB3.hidden = NO;
@@ -93,7 +93,7 @@
     }
     if (dataArray.count > 2) {
         self.rightBt.hidden = NO;
-        self.rightBt.LB2.text = [NSString stringWithFormat:@"%@个爱豆",dataArray[2].name];
+        self.rightBt.LB2.text = [NSString stringWithFormat:@"%@个爱豆",dataArray[2].heat];
         if ([dataArray[2].heatGift floatValue] > 0) {
             self.rightBt.LB1.hidden = NO;
             self.rightBt.LB3.hidden = NO;

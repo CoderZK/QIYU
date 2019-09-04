@@ -181,7 +181,7 @@
     
 //    QQYYQunSettingTVC * vc =[[QQYYQunSettingTVC alloc] init];
 //    vc.hidesBottomBarWhenPushed = YES;
-//    vc.delegateSignl = [RACSubject subject];
+//    vc.         = [RACSubject subject];
 //    [vc.delegateSignl subscribeNext:^(id  _Nullable x) {
 //
 //        [self.conversation deleteAllMessages:nil];

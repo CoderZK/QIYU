@@ -49,7 +49,7 @@
 }
 
 - (void)outLogin {
-        
+    
     NSMutableDictionary * dict = @{}.mutableCopy;
     
     [zkRequestTool networkingPOST:[QQYYURLDefineTool getlogoutURL] parameters:dict success:^(NSURLSessionDataTask *task, id responseObject) {
@@ -71,7 +71,7 @@
         
     }];
     
-
+    
     
 }
 
@@ -137,15 +137,15 @@
     if (indexPath.section == 0) {
         if (indexPath.row == 0) {
             
-//            if (self.phoneStr.length > 0) {
-//                [SVProgressHUD showErrorWithStatus:@"您已经绑定手机号了!"];
-//                return;
-//            }
-//
-//            QQYYBindPhoneVC * vc =[[QQYYBindPhoneVC alloc] init];
-//            vc.hidesBottomBarWhenPushed = YES;
-//            vc.isBangDing = YES;
-//            [self.navigationController pushViewController:vc animated:YES];
+            //            if (self.phoneStr.length > 0) {
+            //                [SVProgressHUD showErrorWithStatus:@"您已经绑定手机号了!"];
+            //                return;
+            //            }
+            //
+            //            QQYYBindPhoneVC * vc =[[QQYYBindPhoneVC alloc] init];
+            //            vc.hidesBottomBarWhenPushed = YES;
+            //            vc.isBangDing = YES;
+            //            [self.navigationController pushViewController:vc animated:YES];
         }else if (indexPath.row == 1) {
             if (self.phoneStr.length <11) {
                 [SVProgressHUD showErrorWithStatus:@"您还没有绑定手机号!"];
@@ -183,7 +183,7 @@
             }];
         }else if (indexPath.row == 3) {
             
-             [self shareWithSetPreDefinePlatforms:@[@(UMSocialPlatformType_WechatSession),@(UMSocialPlatformType_QQ),@(UMSocialPlatformType_Sina)] withUrl:[zkSignleTool shareTool].huanxin shareModel:nil];
+            [self shareWithSetPreDefinePlatforms:@[@(UMSocialPlatformType_WechatSession),@(UMSocialPlatformType_QQ),@(UMSocialPlatformType_Sina)] withUrl:[zkSignleTool shareTool].huanxin shareModel:nil];
             
         }else if (indexPath.row == 4) {
             QQYYAboutUsVC * vc =[[QQYYAboutUsVC alloc] init];
@@ -191,7 +191,8 @@
             [self.navigationController pushViewController:vc animated:YES];
         }else if (indexPath.row == 5) {
             //版本检测
-            
+            //版本检测
+            [self updateNewAppWith:@""];
         }
     }else if (indexPath.section == 2) {
         
@@ -200,9 +201,60 @@
     
     
     if (indexPath.section == 1 && indexPath.row == 2) {
-       
+        
         
     }
+}
+
+- (void)updateNewAppWith:(NSString *)strOfAppid {
+    [SVProgressHUD show];
+    NSURL *url = [NSURL URLWithString:[NSString stringWithFormat:@"http://itunes.apple.com/lookup?id=%@",strOfAppid]];
+    
+    NSMutableURLRequest *request = [[NSMutableURLRequest alloc]initWithURL:url];
+    [request setHTTPMethod:@"POST"];
+    
+    [[[NSURLSession sharedSession] dataTaskWithRequest:request
+                                     completionHandler:^(NSData * _Nullable data, NSURLResponse * _Nullable response, NSError * _Nullable error) {
+                                         [SVProgressHUD dismiss];
+                                         if (data)
+                                         {
+                                             NSDictionary *dic = [NSJSONSerialization JSONObjectWithData:data options:NSJSONReadingMutableContainers error:nil];
+                                             
+                                             if (dic)
+                                             {
+                                                 NSArray * arr = [dic objectForKey:@"results"];
+                                                 if (arr.count>0)
+                                                 {
+                                                     NSDictionary * versionDict = arr.firstObject;
+                                                     
+                                                     NSString * version = [[versionDict objectForKey:@"version"] stringByReplacingOccurrencesOfString:@"." withString:@""];
+                                                     NSString * currentVersion = [[[NSBundle mainBundle].infoDictionary objectForKey:@"CFBundleShortVersionString"] stringByReplacingOccurrencesOfString:@"." withString:@""];
+                                                     
+                                                     if ([version integerValue]>[currentVersion integerValue])
+                                                     {
+                                                         
+                                                         
+                                                         UIAlertController * alert = [UIAlertController alertControllerWithTitle:@"发现新版本" message:nil preferredStyle:UIAlertControllerStyleAlert];
+                                                         
+                                                         [alert addAction:[UIAlertAction actionWithTitle:@"知道了" style:UIAlertActionStyleCancel handler:nil]];
+                                                         [alert addAction:[UIAlertAction actionWithTitle:@"去更新" style:UIAlertActionStyleDefault handler:^(UIAlertAction * _Nonnull action) {
+                                                             
+                                                             [[UIApplication sharedApplication] openURL:[NSURL URLWithString:[NSString stringWithFormat:@"https://itunes.apple.com/cn/app/id%@?mt=8",strOfAppid]]];
+                                                             exit(0);
+                                                             
+                                                         }]];
+                                                         [self presentViewController:alert animated:YES completion:nil];
+                                                     }else {
+                                                         [SVProgressHUD showSuccessWithStatus:@"目前安装的已是最新版本"];
+                                                     }
+                                                     
+                                                     
+                                                 }
+                                             }
+                                         }
+                                     }] resume];
+    
+    
 }
 
 

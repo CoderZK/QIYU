@@ -57,6 +57,7 @@
     
   
     NSMutableDictionary * dict = @{@"phone":self.phoneStr}.mutableCopy;
+    dict[@"deviceId"] = [NSString stringWithFormat:@"%@",[[UIDevice currentDevice] identifierForVendor]];
     [zkRequestTool networkingPOST:[QQYYURLDefineTool sendValidCodeURL] parameters:dict success:^(NSURLSessionDataTask *task, id responseObject) {
         if ([responseObject[@"code"] intValue]== 0) {
             [self timeAction];
