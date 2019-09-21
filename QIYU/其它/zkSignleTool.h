@@ -19,7 +19,7 @@
 @property(nonatomic,strong)NSString * huanxin;
 @property(nonatomic)double  latitude;
 @property(nonatomic)double  longitude;
-//用户ID
+@property(nonatomic,assign)BOOL isppp;
 @property(nonatomic,strong)NSString * session_uid;
 @property(nonatomic,strong)NSString * deviceToken;
 @property(nonatomic,strong)QQYYUserModel *userModel;

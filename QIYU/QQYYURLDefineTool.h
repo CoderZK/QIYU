@@ -11,15 +11,15 @@
 NS_ASSUME_NONNULL_BEGIN
 
 
-//////测试本地
-//#define URLOne @"http://192.168.1.113"
-//////图片地址
-//#define ImgURL @"http://192.168.1.113:80/upload"
+////测试本地
+#define URLOne @"http://47.100.198.68"
+////图片地址
+#define ImgURL @"http://47.100.198.68/upload"
 
-//测试本地映射
-#define URLOne @"http://efi7fb.natappfree.cc"
-//图片映射
-#define ImgURL @"http://efi7fb.natappfree.cc:80/upload"
+////测试本地映射
+//#define URLOne @"http://efi7fb.natappfree.cc"
+////图片映射
+//#define ImgURL @"http://efi7fb.natappfree.cc:80/upload"
 
 
 

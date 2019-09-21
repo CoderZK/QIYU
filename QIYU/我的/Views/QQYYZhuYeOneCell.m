@@ -30,7 +30,7 @@
         self.contentLB = [[UILabel alloc] initWithFrame:CGRectMake(15, CGRectGetMaxY(self.nameLB.frame) + 5, ScreenW - 45-15-15, 16)];
         self.contentLB.font = kFont(13);
         self.contentLB.textColor = CharacterBackColor;
-        self.contentLB.text = @"奇域ID: 20196330 江苏省 109.56km";
+        self.contentLB.text = @"花与蛇ID: 20196330 江苏省 109.56km";
         [self addSubview:self.contentLB];
         
         
@@ -111,7 +111,7 @@
 //    }else {
 //        self.typeLB.hidden = self.guanZhuBt.hidden = self.xinImgV.hidden = NO;
 //    }
-    self.contentLB.text = [NSString stringWithFormat:@"奇域ID %@ %@ %@",userModel.userNo,userModel.cityName,userModel.distance];
+    self.contentLB.text = [NSString stringWithFormat:@"花与蛇ID %@ %@ %@",userModel.userNo,userModel.cityName,userModel.distance];
     
      NSArray *  arr = [userModel.tagsName componentsSeparatedByString:@","];
     NSString * strTwo = @"";

@@ -155,16 +155,16 @@
     grayV.backgroundColor = RGB(250, 250, 250);
     [self.linkV addSubview:grayV];
     
-    
-    UIButton * linkBT =[[UIButton alloc] initWithFrame:CGRectMake(5, 2.5, ScreenW - 40- 30 , 40)];
-    linkBT.contentHorizontalAlignment = UIControlContentHorizontalAlignmentLeft;
-    [linkBT setTitleColor:[UIColor blackColor] forState:UIControlStateNormal];
-    linkBT.titleEdgeInsets = UIEdgeInsetsMake(0, 8, 0, 0);
-    linkBT.tag = 400;
-    [linkBT setImage:[UIImage imageNamed:@"logo2"] forState:UIControlStateNormal];
-    [grayV addSubview:linkBT];
-    [linkBT addTarget:self action:@selector(linkAction:) forControlEvents:UIControlEventTouchUpInside];
-    self.linkBt = linkBT;
+//    
+//    UIButton * linkBT =[[UIButton alloc] initWithFrame:CGRectMake(5, 2.5, ScreenW - 40- 30 , 40)];
+//    linkBT.contentHorizontalAlignment = UIControlContentHorizontalAlignmentLeft;
+//    [linkBT setTitleColor:[UIColor blackColor] forState:UIControlStateNormal];
+//    linkBT.titleEdgeInsets = UIEdgeInsetsMake(0, 8, 0, 0);
+//    linkBT.tag = 400;
+//    [linkBT setImage:[UIImage imageNamed:@"logo2"] forState:UIControlStateNormal];
+//    [grayV addSubview:linkBT];
+//    [linkBT addTarget:self action:@selector(linkAction:) forControlEvents:UIControlEventTouchUpInside];
+//    self.linkBt = linkBT;
     
     UIButton * deleteBt =[UIButton buttonWithType:UIButtonTypeCustom];
     deleteBt.frame = CGRectMake(ScreenW - 30 - 20 ,-5, 25, 25);

@@ -196,7 +196,7 @@
     
     return 90;
     }else if (indexPath.section == 2) {
-        return  15 + [@"支付须知:在支付过程中遇到任何问题\n请联系官方客服: 奇域小姐姐" getHeigtWithFontSize:14 lineSpace:2 width:ScreenW - 30];
+        return  15 + [@"支付须知:在支付过程中遇到任何问题\n请联系官方客服: 花与蛇小姐姐" getHeigtWithFontSize:14 lineSpace:2 width:ScreenW - 30];
     }else if (indexPath.section == 3) {
         return 70;
     }
@@ -224,7 +224,7 @@
         
         if (cell == nil ) {
             cell = [[UITableViewCell alloc] initWithStyle:(UITableViewCellStyleDefault) reuseIdentifier:@"cellThree"];
-            NSString * str = @"支付须知:在支付过程中遇到任何问题\n请联系官方客服: 奇域小姐姐";
+            NSString * str = @"支付须知:在支付过程中遇到任何问题\n请联系官方客服: 花与蛇小姐姐";
             CGFloat hh = [str getHeigtWithFontSize:14 lineSpace:2 width:ScreenW - 30];
             UILabel * lb = [[UILabel alloc] initWithFrame:CGRectMake(15, 7.5, ScreenW - 30, hh)];
             lb.numberOfLines = 0;

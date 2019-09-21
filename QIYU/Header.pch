@@ -44,13 +44,17 @@
 #import "importHead.h"
 
 //环信的appkey
-#define huanXinAppKey @"1188170828178867#hhy"
+#define huanXinAppKey @"1153180726253609#54school"
 //环信登录的统一密码
 #define huanXinMiMa @"hhy123456!@#$%"
 
 
+
+
+
 #define sxeArr @[@"",@"男",@"女"]
 
+#define isDDDDDDDD [zkSignleTool shareTool].isppp
 
 #define iOS11Later ([UIDevice currentDevice].systemVersion.floatValue >= 11.0f)
 

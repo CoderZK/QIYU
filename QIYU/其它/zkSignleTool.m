@@ -31,6 +31,14 @@ static zkSignleTool * tool = nil;
     return [[NSUserDefaults standardUserDefaults] boolForKey:@"isLogin"];
 }
 
+- (void)setIsppp:(BOOL)isppp {
+    [[NSUserDefaults standardUserDefaults] setBool:isppp forKey:@"isppp"];
+    [[NSUserDefaults standardUserDefaults] synchronize];
+}
+- (BOOL)isppp {
+     return [[NSUserDefaults standardUserDefaults] boolForKey:@"isppp"];
+}
+
 -(void)setSession_token:(NSString *)session_token
 {
     
