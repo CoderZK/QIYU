@@ -7,15 +7,12 @@
 //
 
 #import "UIViewController+shareAction.h"
-
+#import <objc/runtime.h>
+static const void *urlKey = &urlKey;
 @implementation UIViewController (shareAction)
 
-
 - (void)shareWithSetPreDefinePlatforms:(NSArray *)platforms withUrl:(NSString *)url shareModel:(zkHomelModel *)model{
- 
-    
 
-    
     if (url == nil) {
         [zkRequestTool networkingPOST:[QQYYURLDefineTool shareURL] parameters:model.postId success:^(NSURLSessionDataTask *task, id responseObject) {
             if ([responseObject[@"code"] integerValue] == 0) {
@@ -63,6 +60,14 @@
     
 }
 
+- (void)setUrl:(NSString *)url {
+    objc_setAssociatedObject(self, urlKey, url, OBJC_ASSOCIATION_COPY_NONATOMIC);
+}
+    
+- (NSString *)url {
+    return objc_getAssociatedObject(self, urlKey);
+}
+    
 - (void)shareWebPageToPlatformType:(UMSocialPlatformType)platformType withTitle:(NSString *)title andContent:(NSString *)contentStr thumImage:(id)thumImage
 {
     //创建分享消息对象

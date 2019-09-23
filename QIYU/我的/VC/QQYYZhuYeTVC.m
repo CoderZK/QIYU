@@ -509,7 +509,10 @@
 
 
 - (void)yongBaoAction {
-    
+    if ([[zkSignleTool shareTool].session_uid isEqualToString:self.dataModel.userId]) {
+        [SVProgressHUD showErrorWithStatus:@"自己不能给自己送花"];
+        return;
+    }
     [self.showView showWithIndexPath:[NSIndexPath indexPathForRow:0 inSection:0]];
     
 }
@@ -533,6 +536,11 @@
         return;
         
     }else if (index == 2) {
+        
+        
+        if (isDDDDDDDD) {
+            return;
+        }
         
         if ([[zkSignleTool shareTool].session_uid isEqualToString:self.dataModel.userId]) {
             

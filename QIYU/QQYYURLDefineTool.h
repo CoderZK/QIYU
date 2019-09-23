@@ -220,7 +220,8 @@ NS_ASSUME_NONNULL_BEGIN
 
 /** 分享*/
 +(NSString *)shareURL;
-
+    /** 更新*/
++(NSString *)getIosConfigURL;
 
 
 

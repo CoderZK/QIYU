@@ -387,7 +387,11 @@
 +(NSString *)shareURL{
     return [NSString stringWithFormat:@"%@%@",URLOne,@"/api/postInfo/share"];
 }
-
+    
++(NSString *)getIosConfigURL{
+    return [NSString stringWithFormat:@"%@%@",URLOne,@"/common/getIosConfig"];
+}
+    
 
 
 

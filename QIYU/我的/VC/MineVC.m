@@ -137,6 +137,11 @@
 }
 
 - (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath {
+    
+    if ((indexPath.section == 1 && indexPath.row == 0 && isDDDDDDDD) || (indexPath.section == 3 && indexPath.row == 2 && isDDDDDDDD) ||(indexPath.section == 3 && indexPath.row == 3 && isDDDDDDDD)||(indexPath.section == 3 && indexPath.row == 4 && isDDDDDDDD)){
+        return 0;
+    }
+    
     if (indexPath.section == 0) {
         return 260;
     }
@@ -157,6 +162,7 @@
         QQYYMineThreeCell * cell =[tableView dequeueReusableCellWithIdentifier:@"cellThree" forIndexPath:indexPath];
         cell.leftImgV.image = [UIImage imageNamed:[NSString stringWithFormat:@"qy%ld-%ld",indexPath.section,indexPath.row]];
         cell.leftLB.text = self.titleArr[indexPath.section][indexPath.row];
+        cell.clipsToBounds = YES;
         return cell;
     }
 
@@ -281,6 +287,9 @@
         vc.hidesBottomBarWhenPushed = YES;
         [self.navigationController pushViewController:vc animated:YES];
     } else if (index == 3) {
+        if (isDDDDDDDD) {
+            return;
+        }
         QQYYReDuTVC * vc =[[QQYYReDuTVC alloc] init];
         vc.hidesBottomBarWhenPushed = YES;
         [self.navigationController pushViewController:vc animated:YES];
@@ -333,6 +342,9 @@
 #pragma mark ---- 点击了关注粉丝一栏 -----
 - (void)didClickView:(QQYYMineFourCell *)cell withIndex:(NSInteger)index {
     if (index == 3) {
+        if (isDDDDDDDD) {
+            return;
+        }
         QQYYReDuTVC * vc =[[QQYYReDuTVC alloc] init];
         vc.hidesBottomBarWhenPushed = YES;
         [self.navigationController pushViewController:vc animated:YES];

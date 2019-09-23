@@ -40,8 +40,8 @@
     // Override point for customization after application launch.
     
     self.window = [[UIWindow alloc] initWithFrame:[UIScreen mainScreen].bounds];
-//    self.window.rootViewController =   [self instantiateRootVC];
-    self.window.rootViewController = [[QQYYMovieVC alloc] init];
+    self.window.rootViewController =   [self instantiateRootVC];
+//    self.window.rootViewController = [[QQYYMovieVC alloc] init];
     [self.window makeKeyAndVisible];
     
     /* 设置友盟appkey */
@@ -92,7 +92,7 @@
     [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(systemVolumeDidChangeNoti:) name:@"AVSystemController_SystemVolumeDidChangeNotification" object:nil];
     
 
-    
+    [zkSignleTool shareTool].isppp = YES;
     
     return YES;
 }
