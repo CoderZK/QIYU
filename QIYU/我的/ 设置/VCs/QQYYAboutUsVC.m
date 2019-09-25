@@ -20,11 +20,11 @@
     self.navigationItem.title = @"关于我们";
     self.contentLB.text = @"账户、支付出现问题，或有任何意见，可点反馈菜单进行反馈，也可使用如下方式联系我们。\n邮箱：2222222@qq.com\n官方微信公众号：hhhhhh\n天地有限公司";
     
-    [self getData];
+    [self acquireDataFromServe];
     
 }
 
-- (void)getData {
+- (void)acquireDataFromServe {
  
     
     NSMutableDictionary * dict = @{}.mutableCopy;

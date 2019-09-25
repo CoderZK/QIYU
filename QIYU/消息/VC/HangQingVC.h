@@ -9,6 +9,6 @@
 #import "BaseViewController.h"
 
 @interface HangQingVC : BaseTableViewController
-- (void)getData;
+- (void)acquireDataFromServe;
 @property(nonatomic,assign)NSInteger pageNo;
 @end

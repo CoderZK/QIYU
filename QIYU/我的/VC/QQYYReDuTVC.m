@@ -53,11 +53,11 @@
     [self initHeadV];
     [self initNav];
     
-    [self getData];
-    [self getDataTwo];
+    [self acquireDataFromServe];
+    [self acquireDataFromServeTwo];
 }
 
-- (void)getDataTwo {
+- (void)acquireDataFromServeTwo {
     
     NSMutableDictionary * dict = @{}.mutableCopy;
     [zkRequestTool networkingPOST:[QQYYURLDefineTool getMyInfoCenterURL] parameters:dict success:^(NSURLSessionDataTask *task, id responseObject) {
@@ -83,20 +83,20 @@
     
     UIButton * leftbtn=[[UIButton alloc] initWithFrame:CGRectMake(10, sstatusHeight + 2 , 40, 40)];
     [leftbtn setImage:[UIImage imageNamed:@"icon_back"] forState:UIControlStateNormal];
-    [leftbtn addTarget:self action:@selector(navBtnClick:) forControlEvents:UIControlEventTouchUpInside];
+    [leftbtn addTarget:self action:@selector(leftOrRightClickAction:) forControlEvents:UIControlEventTouchUpInside];
     leftbtn.tag = 10;
     [self.view addSubview:leftbtn];
 //    self.navigationItem.leftBarButtonItem = [[UIBarButtonItem alloc] initWithCustomView:leftbtn];
     
-    UIButton * rightbtn=[[UIButton alloc] initWithFrame:CGRectMake(ScreenW - 60 - 15,  sstatusHeight + 2,60, 40)];
+    UIButton * clickBt=[[UIButton alloc] initWithFrame:CGRectMake(ScreenW - 60 - 15,  sstatusHeight + 2,60, 40)];
     
-//    [rightbtn setBackgroundImage:[UIImage imageNamed:@"15"] forState:UIControlStateNormal];
-    [rightbtn setTitle:@"历史记录" forState:UIControlStateNormal];
-    rightbtn.titleLabel.font = kFont(14);
-    [rightbtn addTarget:self action:@selector(navBtnClick:) forControlEvents:UIControlEventTouchUpInside];
-    rightbtn.tag = 11;
-    [self.view addSubview:rightbtn];
-//    self.navigationItem.rightBarButtonItem = [[UIBarButtonItem alloc] initWithCustomView:rightbtn];
+//    [clickBt setBackgroundImage:[UIImage imageNamed:@"15"] forState:UIControlStateNormal];
+    [clickBt setTitle:@"历史记录" forState:UIControlStateNormal];
+    clickBt.titleLabel.font = kFont(14);
+    [clickBt addTarget:self action:@selector(leftOrRightClickAction:) forControlEvents:UIControlEventTouchUpInside];
+    clickBt.tag = 11;
+    [self.view addSubview:clickBt];
+//    self.navigationItem.rightBarButtonItem = [[UIBarButtonItem alloc] initWithCustomView:clickBt];
 }
 
 - (void)initHeadV {
@@ -134,7 +134,7 @@
     self.tableView.tableHeaderView = headView;
 }
 
-- (void)getData {
+- (void)acquireDataFromServe {
     
     
     NSMutableDictionary * dict = @{}.mutableCopy;
@@ -312,7 +312,7 @@
     
 }
 
-- (void)navBtnClick:(UIButton *)btn{
+- (void)leftOrRightClickAction:(UIButton *)btn{
     
     if (btn.tag == 10) {
         //返回

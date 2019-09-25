@@ -140,19 +140,19 @@
     
     UIButton * leftbtn=[[UIButton alloc] initWithFrame:CGRectMake(0, 0, 24, 24)];
     [leftbtn setBackgroundImage:[UIImage imageNamed:@"53"] forState:UIControlStateNormal];
-    [leftbtn addTarget:self action:@selector(navBtnClick:) forControlEvents:UIControlEventTouchUpInside];
+    [leftbtn addTarget:self action:@selector(leftOrRightClickAction:) forControlEvents:UIControlEventTouchUpInside];
     leftbtn.tag = 10;
 
 //    self.navigationItem.leftBarButtonItem = [[UIBarButtonItem alloc] initWithCustomView:leftbtn];
 //
-//    UIButton * rightbtn=[[UIButton alloc] initWithFrame:CGRectMake(0, 0, 24, 24)];
+//    UIButton * clickBt=[[UIButton alloc] initWithFrame:CGRectMake(0, 0, 24, 24)];
 //
-//    [rightbtn setBackgroundImage:[UIImage imageNamed:@"15"] forState:UIControlStateNormal];
-//    [rightbtn addTarget:self action:@selector(navBtnClick:) forControlEvents:UIControlEventTouchUpInside];
-//    rightbtn.tag = 11;
-//    self.navigationItem.rightBarButtonItem = [[UIBarButtonItem alloc] initWithCustomView:rightbtn];
+//    [clickBt setBackgroundImage:[UIImage imageNamed:@"15"] forState:UIControlStateNormal];
+//    [clickBt addTarget:self action:@selector(leftOrRightClickAction:) forControlEvents:UIControlEventTouchUpInside];
+//    clickBt.tag = 11;
+//    self.navigationItem.rightBarButtonItem = [[UIBarButtonItem alloc] initWithCustomView:clickBt];
 }
-- (void)navBtnClick:(UIButton *)btn{
+- (void)leftOrRightClickAction:(UIButton *)btn{
     
     if (btn.tag == 10) {
        //搜索

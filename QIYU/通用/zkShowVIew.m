@@ -94,7 +94,7 @@
 //        [button setBackgroundImage:[UIImage imageNamed:[NSString stringWithFormat:@"sybj%d",i]] forState:UIControlStateNormal];
         [button addTarget:self action:@selector(action:) forControlEvents:UIControlEventTouchUpInside];
         UIImageView * imgV =[[UIImageView alloc] initWithFrame:CGRectMake((ww - 30)/2, 15, 30, 30)];
-        [imgV sd_setImageWithURL:[NSURL URLWithString:self.dataArray[i].url] placeholderImage:[UIImage imageNamed: [NSString stringWithFormat:@"%d",i]] options:SDWebImageRetryFailed];
+        [imgV sd_setImageWithURL:[NSURL URLWithString:[QQYYURLDefineTool getImgURLWithStr:self.dataArray[i].icon]] placeholderImage:[UIImage imageNamed: [NSString stringWithFormat:@"%d",i]] options:SDWebImageRetryFailed];
         [button addSubview:imgV];
         
         

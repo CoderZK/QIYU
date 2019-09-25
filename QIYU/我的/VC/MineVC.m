@@ -36,7 +36,7 @@
     [super viewWillAppear:animated];
     self.navigationController.navigationBar.hidden = YES;
     [UIApplication sharedApplication].statusBarStyle = UIStatusBarStyleLightContent;
-    [self getData];
+    [self acquireDataFromServe];
 }
 
 - (void)viewWillDisappear:(BOOL)animated {
@@ -59,20 +59,20 @@
     self.titleArr = @[@[],@[@"开通会员"],@[@"我的主页",@"我的动态",@"谁看过我",@"我的相册",@"我的收藏",@"我的黑名单"],@[@"任务中心",@"实名认证",@"会员服务",@"我的订单",@"我的提现",@"意见反馈"]];
     
     
-    UIButton * rightbtn=[[UIButton alloc] initWithFrame:CGRectMake(ScreenW - 24 -15 , sstatusHeight + 10 , 24, 24)];
-    [rightbtn setBackgroundImage:[UIImage imageNamed:@"85"] forState:UIControlStateNormal];
-    [rightbtn addTarget:self action:@selector(navBtnClick:) forControlEvents:UIControlEventTouchUpInside];
-    rightbtn.tag = 11;
-    [self.view addSubview:rightbtn];
+    UIButton * clickBt=[[UIButton alloc] initWithFrame:CGRectMake(ScreenW - 24 -15 , sstatusHeight + 10 , 24, 24)];
+    [clickBt setBackgroundImage:[UIImage imageNamed:@"85"] forState:UIControlStateNormal];
+    [clickBt addTarget:self action:@selector(leftOrRightClickAction:) forControlEvents:UIControlEventTouchUpInside];
+    clickBt.tag = 11;
+    [self.view addSubview:clickBt];
     
     self.tableView.mj_header = [MJRefreshNormalHeader headerWithRefreshingBlock:^{
-        [self getData];
+        [self acquireDataFromServe];
     }];
     
     self.tableView.frame = CGRectMake(0, -sstatusHeight, ScreenW, ScreenH + sstatusHeight);
 }
 
-- (void)getData {
+- (void)acquireDataFromServe {
     
     NSMutableDictionary * dict = @{}.mutableCopy;
     [zkRequestTool networkingPOST:[QQYYURLDefineTool getMyInfoCenterURL] parameters:dict success:^(NSURLSessionDataTask *task, id responseObject) {
@@ -97,7 +97,7 @@
 
 
 //设置
-- (void)navBtnClick:(UIButton *)button {
+- (void)leftOrRightClickAction:(UIButton *)button {
     
     QQYYSettingTVC  * vc =[[QQYYSettingTVC alloc] initWithTableViewStyle:UITableViewStyleGrouped];
     vc.hidesBottomBarWhenPushed = YES;

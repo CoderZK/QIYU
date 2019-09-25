@@ -148,7 +148,7 @@
         self.number+=100;
     }else {
         [self diss];
-        if (isDDDDDDDD) {
+        if (isDDDDDDDD && button.tag == 104 ) {
             return;
         }
         if (self.deletage != nil && [self.deletage respondsToSelector:@selector(didClcikIndex:withIndexPath:WithNumber:)]) {

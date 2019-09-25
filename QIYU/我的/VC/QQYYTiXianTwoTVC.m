@@ -27,23 +27,23 @@
     self.tixianBt.layer.cornerRadius = 22;
     self.tixianBt.clipsToBounds = YES;
     
-//    UIButton * rightbtn=[[UIButton alloc] initWithFrame:CGRectMake(ScreenW - 60 - 15,  sstatusHeight + 2,60, 40)];
+//    UIButton * clickBt=[[UIButton alloc] initWithFrame:CGRectMake(ScreenW - 60 - 15,  sstatusHeight + 2,60, 40)];
 //    
-//    //    [rightbtn setBackgroundImage:[UIImage imageNamed:@"15"] forState:UIControlStateNormal];
-//    [rightbtn setTitle:@"提现记录" forState:UIControlStateNormal];
-//    rightbtn.titleLabel.font = kFont(14);
-//    [rightbtn setTitleColor:[UIColor blackColor] forState:UIControlStateNormal];
-//    [rightbtn addTarget:self action:@selector(navBtnClick:) forControlEvents:UIControlEventTouchUpInside];
-//    rightbtn.tag = 11;
+//    //    [clickBt setBackgroundImage:[UIImage imageNamed:@"15"] forState:UIControlStateNormal];
+//    [clickBt setTitle:@"提现记录" forState:UIControlStateNormal];
+//    clickBt.titleLabel.font = kFont(14);
+//    [clickBt setTitleColor:[UIColor blackColor] forState:UIControlStateNormal];
+//    [clickBt addTarget:self action:@selector(leftOrRightClickAction:) forControlEvents:UIControlEventTouchUpInside];
+//    clickBt.tag = 11;
 //
-//    self.navigationItem.rightBarButtonItem = [[UIBarButtonItem alloc] initWithCustomView:rightbtn];
+//    self.navigationItem.rightBarButtonItem = [[UIBarButtonItem alloc] initWithCustomView:clickBt];
     
     self.titleLB.text = [NSString stringWithFormat:@"可提现%@元(1元对应100个爱豆)",self.flowerNumber];
     
     
 }
 
-- (void)navBtnClick:(UIButton *)button {
+- (void)leftOrRightClickAction:(UIButton *)button {
     QQYYTiXianJiLuTVC * vc =[[QQYYTiXianJiLuTVC alloc] init];
     vc.hidesBottomBarWhenPushed = YES;
     [self.navigationController pushViewController:vc animated:YES];

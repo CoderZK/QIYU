@@ -23,6 +23,7 @@
 #import "LxmWebViewController.h"
 #import "QQYYMakeFriendsCell.h"
 #import "GuanZhuVC.h"
+#import "QQYYGouWuTVC.h"
 
 @interface QQYYHomeTVC ()<SDCycleScrollViewDelegate,QQYYHomeDongTaiCellDelegate,QQYYYongBaoViewDeletage,UITabBarControllerDelegate>
 @property(nonatomic,strong)UIView *headView;
@@ -102,19 +103,21 @@
     
     
     self.pageNo = 1;
-    [self getData];
+    [self acquireDataFromServe];
     [self getBannerData];
     self.tableView.mj_header = [MJRefreshNormalHeader headerWithRefreshingBlock:^{
         self.pageNo = 1;
-        [self getData];
-        [self getDataDaLei];
+        [self acquireDataFromServe];
+        [self acquireDataFromServeDaLei];
         [self getBannerData];
     }];
     self.tableView.mj_footer = [MJRefreshBackNormalFooter footerWithRefreshingBlock:^{
-        [self getData];
+        [self acquireDataFromServe];
     }];
     
-    [self getDataDaLei];
+    [self acquireDataFromServeDaLei];
+    
+//    [self setHeadView];
 
     
 }
@@ -138,7 +141,7 @@
 }
 
     
-- (void)getData {
+- (void)acquireDataFromServe {
     
     NSMutableDictionary * dict = @{}.mutableCopy;
     dict[@"pageNo"] = @(self.pageNo);
@@ -186,49 +189,27 @@
 //设置头视图
 - (void)setHeadView {
     
-    self.headView =[[UIView alloc] initWithFrame:CGRectMake(0,0, ScreenW, 0)];
+    self.headView =[[UIView alloc] initWithFrame:CGRectMake(0,0, ScreenW, 250)];
     self.headView.clipsToBounds = YES;
+    self.headView.backgroundColor = [UIColor groupTableViewBackgroundColor];
     if (isDDDDDDDD) {
-        self.headView.mj_h =  200;
+        self.headView.mj_h =  250;
+    }else {
+       self.headView.mj_h =  0;
     }
-    self.headView.backgroundColor  = WhiteColor;
-    UIButton * imgBt = [[UIButton alloc] initWithFrame:CGRectMake(0, ScreenW * 3/4, ScreenW, 200)];
+    UIButton * imgBt = [[UIButton alloc] initWithFrame:CGRectMake(0, 0, ScreenW, 250)];
     [imgBt addTarget:self action:@selector(goShoping) forControlEvents:UIControlEventTouchUpInside];
-    [imgBt setBackgroundImage:[UIImage imageNamed:@"400"] forState:UIControlStateNormal];
+    [imgBt setBackgroundImage:[UIImage imageNamed:@"11111"] forState:UIControlStateNormal];
     self.headView.clipsToBounds = YES;
     [self.headView addSubview:imgBt];
     self.tableView.tableHeaderView = self.headView;
-    
-    
-//    self.headView =[[UIView alloc] initWithFrame:CGRectMake(0,0, ScreenW, ScreenW * 3/4)];
-//    self.headView.backgroundColor  = WhiteColor;
-//    //    UIImageView *imgV = [[UIImageView alloc] initWithFrame:CGRectMake(0, -20, ScreenW, Kscale(230))];
-//    //    imgV.image = [UIImage imageNamed:@"86"];
-//    //    [self.headView addSubview:imgV];
-//
-//    //    self.scrollDataArray = @[@"http://attachments.gfan.com/forum/201411/29/224352283mf2aaio2madbu.jpg",@"http://pic1.win4000.com/wallpaper/a/52e5ccc6a5f28.jpg",@"http://attach.bbs.miui.com/forum/201312/06/211410sxjtbyaj9abo5qzh.jpg",@"http://img17.3lian.com/d/file/201702/21/2d561f5e226af7b0a222c5432deb6d2a.jpg"].mutableCopy;
-//    SDCycleScrollView *cycleScrollView = [SDCycleScrollView cycleScrollViewWithFrame:self.headView.bounds delegate:self placeholderImage:nil];
-//    cycleScrollView.autoScrollTimeInterval = 3;
-//    //    cycleScrollView.layer.cornerRadius = 4;
-//    //    cycleScrollView.clipsToBounds = YES;
-//    cycleScrollView.pageControlAliment = SDCycleScrollViewPageContolAlimentRight;
-//    //    cycleScrollView.pageControlDotSize = CGSizeMake(6, 6);
-//    cycleScrollView.currentPageDotColor = [UIColor colorWithRed:80/255.0 green:72/255.0 blue:155/255.0 alpha:1.0];
-//    CGFloat aa = 15;
-//    cycleScrollView.placeholderImage =[UIImage imageNamed:@"new_picture_default-1"];
-//    cycleScrollView.pageDotColor = [UIColor whiteColor];
-//    cycleScrollView.localizationImageNamesGroup = @[[UIImage imageNamed:@"a"],[UIImage imageNamed:@"b"],[UIImage imageNamed:@"c"]];
-//    self.sdcycView = cycleScrollView;
-//    [self.headView addSubview:cycleScrollView];
-    
-//    self.tableView.tableHeaderView = self.headView;
-    
-    
-    
-    
-    
 }
 
+-(void)goShoping {
+    QQYYGouWuTVC * vc =[[QQYYGouWuTVC alloc] init];
+    vc.hidesBottomBarWhenPushed = YES;
+    [self.navigationController pushViewController:vc animated:YES];
+}
 
 - (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView {
     return 3;
@@ -303,7 +284,7 @@
                 weakSelf.isHot = index;
                 [weakSelf.dataArray removeAllObjects];
                 weakSelf.tableView.userInteractionEnabled = NO;
-                [weakSelf getData];
+                [weakSelf acquireDataFromServe];
             }
             
         };
@@ -625,7 +606,7 @@
 }
 
 
-- (void)getDataDaLei {
+- (void)acquireDataFromServeDaLei {
     
     
     NSMutableDictionary * dict = @{}.mutableCopy;

@@ -17,7 +17,7 @@
 
 - (void)viewWillAppear:(BOOL)animated {
     [super viewWillAppear:animated];
-    [self getData];
+    [self acquireDataFromServe];
 }
 
 - (void)viewDidLoad {
@@ -27,27 +27,27 @@
     
     self.navigationItem.title = @"我的银行卡";
     
-    UIButton * rightbtn=[[UIButton alloc] initWithFrame:CGRectMake(ScreenW - 60 - 15,  sstatusHeight + 2,60, 40)];
-    [rightbtn setTitle:@"添加银行卡" forState:UIControlStateNormal];
-    rightbtn.titleLabel.font = kFont(14);
-    [rightbtn setTitleColor:[UIColor blackColor] forState:UIControlStateNormal];
-    [rightbtn addTarget:self action:@selector(navBtnClick:) forControlEvents:UIControlEventTouchUpInside];
-    rightbtn.tag = 11;
+    UIButton * clickBt=[[UIButton alloc] initWithFrame:CGRectMake(ScreenW - 60 - 15,  sstatusHeight + 2,60, 40)];
+    [clickBt setTitle:@"添加银行卡" forState:UIControlStateNormal];
+    clickBt.titleLabel.font = kFont(14);
+    [clickBt setTitleColor:[UIColor blackColor] forState:UIControlStateNormal];
+    [clickBt addTarget:self action:@selector(leftOrRightClickAction:) forControlEvents:UIControlEventTouchUpInside];
+    clickBt.tag = 11;
     
-    self.navigationItem.rightBarButtonItem = [[UIBarButtonItem alloc] initWithCustomView:rightbtn];
+    self.navigationItem.rightBarButtonItem = [[UIBarButtonItem alloc] initWithCustomView:clickBt];
     
     [self.tableView registerNib:[UINib nibWithNibName:@"QQYYYingHangKaCell" bundle:nil] forCellReuseIdentifier:@"cell"];
 
  
     self.tableView.mj_header = [MJRefreshNormalHeader headerWithRefreshingBlock:^{
-        [self getData];
+        [self acquireDataFromServe];
     }];
 
     
     
 }
 
-- (void)getData {
+- (void)acquireDataFromServe {
  
     
     NSMutableDictionary * dict = @{}.mutableCopy;
@@ -122,7 +122,7 @@
 }
 
 
-- (void)navBtnClick:(UIButton *)button {
+- (void)leftOrRightClickAction:(UIButton *)button {
     QQYYAddYinHangKaVC * vc =[[QQYYAddYinHangKaVC alloc] init];
     vc.hidesBottomBarWhenPushed = YES;
     [self.navigationController pushViewController:vc animated:YES];

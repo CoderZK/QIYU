@@ -39,48 +39,48 @@
     self.tableView.separatorStyle = UITableViewCellSeparatorStyleNone;
     [self.tableView reloadData];
     self.pageNo = 1;
-    [self getData];
+    [self acquireDataFromServe];
     self.tableView.mj_header = [MJRefreshNormalHeader headerWithRefreshingBlock:^{
         self.pageNo = 1;
-        [self getData];
+        [self acquireDataFromServe];
     }];
     self.tableView.mj_footer = [MJRefreshBackNormalFooter footerWithRefreshingBlock:^{
-        [self getData];
+        [self acquireDataFromServe];
     }];
     
     
-    UIButton * rightbtn=[[UIButton alloc] initWithFrame:CGRectMake(ScreenW - 70 - 15,  sstatusHeight + 2,70, 40)];
+    UIButton * clickBt=[[UIButton alloc] initWithFrame:CGRectMake(ScreenW - 70 - 15,  sstatusHeight + 2,70, 40)];
     
-    //    [rightbtn setBackgroundImage:[UIImage imageNamed:@"15"] forState:UIControlStateNormal];
-    [rightbtn setTitle:@"编辑" forState:UIControlStateNormal];
-    [rightbtn setTitle:@"取消收藏" forState:UIControlStateSelected];
-    [rightbtn sizeToFit];
-    rightbtn.contentHorizontalAlignment = UIControlContentHorizontalAlignmentRight;
-    rightbtn.titleLabel.font = kFont(14);
-    [rightbtn setTitleColor:[UIColor blackColor] forState:UIControlStateNormal];
-    [rightbtn addTarget:self action:@selector(navBtnClick:) forControlEvents:UIControlEventTouchUpInside];
-    rightbtn.tag = 11;
-    self.editBt = rightbtn;
-    UIButton * rightbtn1=[[UIButton alloc] initWithFrame:CGRectMake(ScreenW - 70 - 15,  sstatusHeight + 2,70, 40)];
+    //    [clickBt setBackgroundImage:[UIImage imageNamed:@"15"] forState:UIControlStateNormal];
+    [clickBt setTitle:@"编辑" forState:UIControlStateNormal];
+    [clickBt setTitle:@"取消收藏" forState:UIControlStateSelected];
+    [clickBt sizeToFit];
+    clickBt.contentHorizontalAlignment = UIControlContentHorizontalAlignmentRight;
+    clickBt.titleLabel.font = kFont(14);
+    [clickBt setTitleColor:[UIColor blackColor] forState:UIControlStateNormal];
+    [clickBt addTarget:self action:@selector(leftOrRightClickAction:) forControlEvents:UIControlEventTouchUpInside];
+    clickBt.tag = 11;
+    self.editBt = clickBt;
+    UIButton * clickBt1=[[UIButton alloc] initWithFrame:CGRectMake(ScreenW - 70 - 15,  sstatusHeight + 2,70, 40)];
     
-    //    [rightbtn setBackgroundImage:[UIImage imageNamed:@"15"] forState:UIControlStateNormal];
-    [rightbtn1 setTitle:@"返回" forState:UIControlStateNormal];
-    rightbtn1.contentHorizontalAlignment = UIControlContentHorizontalAlignmentRight;
-    rightbtn1.titleLabel.font = kFont(14);
-    [rightbtn1 sizeToFit];
-    [rightbtn1 setTitleColor:[UIColor blackColor] forState:UIControlStateNormal];
-    [rightbtn1 addTarget:self action:@selector(navBtnClick:) forControlEvents:UIControlEventTouchUpInside];
-    rightbtn1.tag = 12;
-    self.backBt = rightbtn1;
+    //    [clickBt setBackgroundImage:[UIImage imageNamed:@"15"] forState:UIControlStateNormal];
+    [clickBt1 setTitle:@"返回" forState:UIControlStateNormal];
+    clickBt1.contentHorizontalAlignment = UIControlContentHorizontalAlignmentRight;
+    clickBt1.titleLabel.font = kFont(14);
+    [clickBt1 sizeToFit];
+    [clickBt1 setTitleColor:[UIColor blackColor] forState:UIControlStateNormal];
+    [clickBt1 addTarget:self action:@selector(leftOrRightClickAction:) forControlEvents:UIControlEventTouchUpInside];
+    clickBt1.tag = 12;
+    self.backBt = clickBt1;
     self.backBt.hidden = YES;
-    //    [self.view addSubview:rightbtn];
+    //    [self.view addSubview:clickBt];
     self.navigationItem.rightBarButtonItems = @[[[UIBarButtonItem alloc] initWithCustomView:self.editBt],[[UIBarButtonItem alloc] initWithCustomView:self.backBt]];
     
 }
 
 
 
-- (void)getData {
+- (void)acquireDataFromServe {
     
     
     NSMutableDictionary * dict = @{}.mutableCopy;
@@ -118,7 +118,7 @@
     
 }
 
-- (void)navBtnClick:(UIButton *)button {
+- (void)leftOrRightClickAction:(UIButton *)button {
     
     if  (button.tag == 11) {
         button.selected = !button.selected;

@@ -52,8 +52,6 @@
 		58035E8F22C44DDC006F1F6F /* Photos.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 58035E8E22C44DDC006F1F6F /* Photos.framework */; };
 		58035E9222C45182006F1F6F /* zkDanLiaoVC.m in Sources */ = {isa = PBXBuildFile; fileRef = 58035E9022C4517F006F1F6F /* zkDanLiaoVC.m */; };
 		582E2E6422E0105500E99273 /* QQYYMovieVC.m in Sources */ = {isa = PBXBuildFile; fileRef = 582E2E6322E0105500E99273 /* QQYYMovieVC.m */; };
-		582E2E6722E0137800E99273 /* opening_long_1080*1920.mp4 in Resources */ = {isa = PBXBuildFile; fileRef = 582E2E6522E0137700E99273 /* opening_long_1080*1920.mp4 */; };
-		582E2E6822E0137800E99273 /* opening_short_1080*1920.mp4 in Resources */ = {isa = PBXBuildFile; fileRef = 582E2E6622E0137800E99273 /* opening_short_1080*1920.mp4 */; };
 		582EBD4922BC5DA400109AEF /* zkShowVIew.m in Sources */ = {isa = PBXBuildFile; fileRef = 582EBD4822BC5DA400109AEF /* zkShowVIew.m */; };
 		582FC34122C33F7900729757 /* CoreLocation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 582FC34022C33F7800729757 /* CoreLocation.framework */; };
 		582FD55022C0A68D00A29CC1 /* UIViewController+NewWorkTwo.m in Sources */ = {isa = PBXBuildFile; fileRef = 582FD54F22C0A68D00A29CC1 /* UIViewController+NewWorkTwo.m */; };
@@ -74,6 +72,10 @@
 		582FFA64229BAEE90039971E /* GuanZhuVC.m in Sources */ = {isa = PBXBuildFile; fileRef = 582FFA63229BAEE90039971E /* GuanZhuVC.m */; };
 		5831DAB622D56AA2001C5E4A /* CustomEmojiView.m in Sources */ = {isa = PBXBuildFile; fileRef = 5831DAB522D56AA2001C5E4A /* CustomEmojiView.m */; };
 		5831DAB922D575BD001C5E4A /* WZCustomEmojiView.m in Sources */ = {isa = PBXBuildFile; fileRef = 5831DAB722D575BD001C5E4A /* WZCustomEmojiView.m */; };
+		58321CBE233895C200E77553 /* QQYYGouWuTVC.m in Sources */ = {isa = PBXBuildFile; fileRef = 58321CBD233895C200E77553 /* QQYYGouWuTVC.m */; };
+		58321CC2233896CB00E77553 /* QQYYGouWuCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 58321CC0233896CB00E77553 /* QQYYGouWuCell.m */; };
+		58321CC3233896CB00E77553 /* QQYYGouWuCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 58321CC1233896CB00E77553 /* QQYYGouWuCell.xib */; };
+		58321CC92338B87700E77553 /* QQYYGouWuDetailTVC.m in Sources */ = {isa = PBXBuildFile; fileRef = 58321CC82338B87700E77553 /* QQYYGouWuDetailTVC.m */; };
 		583297BF22A6257900B52104 /* UIViewController+shareAction.m in Sources */ = {isa = PBXBuildFile; fileRef = 583297BE22A6257800B52104 /* UIViewController+shareAction.m */; };
 		583297C222A6259800B52104 /* zkShareModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 583297C022A6259800B52104 /* zkShareModel.m */; };
 		5833329D229FC816008DD9CF /* zkJuBaoView.m in Sources */ = {isa = PBXBuildFile; fileRef = 5833329C229FC816008DD9CF /* zkJuBaoView.m */; };
@@ -416,8 +418,6 @@
 		58035E9122C45182006F1F6F /* zkDanLiaoVC.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = zkDanLiaoVC.h; sourceTree = "<group>"; };
 		582E2E6222E0105500E99273 /* QQYYMovieVC.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = QQYYMovieVC.h; sourceTree = "<group>"; };
 		582E2E6322E0105500E99273 /* QQYYMovieVC.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = QQYYMovieVC.m; sourceTree = "<group>"; };
-		582E2E6522E0137700E99273 /* opening_long_1080*1920.mp4 */ = {isa = PBXFileReference; lastKnownFileType = file; path = "opening_long_1080*1920.mp4"; sourceTree = "<group>"; };
-		582E2E6622E0137800E99273 /* opening_short_1080*1920.mp4 */ = {isa = PBXFileReference; lastKnownFileType = file; path = "opening_short_1080*1920.mp4"; sourceTree = "<group>"; };
 		582EBD4722BC5DA400109AEF /* zkShowVIew.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = zkShowVIew.h; sourceTree = "<group>"; };
 		582EBD4822BC5DA400109AEF /* zkShowVIew.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = zkShowVIew.m; sourceTree = "<group>"; };
 		582FC34022C33F7800729757 /* CoreLocation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreLocation.framework; path = System/Library/Frameworks/CoreLocation.framework; sourceTree = SDKROOT; };
@@ -454,6 +454,13 @@
 		5831DAB522D56AA2001C5E4A /* CustomEmojiView.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = CustomEmojiView.m; sourceTree = "<group>"; };
 		5831DAB722D575BD001C5E4A /* WZCustomEmojiView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WZCustomEmojiView.m; sourceTree = "<group>"; };
 		5831DAB822D575BD001C5E4A /* WZCustomEmojiView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WZCustomEmojiView.h; sourceTree = "<group>"; };
+		58321CBC233895C200E77553 /* QQYYGouWuTVC.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = QQYYGouWuTVC.h; sourceTree = "<group>"; };
+		58321CBD233895C200E77553 /* QQYYGouWuTVC.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = QQYYGouWuTVC.m; sourceTree = "<group>"; };
+		58321CBF233896CB00E77553 /* QQYYGouWuCell.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = QQYYGouWuCell.h; sourceTree = "<group>"; };
+		58321CC0233896CB00E77553 /* QQYYGouWuCell.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = QQYYGouWuCell.m; sourceTree = "<group>"; };
+		58321CC1233896CB00E77553 /* QQYYGouWuCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = QQYYGouWuCell.xib; sourceTree = "<group>"; };
+		58321CC72338B87700E77553 /* QQYYGouWuDetailTVC.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = QQYYGouWuDetailTVC.h; sourceTree = "<group>"; };
+		58321CC82338B87700E77553 /* QQYYGouWuDetailTVC.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = QQYYGouWuDetailTVC.m; sourceTree = "<group>"; };
 		583297BD22A6257800B52104 /* UIViewController+shareAction.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIViewController+shareAction.h"; sourceTree = "<group>"; };
 		583297BE22A6257800B52104 /* UIViewController+shareAction.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIViewController+shareAction.m"; sourceTree = "<group>"; };
 		583297C022A6259800B52104 /* zkShareModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = zkShareModel.m; sourceTree = "<group>"; };
@@ -912,8 +919,6 @@
 				58917F0622DC0E2F00C46E04 /* QQYYURLDefineTool.m */,
 				582E2E6222E0105500E99273 /* QQYYMovieVC.h */,
 				582E2E6322E0105500E99273 /* QQYYMovieVC.m */,
-				582E2E6522E0137700E99273 /* opening_long_1080*1920.mp4 */,
-				582E2E6622E0137800E99273 /* opening_short_1080*1920.mp4 */,
 				589ABFEC2297AF20000BBD89 /* BSCustom.h */,
 				589ABFED2297AF20000BBD89 /* BSCustom.m */,
 				5835C2EC22B226A4002122A0 /* importHead.h */,
@@ -978,6 +983,7 @@
 		337F3E8D20E9FF3500C5526A /* 首页 */ = {
 			isa = PBXGroup;
 			children = (
+				58321CBB2338959D00E77553 /* GW */,
 				33DC823E20EA21CD00D1C283 /* Models */,
 				33DC824020EA21CD00D1C283 /* VC */,
 				33DC823F20EA21CD00D1C283 /* Views */,
@@ -1459,6 +1465,20 @@
 			path = Views;
 			sourceTree = "<group>";
 		};
+		58321CBB2338959D00E77553 /* GW */ = {
+			isa = PBXGroup;
+			children = (
+				58321CBC233895C200E77553 /* QQYYGouWuTVC.h */,
+				58321CBD233895C200E77553 /* QQYYGouWuTVC.m */,
+				58321CBF233896CB00E77553 /* QQYYGouWuCell.h */,
+				58321CC0233896CB00E77553 /* QQYYGouWuCell.m */,
+				58321CC1233896CB00E77553 /* QQYYGouWuCell.xib */,
+				58321CC72338B87700E77553 /* QQYYGouWuDetailTVC.h */,
+				58321CC82338B87700E77553 /* QQYYGouWuDetailTVC.m */,
+			);
+			path = GW;
+			sourceTree = "<group>";
+		};
 		583297B622A61E2600B52104 /*  设置 */ = {
 			isa = PBXGroup;
 			children = (
@@ -1841,7 +1861,6 @@
 				5838A1FB22DD79F400239A20 /* qy17@2x.png in Resources */,
 				5838A23722DD79F400239A20 /* qy4@2x.png in Resources */,
 				583ADD4122A7479F0064E60F /* YWUnlockView.xib in Resources */,
-				582E2E6822E0137800E99273 /* opening_short_1080*1920.mp4 in Resources */,
 				5838A23522DD79F400239A20 /* qy26@2x.png in Resources */,
 				58917E3A22DC0D0B00C46E04 /* QQYYChangePasswordVC.xib in Resources */,
 				5838A1F722DD79F400239A20 /* qy3@2x.png in Resources */,
@@ -1948,7 +1967,6 @@
 				583ADD4622A7479F0064E60F /* gesture_indicator_selected@2x.png in Resources */,
 				58917E2D22DC0D0B00C46E04 /* QQYYBindQWXVC.xib in Resources */,
 				58917E2E22DC0D0B00C46E04 /* QQYYBindPhoneVC.xib in Resources */,
-				582E2E6722E0137800E99273 /* opening_long_1080*1920.mp4 in Resources */,
 				5838A20022DD79F400239A20 /* qy29@2x.png in Resources */,
 				5838A1EF22DD79F400239A20 /* qy68@2x.png in Resources */,
 				5838A1FD22DD79F400239A20 /* qy13@2x.png in Resources */,
@@ -1962,6 +1980,7 @@
 				5838A23022DD79F400239A20 /* qy71@2x.png in Resources */,
 				58917E3222DC0D0B00C46E04 /* QQYYBindPoneTwoVC.xib in Resources */,
 				58917E0B22DC0CF600C46E04 /* QQYYPingLunTwoCell.xib in Resources */,
+				58321CC3233896CB00E77553 /* QQYYGouWuCell.xib in Resources */,
 				5838A1FF22DD79F400239A20 /* qy54@2x.png in Resources */,
 				5838A23422DD79F400239A20 /* qy45@2x.png in Resources */,
 				582FFA4E229B84170039971E /* mx_pic_selected_yes@2x.png in Resources */,
@@ -2138,10 +2157,12 @@
 				58917E7422DC0D3A00C46E04 /* QQYYMineCollectTVC.m in Sources */,
 				335010EE20EE05C100F8486B /* NSString+Size.m in Sources */,
 				58917ED022DC0D5600C46E04 /* QQYYYingHangKaCell.m in Sources */,
+				58321CC92338B87700E77553 /* QQYYGouWuDetailTVC.m in Sources */,
 				58917E7622DC0D3A00C46E04 /* QQYYXiaoFeiVC.m in Sources */,
 				5831DAB922D575BD001C5E4A /* WZCustomEmojiView.m in Sources */,
 				58917DD622DC0CC000C46E04 /* QQYYFriendsSearchTVC.m in Sources */,
 				58917EC422DC0D5600C46E04 /* QQYYZhuYeFourCell.m in Sources */,
+				58321CBE233895C200E77553 /* QQYYGouWuTVC.m in Sources */,
 				337F3EAE20EA014600C5526A /* BaseCollectionReusableView.m in Sources */,
 				58917E3622DC0D0B00C46E04 /* QQYYPrivacyTVC.m in Sources */,
 				58917E0922DC0CF600C46E04 /* QQYYGongGaoTwoCell.m in Sources */,
@@ -2195,6 +2216,7 @@
 				58917E1422DC0CF600C46E04 /* QQYYDongTaiDetailCell.m in Sources */,
 				58917E8522DC0D3A00C46E04 /* QQYYTiXianJiLuTVC.m in Sources */,
 				58917DDD22DC0CCF00C46E04 /* QQYYTongYongModel.m in Sources */,
+				58321CC2233896CB00E77553 /* QQYYGouWuCell.m in Sources */,
 				589ABFF12297B02D000BBD89 /* TabBarController.m in Sources */,
 				335010EF20EE05C100F8486B /* UIButton+Badge.m in Sources */,
 				58917ED822DC0D5600C46E04 /* QQYYMineTwoCell.m in Sources */,

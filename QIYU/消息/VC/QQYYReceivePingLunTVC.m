@@ -26,19 +26,19 @@
     self.tableView.estimatedRowHeight = 40;
     
     self.pageNo = 1;
-    [self getData];
+    [self acquireDataFromServe];
     self.tableView.mj_header = [MJRefreshNormalHeader headerWithRefreshingBlock:^{
         self.pageNo = 1;
-        [self getData];
+        [self acquireDataFromServe];
     }];
     self.tableView.mj_footer = [MJRefreshBackNormalFooter footerWithRefreshingBlock:^{
-        [self getData];
+        [self acquireDataFromServe];
     }];
     
     
 }
 
-- (void)getData {
+- (void)acquireDataFromServe {
     
     
     NSMutableDictionary * dict = @{}.mutableCopy;

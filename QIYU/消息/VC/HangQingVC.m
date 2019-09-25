@@ -39,7 +39,7 @@
 - (void)viewWillAppear:(BOOL)animated {
     [super viewWillAppear:animated];
     self.pageNo = 1;
-    [self getData];
+    [self acquireDataFromServe];
 }
 
 - (void)viewDidLoad {
@@ -51,11 +51,11 @@
     [self.tableView registerClass:[QQYYNewsTwoCell class] forCellReuseIdentifier:@"cellTwo"];
     self.tableView.separatorStyle = UITableViewCellSeparatorStyleNone;
     
-    UIButton * rightbtn=[[UIButton alloc] initWithFrame:CGRectMake(0, 0, 24, 24)];
-    [rightbtn setBackgroundImage:[UIImage imageNamed:@"11"] forState:UIControlStateNormal];
-    [rightbtn addTarget:self action:@selector(navBtnClick:) forControlEvents:UIControlEventTouchUpInside];
-    rightbtn.tag = 11;
-    self.navigationItem.rightBarButtonItem = [[UIBarButtonItem alloc] initWithCustomView:rightbtn];
+    UIButton * clickBt=[[UIButton alloc] initWithFrame:CGRectMake(0, 0, 24, 24)];
+    [clickBt setBackgroundImage:[UIImage imageNamed:@"11"] forState:UIControlStateNormal];
+    [clickBt addTarget:self action:@selector(leftOrRightClickAction:) forControlEvents:UIControlEventTouchUpInside];
+    clickBt.tag = 11;
+    self.navigationItem.rightBarButtonItem = [[UIBarButtonItem alloc] initWithCustomView:clickBt];
     
 //    //注册好友回调
 //    [[EMClient sharedClient].contactManager addDelegate:self delegateQueue:nil];
@@ -66,15 +66,15 @@
    
     self.tableView.mj_header = [MJRefreshNormalHeader headerWithRefreshingBlock:^{
         self.pageNo = 1;
-        [self getData];
+        [self acquireDataFromServe];
     }];
 //    self.tableView.mj_footer = [MJRefreshBackNormalFooter footerWithRefreshingBlock:^{
-//        [self getData];
+//        [self acquireDataFromServe];
 //    }];
 }
 
 
-- (void)getData {
+- (void)acquireDataFromServe {
     
     
     NSMutableDictionary * dict = @{}.mutableCopy;
@@ -130,7 +130,7 @@
 }
 
 //加好友
-- (void)navBtnClick:(UIButton *)button {
+- (void)leftOrRightClickAction:(UIButton *)button {
     
     QQYYMineFriendsTVC * vc =[[QQYYMineFriendsTVC alloc] init];
     vc.hidesBottomBarWhenPushed = YES;

@@ -114,22 +114,22 @@
     [self getQianMingData];
     [self getProvinceListData];
     self.pageNo = 1;
-    [self getData];
+    [self acquireDataFromServe];
     
     self.tableView.mj_header = [MJRefreshNormalHeader headerWithRefreshingBlock:^{
         self.pageNo = 1;
-        [self getData];
+        [self acquireDataFromServe];
         [self getQianMingData];
         [self getProvinceListData];
     }];
     self.tableView.mj_footer = [MJRefreshBackNormalFooter footerWithRefreshingBlock:^{
-        [self getData];
+        [self acquireDataFromServe];
     }];
     
   
 }
 
-- (void)getData {
+- (void)acquireDataFromServe {
     
     
     NSMutableDictionary * dict = @{}.mutableCopy;
@@ -356,7 +356,7 @@
     [self.searchV cancel];
     [self addSubView];
     self.pageNo = 1;
-    [self getData];
+    [self acquireDataFromServe];
     
 }
 
@@ -379,7 +379,7 @@
     }
     [self.searchV cancel];
     self.pageNo = 1;
-    [self getData];
+    [self acquireDataFromServe];
     
     
 }
@@ -496,7 +496,7 @@
     [self.searchV cancel];
     [self addSubView];
     self.pageNo = 1;
-    [self getData];
+    [self acquireDataFromServe];
     
 }
 

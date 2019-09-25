@@ -50,22 +50,22 @@
     
     [self.view addSubview:self.footV];
     
-    UIButton * rightbtn=[[UIButton alloc] initWithFrame:CGRectMake(ScreenW - 45 - 15,  sstatusHeight + 2,45, 40)];
-    [rightbtn setTitle:@"编辑" forState:UIControlStateNormal];
-    rightbtn.contentHorizontalAlignment = UIControlContentHorizontalAlignmentRight;
-    rightbtn.titleLabel.font = kFont(14);
-    [rightbtn addTarget:self action:@selector(navBtnClick:) forControlEvents:UIControlEventTouchUpInside];
-    rightbtn.tag = 11;
-    [rightbtn setTitleColor:[UIColor blackColor] forState:UIControlStateNormal];
-    self.navigationItem.rightBarButtonItem = [[UIBarButtonItem alloc] initWithCustomView:rightbtn];
-    self.rightBt = rightbtn;
+    UIButton * clickBt=[[UIButton alloc] initWithFrame:CGRectMake(ScreenW - 45 - 15,  sstatusHeight + 2,45, 40)];
+    [clickBt setTitle:@"编辑" forState:UIControlStateNormal];
+    clickBt.contentHorizontalAlignment = UIControlContentHorizontalAlignmentRight;
+    clickBt.titleLabel.font = kFont(14);
+    [clickBt addTarget:self action:@selector(leftOrRightClickAction:) forControlEvents:UIControlEventTouchUpInside];
+    clickBt.tag = 11;
+    [clickBt setTitleColor:[UIColor blackColor] forState:UIControlStateNormal];
+    self.navigationItem.rightBarButtonItem = [[UIBarButtonItem alloc] initWithCustomView:clickBt];
+    self.rightBt = clickBt;
     
     self.dataArray = @[].mutableCopy;
     self.imgsArr = @[].mutableCopy;
     if (self.photos.length > 0) {
         self.dataArray = [self.photos componentsSeparatedByString:@","].mutableCopy;
     }else {
-        [self navBtnClick:rightbtn];
+        [self leftOrRightClickAction:clickBt];
     }
 
 //    self.dataArray =  @[@"http://i0.hdslb.com/bfs/article/3fea53d61f069aa72c71330fc229e075c5b3c1b4.jpg",@"http://5b0988e595225.cdn.sohucs.com/images/20190417/478c8d1c31c74273a504f2335b371591.jpeg",@"http://5b0988e595225.cdn.sohucs.com/images/20190404/a30336a6914b4929994450b9941afa40.jpeg",@"http://p0.qhimgs4.com/t01d406e56973481579.jpg",@"http://5b0988e595225.cdn.sohucs.com/images/20190508/a3df05de51954e2891f829380af31754.jpeg",@"http://5b0988e595225.cdn.sohucs.com/images/20190507/2e2a6a6e43304433bd7a558292fcb487.jpeg",@"http://b-ssl.duitang.com/uploads/item/201804/06/20180406212446_mclnu.jpg"].mutableCopy;
@@ -73,7 +73,7 @@
 
 }
 
-- (void)navBtnClick:(UIButton *)button {
+- (void)leftOrRightClickAction:(UIButton *)button {
     if ([button.titleLabel.text isEqualToString:@"编辑"]) {
         [button setTitle:@"完成" forState:UIControlStateNormal];
         self.isBianJi = YES;
@@ -249,7 +249,7 @@
         if ([responseObject[@"code"] intValue]== 0) {
             
             if (self.photos.length == 0) {
-                [self navBtnClick:self.rightBt];
+                [self leftOrRightClickAction:self.rightBt];
             }
             
         }else {

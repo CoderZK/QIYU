@@ -33,15 +33,15 @@
 
     self.dataArray = @[].mutableCopy;
     self.pageNo = 1;
-    [self getData];
+    [self acquireDataFromServe];
     
     self.tableView.mj_header = [MJRefreshNormalHeader headerWithRefreshingBlock:^{
         self.pageNo = 1;
-        [self getData];
+        [self acquireDataFromServe];
 
     }];
     self.tableView.mj_footer = [MJRefreshBackNormalFooter footerWithRefreshingBlock:^{
-        [self getData];
+        [self acquireDataFromServe];
     }];
     
     if (!self.isHot) {
@@ -50,7 +50,7 @@
     
 }
 
-- (void)getData {
+- (void)acquireDataFromServe {
     
     
     NSMutableDictionary * dict = @{}.mutableCopy;

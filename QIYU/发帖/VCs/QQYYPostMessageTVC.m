@@ -72,26 +72,26 @@
          self.tableView.frame = CGRectMake(0, 0, ScreenW , ScreenH  - 50 - 34 );
     }
     
-    UIButton * rightbtn=[[UIButton alloc] initWithFrame:CGRectMake(ScreenW - 60 - 15,  sstatusHeight + 2,60, 30)];
+    UIButton * clickBt=[[UIButton alloc] initWithFrame:CGRectMake(ScreenW - 60 - 15,  sstatusHeight + 2,60, 30)];
     
-    [rightbtn setBackgroundImage:[UIImage imageNamed:@"backr"] forState:UIControlStateNormal];
-    [rightbtn setTitle:@"发布" forState:UIControlStateNormal];
-//    rightbtn.contentHorizontalAlignment = UIControlContentHorizontalAlignmentRight;
-    rightbtn.layer.cornerRadius = 4;
-    rightbtn.clipsToBounds = YES;
-    rightbtn.titleLabel.font = kFont(14);
-    [rightbtn setTitleColor:[UIColor whiteColor] forState:UIControlStateNormal];
-    [rightbtn addTarget:self action:@selector(navBtnClick:) forControlEvents:UIControlEventTouchUpInside];
-    rightbtn.tag = 11;
-    //    [self.view addSubview:rightbtn];
-    self.navigationItem.rightBarButtonItem = [[UIBarButtonItem alloc] initWithCustomView:rightbtn];
+    [clickBt setBackgroundImage:[UIImage imageNamed:@"backr"] forState:UIControlStateNormal];
+    [clickBt setTitle:@"发布" forState:UIControlStateNormal];
+//    clickBt.contentHorizontalAlignment = UIControlContentHorizontalAlignmentRight;
+    clickBt.layer.cornerRadius = 4;
+    clickBt.clipsToBounds = YES;
+    clickBt.titleLabel.font = kFont(14);
+    [clickBt setTitleColor:[UIColor whiteColor] forState:UIControlStateNormal];
+    [clickBt addTarget:self action:@selector(leftOrRightClickAction:) forControlEvents:UIControlEventTouchUpInside];
+    clickBt.tag = 11;
+    //    [self.view addSubview:clickBt];
+    self.navigationItem.rightBarButtonItem = [[UIBarButtonItem alloc] initWithCustomView:clickBt];
     
     
     self.headView = [[UIView alloc] initWithFrame:CGRectMake(0, 0, ScreenW, ScreenH)];
  
     [self createViews];
     
-    [self getData];
+    [self acquireDataFromServe];
     
     
     
@@ -117,7 +117,7 @@
     
     self.BT = [[UIButton alloc] initWithFrame:CGRectMake(0, 0, ScreenW, 50)];
     self.BT.tag = 12;
-    [self.BT addTarget:self action:@selector(navBtnClick:) forControlEvents:UIControlEventTouchUpInside];
+    [self.BT addTarget:self action:@selector(leftOrRightClickAction:) forControlEvents:UIControlEventTouchUpInside];
     [self.headView addSubview:self.BT];
     
     UIView * backV =[[UIView alloc] initWithFrame:CGRectMake(15, 50, ScreenW-30, 0.0)];
@@ -265,7 +265,7 @@
     
 }
 
-- (void)getData {
+- (void)acquireDataFromServe {
     
     
     NSMutableDictionary * dict = @{}.mutableCopy;
@@ -555,7 +555,7 @@
 }
 
 //点击发布
-- (void)navBtnClick:(UIButton *)button {
+- (void)leftOrRightClickAction:(UIButton *)button {
     if (button.tag == 11) {
         
         [self faBuAction:button];

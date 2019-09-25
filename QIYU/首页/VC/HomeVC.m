@@ -107,19 +107,19 @@
 
     
     self.pageNo = 1;
-    [self getData];
+    [self acquireDataFromServe];
     [self getBannerData];
     self.tableView.mj_header = [MJRefreshNormalHeader headerWithRefreshingBlock:^{
         self.pageNo = 1;
-        [self getData];
-        [self getDataDaLei];
+        [self acquireDataFromServe];
+        [self acquireDataFromServeDaLei];
         [self getBannerData];
     }];
     self.tableView.mj_footer = [MJRefreshBackNormalFooter footerWithRefreshingBlock:^{
-        [self getData];
+        [self acquireDataFromServe];
     }];
     
-    [self getDataDaLei];
+    [self acquireDataFromServeDaLei];
     
 }
 
@@ -133,7 +133,7 @@
     
 }
 
-- (void)getData {
+- (void)acquireDataFromServe {
     
     [SVProgressHUD show];
     NSMutableDictionary * dict = @{}.mutableCopy;
@@ -305,11 +305,11 @@
                 }
                 weakSelf.type = index;
                 weakSelf.pageNo = 1;
-                [weakSelf getData];
+                [weakSelf acquireDataFromServe];
             }else {
                 weakSelf.type = index;
                 weakSelf.pageNo = 1;
-                [weakSelf getData];
+                [weakSelf acquireDataFromServe];
             }
             
         };
@@ -625,7 +625,7 @@
 }
 
 
-- (void)getDataDaLei {
+- (void)acquireDataFromServeDaLei {
     
     
     NSMutableDictionary * dict = @{}.mutableCopy;

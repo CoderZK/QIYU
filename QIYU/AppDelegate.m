@@ -92,7 +92,7 @@
     [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(systemVolumeDidChangeNoti:) name:@"AVSystemController_SystemVolumeDidChangeNotification" object:nil];
     
 
-    [zkSignleTool shareTool].isppp = YES;
+    [zkSignleTool shareTool].isppp = NO;
     
     return YES;
 }
@@ -126,7 +126,7 @@
         if ([[navc.childViewControllers lastObject] isKindOfClass:[HangQingVC class]]) {
             HangQingVC * vc = (HangQingVC *)[navc.childViewControllers lastObject];
             vc.pageNo = 1;
-            [vc getData];
+            [vc acquireDataFromServe];
         }
     }
     

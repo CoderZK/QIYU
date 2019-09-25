@@ -35,21 +35,21 @@
     LB.font = kFont(14);
     LB.text = @"选择标签,作为个人兴趣爱好标识";
     
-    UIButton * rightbtn=[[UIButton alloc] initWithFrame:CGRectMake(ScreenW - 60 - 15,  sstatusHeight + 2,60, 40)];
-    [rightbtn setTitle:@"完成" forState:UIControlStateNormal];
-    rightbtn.contentHorizontalAlignment = UIControlContentHorizontalAlignmentRight;
-    rightbtn.titleLabel.font = kFont(14);
-    [rightbtn setTitleColor:[UIColor blackColor] forState:UIControlStateNormal];
-    [rightbtn addTarget:self action:@selector(navBtnClick:) forControlEvents:UIControlEventTouchUpInside];
-    rightbtn.tag = 11;
-    self.navigationItem.rightBarButtonItem = [[UIBarButtonItem alloc] initWithCustomView:rightbtn];
+    UIButton * clickBt=[[UIButton alloc] initWithFrame:CGRectMake(ScreenW - 60 - 15,  sstatusHeight + 2,60, 40)];
+    [clickBt setTitle:@"完成" forState:UIControlStateNormal];
+    clickBt.contentHorizontalAlignment = UIControlContentHorizontalAlignmentRight;
+    clickBt.titleLabel.font = kFont(14);
+    [clickBt setTitleColor:[UIColor blackColor] forState:UIControlStateNormal];
+    [clickBt addTarget:self action:@selector(leftOrRightClickAction:) forControlEvents:UIControlEventTouchUpInside];
+    clickBt.tag = 11;
+    self.navigationItem.rightBarButtonItem = [[UIBarButtonItem alloc] initWithCustomView:clickBt];
     
     
-    [self getData];
+    [self acquireDataFromServe];
 }
 
 
-- (void)navBtnClick:(UIButton *)button {
+- (void)leftOrRightClickAction:(UIButton *)button {
     
     NSMutableArray * arr = @[].mutableCopy;
     NSMutableArray * arr1 = @[].mutableCopy;
@@ -158,7 +158,7 @@
 }
 
 
-- (void)getData {
+- (void)acquireDataFromServe {
     
     [zkRequestTool networkingPOST:[QQYYURLDefineTool getLabelsURL] parameters:@{} success:^(NSURLSessionDataTask *task, id responseObject) {
         if ([responseObject[@"code"] intValue] == 0) {

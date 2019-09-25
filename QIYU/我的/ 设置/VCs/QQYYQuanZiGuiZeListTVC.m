@@ -28,13 +28,13 @@
     self.titleArr = @[@"我的动态",@"交友日志",@"故事分享",@"互动问答",@"图片社",@"型男学院",@"闺蜜圈",@"版务"];
     [self.tableView registerClass:[QQYYTongYongTwoCell class] forCellReuseIdentifier:@"cell"];
     self.tableView.separatorStyle = UITableViewCellSeparatorStyleNone;
-    [self getData];
+    [self acquireDataFromServe];
     self.tableView.mj_header = [MJRefreshNormalHeader headerWithRefreshingBlock:^{
-        [self getData];
+        [self acquireDataFromServe];
     }];
 }
 
-- (void)getData {
+- (void)acquireDataFromServe {
     
     
     NSMutableDictionary * dict = @{}.mutableCopy;

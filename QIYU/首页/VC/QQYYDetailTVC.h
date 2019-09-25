@@ -11,6 +11,7 @@
 NS_ASSUME_NONNULL_BEGIN
 
 @interface QQYYDetailTVC : BaseTableViewController
+
 @property(nonatomic,strong)NSString *ID;
 @property(nonatomic,copy)void(^sendZanYesOrNoBlock)(BOOL isZan,NSInteger number);
 @end

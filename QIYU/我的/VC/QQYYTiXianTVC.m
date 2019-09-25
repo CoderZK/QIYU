@@ -46,25 +46,25 @@
     
     UIButton * leftbtn=[[UIButton alloc] initWithFrame:CGRectMake(10, sstatusHeight + 2 , 40, 40)];
     [leftbtn setImage:[UIImage imageNamed:@"icon_back"] forState:UIControlStateNormal];
-    [leftbtn addTarget:self action:@selector(navBtnClick:) forControlEvents:UIControlEventTouchUpInside];
+    [leftbtn addTarget:self action:@selector(leftOrRightClickAction:) forControlEvents:UIControlEventTouchUpInside];
     leftbtn.tag = 10;
     [self.view addSubview:leftbtn];
     
-    UIButton * rightbtn=[[UIButton alloc] initWithFrame:CGRectMake(ScreenW - 60 - 15,  sstatusHeight + 2,60, 40)];
+    UIButton * clickBt=[[UIButton alloc] initWithFrame:CGRectMake(ScreenW - 60 - 15,  sstatusHeight + 2,60, 40)];
     
-    //    [rightbtn setBackgroundImage:[UIImage imageNamed:@"15"] forState:UIControlStateNormal];
-    [rightbtn setTitle:@"提现记录" forState:UIControlStateNormal];
-    rightbtn.titleLabel.font = kFont(14);
-//    [rightbtn setTitleColor:[UIColor blackColor] forState:UIControlStateNormal];
-    [rightbtn addTarget:self action:@selector(navBtnClick:) forControlEvents:UIControlEventTouchUpInside];
-    rightbtn.tag = 11;
-     [self.view addSubview:rightbtn];
+    //    [clickBt setBackgroundImage:[UIImage imageNamed:@"15"] forState:UIControlStateNormal];
+    [clickBt setTitle:@"提现记录" forState:UIControlStateNormal];
+    clickBt.titleLabel.font = kFont(14);
+//    [clickBt setTitleColor:[UIColor blackColor] forState:UIControlStateNormal];
+    [clickBt addTarget:self action:@selector(leftOrRightClickAction:) forControlEvents:UIControlEventTouchUpInside];
+    clickBt.tag = 11;
+     [self.view addSubview:clickBt];
 
     
 
 }
 
-- (void)navBtnClick:(UIButton *)button {
+- (void)leftOrRightClickAction:(UIButton *)button {
     if (button.tag == 10) {
         [self.navigationController popViewControllerAnimated:YES];
     }else if (button.tag == 11) {
@@ -163,7 +163,7 @@
     btt.frame = CGRectMake(15, CGRectGetMaxY(headView.frame) + 40, ScreenW - 30, 30);
     [btt setTitle:@"查看《提现规则》" forState:UIControlStateNormal];
     btt.titleLabel.font = kFont(15);
-    [btt addTarget:self action:@selector(navBtnClick:) forControlEvents:UIControlEventTouchUpInside];
+    [btt addTarget:self action:@selector(leftOrRightClickAction:) forControlEvents:UIControlEventTouchUpInside];
     btt.tag = 12;
     [self.headV addSubview:btt];
     
@@ -175,7 +175,7 @@
     confirmBt.titleLabel.font = kFont(15);
     confirmBt.clipsToBounds = YES;
     [confirmBt setBackgroundImage:[UIImage imageNamed:@"backr"] forState:UIControlStateNormal];
-    [confirmBt addTarget:self action:@selector(navBtnClick:) forControlEvents:UIControlEventTouchUpInside];
+    [confirmBt addTarget:self action:@selector(leftOrRightClickAction:) forControlEvents:UIControlEventTouchUpInside];
     confirmBt.tag = 13;
     [self.headV addSubview:confirmBt];
     

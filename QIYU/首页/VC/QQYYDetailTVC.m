@@ -100,17 +100,17 @@
     [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(keyboardWillBeHiden:) name:UIKeyboardWillHideNotification object:nil];
     
     
-    UIButton * rightbtn=[[UIButton alloc] initWithFrame:CGRectMake(0, 0, 24, 24)];
-    [rightbtn setBackgroundImage:[UIImage imageNamed:@"sandian"] forState:UIControlStateNormal];
-    [rightbtn addTarget:self action:@selector(navBtnClick:) forControlEvents:UIControlEventTouchUpInside];
-    rightbtn.tag = 11;
-    self.navigationItem.rightBarButtonItem = [[UIBarButtonItem alloc] initWithCustomView:rightbtn];
+    UIButton * clickBt=[[UIButton alloc] initWithFrame:CGRectMake(0, 0, 24, 24)];
+    [clickBt setBackgroundImage:[UIImage imageNamed:@"sandian"] forState:UIControlStateNormal];
+    [clickBt addTarget:self action:@selector(leftOrRightClickAction:) forControlEvents:UIControlEventTouchUpInside];
+    clickBt.tag = 11;
+    self.navigationItem.rightBarButtonItem = [[UIBarButtonItem alloc] initWithCustomView:clickBt];
     
-    [self getData];
+    [self acquireDataFromServe];
     self.pageNo = 1;
     self.tableView.mj_header = [MJRefreshNormalHeader headerWithRefreshingBlock:^{
         self.pageNo = 1;
-        [self getData];
+        [self acquireDataFromServe];
     }];
 
     //评论更多
@@ -123,7 +123,7 @@
     
 }
 
-- (void)navBtnClick:(UIButton *)button {
+- (void)leftOrRightClickAction:(UIButton *)button {
     
     if  (self.dataModel.currentUserCollect) {
         [zkJuBaoView showWithArray:@[@"举报",@"取消收藏"] withIndexPath:[NSIndexPath indexPathForRow:0 inSection:0]];
@@ -136,7 +136,7 @@
  
 }
 
-- (void)getData {
+- (void)acquireDataFromServe {
 
     [zkRequestTool networkingPOST:[QQYYURLDefineTool getdetailURL] parameters:self.ID success:^(NSURLSessionDataTask *task, id responseObject) {
         [self.tableView.mj_header endRefreshing];

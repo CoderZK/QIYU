@@ -23,32 +23,32 @@
     self.tableView.separatorStyle = UITableViewCellSeparatorStyleNone;
     
     self.navigationItem.title = @"新朋友";
-//    UIButton * rightbtn=[[UIButton alloc] initWithFrame:CGRectMake(0, 0, 50, 24)];
-//    [rightbtn setTitle:@"清空" forState:UIControlStateNormal];
-//    [rightbtn setTitleColor:CharacterBlack40 forState:UIControlStateNormal];
-//    [rightbtn addTarget:self action:@selector(navBtnClick:) forControlEvents:UIControlEventTouchUpInside];
-//    rightbtn.tag = 11;
-//    self.navigationItem.rightBarButtonItem = [[UIBarButtonItem alloc] initWithCustomView:rightbtn];
+//    UIButton * clickBt=[[UIButton alloc] initWithFrame:CGRectMake(0, 0, 50, 24)];
+//    [clickBt setTitle:@"清空" forState:UIControlStateNormal];
+//    [clickBt setTitleColor:CharacterBlack40 forState:UIControlStateNormal];
+//    [clickBt addTarget:self action:@selector(leftOrRightClickAction:) forControlEvents:UIControlEventTouchUpInside];
+//    clickBt.tag = 11;
+//    self.navigationItem.rightBarButtonItem = [[UIBarButtonItem alloc] initWithCustomView:clickBt];
     self.pageNo = 1;
-    [self getData];
+    [self acquireDataFromServe];
     self.tableView.mj_header = [MJRefreshNormalHeader headerWithRefreshingBlock:^{
         self.pageNo = 1;
-        [self getData];
+        [self acquireDataFromServe];
     }];
     self.tableView.mj_footer = [MJRefreshBackNormalFooter footerWithRefreshingBlock:^{
-        [self getData];
+        [self acquireDataFromServe];
     }];
     
 }
 
 //加好友
-- (void)navBtnClick:(UIButton *)button {
+- (void)leftOrRightClickAction:(UIButton *)button {
     
    
     
 }
 
-- (void)getData {
+- (void)acquireDataFromServe {
     
     
     NSMutableDictionary * dict = @{}.mutableCopy;

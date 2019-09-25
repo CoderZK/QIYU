@@ -125,7 +125,7 @@
             [zkSignleTool shareTool].nickName =[NSString stringWithFormat:@"%@",responseObject[@"object"][@"nickName"]];
              [zkSignleTool shareTool].huanxin =[NSString stringWithFormat:@"%@",responseObject[@"object"][@"huanxin"]];
             EMError * error = [[EMClient sharedClient] loginWithUsername:responseObject[@"object"][@"huanxin"] password:huanXinMiMa];
-            if (!error) {
+            if (!error || error.code == 200) {
                 
                 [[EMClient sharedClient].options setIsAutoLogin:YES]; //设定自动登录
                 [self dismissViewControllerAnimated:YES completion:nil];
