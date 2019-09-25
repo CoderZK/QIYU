@@ -49,21 +49,21 @@
     }];
     
     
-    UIButton * clickBt=[[UIButton alloc] initWithFrame:CGRectMake(ScreenW - 70 - 15,  sstatusHeight + 2,70, 40)];
+    UIButton * newClickUpAndInsideBT=[[UIButton alloc] initWithFrame:CGRectMake(ScreenW - 70 - 15,  sstatusHeight + 2,70, 40)];
     
-    //    [clickBt setBackgroundImage:[UIImage imageNamed:@"15"] forState:UIControlStateNormal];
-    [clickBt setTitle:@"编辑" forState:UIControlStateNormal];
-    [clickBt setTitle:@"取消收藏" forState:UIControlStateSelected];
-    [clickBt sizeToFit];
-    clickBt.contentHorizontalAlignment = UIControlContentHorizontalAlignmentRight;
-    clickBt.titleLabel.font = kFont(14);
-    [clickBt setTitleColor:[UIColor blackColor] forState:UIControlStateNormal];
-    [clickBt addTarget:self action:@selector(leftOrRightClickAction:) forControlEvents:UIControlEventTouchUpInside];
-    clickBt.tag = 11;
-    self.editBt = clickBt;
+    //    [newClickUpAndInsideBT setBackgroundImage:[UIImage imageNamed:@"15"] forState:UIControlStateNormal];
+    [newClickUpAndInsideBT setTitle:@"编辑" forState:UIControlStateNormal];
+    [newClickUpAndInsideBT setTitle:@"取消收藏" forState:UIControlStateSelected];
+    [newClickUpAndInsideBT sizeToFit];
+    newClickUpAndInsideBT.contentHorizontalAlignment = UIControlContentHorizontalAlignmentRight;
+    newClickUpAndInsideBT.titleLabel.font = kFont(14);
+    [newClickUpAndInsideBT setTitleColor:[UIColor blackColor] forState:UIControlStateNormal];
+    [newClickUpAndInsideBT addTarget:self action:@selector(leftOrRightClickAction:) forControlEvents:UIControlEventTouchUpInside];
+    newClickUpAndInsideBT.tag = 11;
+    self.editBt = newClickUpAndInsideBT;
     UIButton * clickBt1=[[UIButton alloc] initWithFrame:CGRectMake(ScreenW - 70 - 15,  sstatusHeight + 2,70, 40)];
     
-    //    [clickBt setBackgroundImage:[UIImage imageNamed:@"15"] forState:UIControlStateNormal];
+    //    [newClickUpAndInsideBT setBackgroundImage:[UIImage imageNamed:@"15"] forState:UIControlStateNormal];
     [clickBt1 setTitle:@"返回" forState:UIControlStateNormal];
     clickBt1.contentHorizontalAlignment = UIControlContentHorizontalAlignmentRight;
     clickBt1.titleLabel.font = kFont(14);
@@ -73,7 +73,7 @@
     clickBt1.tag = 12;
     self.backBt = clickBt1;
     self.backBt.hidden = YES;
-    //    [self.view addSubview:clickBt];
+    //    [self.view addSubview:newClickUpAndInsideBT];
     self.navigationItem.rightBarButtonItems = @[[[UIBarButtonItem alloc] initWithCustomView:self.editBt],[[UIBarButtonItem alloc] initWithCustomView:self.backBt]];
     
 }
@@ -83,11 +83,11 @@
 - (void)acquireDataFromServe {
     
     
-    NSMutableDictionary * dict = @{}.mutableCopy;
-    //    dict[@"tagId"] = @(self.tagId);
-    dict[@"pageNo"] = @(self.pageNo);
-    dict[@"pageSize"] = @(10);
-    [zkRequestTool networkingPOST:[QQYYURLDefineTool getMyCollectionListURL] parameters:dict success:^(NSURLSessionDataTask *task, id responseObject) {
+    NSMutableDictionary * requestDict = @{}.mutableCopy;
+    //    requestDict[@"tagId"] = @(self.tagId);
+    requestDict[@"pageNo"] = @(self.pageNo);
+    requestDict[@"pageSize"] = @(10);
+    [zkRequestTool networkingPOST:[QQYYURLDefineTool getMyCollectionListURL] parameters:requestDict success:^(NSURLSessionDataTask *task, id responseObject) {
         [self.tableView.mj_header endRefreshing];
         [self.tableView.mj_footer endRefreshing];
         if ([responseObject[@"code"] intValue]== 0) {
@@ -328,14 +328,14 @@
     
   
     
-    NSMutableDictionary * dict = @{}.mutableCopy;
-    dict[@"postId"] = model.postId;
-    dict[@"type"] = @"1";
+    NSMutableDictionary * requestDict = @{}.mutableCopy;
+    requestDict[@"postId"] = model.postId;
+    requestDict[@"type"] = @"1";
     NSString * url = [QQYYURLDefineTool getlikeURL];
     if (model.currentUserLike) {
         url = [QQYYURLDefineTool notlikeURL];
     }
-    [zkRequestTool networkingPOST:url parameters:dict success:^(NSURLSessionDataTask *task, id responseObject) {
+    [zkRequestTool networkingPOST:url parameters:requestDict success:^(NSURLSessionDataTask *task, id responseObject) {
         [self.tableView.mj_header endRefreshing];
         [self.tableView.mj_footer endRefreshing];
         if ([responseObject[@"code"] intValue]== 0) {

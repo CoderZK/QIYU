@@ -51,11 +51,11 @@
     [self.tableView registerClass:[QQYYNewsTwoCell class] forCellReuseIdentifier:@"cellTwo"];
     self.tableView.separatorStyle = UITableViewCellSeparatorStyleNone;
     
-    UIButton * clickBt=[[UIButton alloc] initWithFrame:CGRectMake(0, 0, 24, 24)];
-    [clickBt setBackgroundImage:[UIImage imageNamed:@"11"] forState:UIControlStateNormal];
-    [clickBt addTarget:self action:@selector(leftOrRightClickAction:) forControlEvents:UIControlEventTouchUpInside];
-    clickBt.tag = 11;
-    self.navigationItem.rightBarButtonItem = [[UIBarButtonItem alloc] initWithCustomView:clickBt];
+    UIButton * newClickUpAndInsideBT=[[UIButton alloc] initWithFrame:CGRectMake(0, 0, 24, 24)];
+    [newClickUpAndInsideBT setBackgroundImage:[UIImage imageNamed:@"11"] forState:UIControlStateNormal];
+    [newClickUpAndInsideBT addTarget:self action:@selector(leftOrRightClickAction:) forControlEvents:UIControlEventTouchUpInside];
+    newClickUpAndInsideBT.tag = 11;
+    self.navigationItem.rightBarButtonItem = [[UIBarButtonItem alloc] initWithCustomView:newClickUpAndInsideBT];
     
 //    //注册好友回调
 //    [[EMClient sharedClient].contactManager addDelegate:self delegateQueue:nil];
@@ -77,10 +77,10 @@
 - (void)acquireDataFromServe {
     
     
-    NSMutableDictionary * dict = @{}.mutableCopy;
-    dict[@"pageNo"] = @(self.pageNo);
-    dict[@"pageSize"] = @(10);
-    [zkRequestTool networkingPOST:[QQYYURLDefineTool getMyMessageListURL] parameters:dict success:^(NSURLSessionDataTask *task, id responseObject) {
+    NSMutableDictionary * requestDict = @{}.mutableCopy;
+    requestDict[@"pageNo"] = @(self.pageNo);
+    requestDict[@"pageSize"] = @(10);
+    [zkRequestTool networkingPOST:[QQYYURLDefineTool getMyMessageListURL] parameters:requestDict success:^(NSURLSessionDataTask *task, id responseObject) {
         [self.tableView.mj_header endRefreshing];
         [self.tableView.mj_footer endRefreshing];
         if ([responseObject[@"code"] intValue]== 0) {
@@ -213,7 +213,7 @@
         return cell;
     } else{
         QQYYNewsTwoCell * cell =[tableView dequeueReusableCellWithIdentifier:@"cellTwo" forIndexPath:indexPath];
-        [cell.headBt addTarget:self action:@selector(gotoZhuYeAction:) forControlEvents:UIControlEventTouchUpInside];
+        [cell.headBt addTarget:self action:@selector(goToTheOtherHomePageClickAction:) forControlEvents:UIControlEventTouchUpInside];
         cell.headBt.tag = indexPath.row + 100;
 //        if (indexPath.row == 0) {
 //            [cell.headBt setImage:[UIImage imageNamed:@"26"] forState:UIControlStateNormal];
@@ -255,7 +255,7 @@
 }
 
 
-- (void)gotoZhuYeAction:(UIButton *)button {
+- (void)goToTheOtherHomePageClickAction:(UIButton *)button {
     QQYYZhuYeTVC * vc =[[QQYYZhuYeTVC alloc] init];
     vc.hidesBottomBarWhenPushed = YES;
     vc.userId = self.dataArray[button.tag - 100].friendId;

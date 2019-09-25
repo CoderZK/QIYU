@@ -27,17 +27,17 @@
     [super viewDidLoad];
     self.selectArr = @[].mutableCopy;
 
-    UIButton * clickBt=[[UIButton alloc] initWithFrame:CGRectMake(ScreenW - 60 - 15,  sstatusHeight + 2,60, 40)];
+    UIButton * newClickUpAndInsideBT=[[UIButton alloc] initWithFrame:CGRectMake(ScreenW - 60 - 15,  sstatusHeight + 2,60, 40)];
     
-    //    [clickBt setBackgroundImage:[UIImage imageNamed:@"15"] forState:UIControlStateNormal];
-    [clickBt setTitle:@"完成" forState:UIControlStateNormal];
-    clickBt.contentHorizontalAlignment = UIControlContentHorizontalAlignmentRight;
-    clickBt.titleLabel.font = kFont(14);
-    [clickBt setTitleColor:[UIColor blackColor] forState:UIControlStateNormal];
-    [clickBt addTarget:self action:@selector(leftOrRightClickAction:) forControlEvents:UIControlEventTouchUpInside];
-    clickBt.tag = 11;
-    //    [self.view addSubview:clickBt];
-    self.navigationItem.rightBarButtonItem = [[UIBarButtonItem alloc] initWithCustomView:clickBt];
+    //    [newClickUpAndInsideBT setBackgroundImage:[UIImage imageNamed:@"15"] forState:UIControlStateNormal];
+    [newClickUpAndInsideBT setTitle:@"完成" forState:UIControlStateNormal];
+    newClickUpAndInsideBT.contentHorizontalAlignment = UIControlContentHorizontalAlignmentRight;
+    newClickUpAndInsideBT.titleLabel.font = kFont(14);
+    [newClickUpAndInsideBT setTitleColor:[UIColor blackColor] forState:UIControlStateNormal];
+    [newClickUpAndInsideBT addTarget:self action:@selector(leftOrRightClickAction:) forControlEvents:UIControlEventTouchUpInside];
+    newClickUpAndInsideBT.tag = 11;
+    //    [self.view addSubview:newClickUpAndInsideBT];
+    self.navigationItem.rightBarButtonItem = [[UIBarButtonItem alloc] initWithCustomView:newClickUpAndInsideBT];
     
     self.navigationItem.title = @"话题";
     self.headV = [[UIView alloc] initWithFrame:CGRectMake(0, 0, ScreenW, ScreenH)];
@@ -65,9 +65,9 @@
 - (void)acquireDataFromServe {
     
     
-    NSMutableDictionary * dict = @{}.mutableCopy;
+    NSMutableDictionary * requestDict = @{}.mutableCopy;
     
-    [zkRequestTool networkingPOST:[QQYYURLDefineTool getTopicListURL] parameters:dict success:^(NSURLSessionDataTask *task, id responseObject) {
+    [zkRequestTool networkingPOST:[QQYYURLDefineTool getTopicListURL] parameters:requestDict success:^(NSURLSessionDataTask *task, id responseObject) {
         [self.tableView.mj_header endRefreshing];
         [self.tableView.mj_footer endRefreshing];
         if ([responseObject[@"code"] intValue]== 0) {

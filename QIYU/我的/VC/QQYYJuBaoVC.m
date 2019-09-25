@@ -33,8 +33,6 @@
 
 - (IBAction)keFuAction:(UIButton *)button {
     
-
-        
         if (self.TV.text.length == 0) {
             [SVProgressHUD showErrorWithStatus:@"请输入意见反馈"];
             return;
@@ -42,46 +40,27 @@
         
         [self send];
 
-    
-    
 }
 
 - (void)send {
-    
-    
-    NSMutableDictionary * dict = @{}.mutableCopy;
-    dict[@"reportRemark"] = self.TV.text;
-    dict[@"linkId"] = self.ID;
-    dict[@"type"] = @"2";
-    [zkRequestTool networkingPOST:[QQYYURLDefineTool addMyReportURL] parameters:dict success:^(NSURLSessionDataTask *task, id responseObject) {
-        
+    NSMutableDictionary * requestDict = @{}.mutableCopy;
+    requestDict[@"reportRemark"] = self.TV.text;
+    requestDict[@"linkId"] = self.ID;
+    requestDict[@"type"] = @"2";
+    requestDict[@"suibian"] = @"不用管这个字段";
+    [zkRequestTool networkingPOST:[QQYYURLDefineTool addMyReportURL] parameters:requestDict success:^(NSURLSessionDataTask *task, id responseObject) {
         if ([responseObject[@"code"] intValue]== 0) {
             [SVProgressHUD showSuccessWithStatus:@"意见提交成功,感谢您的宝贵意见我们将进行改进"];
             dispatch_after(dispatch_time(DISPATCH_TIME_NOW, (int64_t)(0.8 * NSEC_PER_SEC)), dispatch_get_main_queue(), ^{
                 [self.navigationController popViewControllerAnimated:YES];
             });
-            
         }else {
             [self showAlertWithKey:[NSString stringWithFormat:@"%@",responseObject[@"code"]] message:responseObject[@"message"]];
         }
-        
     } failure:^(NSURLSessionDataTask *task, NSError *error) {
-        
-        
-        
+  
     }];
     
 }
-
-
-/*
-#pragma mark - Navigation
-
-// In a storyboard-based application, you will often want to do a little preparation before navigation
-- (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
-    // Get the new view controller using [segue destinationViewController].
-    // Pass the selected object to the new view controller.
-}
-*/
 
 @end

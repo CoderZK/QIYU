@@ -57,15 +57,15 @@
 - (void)sendFlowerWithNumber:(NSString *)number andLinkId:(NSString *)ID andIsGiveUser:(BOOL)isGeiUser result:(void(^)(BOOL isOK))resultBlock {
     
     
-    NSMutableDictionary * dict = @{}.mutableCopy;
-    dict[@"flowerNum"] = @([number integerValue]);
-    dict[@"linkId"] = ID;
+    NSMutableDictionary * requestDict = @{}.mutableCopy;
+    requestDict[@"flowerNum"] = @([number integerValue]);
+    requestDict[@"linkId"] = ID;
     if (isGeiUser) {
-        dict[@"type"] = @"userInfo";
+        requestDict[@"type"] = @"userInfo";
     }else {
-        dict[@"type"] = @"postInfo";
+        requestDict[@"type"] = @"postInfo";
     }
-    [zkRequestTool networkingPOST:[QQYYURLDefineTool sendFlowers] parameters:dict success:^(NSURLSessionDataTask *task, id responseObject) {
+    [zkRequestTool networkingPOST:[QQYYURLDefineTool sendFlowers] parameters:requestDict success:^(NSURLSessionDataTask *task, id responseObject) {
 
         if ([responseObject[@"code"] intValue]== 0) {
             

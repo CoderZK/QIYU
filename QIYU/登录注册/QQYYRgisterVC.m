@@ -107,14 +107,14 @@
         [SVProgressHUD showErrorWithStatus:@"请输入正确手机号"];
         return;
     }
-    NSMutableDictionary * dict = @{@"phone":self.phoneTF.text}.mutableCopy;
+    NSMutableDictionary * requestDict = @{@"phone":self.phoneTF.text}.mutableCopy;
     if (self.isTherd) {
-        dict[@"type"] = @"0";
+        requestDict[@"type"] = @"0";
     }else {
-        dict[@"type"] = @"1";
+        requestDict[@"type"] = @"1";
     }
-    dict[@"deviceId"] = [NSString stringWithFormat:@"%@",[[UIDevice currentDevice] identifierForVendor]];
-    [zkRequestTool networkingPOST:[QQYYURLDefineTool sendValidCodeURL] parameters:dict success:^(NSURLSessionDataTask *task, id responseObject) {
+    requestDict[@"deviceId"] = [NSString stringWithFormat:@"%@",[[UIDevice currentDevice] identifierForVendor]];
+    [zkRequestTool networkingPOST:[QQYYURLDefineTool sendValidCodeURL] parameters:requestDict success:^(NSURLSessionDataTask *task, id responseObject) {
         if ([responseObject[@"code"] intValue]== 0) {
             [self timeAction];
         }else {
@@ -148,10 +148,10 @@
         [SVProgressHUD showErrorWithStatus:@"请输入密码"];
         return;
     }
-    NSMutableDictionary * dict = @{@"phone":self.phoneTF.text}.mutableCopy;
-    dict[@"code"] = self.codeTF.text;
-    dict[@"password"] = self.passWordTF.text;
-    [zkRequestTool networkingPOST:[QQYYURLDefineTool validCodeURL] parameters:dict success:^(NSURLSessionDataTask *task, id responseObject) {
+    NSMutableDictionary * requestDict = @{@"phone":self.phoneTF.text}.mutableCopy;
+    requestDict[@"code"] = self.codeTF.text;
+    requestDict[@"password"] = self.passWordTF.text;
+    [zkRequestTool networkingPOST:[QQYYURLDefineTool validCodeURL] parameters:requestDict success:^(NSURLSessionDataTask *task, id responseObject) {
         if ([responseObject[@"code"] intValue]== 0) {
             if (self.isTherd) {
                 [self bindOrRegist];
@@ -198,12 +198,12 @@
         [SVProgressHUD showErrorWithStatus:@"请输入密码"];
         return;
     }
-    NSMutableDictionary * dict = @{@"phone":self.phoneTF.text}.mutableCopy;
-    dict[@"code"] = self.codeTF.text;
-    dict[@"password"] = self.passWordTF.text;
-    dict[@"type"] = self.apptype;
-    dict[@"appKey"] = self.appOpenId;
-    [zkRequestTool networkingPOST:[QQYYURLDefineTool bindPhoneAndAppKeyURL] parameters:dict success:^(NSURLSessionDataTask *task, id responseObject) {
+    NSMutableDictionary * requestDict = @{@"phone":self.phoneTF.text}.mutableCopy;
+    requestDict[@"code"] = self.codeTF.text;
+    requestDict[@"password"] = self.passWordTF.text;
+    requestDict[@"type"] = self.apptype;
+    requestDict[@"appKey"] = self.appOpenId;
+    [zkRequestTool networkingPOST:[QQYYURLDefineTool bindPhoneAndAppKeyURL] parameters:requestDict success:^(NSURLSessionDataTask *task, id responseObject) {
         if ([responseObject[@"code"] intValue] == 0) {
             
             QQYYLoginVC * vc = (QQYYLoginVC *)[self.navigationController.childViewControllers firstObject];

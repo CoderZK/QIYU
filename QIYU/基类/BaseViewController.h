@@ -28,10 +28,10 @@
  *  导航条右侧按钮的赋值/点击
  *  @param imgName   导航条图片
  *  @param title     导航条标题
- *  @param clickBt   右侧按钮
+ *  @param newClickUpAndInsideBT   右侧按钮
  *  @param buttonClick 点击bloc
  */
-- (void)setNavclickBtWithImg:(NSString *)imgName title:(NSString *)title withBlock:(void (^)(UIButton *clickBt))clickBt handleBtn:(void(^)())buttonClick;
+- (void)setNavclickBtWithImg:(NSString *)imgName title:(NSString *)title withBlock:(void (^)(UIButton *newClickUpAndInsideBT))newClickUpAndInsideBT handleBtn:(void(^)())buttonClick;
 
 - (BOOL)isCanUsePhotos;
 - (BOOL)isCanUsePicture;

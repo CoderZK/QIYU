@@ -72,19 +72,19 @@
          self.tableView.frame = CGRectMake(0, 0, ScreenW , ScreenH  - 50 - 34 );
     }
     
-    UIButton * clickBt=[[UIButton alloc] initWithFrame:CGRectMake(ScreenW - 60 - 15,  sstatusHeight + 2,60, 30)];
+    UIButton * newClickUpAndInsideBT=[[UIButton alloc] initWithFrame:CGRectMake(ScreenW - 60 - 15,  sstatusHeight + 2,60, 30)];
     
-    [clickBt setBackgroundImage:[UIImage imageNamed:@"backr"] forState:UIControlStateNormal];
-    [clickBt setTitle:@"发布" forState:UIControlStateNormal];
-//    clickBt.contentHorizontalAlignment = UIControlContentHorizontalAlignmentRight;
-    clickBt.layer.cornerRadius = 4;
-    clickBt.clipsToBounds = YES;
-    clickBt.titleLabel.font = kFont(14);
-    [clickBt setTitleColor:[UIColor whiteColor] forState:UIControlStateNormal];
-    [clickBt addTarget:self action:@selector(leftOrRightClickAction:) forControlEvents:UIControlEventTouchUpInside];
-    clickBt.tag = 11;
-    //    [self.view addSubview:clickBt];
-    self.navigationItem.rightBarButtonItem = [[UIBarButtonItem alloc] initWithCustomView:clickBt];
+    [newClickUpAndInsideBT setBackgroundImage:[UIImage imageNamed:@"backr"] forState:UIControlStateNormal];
+    [newClickUpAndInsideBT setTitle:@"发布" forState:UIControlStateNormal];
+//    newClickUpAndInsideBT.contentHorizontalAlignment = UIControlContentHorizontalAlignmentRight;
+    newClickUpAndInsideBT.layer.cornerRadius = 4;
+    newClickUpAndInsideBT.clipsToBounds = YES;
+    newClickUpAndInsideBT.titleLabel.font = kFont(14);
+    [newClickUpAndInsideBT setTitleColor:[UIColor whiteColor] forState:UIControlStateNormal];
+    [newClickUpAndInsideBT addTarget:self action:@selector(leftOrRightClickAction:) forControlEvents:UIControlEventTouchUpInside];
+    newClickUpAndInsideBT.tag = 11;
+    //    [self.view addSubview:newClickUpAndInsideBT];
+    self.navigationItem.rightBarButtonItem = [[UIBarButtonItem alloc] initWithCustomView:newClickUpAndInsideBT];
     
     
     self.headView = [[UIView alloc] initWithFrame:CGRectMake(0, 0, ScreenW, ScreenH)];
@@ -268,9 +268,9 @@
 - (void)acquireDataFromServe {
     
     
-    NSMutableDictionary * dict = @{}.mutableCopy;
+    NSMutableDictionary * requestDict = @{}.mutableCopy;
     
-    [zkRequestTool networkingPOST:[QQYYURLDefineTool getSysSocialCircleListURL] parameters:dict success:^(NSURLSessionDataTask *task, id responseObject) {
+    [zkRequestTool networkingPOST:[QQYYURLDefineTool getSysSocialCircleListURL] parameters:requestDict success:^(NSURLSessionDataTask *task, id responseObject) {
         [self.tableView.mj_header endRefreshing];
         [self.tableView.mj_footer endRefreshing];
         if ([responseObject[@"code"] intValue]== 0) {
@@ -637,10 +637,10 @@
     
 
 
-    NSMutableDictionary * dict = @{}.mutableCopy;
-    dict[@"circleId"] = self.circleID;
-    dict[@"circleName"] = self.circleName;
-    dict[@"content"] = [NSString emojiConvert:self.TV.text];
+    NSMutableDictionary * requestDict = @{}.mutableCopy;
+    requestDict[@"circleId"] = self.circleID;
+    requestDict[@"circleName"] = self.circleName;
+    requestDict[@"content"] = [NSString emojiConvert:self.TV.text];
     
 //    if (self.nickNameStr.length > 0) {
 //        NSString * str = [NSString stringWithFormat:@"@%@ ",self.nickNameStr];
@@ -649,24 +649,24 @@
 //            [SVProgressHUD showErrorWithStatus:@"请输入发帖内容!"];
 //            return;
 //        }
-//        dict[@"content"] = contentStr;
+//        requestDict[@"content"] = contentStr;
 //
 //    }
     
-    dict[@"atUserId"] = self.idStr;
+    requestDict[@"atUserId"] = self.idStr;
     if (picStr) {
-        dict[@"pic"] = picStr;
+        requestDict[@"pic"] = picStr;
     }
     if (self.linkStr) {
-        dict[@"linkUrl"] = self.linkStr;
+        requestDict[@"linkUrl"] = self.linkStr;
     }
     NSMutableArray * arr = @[].mutableCopy;
     for (QQYYTongYongModel * model  in self.huaTiArr) {
         [arr addObject:model.ID];
     }
-    dict[@"tagId"] = [arr componentsJoinedByString:@","];
+    requestDict[@"tagId"] = [arr componentsJoinedByString:@","];
     button.userInteractionEnabled = NO;
-    [zkRequestTool networkingPOST:[QQYYURLDefineTool getaddURL] parameters:dict success:^(NSURLSessionDataTask *task, id responseObject) {
+    [zkRequestTool networkingPOST:[QQYYURLDefineTool getaddURL] parameters:requestDict success:^(NSURLSessionDataTask *task, id responseObject) {
         button.userInteractionEnabled = YES;
         if ([responseObject[@"code"] intValue]== 0) {
             

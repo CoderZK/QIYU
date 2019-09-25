@@ -27,16 +27,16 @@
     self.tixianBt.layer.cornerRadius = 22;
     self.tixianBt.clipsToBounds = YES;
     
-//    UIButton * clickBt=[[UIButton alloc] initWithFrame:CGRectMake(ScreenW - 60 - 15,  sstatusHeight + 2,60, 40)];
+//    UIButton * newClickUpAndInsideBT=[[UIButton alloc] initWithFrame:CGRectMake(ScreenW - 60 - 15,  sstatusHeight + 2,60, 40)];
 //    
-//    //    [clickBt setBackgroundImage:[UIImage imageNamed:@"15"] forState:UIControlStateNormal];
-//    [clickBt setTitle:@"提现记录" forState:UIControlStateNormal];
-//    clickBt.titleLabel.font = kFont(14);
-//    [clickBt setTitleColor:[UIColor blackColor] forState:UIControlStateNormal];
-//    [clickBt addTarget:self action:@selector(leftOrRightClickAction:) forControlEvents:UIControlEventTouchUpInside];
-//    clickBt.tag = 11;
+//    //    [newClickUpAndInsideBT setBackgroundImage:[UIImage imageNamed:@"15"] forState:UIControlStateNormal];
+//    [newClickUpAndInsideBT setTitle:@"提现记录" forState:UIControlStateNormal];
+//    newClickUpAndInsideBT.titleLabel.font = kFont(14);
+//    [newClickUpAndInsideBT setTitleColor:[UIColor blackColor] forState:UIControlStateNormal];
+//    [newClickUpAndInsideBT addTarget:self action:@selector(leftOrRightClickAction:) forControlEvents:UIControlEventTouchUpInside];
+//    newClickUpAndInsideBT.tag = 11;
 //
-//    self.navigationItem.rightBarButtonItem = [[UIBarButtonItem alloc] initWithCustomView:clickBt];
+//    self.navigationItem.rightBarButtonItem = [[UIBarButtonItem alloc] initWithCustomView:newClickUpAndInsideBT];
     
     self.titleLB.text = [NSString stringWithFormat:@"可提现%@元(1元对应100个爱豆)",self.flowerNumber];
     
@@ -86,12 +86,12 @@
             return;
         }
         
-        NSMutableDictionary * dict = @{}.mutableCopy;
-        dict[@"accountType"] = @(1);
-        dict[@"flowerNum"] = self.moneyTF.text;
-        dict[@"targetAccount"] = self.carNumber;
+        NSMutableDictionary * requestDict = @{}.mutableCopy;
+        requestDict[@"accountType"] = @(1);
+        requestDict[@"flowerNum"] = self.moneyTF.text;
+        requestDict[@"targetAccount"] = self.carNumber;
         
-        [zkRequestTool networkingPOST:[QQYYURLDefineTool addWithDrawURL] parameters:dict success:^(NSURLSessionDataTask *task, id responseObject) {
+        [zkRequestTool networkingPOST:[QQYYURLDefineTool addWithDrawURL] parameters:requestDict success:^(NSURLSessionDataTask *task, id responseObject) {
 
             if ([responseObject[@"code"] intValue]== 0) {
                 

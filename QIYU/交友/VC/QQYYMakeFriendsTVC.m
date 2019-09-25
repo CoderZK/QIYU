@@ -53,21 +53,21 @@
 - (void)acquireDataFromServe {
     
     
-    NSMutableDictionary * dict = @{}.mutableCopy;
-    dict[@"pageNo"] = @(self.pageNo);
-    dict[@"pageSize"] = @(10);
+    NSMutableDictionary * requestDict = @{}.mutableCopy;
+    requestDict[@"pageNo"] = @(self.pageNo);
+    requestDict[@"pageSize"] = @(10);
     NSString * url = [QQYYURLDefineTool nearbyUserListURL];
     if (self.isHot) {
         url = [QQYYURLDefineTool heatUserListURL];
     }else {
         
         if ([zkSignleTool shareTool].latitude > 0) {
-            dict[@"latitude"] = @([zkSignleTool shareTool].latitude);
-            dict[@"longitude"] = @([zkSignleTool shareTool].longitude);
+            requestDict[@"latitude"] = @([zkSignleTool shareTool].latitude);
+            requestDict[@"longitude"] = @([zkSignleTool shareTool].longitude);
         }
     }
     
-    [zkRequestTool networkingPOST:url parameters:dict success:^(NSURLSessionDataTask *task, id responseObject) {
+    [zkRequestTool networkingPOST:url parameters:requestDict success:^(NSURLSessionDataTask *task, id responseObject) {
         [self.tableView.mj_header endRefreshing];
         [self.tableView.mj_footer endRefreshing];
         if ([responseObject[@"code"] intValue]== 0) {
@@ -98,8 +98,8 @@
 
 - (void)changeView:(NSNotification *)noti {
     
-    NSDictionary * dict = noti.userInfo;
-    if ([dict[@"type"] integerValue] == 1) {
+    NSDictionary * requestDict = noti.userInfo;
+    if ([requestDict[@"type"] integerValue] == 1) {
         //点击的热度的筛选
         
     }else {
@@ -129,7 +129,7 @@
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
     
     QQYYMakeFriendsCell * cell =[tableView dequeueReusableCellWithIdentifier:@"cell" forIndexPath:indexPath];
-    [cell.headBt addTarget:self action:@selector(gotoZhuYeAction:) forControlEvents:UIControlEventTouchUpInside];
+    [cell.headBt addTarget:self action:@selector(goToTheOtherHomePageClickAction:) forControlEvents:UIControlEventTouchUpInside];
     cell.headBt.tag = indexPath.row + 100;
     cell.isHot = self.isHot;
     cell.model = self.dataArray[indexPath.row];
@@ -137,7 +137,7 @@
     
 }
 
-- (void)gotoZhuYeAction:(UIButton *)button {
+- (void)goToTheOtherHomePageClickAction:(UIButton *)button {
     QQYYZhuYeTVC * vc =[[QQYYZhuYeTVC alloc] init];
     vc.hidesBottomBarWhenPushed = YES;
     vc.userId = self.dataArray[button.tag - 100].userId;

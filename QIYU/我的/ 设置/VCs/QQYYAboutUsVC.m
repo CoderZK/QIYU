@@ -27,9 +27,9 @@
 - (void)acquireDataFromServe {
  
     
-    NSMutableDictionary * dict = @{}.mutableCopy;
+    NSMutableDictionary * requestDict = @{}.mutableCopy;
     
-    [zkRequestTool networkingPOST:[QQYYURLDefineTool getBannerListURL] parameters:dict success:^(NSURLSessionDataTask *task, id responseObject) {
+    [zkRequestTool networkingPOST:[QQYYURLDefineTool getBannerListURL] parameters:requestDict success:^(NSURLSessionDataTask *task, id responseObject) {
  
         if ([responseObject[@"code"] intValue]== 0) {
             

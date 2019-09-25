@@ -41,10 +41,10 @@
 - (void)acquireDataFromServe {
     
     
-    NSMutableDictionary * dict = @{}.mutableCopy;
-    dict[@"pageNo"] = @(self.pageNo);
-    dict[@"pageSize"] = @(10);
-    [zkRequestTool networkingPOST:[QQYYURLDefineTool getReplyListForMyPostURL] parameters:dict success:^(NSURLSessionDataTask *task, id responseObject) {
+    NSMutableDictionary * requestDict = @{}.mutableCopy;
+    requestDict[@"pageNo"] = @(self.pageNo);
+    requestDict[@"pageSize"] = @(10);
+    [zkRequestTool networkingPOST:[QQYYURLDefineTool getReplyListForMyPostURL] parameters:requestDict success:^(NSURLSessionDataTask *task, id responseObject) {
         [self.tableView.mj_header endRefreshing];
         [self.tableView.mj_footer endRefreshing];
         if ([responseObject[@"code"] intValue]== 0) {
@@ -91,7 +91,7 @@
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
     
     QQYYShouDaoDePingLunCell * cell =[tableView dequeueReusableCellWithIdentifier:@"cell" forIndexPath:indexPath];
-    [cell.headBt addTarget:self action:@selector(gotoZhuYeAction:) forControlEvents:UIControlEventTouchUpInside];
+    [cell.headBt addTarget:self action:@selector(goToTheOtherHomePageClickAction:) forControlEvents:UIControlEventTouchUpInside];
     cell.headBt.tag = indexPath.row + 100;
     cell.model = self.dataArray[indexPath.row];
     return cell;
@@ -146,22 +146,12 @@
 }
 
 
-- (void)gotoZhuYeAction:(UIButton *)button {
+- (void)goToTheOtherHomePageClickAction:(UIButton *)button {
     QQYYZhuYeTVC * vc =[[QQYYZhuYeTVC alloc] init];
     vc.hidesBottomBarWhenPushed = YES;
     vc.userId = self.dataArray[button.tag-100].replyUserId;
     [self.navigationController pushViewController:vc animated:YES];
 }
 
-
-/*
-#pragma mark - Navigation
-
-// In a storyboard-based application, you will often want to do a little preparation before navigation
-- (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
-    // Get the new view controller using [segue destinationViewController].
-    // Pass the selected object to the new view controller.
-}
-*/
 
 @end

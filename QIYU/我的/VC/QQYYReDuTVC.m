@@ -59,8 +59,8 @@
 
 - (void)acquireDataFromServeTwo {
     
-    NSMutableDictionary * dict = @{}.mutableCopy;
-    [zkRequestTool networkingPOST:[QQYYURLDefineTool getMyInfoCenterURL] parameters:dict success:^(NSURLSessionDataTask *task, id responseObject) {
+    NSMutableDictionary * requestDict = @{}.mutableCopy;
+    [zkRequestTool networkingPOST:[QQYYURLDefineTool getMyInfoCenterURL] parameters:requestDict success:^(NSURLSessionDataTask *task, id responseObject) {
         [self.tableView.mj_header endRefreshing];
         [self.tableView.mj_footer endRefreshing];
         if ([responseObject[@"code"] intValue]== 0) {
@@ -88,15 +88,15 @@
     [self.view addSubview:leftbtn];
 //    self.navigationItem.leftBarButtonItem = [[UIBarButtonItem alloc] initWithCustomView:leftbtn];
     
-    UIButton * clickBt=[[UIButton alloc] initWithFrame:CGRectMake(ScreenW - 60 - 15,  sstatusHeight + 2,60, 40)];
+    UIButton * newClickUpAndInsideBT=[[UIButton alloc] initWithFrame:CGRectMake(ScreenW - 60 - 15,  sstatusHeight + 2,60, 40)];
     
-//    [clickBt setBackgroundImage:[UIImage imageNamed:@"15"] forState:UIControlStateNormal];
-    [clickBt setTitle:@"历史记录" forState:UIControlStateNormal];
-    clickBt.titleLabel.font = kFont(14);
-    [clickBt addTarget:self action:@selector(leftOrRightClickAction:) forControlEvents:UIControlEventTouchUpInside];
-    clickBt.tag = 11;
-    [self.view addSubview:clickBt];
-//    self.navigationItem.rightBarButtonItem = [[UIBarButtonItem alloc] initWithCustomView:clickBt];
+//    [newClickUpAndInsideBT setBackgroundImage:[UIImage imageNamed:@"15"] forState:UIControlStateNormal];
+    [newClickUpAndInsideBT setTitle:@"历史记录" forState:UIControlStateNormal];
+    newClickUpAndInsideBT.titleLabel.font = kFont(14);
+    [newClickUpAndInsideBT addTarget:self action:@selector(leftOrRightClickAction:) forControlEvents:UIControlEventTouchUpInside];
+    newClickUpAndInsideBT.tag = 11;
+    [self.view addSubview:newClickUpAndInsideBT];
+//    self.navigationItem.rightBarButtonItem = [[UIBarButtonItem alloc] initWithCustomView:newClickUpAndInsideBT];
 }
 
 - (void)initHeadV {
@@ -137,9 +137,9 @@
 - (void)acquireDataFromServe {
     
     
-    NSMutableDictionary * dict = @{}.mutableCopy;
+    NSMutableDictionary * requestDict = @{}.mutableCopy;
     
-    [zkRequestTool networkingPOST:[QQYYURLDefineTool getHeatPkgListURL] parameters:dict success:^(NSURLSessionDataTask *task, id responseObject) {
+    [zkRequestTool networkingPOST:[QQYYURLDefineTool getHeatPkgListURL] parameters:requestDict success:^(NSURLSessionDataTask *task, id responseObject) {
         [self.tableView.mj_header endRefreshing];
         [self.tableView.mj_footer endRefreshing];
         if ([responseObject[@"code"] intValue]== 0) {
@@ -287,14 +287,14 @@
     }
     
     
-    NSMutableDictionary * dict = @{}.mutableCopy;
-    dict[@"pkgId"] = self.dataArray[self.selctIndex].ID;
+    NSMutableDictionary * requestDict = @{}.mutableCopy;
+    requestDict[@"pkgId"] = self.dataArray[self.selctIndex].ID;
     if (self.selectIndexZhiFu == 0) {
-        dict[@"payType"] = @(4);
+        requestDict[@"payType"] = @(4);
     }else {
-        dict[@"payType"] = @(3);
+        requestDict[@"payType"] = @(3);
     }
-    [zkRequestTool networkingPOST:[QQYYURLDefineTool heatReChargeURL] parameters:dict success:^(NSURLSessionDataTask *task, id responseObject) {
+    [zkRequestTool networkingPOST:[QQYYURLDefineTool heatReChargeURL] parameters:requestDict success:^(NSURLSessionDataTask *task, id responseObject) {
         
         if ([responseObject[@"code"] intValue]== 0) {
             

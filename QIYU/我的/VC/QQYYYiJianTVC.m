@@ -62,9 +62,9 @@
 - (void)getKeFu {
     
     
-    NSMutableDictionary * dict = @{}.mutableCopy;
+    NSMutableDictionary * requestDict = @{}.mutableCopy;
     
-    [zkRequestTool networkingPOST:[QQYYURLDefineTool contactKefURL] parameters:dict success:^(NSURLSessionDataTask *task, id responseObject) {
+    [zkRequestTool networkingPOST:[QQYYURLDefineTool contactKefURL] parameters:requestDict success:^(NSURLSessionDataTask *task, id responseObject) {
 
         if ([responseObject[@"code"] intValue]== 0) {
             self.model = [zkHomelModel mj_objectWithKeyValues:responseObject[@"object"]];
@@ -86,9 +86,9 @@
 - (void)send {
     
     
-    NSMutableDictionary * dict = @{}.mutableCopy;
-    dict[@"content"] = self.TV.text;
-    [zkRequestTool networkingPOST:[QQYYURLDefineTool addMyFeedBackURL] parameters:dict success:^(NSURLSessionDataTask *task, id responseObject) {
+    NSMutableDictionary * requestDict = @{}.mutableCopy;
+    requestDict[@"content"] = self.TV.text;
+    [zkRequestTool networkingPOST:[QQYYURLDefineTool addMyFeedBackURL] parameters:requestDict success:^(NSURLSessionDataTask *task, id responseObject) {
 
         if ([responseObject[@"code"] intValue]== 0) {
             [SVProgressHUD showSuccessWithStatus:@"意见提交成功,感谢您的宝贵意见我们将进行改进"];

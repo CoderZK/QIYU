@@ -47,10 +47,7 @@
     /* 设置友盟appkey */
     [[UMSocialManager defaultManager] setUmSocialAppkey:UMKey];
 
-    [self configUSharePlatforms];
-
-    [self confitUShareSettings];
-
+    [self setConfigUMSharePlatforms];
     [self initUment:launchOptions];
 
     // 发送崩溃日志
@@ -158,7 +155,7 @@
         if(type == 1) {
            
             
-            [self outLogin];
+            [self OutUserLoginAction];
             
         }
     };
@@ -167,11 +164,11 @@
 }
 
 //退出登录
-- (void)outLogin {
+- (void)OutUserLoginAction {
     
-    NSMutableDictionary * dict = @{}.mutableCopy;
+    NSMutableDictionary * requestDict = @{}.mutableCopy;
     
-    [zkRequestTool networkingPOST:[QQYYURLDefineTool getlogoutURL] parameters:dict success:^(NSURLSessionDataTask *task, id responseObject) {
+    [zkRequestTool networkingPOST:[QQYYURLDefineTool getlogoutURL] parameters:requestDict success:^(NSURLSessionDataTask *task, id responseObject) {
         if ([responseObject[@"code"] intValue]== 0) {
 
             [zkSignleTool shareTool].isLogin = NO;
@@ -194,33 +191,18 @@
     
 }
 
-- (void)configUSharePlatforms
+- (void)setConfigUMSharePlatforms
 {
     /* 设置微信的appKey和appSecret */
     [[UMSocialManager defaultManager] setPlaform:UMSocialPlatformType_WechatSession appKey:WXAppID appSecret:WXAppSecret redirectURL:@"http://mobile.umeng.com/social"];
-    /*
-     * 移除相应平台的分享，如微信收藏
-     */
-    //[[UMSocialManager defaultManager] removePlatformProviderWithPlatformTypes:@[@(UMSocialPlatformType_WechatFavorite)]];
-
-    /* 设置分享到QQ互联的appID
-     * U-Share SDK为了兼容大部分平台命名，统一用appKey和appSecret进行参数设置，而QQ平台仅需将appID作为U-Share的appKey参数传进即可。
-     */
     [[UMSocialManager defaultManager] setPlaform:UMSocialPlatformType_QQ appKey:QQAppID/*设置QQ平台的appID*/  appSecret:QQAppKey redirectURL:@"http://mobile.umeng.com/social"];
-
-    /* 设置新浪的appKey和appSecret */
     [[UMSocialManager defaultManager] setPlaform:UMSocialPlatformType_Sina appKey:SinaAppKey  appSecret:SinaAppSecret redirectURL:@"https://sns.whalecloud.com/sina2/callback"];
-
-
 }
 
 - (void)initUment:(NSDictionary *)launchOptions{
     //友盟适配https
     [UMessage startWithAppkey:UMKey launchOptions:launchOptions httpsEnable:YES];
-    //    [UMessage startWithAppkey:UMKey launchOptions:launchOptions];
     [UMessage registerForRemoteNotifications];
-    
-    //iOS10必须加下面这段代码。
     UNUserNotificationCenter *center = [UNUserNotificationCenter currentNotificationCenter];
     center.delegate=self;
     UNAuthorizationOptions types10=UNAuthorizationOptionBadge|  UNAuthorizationOptionAlert|UNAuthorizationOptionSound;
@@ -238,24 +220,7 @@
     [UMessage setLogEnabled:YES];
 }
 
-- (void)confitUShareSettings
-{
-    /*
-     * 打开图片水印
-     */
-    //[UMSocialGlobal shareInstance].isUsingWaterMark = YES;
-    
-    /*
-     * 关闭强制验证https，可允许http图片分享，但需要在info.plist设置安全域名
-     <key>NSAppTransportSecurity</key>
-     <dict>
-     <key>NSAllowsArbitraryLoads</key>
-     <true/>
-     </dict>
-     */
-    //[UMSocialGlobal shareInstance].isUsingHttpsWhenShareContent = NO;
-    
-}
+
 
 
 //在用户接受推送通知后系统会调用
@@ -285,7 +250,6 @@
 
 //设置根视图控制器
 - (UIViewController *)instantiateRootVC{
-    
     //没有引导页
     TabBarController *BarVC=[[TabBarController alloc] init];
     return BarVC;
@@ -335,7 +299,6 @@
     } else if ([url.absoluteString hasPrefix:@"wx013aad9217dedd99://pay"] ) {
         //微信
         [WXApi handleOpenURL:url delegate:self];
-        
     }else {//友盟
         [[UMSocialManager defaultManager] handleOpenURL:url];
     }
@@ -352,14 +315,10 @@
             NSLog(@"result ======================== %@",resultDic);
         }];
     } else if ([url.absoluteString hasPrefix:@"wx013aad9217dedd99://pay"] ) {
-        
         [WXApi handleOpenURL:url delegate:self];
-        
-        
     }else {
         [[UMSocialManager defaultManager] handleOpenURL:url];
     }
-    
     return YES;
 }
 - (BOOL)application:(UIApplication *)app openURL:(NSURL *)url options:(NSDictionary<NSString *,id> *)options {
@@ -369,12 +328,10 @@
         [[AlipaySDK defaultService] processOrderWithPaymentResult:url standbyCallback:^(NSDictionary *resultDic) {
             //发送一个通知
             [[NSNotificationCenter defaultCenter] postNotificationName:@"ZFBPAY" object:resultDic];
-            
             NSLog(@"result ======================== %@",resultDic);
         }];
     } else if ([url.absoluteString hasPrefix:@"wx013aad9217dedd99://pay"] ) {
         [WXApi handleOpenURL:url delegate:self];
-        
     }else {
         [[UMSocialManager defaultManager] handleOpenURL:url options:options];
     }

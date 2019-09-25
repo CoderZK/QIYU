@@ -77,9 +77,9 @@
 - (void)acquireDataFromServe {
     
     
-    NSMutableDictionary * dict = @{}.mutableCopy;
+    NSMutableDictionary * requestDict = @{}.mutableCopy;
     
-    [zkRequestTool networkingPOST:[QQYYURLDefineTool getVipPkgListURL] parameters:dict success:^(NSURLSessionDataTask *task, id responseObject) {
+    [zkRequestTool networkingPOST:[QQYYURLDefineTool getVipPkgListURL] parameters:requestDict success:^(NSURLSessionDataTask *task, id responseObject) {
         [self.tableView.mj_header endRefreshing];
         [self.tableView.mj_footer endRefreshing];
         if ([responseObject[@"code"] intValue]== 0) {
@@ -209,14 +209,14 @@
 - (void)rightBtAction:(UIButton *)button {
   
     QQYYTongYongModel * model = self.dataArray[button.tag - 100];
-    NSMutableDictionary * dict = @{}.mutableCopy;
+    NSMutableDictionary * requestDict = @{}.mutableCopy;
     if (self.selectIndexZhiFu == 0) {
-        dict[@"payType"] = @(4);
+        requestDict[@"payType"] = @(4);
     }else {
-        dict[@"payType"] = @(3);
+        requestDict[@"payType"] = @(3);
     }
-    dict[@"pkgId"] = model.ID;
-    [zkRequestTool networkingPOST:[QQYYURLDefineTool vipReChargeURL] parameters:dict success:^(NSURLSessionDataTask *task, id responseObject) {
+    requestDict[@"pkgId"] = model.ID;
+    [zkRequestTool networkingPOST:[QQYYURLDefineTool vipReChargeURL] parameters:requestDict success:^(NSURLSessionDataTask *task, id responseObject) {
       
         if ([responseObject[@"code"] intValue]== 0) {
             

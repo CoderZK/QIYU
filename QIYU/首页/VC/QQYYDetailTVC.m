@@ -100,11 +100,11 @@
     [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(keyboardWillBeHiden:) name:UIKeyboardWillHideNotification object:nil];
     
     
-    UIButton * clickBt=[[UIButton alloc] initWithFrame:CGRectMake(0, 0, 24, 24)];
-    [clickBt setBackgroundImage:[UIImage imageNamed:@"sandian"] forState:UIControlStateNormal];
-    [clickBt addTarget:self action:@selector(leftOrRightClickAction:) forControlEvents:UIControlEventTouchUpInside];
-    clickBt.tag = 11;
-    self.navigationItem.rightBarButtonItem = [[UIBarButtonItem alloc] initWithCustomView:clickBt];
+    UIButton * newClickUpAndInsideBT=[[UIButton alloc] initWithFrame:CGRectMake(0, 0, 24, 24)];
+    [newClickUpAndInsideBT setBackgroundImage:[UIImage imageNamed:@"sandian"] forState:UIControlStateNormal];
+    [newClickUpAndInsideBT addTarget:self action:@selector(leftOrRightClickAction:) forControlEvents:UIControlEventTouchUpInside];
+    newClickUpAndInsideBT.tag = 11;
+    self.navigationItem.rightBarButtonItem = [[UIBarButtonItem alloc] initWithCustomView:newClickUpAndInsideBT];
     
     [self acquireDataFromServe];
     self.pageNo = 1;
@@ -171,11 +171,11 @@
 - (void)getPingLun {
     
     
-    NSMutableDictionary * dict = @{}.mutableCopy;
-    dict[@"postId"] = self.ID;
-    dict[@"pageNo"] = @(self.pageNo);
-    dict[@"pageSize"] = @(10);
-    [zkRequestTool networkingPOST:[QQYYURLDefineTool getReplyPageListForPostURL] parameters:dict success:^(NSURLSessionDataTask *task, id responseObject) {
+    NSMutableDictionary * requestDict = @{}.mutableCopy;
+    requestDict[@"postId"] = self.ID;
+    requestDict[@"pageNo"] = @(self.pageNo);
+    requestDict[@"pageSize"] = @(10);
+    [zkRequestTool networkingPOST:[QQYYURLDefineTool getReplyPageListForPostURL] parameters:requestDict success:^(NSURLSessionDataTask *task, id responseObject) {
         [self.tableView.mj_header endRefreshing];
         [self.tableView.mj_footer endRefreshing];
         if ([responseObject[@"code"] intValue]== 0) {
@@ -494,13 +494,13 @@
         [SVProgressHUD showErrorWithStatus:@"请输入评论内容"];
         return;
     }
-    NSMutableDictionary * dict = @{}.mutableCopy;
-    dict[@"postId"] = self.ID;
-    dict[@"content"] = [NSString emojiConvert:self.TV2.text];
+    NSMutableDictionary * requestDict = @{}.mutableCopy;
+    requestDict[@"postId"] = self.ID;
+    requestDict[@"content"] = [NSString emojiConvert:self.TV2.text];
     if (!self.isPingTie) {
-        dict[@"replyId"] = self.dataModel.replyInfoVoList[self.selectIndexPath.row].ID;
+        requestDict[@"replyId"] = self.dataModel.replyInfoVoList[self.selectIndexPath.row].ID;
     }
-    [zkRequestTool networkingPOST:[QQYYURLDefineTool getreplyURL] parameters:dict success:^(NSURLSessionDataTask *task, id responseObject) {
+    [zkRequestTool networkingPOST:[QQYYURLDefineTool getreplyURL] parameters:requestDict success:^(NSURLSessionDataTask *task, id responseObject) {
         [self.tableView.mj_header endRefreshing];
         [self.tableView.mj_footer endRefreshing];
         if ([responseObject[@"code"] intValue]== 0) {
@@ -619,9 +619,9 @@
 //收藏或者取消操作
 - (void)collectionWithModel:(zkHomelModel *)model WithIndePath:(NSIndexPath *)indexPath{
     
-    NSMutableDictionary * dict = @{}.mutableCopy;
-    dict[@"targetId"] = model.postId;
-    dict[@"type"] = @"2";
+    NSMutableDictionary * requestDict = @{}.mutableCopy;
+    requestDict[@"targetId"] = model.postId;
+    requestDict[@"type"] = @"2";
     NSString * url = [QQYYURLDefineTool addMyCollectionURL];
     if (model.currentUserCollect) {
         url = [QQYYURLDefineTool deleteMyCollectionURL];
@@ -650,7 +650,7 @@
             
         }];
     }else {
-        [zkRequestTool networkingPOST:url parameters:dict success:^(NSURLSessionDataTask *task, id responseObject) {
+        [zkRequestTool networkingPOST:url parameters:requestDict success:^(NSURLSessionDataTask *task, id responseObject) {
             [self.tableView.mj_header endRefreshing];
             [self.tableView.mj_footer endRefreshing];
             if ([responseObject[@"code"] intValue]== 0) {
@@ -685,14 +685,14 @@
     
 
     
-    NSMutableDictionary * dict = @{}.mutableCopy;
-    dict[@"postId"] = model.postId;
-    dict[@"type"] = @"1";
+    NSMutableDictionary * requestDict = @{}.mutableCopy;
+    requestDict[@"postId"] = model.postId;
+    requestDict[@"type"] = @"1";
     NSString * url = [QQYYURLDefineTool getlikeURL];
     if (model.currentUserLike) {
         url = [QQYYURLDefineTool notlikeURL];
     }
-    [zkRequestTool networkingPOST:url parameters:dict success:^(NSURLSessionDataTask *task, id responseObject) {
+    [zkRequestTool networkingPOST:url parameters:requestDict success:^(NSURLSessionDataTask *task, id responseObject) {
         [self.tableView.mj_header endRefreshing];
         [self.tableView.mj_footer endRefreshing];
         if ([responseObject[@"code"] intValue]== 0) {

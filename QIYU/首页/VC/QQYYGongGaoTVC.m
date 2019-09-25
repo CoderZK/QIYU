@@ -104,14 +104,14 @@
 
 - (void)guanZhuAction{
     
-    NSMutableDictionary * dict = @{}.mutableCopy;
-    dict[@"type"] = @"2";
-    dict[@"userId"] = self.cricleID;
+    NSMutableDictionary * requestDict = @{}.mutableCopy;
+    requestDict[@"type"] = @"2";
+    requestDict[@"userId"] = self.cricleID;
     NSString * url = [QQYYURLDefineTool addUserSubscribeURL];
     if (self.dataModel.subscribed) {
         url = [QQYYURLDefineTool deleteUserSubscribeURL];
     }
-    [zkRequestTool networkingPOST:url parameters:dict success:^(NSURLSessionDataTask *task, id responseObject) {
+    [zkRequestTool networkingPOST:url parameters:requestDict success:^(NSURLSessionDataTask *task, id responseObject) {
         [self.tableView.mj_header endRefreshing];
         [self.tableView.mj_footer endRefreshing];
         if ([responseObject[@"code"] intValue]== 0) {

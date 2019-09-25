@@ -59,11 +59,11 @@
     self.titleArr = @[@[],@[@"开通会员"],@[@"我的主页",@"我的动态",@"谁看过我",@"我的相册",@"我的收藏",@"我的黑名单"],@[@"任务中心",@"实名认证",@"会员服务",@"我的订单",@"我的提现",@"意见反馈"]];
     
     
-    UIButton * clickBt=[[UIButton alloc] initWithFrame:CGRectMake(ScreenW - 24 -15 , sstatusHeight + 10 , 24, 24)];
-    [clickBt setBackgroundImage:[UIImage imageNamed:@"85"] forState:UIControlStateNormal];
-    [clickBt addTarget:self action:@selector(leftOrRightClickAction:) forControlEvents:UIControlEventTouchUpInside];
-    clickBt.tag = 11;
-    [self.view addSubview:clickBt];
+    UIButton * newClickUpAndInsideBT=[[UIButton alloc] initWithFrame:CGRectMake(ScreenW - 24 -15 , sstatusHeight + 10 , 24, 24)];
+    [newClickUpAndInsideBT setBackgroundImage:[UIImage imageNamed:@"85"] forState:UIControlStateNormal];
+    [newClickUpAndInsideBT addTarget:self action:@selector(leftOrRightClickAction:) forControlEvents:UIControlEventTouchUpInside];
+    newClickUpAndInsideBT.tag = 11;
+    [self.view addSubview:newClickUpAndInsideBT];
     
     self.tableView.mj_header = [MJRefreshNormalHeader headerWithRefreshingBlock:^{
         [self acquireDataFromServe];
@@ -74,8 +74,8 @@
 
 - (void)acquireDataFromServe {
     
-    NSMutableDictionary * dict = @{}.mutableCopy;
-    [zkRequestTool networkingPOST:[QQYYURLDefineTool getMyInfoCenterURL] parameters:dict success:^(NSURLSessionDataTask *task, id responseObject) {
+    NSMutableDictionary * requestDict = @{}.mutableCopy;
+    [zkRequestTool networkingPOST:[QQYYURLDefineTool getMyInfoCenterURL] parameters:requestDict success:^(NSURLSessionDataTask *task, id responseObject) {
         [self.tableView.mj_header endRefreshing];
         [self.tableView.mj_footer endRefreshing];
         if ([responseObject[@"code"] intValue]== 0) {

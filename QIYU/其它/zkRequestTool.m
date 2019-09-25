@@ -187,9 +187,9 @@
 //    [manager.requestSerializer setValue:@"http://iosapi.jkcsoft.com/public/index.html" forHTTPHeaderField:@"Referer"];
     //    manager.responseSerializer = [AFHTTPResponseSerializer serializer];
     
-//    NSDictionary * dict = parameters;
+//    NSDictionary * requestDict = parameters;
     //获取josnzi字符串
-//    NSString * josnStr = [NSString convertToJsonData:dict];
+//    NSString * josnStr = [NSString convertToJsonData:requestDict];
 //    //获取MD5字符串
 //    NSString * MD5Str = [NSString stringToMD5:[josnStr stringByAppendingString:@"1375d7ac2b2a8e25"]];
 //    NSDictionary * paraDict = @{@"authCode":MD5Str,@"jsonObj":josnStr};
@@ -226,9 +226,9 @@
     NSMutableDictionary *mDict = [NSMutableDictionary dictionaryWithDictionary:parameters];
     AFHTTPSessionManager * manager = [AFHTTPSessionManager manager];
     manager.responseSerializer.acceptableContentTypes = [NSSet setWithObjects:@"application/json",@"text/plain", @"text/html",@"text/json",@"text/javascript", nil];
-    NSDictionary * dict = parameters;
+    NSDictionary * requestDict = parameters;
     //    //获取josnzi字符串
-    //    NSString * josnStr = [NSString convertToJsonData:dict];
+    //    NSString * josnStr = [NSString convertToJsonData:requestDict];
     //    //获取MD5字符串
     //    NSString * MD5Str = [NSString stringToMD5:[josnStr stringByAppendingString:@"1375d7ac2b2a8e25"]];
     //    NSDictionary * paraDict = @{@"authCode":MD5Str,@"jsonObj":josnStr};
@@ -279,9 +279,9 @@
     [manager.requestSerializer setValue:@"http://iosapi.jkcsoft.com/public/index.html" forHTTPHeaderField:@"Referer"];
     
     
-//    NSDictionary * dict = parameters;
+//    NSDictionary * requestDict = parameters;
 //    //获取josnzi字符串
-//    NSString * josnStr = [NSString convertToJsonData:dict];
+//    NSString * josnStr = [NSString convertToJsonData:requestDict];
 //    //获取MD5字符串
 //    NSString * MD5Str = [NSString stringToMD5:[josnStr stringByAppendingString:@"1375d7ac2b2a8e25"]];
 //    NSDictionary * paraDict = @{@"authCode":MD5Str,@"jsonObj":josnStr};

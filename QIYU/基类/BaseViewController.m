@@ -95,7 +95,7 @@ typedef void (^Nav2)();
 }
 
 //右侧点击按钮
--(void)setNavclickBtWithImg:(NSString *)imgName title:(NSString *)title withBlock:(void (^)(UIButton *clickBt))clickBt handleBtn:(void (^)())butnClick{
+-(void)setNavclickBtWithImg:(NSString *)imgName title:(NSString *)title withBlock:(void (^)(UIButton *newClickUpAndInsideBT))newClickUpAndInsideBT handleBtn:(void (^)())butnClick{
     _clickBt2 = [UIButton buttonWithType:UIButtonTypeCustom];
     _clickBt2.frame = CGRectMake(-20 , 0 , 60 , 44 );
     if (imgName!=nil&&imgName.length>0&&title!=nil&&title.length>0) {
@@ -122,7 +122,7 @@ typedef void (^Nav2)();
         self.navigationItem.leftBarButtonItem = rightBarButon2;
     }
     
-    clickBt(_clickBt2);
+    newClickUpAndInsideBT(_clickBt2);
     
     self.rightBlock2 = butnClick;
 }

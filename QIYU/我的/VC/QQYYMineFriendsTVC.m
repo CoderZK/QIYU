@@ -75,19 +75,19 @@
 - (void)acquireDataFromServe {
     
     
-    NSMutableDictionary * dict = @{}.mutableCopy;
-    dict[@"pageNo"] = @(self.pageNo);
-    dict[@"pageSize"] = @(10);
+    NSMutableDictionary * requestDict = @{}.mutableCopy;
+    requestDict[@"pageNo"] = @(self.pageNo);
+    requestDict[@"pageSize"] = @(10);
   
     NSString * url = @"";
     if (self.type == 0) {
         url = [QQYYURLDefineTool getMyFriendUserListURL];
     }else if (self.type ==1) {
         url = [QQYYURLDefineTool getMySubscribeUserListURL];
-        dict[@"userNo"] = self.userNo;
+        requestDict[@"userNo"] = self.userNo;
     }else if(self.type == 2){
         url = [QQYYURLDefineTool getMyFansUserListURL];
-        dict[@"userNo"] = self.userNo;
+        requestDict[@"userNo"] = self.userNo;
     }else if (self.type == 3) {
         url = [QQYYURLDefineTool getMyVisitorListURL];
     }else if (self.type == 4) {
@@ -96,7 +96,7 @@
         return;
     }
     
-    [zkRequestTool networkingPOST:url parameters:dict success:^(NSURLSessionDataTask *task, id responseObject) {
+    [zkRequestTool networkingPOST:url parameters:requestDict success:^(NSURLSessionDataTask *task, id responseObject) {
         [self.tableView.mj_header endRefreshing];
         [self.tableView.mj_footer endRefreshing];
         if ([responseObject[@"code"] intValue]== 0) {
@@ -140,8 +140,8 @@
         return;
     }
     
-    NSMutableDictionary * dict = @{}.mutableCopy;
-    dict[@"userNo"] = self.TF.text;
+    NSMutableDictionary * requestDict = @{}.mutableCopy;
+    requestDict[@"userNo"] = self.TF.text;
     [zkRequestTool networkingPOST:[QQYYURLDefineTool getNewFriendByUserNoURL] parameters:self.TF.text success:^(NSURLSessionDataTask *task, id responseObject) {
         [self.tableView.mj_header endRefreshing];
         [self.tableView.mj_footer endRefreshing];
@@ -212,7 +212,7 @@
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
     
     QQYYMineFriendsCell * cell =[tableView dequeueReusableCellWithIdentifier:@"cell" forIndexPath:indexPath];
-    [cell.headBt addTarget:self action:@selector(gotoZhuYeAction:) forControlEvents:UIControlEventTouchUpInside];
+    [cell.headBt addTarget:self action:@selector(goToTheOtherHomePageClickAction:) forControlEvents:UIControlEventTouchUpInside];
     cell.headBt.tag = indexPath.row + 100;
     [cell.guanZhuBt addTarget:self action:@selector(cancelGuanZhu:) forControlEvents:UIControlEventTouchUpInside];
     cell.guanZhuBt.tag = indexPath.row + 100;
@@ -376,7 +376,7 @@
 
 
 //去主页
-- (void)gotoZhuYeAction:(UIButton *)button {
+- (void)goToTheOtherHomePageClickAction:(UIButton *)button {
     QQYYZhuYeTVC * vc =[[QQYYZhuYeTVC alloc] init];
     vc.hidesBottomBarWhenPushed = YES;
     vc.userId = self.dataArray[button.tag - 100].userId;
@@ -386,16 +386,16 @@
 
 - (void)cancelGuanZhu:(UIButton *)button {
     
-    NSMutableDictionary * dict = @{}.mutableCopy;
-    dict[@"type"] = @"1";
-    dict[@"userId"] = self.dataArray[button.tag - 100].userId;
+    NSMutableDictionary * requestDict = @{}.mutableCopy;
+    requestDict[@"type"] = @"1";
+    requestDict[@"userId"] = self.dataArray[button.tag - 100].userId;
     NSString * url = [QQYYURLDefineTool deleteUserSubscribeURL];
     if (self.type == 2) {
         if (!self.dataArray[button.tag - 100].subscribed) {
             url =  [QQYYURLDefineTool addUserSubscribeURL];
         }
     }
-    [zkRequestTool networkingPOST:url parameters:dict success:^(NSURLSessionDataTask *task, id responseObject) {
+    [zkRequestTool networkingPOST:url parameters:requestDict success:^(NSURLSessionDataTask *task, id responseObject) {
         [self.tableView.mj_header endRefreshing];
         [self.tableView.mj_footer endRefreshing];
         if ([responseObject[@"code"] intValue]== 0) {

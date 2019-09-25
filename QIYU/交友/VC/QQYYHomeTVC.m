@@ -143,18 +143,18 @@
     
 - (void)acquireDataFromServe {
     
-    NSMutableDictionary * dict = @{}.mutableCopy;
-    dict[@"pageNo"] = @(self.pageNo);
+    NSMutableDictionary * requestDict = @{}.mutableCopy;
+    requestDict[@"pageNo"] = @(self.pageNo);
     NSString * url = [QQYYURLDefineTool nearbyUserListURL];
     if (self.isHot) {
         url = [QQYYURLDefineTool heatUserListURL];
     }else {
         if ([zkSignleTool shareTool].latitude > 0) {
-            dict[@"latitude"] = @([zkSignleTool shareTool].latitude);
-            dict[@"longitude"] = @([zkSignleTool shareTool].longitude);
+            requestDict[@"latitude"] = @([zkSignleTool shareTool].latitude);
+            requestDict[@"longitude"] = @([zkSignleTool shareTool].longitude);
         }
     }
-    [zkRequestTool networkingPOST:url parameters:dict success:^(NSURLSessionDataTask *task, id responseObject) {
+    [zkRequestTool networkingPOST:url parameters:requestDict success:^(NSURLSessionDataTask *task, id responseObject) {
         [self.tableView.mj_header endRefreshing];
         [self.tableView.mj_footer endRefreshing];
         self.tableView.userInteractionEnabled = YES;
@@ -292,7 +292,7 @@
         return cell;
     }else if (indexPath.section == 2) {
         QQYYMakeFriendsCell * cell =[tableView dequeueReusableCellWithIdentifier:@"cell" forIndexPath:indexPath];
-        [cell.headBt addTarget:self action:@selector(gotoZhuYeAction:) forControlEvents:UIControlEventTouchUpInside];
+        [cell.headBt addTarget:self action:@selector(goToTheOtherHomePageClickAction:) forControlEvents:UIControlEventTouchUpInside];
         cell.headBt.tag = indexPath.row + 100;
         cell.isHot = self.isHot;
         cell.model = self.dataArray[indexPath.row];
@@ -334,7 +334,7 @@
     
 }
 
-- (void)gotoZhuYeAction:(UIButton *)button {
+- (void)goToTheOtherHomePageClickAction:(UIButton *)button {
     QQYYZhuYeTVC * vc =[[QQYYZhuYeTVC alloc] init];
     vc.hidesBottomBarWhenPushed = YES;
     vc.userId = self.dataArray[button.tag - 100].userId;
@@ -416,15 +416,15 @@
     
     
     
-    NSMutableDictionary * dict = @{}.mutableCopy;
-    dict[@"postId"] = model.postId;
-    dict[@"type"] = @"1";
+    NSMutableDictionary * requestDict = @{}.mutableCopy;
+    requestDict[@"postId"] = model.postId;
+    requestDict[@"type"] = @"1";
     NSString * url = [QQYYURLDefineTool getlikeURL];
     if (model.currentUserLike) {
         url = [QQYYURLDefineTool notlikeURL];
     }
     
-    [zkRequestTool networkingPOST:url parameters:dict success:^(NSURLSessionDataTask *task, id responseObject) {
+    [zkRequestTool networkingPOST:url parameters:requestDict success:^(NSURLSessionDataTask *task, id responseObject) {
         [self.tableView.mj_header endRefreshing];
         [self.tableView.mj_footer endRefreshing];
         if ([responseObject[@"code"] intValue]== 0) {
@@ -455,9 +455,9 @@
 //收藏或者取消操作
 - (void)collectionWithModel:(zkHomelModel *)model WithIndePath:(NSIndexPath *)indexPath{
     
-    NSMutableDictionary * dict = @{}.mutableCopy;
-    dict[@"targetId"] = self.dataArray[indexPath.row].postId;
-    dict[@"type"] = @"2";
+    NSMutableDictionary * requestDict = @{}.mutableCopy;
+    requestDict[@"targetId"] = self.dataArray[indexPath.row].postId;
+    requestDict[@"type"] = @"2";
     NSString * url = [QQYYURLDefineTool addMyCollectionURL];
     if (model.currentUserCollect) {
         url = [QQYYURLDefineTool deleteMyCollectionURL];
@@ -486,7 +486,7 @@
             
         }];
     }else {
-        [zkRequestTool networkingPOST:url parameters:dict success:^(NSURLSessionDataTask *task, id responseObject) {
+        [zkRequestTool networkingPOST:url parameters:requestDict success:^(NSURLSessionDataTask *task, id responseObject) {
             [self.tableView.mj_header endRefreshing];
             [self.tableView.mj_footer endRefreshing];
             if ([responseObject[@"code"] intValue]== 0) {
@@ -609,9 +609,9 @@
 - (void)acquireDataFromServeDaLei {
     
     
-    NSMutableDictionary * dict = @{}.mutableCopy;
+    NSMutableDictionary * requestDict = @{}.mutableCopy;
     
-    [zkRequestTool networkingPOST:[QQYYURLDefineTool getSysSocialCircleListURL] parameters:dict success:^(NSURLSessionDataTask *task, id responseObject) {
+    [zkRequestTool networkingPOST:[QQYYURLDefineTool getSysSocialCircleListURL] parameters:requestDict success:^(NSURLSessionDataTask *task, id responseObject) {
         [self.tableView.mj_header endRefreshing];
         [self.tableView.mj_footer endRefreshing];
         if ([responseObject[@"code"] intValue]== 0) {

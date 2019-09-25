@@ -89,9 +89,9 @@
 - (void)acquireDataFromServe {
     
     
-    NSMutableDictionary * dict = @{}.mutableCopy;
+    NSMutableDictionary * requestDict = @{}.mutableCopy;
     
-    [zkRequestTool networkingPOST:[QQYYURLDefineTool getMyInfoURL] parameters:dict success:^(NSURLSessionDataTask *task, id responseObject) {
+    [zkRequestTool networkingPOST:[QQYYURLDefineTool getMyInfoURL] parameters:requestDict success:^(NSURLSessionDataTask *task, id responseObject) {
         [self.tableView.mj_header endRefreshing];
         [self.tableView.mj_footer endRefreshing];
         if ([responseObject[@"code"] intValue]== 0) {
@@ -573,16 +573,16 @@
 - (void)updateHeadImgOrbackImge {
     
    
-    NSMutableDictionary * dict = @{}.mutableCopy;
+    NSMutableDictionary * requestDict = @{}.mutableCopy;
     if(self.type == 1) {
-        dict[@"type"] = @"avatar";
-        dict[@"avatar"] = self.dataModel.avatar;
+        requestDict[@"type"] = @"avatar";
+        requestDict[@"avatar"] = self.dataModel.avatar;
     }else {
-        dict[@"type"] = @"background";
-        dict[@"avatar"] = self.dataModel.background;
+        requestDict[@"type"] = @"background";
+        requestDict[@"avatar"] = self.dataModel.background;
     }
     
-    [zkRequestTool networkingPOST:[QQYYURLDefineTool updateAvatarURL] parameters:dict success:^(NSURLSessionDataTask *task, id responseObject) {
+    [zkRequestTool networkingPOST:[QQYYURLDefineTool updateAvatarURL] parameters:requestDict success:^(NSURLSessionDataTask *task, id responseObject) {
         [self.tableView.mj_header endRefreshing];
         [self.tableView.mj_footer endRefreshing];
         if ([responseObject[@"code"] intValue]== 0) {
@@ -606,29 +606,29 @@
 - (void)xiugGAIAction {
     
     
-    NSMutableDictionary * dict = @{}.mutableCopy;
-    dict[@"avatar"] = self.dataModel.avatar;
-    dict[@"birthday"] = self.dataModel.birthday;
-    dict[@"gender"] = @(self.dataModel.gender);
-    dict[@"height"] = self.dataModel.height;
-    dict[@"weight"] = self.dataModel.weight;
+    NSMutableDictionary * requestDict = @{}.mutableCopy;
+    requestDict[@"avatar"] = self.dataModel.avatar;
+    requestDict[@"birthday"] = self.dataModel.birthday;
+    requestDict[@"gender"] = @(self.dataModel.gender);
+    requestDict[@"height"] = self.dataModel.height;
+    requestDict[@"weight"] = self.dataModel.weight;
     if (self.dataModel.marriageStatus != 0) {
-        dict[@"marriageStatus"] = @(self.dataModel.marriageStatus);
+        requestDict[@"marriageStatus"] = @(self.dataModel.marriageStatus);
     }
-    dict[@"nickName"] = self.dataModel.nickName;
+    requestDict[@"nickName"] = self.dataModel.nickName;
     if (self.provinceldID.length > 0) {
-      dict[@"provinceId"] = self.provinceldID;
+      requestDict[@"provinceId"] = self.provinceldID;
     }
     if (self.cityID.length > 0) {
-      dict[@"cityId"] = self.cityID;
+      requestDict[@"cityId"] = self.cityID;
     }
     if (self.sexGo != 0) {
-       dict[@"sexualOrientation"] = @(self.sexGo);
+       requestDict[@"sexualOrientation"] = @(self.sexGo);
     }
-    dict[@"sign"] = self.dataModel.sign;
-    dict[@"tags"] = self.tagIds;
-//    dict[@""]
-    [zkRequestTool networkingPOST:[QQYYURLDefineTool updateMyInfoURL] parameters:dict success:^(NSURLSessionDataTask *task, id responseObject) {
+    requestDict[@"sign"] = self.dataModel.sign;
+    requestDict[@"tags"] = self.tagIds;
+//    requestDict[@""]
+    [zkRequestTool networkingPOST:[QQYYURLDefineTool updateMyInfoURL] parameters:requestDict success:^(NSURLSessionDataTask *task, id responseObject) {
         [self.tableView.mj_header endRefreshing];
         [self.tableView.mj_footer endRefreshing];
         if ([responseObject[@"code"] intValue]== 0) {

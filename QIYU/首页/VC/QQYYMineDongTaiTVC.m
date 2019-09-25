@@ -61,21 +61,21 @@
         self.navigationItem.title = @"我的动态";
          self.tableView.frame = CGRectMake(0,0, ScreenW, ScreenH);
         
-        UIButton * clickBt=[[UIButton alloc] initWithFrame:CGRectMake(ScreenW - 70 - 15,  sstatusHeight + 2,70, 40)];
+        UIButton * newClickUpAndInsideBT=[[UIButton alloc] initWithFrame:CGRectMake(ScreenW - 70 - 15,  sstatusHeight + 2,70, 40)];
         
-        //    [clickBt setBackgroundImage:[UIImage imageNamed:@"15"] forState:UIControlStateNormal];
-        [clickBt setTitle:@"编辑" forState:UIControlStateNormal];
-        [clickBt setTitle:@"删除" forState:UIControlStateSelected];
-        [clickBt sizeToFit];
-        clickBt.contentHorizontalAlignment = UIControlContentHorizontalAlignmentRight;
-        clickBt.titleLabel.font = kFont(14);
-        [clickBt setTitleColor:[UIColor blackColor] forState:UIControlStateNormal];
-        [clickBt addTarget:self action:@selector(leftOrRightClickAction:) forControlEvents:UIControlEventTouchUpInside];
-        clickBt.tag = 11;
-        self.editBt = clickBt;
+        //    [newClickUpAndInsideBT setBackgroundImage:[UIImage imageNamed:@"15"] forState:UIControlStateNormal];
+        [newClickUpAndInsideBT setTitle:@"编辑" forState:UIControlStateNormal];
+        [newClickUpAndInsideBT setTitle:@"删除" forState:UIControlStateSelected];
+        [newClickUpAndInsideBT sizeToFit];
+        newClickUpAndInsideBT.contentHorizontalAlignment = UIControlContentHorizontalAlignmentRight;
+        newClickUpAndInsideBT.titleLabel.font = kFont(14);
+        [newClickUpAndInsideBT setTitleColor:[UIColor blackColor] forState:UIControlStateNormal];
+        [newClickUpAndInsideBT addTarget:self action:@selector(leftOrRightClickAction:) forControlEvents:UIControlEventTouchUpInside];
+        newClickUpAndInsideBT.tag = 11;
+        self.editBt = newClickUpAndInsideBT;
         UIButton * clickBt1=[[UIButton alloc] initWithFrame:CGRectMake(ScreenW - 70 - 15,  sstatusHeight + 2,70, 40)];
         
-        //    [clickBt setBackgroundImage:[UIImage imageNamed:@"15"] forState:UIControlStateNormal];
+        //    [newClickUpAndInsideBT setBackgroundImage:[UIImage imageNamed:@"15"] forState:UIControlStateNormal];
         [clickBt1 setTitle:@"返回" forState:UIControlStateNormal];
         clickBt1.hidden = YES;
         clickBt1.contentHorizontalAlignment = UIControlContentHorizontalAlignmentRight;
@@ -85,7 +85,7 @@
         [clickBt1 addTarget:self action:@selector(leftOrRightClickAction:) forControlEvents:UIControlEventTouchUpInside];
         clickBt1.tag = 12;
         self.backBt = clickBt1;
-        //    [self.view addSubview:clickBt];
+        //    [self.view addSubview:newClickUpAndInsideBT];
         self.navigationItem.rightBarButtonItems = @[[[UIBarButtonItem alloc] initWithCustomView:self.editBt],[[UIBarButtonItem alloc] initWithCustomView:self.backBt]];
         
        
@@ -265,24 +265,24 @@
 - (void)acquireDataFromServe {
     
     [SVProgressHUD show];
-    NSMutableDictionary * dict = @{}.mutableCopy;
-    //    dict[@"tagId"] = @(self.tagId);
-    dict[@"pageNo"] = @(self.pageNo);
-    dict[@"pageSize"] = @(10);
+    NSMutableDictionary * requestDict = @{}.mutableCopy;
+    //    requestDict[@"tagId"] = @(self.tagId);
+    requestDict[@"pageNo"] = @(self.pageNo);
+    requestDict[@"pageSize"] = @(10);
     if (self.isMine) {
-        dict[@"createBy"] = [zkSignleTool shareTool].session_uid;
+        requestDict[@"createBy"] = [zkSignleTool shareTool].session_uid;
     }else {
-        dict[@"circleId"] = self.circleId;
+        requestDict[@"circleId"] = self.circleId;
         if (self.type == 0){
-            dict[@"orderBy"] = @(2);
+            requestDict[@"orderBy"] = @(2);
         }else if (self.type == 1) {
-            dict[@"orderBy"] = @(1);
+            requestDict[@"orderBy"] = @(1);
         }else if (self.type == 2){
-            dict[@"subscribed"] = @(1);
+            requestDict[@"subscribed"] = @(1);
         }
     }
    
-    [zkRequestTool networkingPOST:[QQYYURLDefineTool getsearchURL] parameters:dict success:^(NSURLSessionDataTask *task, id responseObject) {
+    [zkRequestTool networkingPOST:[QQYYURLDefineTool getsearchURL] parameters:requestDict success:^(NSURLSessionDataTask *task, id responseObject) {
         [self.tableView.mj_header endRefreshing];
         [self.tableView.mj_footer endRefreshing];
         [SVProgressHUD dismiss];
@@ -378,14 +378,14 @@
 
 - (void)guanZhuAction{
     
-    NSMutableDictionary * dict = @{}.mutableCopy;
-    dict[@"type"] = @"2";
-    dict[@"userId"] = self.circleId;
+    NSMutableDictionary * requestDict = @{}.mutableCopy;
+    requestDict[@"type"] = @"2";
+    requestDict[@"userId"] = self.circleId;
     NSString * url = [QQYYURLDefineTool addUserSubscribeURL];
     if (self.isSubscribed) {
         url = [QQYYURLDefineTool deleteUserSubscribeURL];
     }
-    [zkRequestTool networkingPOST:url parameters:dict success:^(NSURLSessionDataTask *task, id responseObject) {
+    [zkRequestTool networkingPOST:url parameters:requestDict success:^(NSURLSessionDataTask *task, id responseObject) {
         [self.tableView.mj_header endRefreshing];
         [self.tableView.mj_footer endRefreshing];
         if ([responseObject[@"code"] intValue]== 0) {
@@ -520,14 +520,14 @@
 - (void)zanActionWithModel:(zkHomelModel *)model WithIndePath:(NSIndexPath *)indexPath{
 
     
-    NSMutableDictionary * dict = @{}.mutableCopy;
-    dict[@"postId"] = model.postId;
-    dict[@"type"] = @"1";
+    NSMutableDictionary * requestDict = @{}.mutableCopy;
+    requestDict[@"postId"] = model.postId;
+    requestDict[@"type"] = @"1";
     NSString * url = [QQYYURLDefineTool getlikeURL];
     if (model.currentUserLike) {
         url = [QQYYURLDefineTool notlikeURL];
     }
-    [zkRequestTool networkingPOST:url parameters:dict success:^(NSURLSessionDataTask *task, id responseObject) {
+    [zkRequestTool networkingPOST:url parameters:requestDict success:^(NSURLSessionDataTask *task, id responseObject) {
         [self.tableView.mj_header endRefreshing];
         [self.tableView.mj_footer endRefreshing];
         if ([responseObject[@"code"] intValue]== 0) {
@@ -556,9 +556,9 @@
 //收藏或者取消操作
 - (void)collectionWithModel:(zkHomelModel *)model WithIndePath:(NSIndexPath *)indexPath{
     
-    NSMutableDictionary * dict = @{}.mutableCopy;
-    dict[@"targetId"] = self.dataArray[indexPath.row].postId;
-    dict[@"type"] = @"2";
+    NSMutableDictionary * requestDict = @{}.mutableCopy;
+    requestDict[@"targetId"] = self.dataArray[indexPath.row].postId;
+    requestDict[@"type"] = @"2";
     NSString * url = [QQYYURLDefineTool addMyCollectionURL];
     if (model.currentUserCollect) {
         url = [QQYYURLDefineTool deleteMyCollectionURL];
@@ -587,7 +587,7 @@
             
         }];
     }else {
-        [zkRequestTool networkingPOST:url parameters:dict success:^(NSURLSessionDataTask *task, id responseObject) {
+        [zkRequestTool networkingPOST:url parameters:requestDict success:^(NSURLSessionDataTask *task, id responseObject) {
             [self.tableView.mj_header endRefreshing];
             [self.tableView.mj_footer endRefreshing];
             if ([responseObject[@"code"] intValue]== 0) {

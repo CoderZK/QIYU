@@ -15,12 +15,12 @@
 
 // 字典转json字符串方法
 
-+(NSString *)convertToJsonDataWithDict:(id)dict
++(NSString *)convertToJsonDataWithDict:(id)requestDict
 
 {
     
     NSError *error;
-    NSData *jsonData = [NSJSONSerialization dataWithJSONObject:dict options:NSJSONWritingPrettyPrinted error:&error];
+    NSData *jsonData = [NSJSONSerialization dataWithJSONObject:requestDict options:NSJSONWritingPrettyPrinted error:&error];
     
     NSString *jsonString;
     

@@ -64,14 +64,14 @@
         [SVProgressHUD showErrorWithStatus:@"请输入正确手机号"];
         return;
     }
-    NSMutableDictionary * dict = @{@"phone":self.phoneTF.text}.mutableCopy;
+    NSMutableDictionary * requestDict = @{@"phone":self.phoneTF.text}.mutableCopy;
     if (self.isBangDing) {
-        dict[@"type"] = @(4);
+        requestDict[@"type"] = @(4);
     }else {
-        dict[@"type"] = @(2);
+        requestDict[@"type"] = @(2);
     }
-    dict[@"deviceId"] = [NSString stringWithFormat:@"%@",[[UIDevice currentDevice] identifierForVendor]];
-    [zkRequestTool networkingPOST:[QQYYURLDefineTool sendValidCodeURL] parameters:dict success:^(NSURLSessionDataTask *task, id responseObject) {
+    requestDict[@"deviceId"] = [NSString stringWithFormat:@"%@",[[UIDevice currentDevice] identifierForVendor]];
+    [zkRequestTool networkingPOST:[QQYYURLDefineTool sendValidCodeURL] parameters:requestDict success:^(NSURLSessionDataTask *task, id responseObject) {
         if ([responseObject[@"code"] intValue]== 0) {
             [self timeAction];
         }else {
@@ -102,20 +102,20 @@
     }
     
     
-    NSMutableDictionary * dict = @{}.mutableCopy;
-    dict[@"code"] = self.codeTF.text;
-    dict[@"newPhone"] = self.phoneTF.text;
+    NSMutableDictionary * requestDict = @{}.mutableCopy;
+    requestDict[@"code"] = self.codeTF.text;
+    requestDict[@"newPhone"] = self.phoneTF.text;
     if (self.isBangDing) {
-        dict[@"type"] = @(4);
+        requestDict[@"type"] = @(4);
         if (self.passwordTF.text.length == 0 ) {
             [SVProgressHUD showErrorWithStatus:@"请输入手机登录时的密码"];
             return;
         }
-        dict[@"newPwd"] = self.passwordTF.text;
+        requestDict[@"newPwd"] = self.passwordTF.text;
     }else {
-        dict[@"type"] = @(2);
+        requestDict[@"type"] = @(2);
     }
-    [zkRequestTool networkingPOST:[QQYYURLDefineTool uploadPhotoURL] parameters:dict success:^(NSURLSessionDataTask *task, id responseObject) {
+    [zkRequestTool networkingPOST:[QQYYURLDefineTool uploadPhotoURL] parameters:requestDict success:^(NSURLSessionDataTask *task, id responseObject) {
 
         if ([responseObject[@"code"] intValue]== 0) {
             

@@ -11,7 +11,7 @@
 @interface NSString (Size)
 
 // 字典转json字符串方法
-+(NSString *)convertToJsonDataWithDict:(id)dict;
++(NSString *)convertToJsonDataWithDict:(id)requestDict;
 
 +(NSString *)convertToJsonData:(NSArray *)arr;
 

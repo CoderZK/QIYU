@@ -136,18 +136,18 @@
 - (void)acquireDataFromServe {
     
     [SVProgressHUD show];
-    NSMutableDictionary * dict = @{}.mutableCopy;
-//    dict[@"tagId"] = @(self.tagId);
-    dict[@"pageNo"] = @(self.pageNo);
-    dict[@"pageSize"] = @(10);
+    NSMutableDictionary * requestDict = @{}.mutableCopy;
+//    requestDict[@"tagId"] = @(self.tagId);
+    requestDict[@"pageNo"] = @(self.pageNo);
+    requestDict[@"pageSize"] = @(10);
     if (self.type == 0){
-        dict[@"orderBy"] = @(2);
+        requestDict[@"orderBy"] = @(2);
     }else if (self.type == 1) {
-        dict[@"orderBy"] = @(1);
+        requestDict[@"orderBy"] = @(1);
     }else if (self.type == 2){
-        dict[@"subscribed"] = @(1);
+        requestDict[@"subscribed"] = @(1);
     }
-    [zkRequestTool networkingPOST:[QQYYURLDefineTool getsearchURL] parameters:dict success:^(NSURLSessionDataTask *task, id responseObject) {
+    [zkRequestTool networkingPOST:[QQYYURLDefineTool getsearchURL] parameters:requestDict success:^(NSURLSessionDataTask *task, id responseObject) {
         [self.tableView.mj_header endRefreshing];
         [self.tableView.mj_footer endRefreshing];
          [SVProgressHUD dismiss];
@@ -435,15 +435,15 @@
     
  
     
-    NSMutableDictionary * dict = @{}.mutableCopy;
-    dict[@"postId"] = model.postId;
-    dict[@"type"] = @"1";
+    NSMutableDictionary * requestDict = @{}.mutableCopy;
+    requestDict[@"postId"] = model.postId;
+    requestDict[@"type"] = @"1";
     NSString * url = [QQYYURLDefineTool getlikeURL];
     if (model.currentUserLike) {
        url = [QQYYURLDefineTool notlikeURL];
     }
     
-    [zkRequestTool networkingPOST:url parameters:dict success:^(NSURLSessionDataTask *task, id responseObject) {
+    [zkRequestTool networkingPOST:url parameters:requestDict success:^(NSURLSessionDataTask *task, id responseObject) {
         [self.tableView.mj_header endRefreshing];
         [self.tableView.mj_footer endRefreshing];
         if ([responseObject[@"code"] intValue]== 0) {
@@ -474,9 +474,9 @@
 //收藏或者取消操作
 - (void)collectionWithModel:(zkHomelModel *)model WithIndePath:(NSIndexPath *)indexPath{
     
-    NSMutableDictionary * dict = @{}.mutableCopy;
-    dict[@"targetId"] = self.dataArray[indexPath.row].postId;
-    dict[@"type"] = @"2";
+    NSMutableDictionary * requestDict = @{}.mutableCopy;
+    requestDict[@"targetId"] = self.dataArray[indexPath.row].postId;
+    requestDict[@"type"] = @"2";
     NSString * url = [QQYYURLDefineTool addMyCollectionURL];
     if (model.currentUserCollect) {
        url = [QQYYURLDefineTool deleteMyCollectionURL];
@@ -505,7 +505,7 @@
             
         }];
     }else {
-        [zkRequestTool networkingPOST:url parameters:dict success:^(NSURLSessionDataTask *task, id responseObject) {
+        [zkRequestTool networkingPOST:url parameters:requestDict success:^(NSURLSessionDataTask *task, id responseObject) {
             [self.tableView.mj_header endRefreshing];
             [self.tableView.mj_footer endRefreshing];
             if ([responseObject[@"code"] intValue]== 0) {
@@ -628,9 +628,9 @@
 - (void)acquireDataFromServeDaLei {
     
     
-    NSMutableDictionary * dict = @{}.mutableCopy;
+    NSMutableDictionary * requestDict = @{}.mutableCopy;
     
-    [zkRequestTool networkingPOST:[QQYYURLDefineTool getSysSocialCircleListURL] parameters:dict success:^(NSURLSessionDataTask *task, id responseObject) {
+    [zkRequestTool networkingPOST:[QQYYURLDefineTool getSysSocialCircleListURL] parameters:requestDict success:^(NSURLSessionDataTask *task, id responseObject) {
         [self.tableView.mj_header endRefreshing];
         [self.tableView.mj_footer endRefreshing];
         if ([responseObject[@"code"] intValue]== 0) {

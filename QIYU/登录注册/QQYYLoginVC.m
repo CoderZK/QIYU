@@ -113,9 +113,9 @@
         return;
     }
     [SVProgressHUD show];
-    NSMutableDictionary * dict = @{@"phone":self.phoneTF.text}.mutableCopy;
-    dict[@"password"] = self.passWordTF.text;
-    [zkRequestTool networkingPOST:[QQYYURLDefineTool getLoginURL] parameters:dict success:^(NSURLSessionDataTask *task, id responseObject) {
+    NSMutableDictionary * requestDict = @{@"phone":self.phoneTF.text}.mutableCopy;
+    requestDict[@"password"] = self.passWordTF.text;
+    [zkRequestTool networkingPOST:[QQYYURLDefineTool getLoginURL] parameters:requestDict success:^(NSURLSessionDataTask *task, id responseObject) {
         if ([responseObject[@"code"] intValue]== 0) {
             [SVProgressHUD dismiss];
             [zkSignleTool shareTool].isLogin = YES;
@@ -170,17 +170,17 @@
     
     
     
-    NSMutableDictionary * dict = @{}.mutableCopy;
-    dict[@"appkey"] = resp.openid;
+    NSMutableDictionary * requestDict = @{}.mutableCopy;
+    requestDict[@"appkey"] = resp.openid;
     if (resp.platformType == UMSocialPlatformType_WechatSession) {
-        dict[@"type"] = @"wechat";
+        requestDict[@"type"] = @"wechat";
     }else if (resp.platformType == UMSocialPlatformType_Sina) {
-        dict[@"type"] = @"xinlang";
+        requestDict[@"type"] = @"xinlang";
     }else if (resp.platformType == UMSocialPlatformType_QQ) {
-        dict[@"type"] = @"qq";
+        requestDict[@"type"] = @"qq";
     }
     
-    [zkRequestTool networkingPOST:[QQYYURLDefineTool getloginAuthByThirdURL] parameters:dict success:^(NSURLSessionDataTask *task, id responseObject) {
+    [zkRequestTool networkingPOST:[QQYYURLDefineTool getloginAuthByThirdURL] parameters:requestDict success:^(NSURLSessionDataTask *task, id responseObject) {
         [SVProgressHUD dismiss];
         if ([responseObject[@"code"] intValue]== 10003) {
             //用户未注册

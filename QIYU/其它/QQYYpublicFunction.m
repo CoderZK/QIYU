@@ -121,10 +121,10 @@ static QQYYpublicFunction * hhyP = nil;
 - (void)updateLatitudeAndLongtude:(CGFloat)latitude andLongitude:(CGFloat)longitude{
     
     
-    NSMutableDictionary * dict = @{}.mutableCopy;
-    dict[@"latitude"]  = @(latitude);
-    dict[@"longitude"] = @(longitude);
-    [zkRequestTool networkingPOST:[QQYYURLDefineTool reportLocationURL] parameters:dict success:^(NSURLSessionDataTask *task, id responseObject) {
+    NSMutableDictionary * requestDict = @{}.mutableCopy;
+    requestDict[@"latitude"]  = @(latitude);
+    requestDict[@"longitude"] = @(longitude);
+    [zkRequestTool networkingPOST:[QQYYURLDefineTool reportLocationURL] parameters:requestDict success:^(NSURLSessionDataTask *task, id responseObject) {
         
         if ([responseObject[@"code"] intValue]== 0) {
             

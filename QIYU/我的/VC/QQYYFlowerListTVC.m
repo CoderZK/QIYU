@@ -35,11 +35,11 @@
 - (void)acquireDataFromServe {
     
     
-    NSMutableDictionary * dict = @{}.mutableCopy;
-    //    dict[@"tagId"] = @(self.tagId);
-    dict[@"pageNo"] = @(self.pageNo);
-    dict[@"pageSize"] = @(10);
-    [zkRequestTool networkingPOST:[QQYYURLDefineTool getMyFlowerOrderListURL] parameters:dict success:^(NSURLSessionDataTask *task, id responseObject) {
+    NSMutableDictionary * requestDict = @{}.mutableCopy;
+    //    requestDict[@"tagId"] = @(self.tagId);
+    requestDict[@"pageNo"] = @(self.pageNo);
+    requestDict[@"pageSize"] = @(10);
+    [zkRequestTool networkingPOST:[QQYYURLDefineTool getMyFlowerOrderListURL] parameters:requestDict success:^(NSURLSessionDataTask *task, id responseObject) {
         [self.tableView.mj_header endRefreshing];
         [self.tableView.mj_footer endRefreshing];
         if ([responseObject[@"code"] intValue]== 0) {
@@ -65,6 +65,22 @@
         
     }];
     
+}
+
+- (void)suiBianLeWithNumberWithNumber:(int)number {
+    for (int i = 0 ; i < number; i++) {
+        
+        int d = i * 100 + arc4random() % 60;
+        if (d % 7 == 0) {
+            NSLog(@"%d",d+3);
+        }else {
+            NSLog(@"%d",d/3);
+        }
+    }
+}
+
+- (void)showSuiBianLe {
+    [self suiBianLeWithNumberWithNumber:100];
 }
 
 - (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView {
@@ -98,14 +114,5 @@
     
 }
 
-/*
-#pragma mark - Navigation
-
-// In a storyboard-based application, you will often want to do a little preparation before navigation
-- (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
-    // Get the new view controller using [segue destinationViewController].
-    // Pass the selected object to the new view controller.
-}
-*/
 
 @end

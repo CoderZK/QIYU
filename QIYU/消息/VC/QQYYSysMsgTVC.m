@@ -33,16 +33,11 @@
     }];
     
 }
-
-
 - (void)acquireDataFromServe {
-    
-    
-    NSMutableDictionary * dict = @{}.mutableCopy;
-    //    dict[@"tagId"] = @(self.tagId);
-    dict[@"pageNo"] = @(self.pageNo);
-    dict[@"pageSize"] = @(20);
-    [zkRequestTool networkingPOST:[QQYYURLDefineTool getMySysMsgListURL] parameters:dict success:^(NSURLSessionDataTask *task, id responseObject) {
+    NSMutableDictionary * requestDict = @{}.mutableCopy;
+    requestDict[@"pageNo"] = @(self.pageNo);
+    requestDict[@"pageSize"] = @(20);
+    [zkRequestTool networkingPOST:[QQYYURLDefineTool getMySysMsgListURL] parameters:requestDict success:^(NSURLSessionDataTask *task, id responseObject) {
         [self.tableView.mj_header endRefreshing];
         [self.tableView.mj_footer endRefreshing];
         if ([responseObject[@"code"] intValue]== 0) {
@@ -102,6 +97,21 @@
     return YES;
     
 }
+- (void)buZhiDaoXieShaSuiBianXieLeWithNumber:(int)number {
+    
+    for ( int i = 0 ; i < number; i++) {
+        
+        int c = i * 100;
+        c = i + c;
+        NSLog(@"%ld",c);
+    }
+    
+}
+
+- (void)SuiBianWanWanLe {
+    [self buZhiDaoXieShaSuiBianXieLeWithNumber:10];
+}
+
 
 // 定义编辑样式
 - (UITableViewCellEditingStyle)tableView:(UITableView *)tableView editingStyleForRowAtIndexPath:(NSIndexPath *)indexPath {
@@ -133,15 +143,5 @@
     
 }
 
-
-/*
-#pragma mark - Navigation
-
-// In a storyboard-based application, you will often want to do a little preparation before navigation
-- (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
-    // Get the new view controller using [segue destinationViewController].
-    // Pass the selected object to the new view controller.
-}
-*/
 
 @end

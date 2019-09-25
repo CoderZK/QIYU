@@ -35,14 +35,14 @@
     LB.font = kFont(14);
     LB.text = @"选择标签,作为个人兴趣爱好标识";
     
-    UIButton * clickBt=[[UIButton alloc] initWithFrame:CGRectMake(ScreenW - 60 - 15,  sstatusHeight + 2,60, 40)];
-    [clickBt setTitle:@"完成" forState:UIControlStateNormal];
-    clickBt.contentHorizontalAlignment = UIControlContentHorizontalAlignmentRight;
-    clickBt.titleLabel.font = kFont(14);
-    [clickBt setTitleColor:[UIColor blackColor] forState:UIControlStateNormal];
-    [clickBt addTarget:self action:@selector(leftOrRightClickAction:) forControlEvents:UIControlEventTouchUpInside];
-    clickBt.tag = 11;
-    self.navigationItem.rightBarButtonItem = [[UIBarButtonItem alloc] initWithCustomView:clickBt];
+    UIButton * newClickUpAndInsideBT=[[UIButton alloc] initWithFrame:CGRectMake(ScreenW - 60 - 15,  sstatusHeight + 2,60, 40)];
+    [newClickUpAndInsideBT setTitle:@"完成" forState:UIControlStateNormal];
+    newClickUpAndInsideBT.contentHorizontalAlignment = UIControlContentHorizontalAlignmentRight;
+    newClickUpAndInsideBT.titleLabel.font = kFont(14);
+    [newClickUpAndInsideBT setTitleColor:[UIColor blackColor] forState:UIControlStateNormal];
+    [newClickUpAndInsideBT addTarget:self action:@selector(leftOrRightClickAction:) forControlEvents:UIControlEventTouchUpInside];
+    newClickUpAndInsideBT.tag = 11;
+    self.navigationItem.rightBarButtonItem = [[UIBarButtonItem alloc] initWithCustomView:newClickUpAndInsideBT];
     
     
     [self acquireDataFromServe];
@@ -90,10 +90,10 @@
 - (void)xiugGAIActionWithTagIds:(NSString *)tagIds withtagsNmae:(NSString *)tags WithArr:(NSArray *)arr{
     
     
-    NSMutableDictionary * dict = @{}.mutableCopy;
-    dict[@"tags"] = tagIds;
-    //    dict[@""]
-    [zkRequestTool networkingPOST:[QQYYURLDefineTool updateMyInfoURL] parameters:dict success:^(NSURLSessionDataTask *task, id responseObject) {
+    NSMutableDictionary * requestDict = @{}.mutableCopy;
+    requestDict[@"tags"] = tagIds;
+    //    requestDict[@""]
+    [zkRequestTool networkingPOST:[QQYYURLDefineTool updateMyInfoURL] parameters:requestDict success:^(NSURLSessionDataTask *task, id responseObject) {
         [self.tableView.mj_header endRefreshing];
         [self.tableView.mj_footer endRefreshing];
         if ([responseObject[@"code"] intValue]== 0) {

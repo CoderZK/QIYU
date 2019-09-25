@@ -77,8 +77,8 @@
 
 - (void)changeView:(NSNotification *)noti {
     
-    NSDictionary * dict = noti.userInfo;
-    if ([dict[@"type"] integerValue] == 1) {
+    NSDictionary * requestDict = noti.userInfo;
+    if ([requestDict[@"type"] integerValue] == 1) {
         //点击的热度的筛选
         
     }else {
@@ -132,33 +132,33 @@
 - (void)acquireDataFromServe {
     
     
-    NSMutableDictionary * dict = @{}.mutableCopy;
-    dict[@"pageNo"] = @(self.pageNo);
+    NSMutableDictionary * requestDict = @{}.mutableCopy;
+    requestDict[@"pageNo"] = @(self.pageNo);
     NSString * url = [QQYYURLDefineTool nearbyUserListURL];
     if (self.isHot) {
         url = [QQYYURLDefineTool heatUserListURL];
     }else {
         if ([zkSignleTool shareTool].latitude > 0) {
-            dict[@"latitude"] = @([zkSignleTool shareTool].latitude);
-            dict[@"longitude"] = @([zkSignleTool shareTool].longitude);
+            requestDict[@"latitude"] = @([zkSignleTool shareTool].latitude);
+            requestDict[@"longitude"] = @([zkSignleTool shareTool].longitude);
         }
     }
     if (self.genderArr.count > 0) {
-         dict[@"gender"] = [self.genderArr componentsJoinedByString:@","];
+         requestDict[@"gender"] = [self.genderArr componentsJoinedByString:@","];
     }
     if (self.marriageArr.count > 0) {
-        dict[@"marriageStatus"] = [self.marriageArr componentsJoinedByString:@","];
+        requestDict[@"marriageStatus"] = [self.marriageArr componentsJoinedByString:@","];
     }
     if (self.cityIdArr.count > 0) {
-        dict[@"cityId"] = [self.cityIdArr componentsJoinedByString:@","];
+        requestDict[@"cityId"] = [self.cityIdArr componentsJoinedByString:@","];
     }
     if (self.tagsArr.count > 0) {
-        dict[@"tags"] = [self.tagsArr componentsJoinedByString:@","];
+        requestDict[@"tags"] = [self.tagsArr componentsJoinedByString:@","];
     }
     if (self.proviceId) {
-        dict[@"provinceId"] = self.proviceId;
+        requestDict[@"provinceId"] = self.proviceId;
     }
-    [zkRequestTool networkingPOST:url parameters:dict success:^(NSURLSessionDataTask *task, id responseObject) {
+    [zkRequestTool networkingPOST:url parameters:requestDict success:^(NSURLSessionDataTask *task, id responseObject) {
         [self.tableView.mj_header endRefreshing];
         [self.tableView.mj_footer endRefreshing];
         if ([responseObject[@"code"] intValue]== 0) {
@@ -203,7 +203,7 @@
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
     
     QQYYMakeFriendsCell * cell =[tableView dequeueReusableCellWithIdentifier:@"cell" forIndexPath:indexPath];
-    [cell.headBt addTarget:self action:@selector(gotoZhuYeAction:) forControlEvents:UIControlEventTouchUpInside];
+    [cell.headBt addTarget:self action:@selector(goToTheOtherHomePageClickAction:) forControlEvents:UIControlEventTouchUpInside];
     cell.headBt.tag = indexPath.row + 100;
     cell.isHot = self.isHot;
     cell.model = self.dataArray[indexPath.row];
@@ -211,7 +211,7 @@
     
 }
 
-- (void)gotoZhuYeAction:(UIButton *)button {
+- (void)goToTheOtherHomePageClickAction:(UIButton *)button {
     QQYYZhuYeTVC * vc =[[QQYYZhuYeTVC alloc] init];
     vc.hidesBottomBarWhenPushed = YES;
     vc.userId = self.dataArray[button.tag - 100].userId;

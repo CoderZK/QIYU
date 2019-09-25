@@ -23,7 +23,7 @@
 }
 
 /** 数据字典 */
-@property(nonatomic , strong)NSDictionary *dict;
+@property(nonatomic , strong)NSDictionary *requestDict;
 /** 最后一条数据 */
 @property(nonatomic , copy)NSString * lastText;
 @property(nonatomic , assign)BOOL isBaoMing;
@@ -130,7 +130,7 @@
 - (void)tap {
     self.navigationItem.title = @"";
 //    LYHomeModel * model =[[LYHomeModel alloc] init];
-//    model.ID = self.dict[@"activityId"];
+//    model.ID = self.requestDict[@"activityId"];
 //    zkMineActionDetaliVC * vc = [[zkMineActionDetaliVC alloc] init];
 //    vc.model = model;
 //    [self.navigationController pushViewController:vc animated:YES];
@@ -149,12 +149,12 @@
         return;
     }
     
-    NSMutableDictionary * dict = @{}.mutableCopy;
-    dict[@"friendId"] = self.otherId;
-    dict[@"userId"] = [zkSignleTool shareTool].session_uid;
-    dict[@"charType"] = @(1);
-    dict[@"chatContent"] = [NSString emojiConvert:self.lastText];
-    [zkRequestTool networkingPOST:[QQYYURLDefineTool uploadUserChatRecordURL] parameters:dict success:^(NSURLSessionDataTask *task, id responseObject) {
+    NSMutableDictionary * requestDict = @{}.mutableCopy;
+    requestDict[@"friendId"] = self.otherId;
+    requestDict[@"userId"] = [zkSignleTool shareTool].session_uid;
+    requestDict[@"charType"] = @(1);
+    requestDict[@"chatContent"] = [NSString emojiConvert:self.lastText];
+    [zkRequestTool networkingPOST:[QQYYURLDefineTool uploadUserChatRecordURL] parameters:requestDict success:^(NSURLSessionDataTask *task, id responseObject) {
         [self.tableView.mj_header endRefreshing];
         [self.tableView.mj_footer endRefreshing];
         if ([responseObject[@"code"] intValue]== 0) {

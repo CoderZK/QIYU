@@ -43,17 +43,15 @@
 
 - (void)acquireDataFromServe {
     
-    
-    
-    NSMutableDictionary * dict = @{}.mutableCopy;
-    dict[@"pageNo"] = @(self.pageNo);
-    dict[@"pageSize"] = @(10);
+    NSMutableDictionary * requestDict = @{}.mutableCopy;
+    requestDict[@"pageNo"] = @(self.pageNo);
+    requestDict[@"pageSize"] = @(10);
     NSString * str = [QQYYURLDefineTool getPostLikeListForMyPostURL] ;
     if (self.type == 0) {
         str = [QQYYURLDefineTool getAtMeMsgListURL] ;
     }
     
-    [zkRequestTool networkingPOST:str parameters:dict success:^(NSURLSessionDataTask *task, id responseObject) {
+    [zkRequestTool networkingPOST:str parameters:requestDict success:^(NSURLSessionDataTask *task, id responseObject) {
         [self.tableView.mj_header endRefreshing];
         [self.tableView.mj_footer endRefreshing];
         if ([responseObject[@"code"] intValue]== 0) {
@@ -133,7 +131,7 @@
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
     
     QQYYZanOrAiTeMineCell * cell =[tableView dequeueReusableCellWithIdentifier:@"cell" forIndexPath:indexPath];
-    [cell.headBt addTarget:self action:@selector(gotoZhuYeAction:) forControlEvents:UIControlEventTouchUpInside];
+    [cell.headBt addTarget:self action:@selector(goToTheOtherHomePageClickAction:) forControlEvents:UIControlEventTouchUpInside];
     cell.headBt.tag = indexPath.row + 100;
     cell.type = self.type;
     if (self.type == 0) {
@@ -153,11 +151,19 @@
     
 }
 
-- (void)gotoZhuYeAction:(UIButton *)button {
+- (void)goToTheOtherHomePageClickAction:(UIButton *)button {
     QQYYZhuYeTVC * vc =[[QQYYZhuYeTVC alloc] init];
     vc.hidesBottomBarWhenPushed = YES;
     vc.userId = self.dataArray[button.tag - 100].createBy;
     [self.navigationController pushViewController:vc animated:YES];
+}
+
+- (void)LJONE {
+    NSLog(@"%@",@"程序稳定性");
+}
+
+- (void)LJTWO {
+    [self LJONE];
 }
 
 @end

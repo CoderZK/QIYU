@@ -23,12 +23,12 @@
     self.tableView.separatorStyle = UITableViewCellSeparatorStyleNone;
     
     self.navigationItem.title = @"新朋友";
-//    UIButton * clickBt=[[UIButton alloc] initWithFrame:CGRectMake(0, 0, 50, 24)];
-//    [clickBt setTitle:@"清空" forState:UIControlStateNormal];
-//    [clickBt setTitleColor:CharacterBlack40 forState:UIControlStateNormal];
-//    [clickBt addTarget:self action:@selector(leftOrRightClickAction:) forControlEvents:UIControlEventTouchUpInside];
-//    clickBt.tag = 11;
-//    self.navigationItem.rightBarButtonItem = [[UIBarButtonItem alloc] initWithCustomView:clickBt];
+//    UIButton * newClickUpAndInsideBT=[[UIButton alloc] initWithFrame:CGRectMake(0, 0, 50, 24)];
+//    [newClickUpAndInsideBT setTitle:@"清空" forState:UIControlStateNormal];
+//    [newClickUpAndInsideBT setTitleColor:CharacterBlack40 forState:UIControlStateNormal];
+//    [newClickUpAndInsideBT addTarget:self action:@selector(leftOrRightClickAction:) forControlEvents:UIControlEventTouchUpInside];
+//    newClickUpAndInsideBT.tag = 11;
+//    self.navigationItem.rightBarButtonItem = [[UIBarButtonItem alloc] initWithCustomView:newClickUpAndInsideBT];
     self.pageNo = 1;
     [self acquireDataFromServe];
     self.tableView.mj_header = [MJRefreshNormalHeader headerWithRefreshingBlock:^{
@@ -51,10 +51,10 @@
 - (void)acquireDataFromServe {
     
     
-    NSMutableDictionary * dict = @{}.mutableCopy;
-    dict[@"pageNo"] = @(self.pageNo);
-    dict[@"pageSize"] = @(10);
-    [zkRequestTool networkingPOST:[QQYYURLDefineTool getNewFriendMsgListURL] parameters:dict success:^(NSURLSessionDataTask *task, id responseObject) {
+    NSMutableDictionary * requestDict = @{}.mutableCopy;
+    requestDict[@"pageNo"] = @(self.pageNo);
+    requestDict[@"pageSize"] = @(10);
+    [zkRequestTool networkingPOST:[QQYYURLDefineTool getNewFriendMsgListURL] parameters:requestDict success:^(NSURLSessionDataTask *task, id responseObject) {
         [self.tableView.mj_header endRefreshing];
         [self.tableView.mj_footer endRefreshing];
         if ([responseObject[@"code"] intValue]== 0) {
@@ -101,11 +101,11 @@
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
     
     QQYYNewsTwoCell * cell =[tableView dequeueReusableCellWithIdentifier:@"cellTwo" forIndexPath:indexPath];
-    [cell.headBt addTarget:self action:@selector(gotoZhuYeAction:) forControlEvents:UIControlEventTouchUpInside];
+    [cell.headBt addTarget:self action:@selector(goToTheOtherHomePageClickAction:) forControlEvents:UIControlEventTouchUpInside];
     cell.headBt.tag = indexPath.row + 100;
-    [cell.cancelBt addTarget:self action:@selector(cancelAction:) forControlEvents:UIControlEventTouchUpInside];
+    [cell.cancelBt addTarget:self action:@selector(cancelClickAction:) forControlEvents:UIControlEventTouchUpInside];
     cell.cancelBt.tag = indexPath.row + 100;
-    [cell.typeBt addTarget:self action:@selector(confirmAction:) forControlEvents:UIControlEventTouchUpInside];
+    [cell.typeBt addTarget:self action:@selector(confirmClickActionNew:) forControlEvents:UIControlEventTouchUpInside];
     cell.typeBt.tag = indexPath.row + 100;
     cell.model = self.dataArray[indexPath.row];
     return cell;
@@ -119,10 +119,10 @@
     [self.navigationController pushViewController:vc animated:YES];
 }
 
-- (void)cancelAction:(UIButton *)button {
+- (void)cancelClickAction:(UIButton *)button {
      [self actionWithIndex:button.tag - 100 withisOk:0];
 }
-- (void)confirmAction:(UIButton *)button {
+- (void)confirmClickActionNew:(UIButton *)button {
  
     [self actionWithIndex:button.tag - 100 withisOk:1];
     
@@ -132,10 +132,10 @@
     
     QQYYTongYongModel * model = self.dataArray[index];
     
-    NSMutableDictionary * dict = @{}.mutableCopy;
-    dict[@"userFriendId"] = model.ID;
-    dict[@"agree"] = @(isOk);
-    [zkRequestTool networkingPOST:[QQYYURLDefineTool agreeNewFriendApplyURL] parameters:dict success:^(NSURLSessionDataTask *task, id responseObject) {
+    NSMutableDictionary * requestDict = @{}.mutableCopy;
+    requestDict[@"userFriendId"] = model.ID;
+    requestDict[@"agree"] = @(isOk);
+    [zkRequestTool networkingPOST:[QQYYURLDefineTool agreeNewFriendApplyURL] parameters:requestDict success:^(NSURLSessionDataTask *task, id responseObject) {
         [self.tableView.mj_header endRefreshing];
         [self.tableView.mj_footer endRefreshing];
         if ([responseObject[@"code"] intValue]== 0) {
@@ -159,7 +159,7 @@
     
 }
 
-- (void)gotoZhuYeAction:(UIButton *)button {
+- (void)goToTheOtherHomePageClickAction:(UIButton *)button {
     QQYYZhuYeTVC * vc =[[QQYYZhuYeTVC alloc] init];
     vc.hidesBottomBarWhenPushed = YES;
     vc.userId = self.dataArray[button.tag - 100].createBy;
@@ -201,14 +201,12 @@
 
 }
 
-/*
-#pragma mark - Navigation
 
-// In a storyboard-based application, you will often want to do a little preparation before navigation
-- (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
-    // Get the new view controller using [segue destinationViewController].
-    // Pass the selected object to the new view controller.
+- (void)addLaJiWithIndex:(NSInteger)index{
+    NSLog(@"%ld",index);
 }
-*/
+- (void)addLaJiNew {
+    [self addLaJiWithIndex:5];
+}
 
 @end

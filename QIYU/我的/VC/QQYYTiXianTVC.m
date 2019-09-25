@@ -50,15 +50,15 @@
     leftbtn.tag = 10;
     [self.view addSubview:leftbtn];
     
-    UIButton * clickBt=[[UIButton alloc] initWithFrame:CGRectMake(ScreenW - 60 - 15,  sstatusHeight + 2,60, 40)];
+    UIButton * newClickUpAndInsideBT=[[UIButton alloc] initWithFrame:CGRectMake(ScreenW - 60 - 15,  sstatusHeight + 2,60, 40)];
     
-    //    [clickBt setBackgroundImage:[UIImage imageNamed:@"15"] forState:UIControlStateNormal];
-    [clickBt setTitle:@"提现记录" forState:UIControlStateNormal];
-    clickBt.titleLabel.font = kFont(14);
-//    [clickBt setTitleColor:[UIColor blackColor] forState:UIControlStateNormal];
-    [clickBt addTarget:self action:@selector(leftOrRightClickAction:) forControlEvents:UIControlEventTouchUpInside];
-    clickBt.tag = 11;
-     [self.view addSubview:clickBt];
+    //    [newClickUpAndInsideBT setBackgroundImage:[UIImage imageNamed:@"15"] forState:UIControlStateNormal];
+    [newClickUpAndInsideBT setTitle:@"提现记录" forState:UIControlStateNormal];
+    newClickUpAndInsideBT.titleLabel.font = kFont(14);
+//    [newClickUpAndInsideBT setTitleColor:[UIColor blackColor] forState:UIControlStateNormal];
+    [newClickUpAndInsideBT addTarget:self action:@selector(leftOrRightClickAction:) forControlEvents:UIControlEventTouchUpInside];
+    newClickUpAndInsideBT.tag = 11;
+     [self.view addSubview:newClickUpAndInsideBT];
 
     
 

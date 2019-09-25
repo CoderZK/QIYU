@@ -255,22 +255,22 @@
     }
    
     
-    NSMutableDictionary * dict = @{}.mutableCopy;
+    NSMutableDictionary * requestDict = @{}.mutableCopy;
     if (self.isThred) {
-        dict[@"appKey"] = self.appOpenId;
-        dict[@"appName"] = self.appType;
+        requestDict[@"appKey"] = self.appOpenId;
+        requestDict[@"appName"] = self.appType;
     }
-    dict[@"phone"] = self.phoneStr;
-    dict[@"password"] = self.passdWord;
-    dict[@"birthday"] = self.birthday;
-    dict[@"avatar"] = self.headImgStr;
-    dict[@"gender"] = @(self.gender);
-    dict[@"nickName"] = self.nickName;
-    dict[@"provinceId"] = self.provinceldID;
-    dict[@"cityId"] = self.cityID;
-    dict[@"tags"] = self.tagIds;
-    dict[@"invitationCode"] = self.yaoQingStr;
-    [zkRequestTool networkingPOST:[QQYYURLDefineTool registerURL] parameters:dict success:^(NSURLSessionDataTask *task, id responseObject) {
+    requestDict[@"phone"] = self.phoneStr;
+    requestDict[@"password"] = self.passdWord;
+    requestDict[@"birthday"] = self.birthday;
+    requestDict[@"avatar"] = self.headImgStr;
+    requestDict[@"gender"] = @(self.gender);
+    requestDict[@"nickName"] = self.nickName;
+    requestDict[@"provinceId"] = self.provinceldID;
+    requestDict[@"cityId"] = self.cityID;
+    requestDict[@"tags"] = self.tagIds;
+    requestDict[@"invitationCode"] = self.yaoQingStr;
+    [zkRequestTool networkingPOST:[QQYYURLDefineTool registerURL] parameters:requestDict success:^(NSURLSessionDataTask *task, id responseObject) {
         if ([responseObject[@"code"] intValue]== 0) {
             [SVProgressHUD showSuccessWithStatus:@"注册成功"];
             QQYYLoginVC * vc = (QQYYLoginVC *)[self.navigationController.childViewControllers firstObject];
