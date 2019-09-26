@@ -8,10 +8,6 @@
 
 #import "QQYYReceivePingLunTVC.h"
 #import "QQYYShouDaoDePingLunCell.h"
-@interface QQYYReceivePingLunTVC ()
-@property(nonatomic,assign)NSInteger pageNo;
-@property(nonatomic,strong)NSMutableArray<QQYYTongYongModel *> *dataArray;
-@end
 
 @implementation QQYYReceivePingLunTVC
 
@@ -39,7 +35,6 @@
 }
 
 - (void)acquireDataFromServe {
-    
     
     NSMutableDictionary * requestDict = @{}.mutableCopy;
     requestDict[@"pageNo"] = @(self.pageNo);
@@ -84,10 +79,6 @@
     return self.dataArray.count;
 }
 
-//- (CGFloat )tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath {
-//    return 121;
-//}
-
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
     
     QQYYShouDaoDePingLunCell * cell =[tableView dequeueReusableCellWithIdentifier:@"cell" forIndexPath:indexPath];
@@ -105,23 +96,21 @@
     vc.ID = self.dataArray[indexPath.row].postId;
     vc.hidesBottomBarWhenPushed = YES;
     [self.navigationController pushViewController:vc animated:YES];
-    
-    
 }
 
 
-- (BOOL)tableView:(UITableView *)tableView canEditRowAtIndexPath:(NSIndexPath *)indexPath {
-    return YES;
-    
-}
 
-// 定义编辑样式
+
 - (UITableViewCellEditingStyle)tableView:(UITableView *)tableView editingStyleForRowAtIndexPath:(NSIndexPath *)indexPath {
     return UITableViewCellEditingStyleDelete;
 }
 
 - (NSString *)tableView:(UITableView *)tableView titleForDeleteConfirmationButtonForRowAtIndexPath:(NSIndexPath *)indexPath {
     return @"删除";
+}
+
+- (BOOL)tableView:(UITableView *)tableView canEditRowAtIndexPath:(NSIndexPath *)indexPath {
+    return YES;
 }
 
 - (void)tableView:(UITableView *)tableView commitEditingStyle:(UITableViewCellEditingStyle)editingStyle forRowAtIndexPath:(NSIndexPath *)indexPath {

@@ -72,7 +72,6 @@
 		58321CC3233896CB00E77553 /* QQYYGouWuCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 58321CC1233896CB00E77553 /* QQYYGouWuCell.xib */; };
 		58321CC92338B87700E77553 /* QQYYGouWuDetailTVC.m in Sources */ = {isa = PBXBuildFile; fileRef = 58321CC82338B87700E77553 /* QQYYGouWuDetailTVC.m */; };
 		583297BF22A6257900B52104 /* UIViewController+shareAction.m in Sources */ = {isa = PBXBuildFile; fileRef = 583297BE22A6257800B52104 /* UIViewController+shareAction.m */; };
-		583297C222A6259800B52104 /* zkShareModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 583297C022A6259800B52104 /* zkShareModel.m */; };
 		583332A3229FD488008DD9CF /* SelectTimeV.m in Sources */ = {isa = PBXBuildFile; fileRef = 583332A1229FD488008DD9CF /* SelectTimeV.m */; };
 		5836EB9622CC4F4E00EE6611 /* LxmWebViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 5836EB9422CC4F4A00EE6611 /* LxmWebViewController.m */; };
 		5838A1E822DD79F400239A20 /* qy85@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 5838A19222DD79F300239A20 /* qy85@2x.png */; };
@@ -453,8 +452,6 @@
 		58321CC82338B87700E77553 /* QQYYGouWuDetailTVC.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = QQYYGouWuDetailTVC.m; sourceTree = "<group>"; };
 		583297BD22A6257800B52104 /* UIViewController+shareAction.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIViewController+shareAction.h"; sourceTree = "<group>"; };
 		583297BE22A6257800B52104 /* UIViewController+shareAction.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIViewController+shareAction.m"; sourceTree = "<group>"; };
-		583297C022A6259800B52104 /* zkShareModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = zkShareModel.m; sourceTree = "<group>"; };
-		583297C122A6259800B52104 /* zkShareModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = zkShareModel.h; sourceTree = "<group>"; };
 		583332A1229FD488008DD9CF /* SelectTimeV.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SelectTimeV.m; sourceTree = "<group>"; };
 		583332A2229FD488008DD9CF /* SelectTimeV.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SelectTimeV.h; sourceTree = "<group>"; };
 		5835A67F22AE4F5000B05623 /* Hyphenate.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Hyphenate.framework; path = Pods/Hyphenate/iOS_Pods_IMFullSDK_V3.5.5/Hyphenate.framework; sourceTree = "<group>"; };
@@ -1545,8 +1542,6 @@
 				58917DA122DC0C5B00C46E04 /* QQYYTongYongTwoCell.m */,
 				58917DA522DC0C5B00C46E04 /* QQYYYongBaoView.h */,
 				58917DA322DC0C5B00C46E04 /* QQYYYongBaoView.m */,
-				583297C122A6259800B52104 /* zkShareModel.h */,
-				583297C022A6259800B52104 /* zkShareModel.m */,
 				5874FDF2233C980A00E21537 /* QQYYReportAndCollectVIew.h */,
 				5874FDF3233C980A00E21537 /* QQYYReportAndCollectVIew.m */,
 				583332A2229FD488008DD9CF /* SelectTimeV.h */,
@@ -2167,7 +2162,6 @@
 				337F3EAE20EA014600C5526A /* BaseCollectionReusableView.m in Sources */,
 				58917E3622DC0D0B00C46E04 /* QQYYPrivacyTVC.m in Sources */,
 				58917E0922DC0CF600C46E04 /* QQYYGongGaoTwoCell.m in Sources */,
-				583297C222A6259800B52104 /* zkShareModel.m in Sources */,
 				5838A24322DD7C5800239A20 /* QQYYHomeHeadView.m in Sources */,
 				58917E8022DC0D3A00C46E04 /* QQYYMineTaskTVC.m in Sources */,
 				5874FDF1233C955900E21537 /* QQYYShowViewNew.m in Sources */,

@@ -146,7 +146,7 @@
     NSMutableDictionary * requestDict = @{}.mutableCopy;
     requestDict[@"pageNo"] = @(self.pageNo);
     NSString * url = [QQYYURLDefineTool nearbyUserListURL];
-    if (self.isHot) {
+    if (!self.isHot) {
         url = [QQYYURLDefineTool heatUserListURL];
     }else {
         if ([QQYYSignleToolNew shareTool].latitude > 0) {
@@ -154,9 +154,11 @@
             requestDict[@"longitude"] = @([QQYYSignleToolNew shareTool].longitude);
         }
     }
+    [SVProgressHUD show];
     [QQYYRequestTool networkingPOST:url parameters:requestDict success:^(NSURLSessionDataTask *task, id responseObject) {
         [self.tableView.mj_header endRefreshing];
         [self.tableView.mj_footer endRefreshing];
+        [SVProgressHUD dismiss];
         self.tableView.userInteractionEnabled = YES;
         if ([responseObject[@"code"] intValue]== 0) {
             

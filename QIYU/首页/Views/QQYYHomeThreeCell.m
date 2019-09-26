@@ -23,10 +23,10 @@
     self = [super initWithStyle:style reuseIdentifier:reuseIdentifier];
     if (self) {
         
-        self.leftBt = [[UIButton alloc] initWithFrame:CGRectMake(15, 0, 85, 40)];
+        self.leftBt = [[UIButton alloc] initWithFrame:CGRectMake(15, 0, 65, 40)];
         self.leftBt.contentHorizontalAlignment = UIControlContentHorizontalAlignmentCenter;
         self.leftBt.contentVerticalAlignment = UIControlContentVerticalAlignmentBottom;
-        [self.leftBt setTitle:@"附近的人" forState:UIControlStateNormal];
+        [self.leftBt setTitle:@"牵线墙" forState:UIControlStateNormal];
         [self.leftBt setTitleColor:[UIColor blackColor] forState:UIControlStateSelected];
         [self.leftBt setTitleColor:CharacterBlackColor forState:UIControlStateNormal];
         self.leftBt.titleLabel.font = kFont(15);
@@ -46,10 +46,10 @@
         self.leftBt.tag = 0;
         [self.leftBt addTarget:self action:@selector(clickAction:) forControlEvents:UIControlEventTouchUpInside];
         
-        self.centerBt = [[UIButton alloc] initWithFrame:CGRectMake(15 +  90 , 0, 65, 40)];
+        self.centerBt = [[UIButton alloc] initWithFrame:CGRectMake(15 +  70 , 0, 85, 40)];
         self.centerBt.contentHorizontalAlignment = UIControlContentHorizontalAlignmentCenter;
         self.centerBt.contentVerticalAlignment = UIControlContentVerticalAlignmentBottom;
-        [self.centerBt setTitle:@"牵线墙" forState:UIControlStateNormal];
+        [self.centerBt setTitle:@"附近的人" forState:UIControlStateNormal];
         [self.centerBt setTitleColor:[UIColor blackColor] forState:UIControlStateSelected];
         [self.centerBt setTitleColor:CharacterBlackColor forState:UIControlStateNormal];
         self.centerBt.titleLabel.font = kFont(15);

@@ -327,7 +327,6 @@
 
 #pragma mark ------ 点击加号弹框的 选择项 ----
 - (void)didClickIndex:(NSInteger )index {
-    
     if (index == 0) {
         QQYYMineFriendsTVC * vc =[[QQYYMineFriendsTVC alloc] init];
         vc.hidesBottomBarWhenPushed = YES;
@@ -343,8 +342,6 @@
     }else if (index == 3) {
         
     }
-    
-    
 }
 
 #pragma mark ------ 监听好友的回调 -------

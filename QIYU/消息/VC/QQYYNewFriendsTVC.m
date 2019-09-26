@@ -21,14 +21,7 @@
     
     [self.tableView registerClass:[QQYYNewsTwoCell class] forCellReuseIdentifier:@"cellTwo"];
     self.tableView.separatorStyle = UITableViewCellSeparatorStyleNone;
-    
     self.navigationItem.title = @"新朋友";
-//    UIButton * newClickUpAndInsideBT=[[UIButton alloc] initWithFrame:CGRectMake(0, 0, 50, 24)];
-//    [newClickUpAndInsideBT setTitle:@"清空" forState:UIControlStateNormal];
-//    [newClickUpAndInsideBT setTitleColor:CharacterBlack40 forState:UIControlStateNormal];
-//    [newClickUpAndInsideBT addTarget:self action:@selector(leftOrRightClickAction:) forControlEvents:UIControlEventTouchUpInside];
-//    newClickUpAndInsideBT.tag = 11;
-//    self.navigationItem.rightBarButtonItem = [[UIBarButtonItem alloc] initWithCustomView:newClickUpAndInsideBT];
     self.pageNo = 1;
     [self acquireDataFromServe];
     self.tableView.mj_header = [MJRefreshNormalHeader headerWithRefreshingBlock:^{
@@ -175,17 +168,17 @@
 - (UITableViewCellEditingStyle)tableView:(UITableView *)tableView editingStyleForRowAtIndexPath:(NSIndexPath *)indexPath {
     return UITableViewCellEditingStyleDelete;
 }
-
-- (NSString *)tableView:(UITableView *)tableView titleForDeleteConfirmationButtonForRowAtIndexPath:(NSIndexPath *)indexPath {
-    return @"删除";
-}
-
 - (void)tableView:(UITableView *)tableView commitEditingStyle:(UITableViewCellEditingStyle)editingStyle forRowAtIndexPath:(NSIndexPath *)indexPath {
     if (editingStyle == UITableViewCellEditingStyleDelete) {
         [self deleteMesgWithIndexPath:indexPath];
     }
-
+    
 }
+- (NSString *)tableView:(UITableView *)tableView titleForDeleteConfirmationButtonForRowAtIndexPath:(NSIndexPath *)indexPath {
+    return @"删除";
+}
+
+
 
 - (void)deleteMesgWithIndexPath:(NSIndexPath *)indexPath {
 

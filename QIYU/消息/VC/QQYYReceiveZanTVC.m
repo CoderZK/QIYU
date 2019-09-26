@@ -8,9 +8,6 @@
 
 #import "QQYYReceiveZanTVC.h"
 #import "QQYYNewsTwoCell.h"
-@interface QQYYReceiveZanTVC ()
-
-@end
 
 @implementation QQYYReceiveZanTVC
 
