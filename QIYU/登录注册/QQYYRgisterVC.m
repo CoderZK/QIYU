@@ -114,7 +114,7 @@
         requestDict[@"type"] = @"1";
     }
     requestDict[@"deviceId"] = [NSString stringWithFormat:@"%@",[[UIDevice currentDevice] identifierForVendor]];
-    [zkRequestTool networkingPOST:[QQYYURLDefineTool sendValidCodeURL] parameters:requestDict success:^(NSURLSessionDataTask *task, id responseObject) {
+    [QQYYRequestTool networkingPOST:[QQYYURLDefineTool sendValidCodeURL] parameters:requestDict success:^(NSURLSessionDataTask *task, id responseObject) {
         if ([responseObject[@"code"] intValue]== 0) {
             [self timeAction];
         }else {
@@ -151,7 +151,7 @@
     NSMutableDictionary * requestDict = @{@"phone":self.phoneTF.text}.mutableCopy;
     requestDict[@"code"] = self.codeTF.text;
     requestDict[@"password"] = self.passWordTF.text;
-    [zkRequestTool networkingPOST:[QQYYURLDefineTool validCodeURL] parameters:requestDict success:^(NSURLSessionDataTask *task, id responseObject) {
+    [QQYYRequestTool networkingPOST:[QQYYURLDefineTool validCodeURL] parameters:requestDict success:^(NSURLSessionDataTask *task, id responseObject) {
         if ([responseObject[@"code"] intValue]== 0) {
             if (self.isTherd) {
                 [self bindOrRegist];
@@ -203,7 +203,7 @@
     requestDict[@"password"] = self.passWordTF.text;
     requestDict[@"type"] = self.apptype;
     requestDict[@"appKey"] = self.appOpenId;
-    [zkRequestTool networkingPOST:[QQYYURLDefineTool bindPhoneAndAppKeyURL] parameters:requestDict success:^(NSURLSessionDataTask *task, id responseObject) {
+    [QQYYRequestTool networkingPOST:[QQYYURLDefineTool bindPhoneAndAppKeyURL] parameters:requestDict success:^(NSURLSessionDataTask *task, id responseObject) {
         if ([responseObject[@"code"] intValue] == 0) {
             
             QQYYLoginVC * vc = (QQYYLoginVC *)[self.navigationController.childViewControllers firstObject];

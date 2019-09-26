@@ -1,64 +1,19 @@
 //
-//  zkRequestTool.m
-//  BYXuNiPan
+//  QQYYRequestTool.m
+//  QIYU
 //
-//  Created by kunzhang on 2018/7/5.
-//  Copyright © 2018年 kunzhang. All rights reserved.
+//  Created by zk on 2019/9/26.
+//  Copyright © 2019 kunzhang. All rights reserved.
 //
 
-#import "zkRequestTool.h"
+#import "QQYYRequestTool.h"
 
-@implementation zkRequestTool
-
-//+(void)networkingPOST:(NSString *)urlStr parameters:(id)parameters success:(SuccessBlock)success failure:(FailureBlock)failure
-//{
-//
-//    AFHTTPSessionManager * manager = [AFHTTPSessionManager manager];
-//    manager.securityPolicy = [AFSecurityPolicy policyWithPinningMode:AFSSLPinningModeNone];
-//    manager.securityPolicy.allowInvalidCertificates = YES;
-//    manager.securityPolicy.validatesDomainName = NO;
-//    manager.responseSerializer.acceptableContentTypes = [NSSet setWithObjects:@"application/json",@"text/plain", @"text/html",@"text/json",@"text/javascript",@"text/x-chdr", nil];
-//
-//    if ([zkSignleTool shareTool].session_token != nil) {
-//
-//        NSLog(@"\ntoken ==== %@",[zkSignleTool shareTool].session_token);
-//
-//
-//        if ([zkSignleTool shareTool].isLogin) {
-//            [manager.requestSerializer setValue:[NSString stringWithFormat:@"Bearer %@",[zkSignleTool shareTool].session_token] forHTTPHeaderField:@"Authorization"];
-//        }else {
-//            [manager.requestSerializer setValue:@"Bearer " forHTTPHeaderField:@"Authorization"];
-//        }
-//    }else {
-//        [manager.requestSerializer setValue:@"Bearer " forHTTPHeaderField:@"Authorization"];
-//    }
-//
-////    manager.requestSerializer = [AFJSONRequestSerializer serializer];
-////    manager.responseSerializer = [AFJSONResponseSerializer serializer];
-//
-//    [manager POST:urlStr parameters:parameters progress:nil success:^(NSURLSessionDataTask * _Nonnull task, id  _Nullable responseObject) {
-//
-//        if (success)
-//        {
-//            success(task,responseObject);
-//        }
-//    } failure:^(NSURLSessionDataTask * _Nullable task, NSError * _Nonnull error) {
-//
-//        [SVProgressHUD showErrorWithStatus:@"请求异常!"];
-//        if (failure)
-//        {
-//            failure(task,error);
-//        }
-//    }];
-//
-//}
-
-
+@implementation QQYYRequestTool
 +(void)networkingPOST:(NSString *)urlStr parameters:(id)parameters success:(SuccessBlock)success failure:(FailureBlock)failure
 {
     
     NSLog(@"===\n%d",[parameters isKindOfClass:[NSString class]]);
-
+    
     
     NSString * jsonStr = @"";
     if ([parameters isKindOfClass:[NSString class]]) {
@@ -68,13 +23,13 @@
     }
     AFURLSessionManager *manager = [[AFURLSessionManager alloc] initWithSessionConfiguration:[NSURLSessionConfiguration defaultSessionConfiguration]];
     NSMutableURLRequest *req = [[AFJSONRequestSerializer serializer] requestWithMethod:@"POST" URLString:urlStr parameters:nil error:nil];
-    if ([zkSignleTool shareTool].session_token != nil) {
+    if ([QQYYSignleToolNew shareTool].session_token != nil) {
         
-        NSLog(@"===\n%@",[zkSignleTool shareTool].session_token);
-
+        NSLog(@"===\n%@",[QQYYSignleToolNew shareTool].session_token);
         
-        if ([zkSignleTool shareTool].isLogin) {
-            req.allHTTPHeaderFields = @{@"Authorization":[NSString stringWithFormat:@"Bearer %@",[zkSignleTool shareTool].session_token]};
+        
+        if ([QQYYSignleToolNew shareTool].isLogin) {
+            req.allHTTPHeaderFields = @{@"Authorization":[NSString stringWithFormat:@"Bearer %@",[QQYYSignleToolNew shareTool].session_token]};
         }else {
             req.allHTTPHeaderFields = @{@"Authorization":@"Bearer "};
         }
@@ -94,7 +49,7 @@
         }
         
     }] resume];
-
+    
 }
 
 
@@ -102,9 +57,9 @@
     NSString * jsonStr = [NSString convertToJsonDataWithDict:parameters];
     AFURLSessionManager *manager = [[AFURLSessionManager alloc] initWithSessionConfiguration:[NSURLSessionConfiguration defaultSessionConfiguration]];
     NSMutableURLRequest *req = [[AFJSONRequestSerializer serializer] requestWithMethod:@"POST" URLString:urlStr parameters:nil error:nil];
-    if ([zkSignleTool shareTool].session_token != nil) {
-        if ([zkSignleTool shareTool].isLogin) {
-            req.allHTTPHeaderFields = @{@"Authorization":[NSString stringWithFormat:@"Bearer %@",[zkSignleTool shareTool].session_token]};
+    if ([QQYYSignleToolNew shareTool].session_token != nil) {
+        if ([QQYYSignleToolNew shareTool].isLogin) {
+            req.allHTTPHeaderFields = @{@"Authorization":[NSString stringWithFormat:@"Bearer %@",[QQYYSignleToolNew shareTool].session_token]};
         }else {
             req.allHTTPHeaderFields = @{@"Authorization":@"Bearer "};
         }
@@ -142,9 +97,9 @@
     
     AFHTTPSessionManager * manager = [AFHTTPSessionManager manager];
     manager.responseSerializer.acceptableContentTypes = [NSSet setWithObjects:@"application/json",@"text/plain", @"text/html",@"text/json",@"text/javascript", nil];
-    if ([zkSignleTool shareTool].session_token != nil) {
-        if ([zkSignleTool shareTool].isLogin) {
-            [manager.requestSerializer setValue:[NSString stringWithFormat:@"Bearer %@",[zkSignleTool shareTool].session_token] forHTTPHeaderField:@"Authorization"];
+    if ([QQYYSignleToolNew shareTool].session_token != nil) {
+        if ([QQYYSignleToolNew shareTool].isLogin) {
+            [manager.requestSerializer setValue:[NSString stringWithFormat:@"Bearer %@",[QQYYSignleToolNew shareTool].session_token] forHTTPHeaderField:@"Authorization"];
         }else {
             [manager.requestSerializer setValue:@"Bearer " forHTTPHeaderField:@"Authorization"];
         }
@@ -157,14 +112,14 @@
             success(task,responseObject);
         }
     } failure:^(NSURLSessionDataTask * _Nullable task, NSError * _Nonnull error) {
-
+        
         [SVProgressHUD showErrorWithStatus:@"请求异常!"];
         if (failure)
         {
             failure(task,error);
         }
     }];
- 
+    
     return task;
 }
 /**
@@ -174,27 +129,27 @@
 {
     
     NSMutableDictionary *mDict = [NSMutableDictionary dictionaryWithDictionary:parameters];
-//    NSString *device = [NSString stringWithFormat:@"%@",[[UIDevice currentDevice] identifierForVendor]];
-//    [mDict setValue:device forKey:@"deviceId"];
-//    [mDict setValue:@1 forKey:@"channel"];
-//    NSString *version = [NSString stringWithFormat:@"V%@",[[[NSBundle mainBundle] infoDictionary] objectForKey:@"CFBundleShortVersionString"]];
-//    [mDict setValue:version forKey:@"version"];
-//    NSString *mdSignature = [NSString stringToMD5:[NSString stringWithFormat:@"%@%@%@%@",device,@1,version,[device substringFromIndex:device.length-5]]];
-//    [mDict setValue:[NSString stringWithFormat:@"%@1",mdSignature] forKey:@"signature"];
+    //    NSString *device = [NSString stringWithFormat:@"%@",[[UIDevice currentDevice] identifierForVendor]];
+    //    [mDict setValue:device forKey:@"deviceId"];
+    //    [mDict setValue:@1 forKey:@"channel"];
+    //    NSString *version = [NSString stringWithFormat:@"V%@",[[[NSBundle mainBundle] infoDictionary] objectForKey:@"CFBundleShortVersionString"]];
+    //    [mDict setValue:version forKey:@"version"];
+    //    NSString *mdSignature = [NSString stringToMD5:[NSString stringWithFormat:@"%@%@%@%@",device,@1,version,[device substringFromIndex:device.length-5]]];
+    //    [mDict setValue:[NSString stringWithFormat:@"%@1",mdSignature] forKey:@"signature"];
     
     AFHTTPSessionManager * manager = [AFHTTPSessionManager manager];
     manager.responseSerializer.acceptableContentTypes = [NSSet setWithObjects:@"application/json",@"text/plain", @"text/html",@"text/json",@"text/javascript", nil];
-//    [manager.requestSerializer setValue:@"http://iosapi.jkcsoft.com/public/index.html" forHTTPHeaderField:@"Referer"];
+    //    [manager.requestSerializer setValue:@"http://iosapi.jkcsoft.com/public/index.html" forHTTPHeaderField:@"Referer"];
     //    manager.responseSerializer = [AFHTTPResponseSerializer serializer];
     
-//    NSDictionary * requestDict = parameters;
+    //    NSDictionary * requestDict = parameters;
     //获取josnzi字符串
-//    NSString * josnStr = [NSString convertToJsonData:requestDict];
-//    //获取MD5字符串
-//    NSString * MD5Str = [NSString stringToMD5:[josnStr stringByAppendingString:@"1375d7ac2b2a8e25"]];
-//    NSDictionary * paraDict = @{@"authCode":MD5Str,@"jsonObj":josnStr};
-    if ([zkSignleTool shareTool].isLogin) {
-        [manager.requestSerializer setValue:[NSString stringWithFormat:@"Bearer %@",[zkSignleTool shareTool].session_token] forHTTPHeaderField:@"Authorization"];
+    //    NSString * josnStr = [NSString convertToJsonData:requestDict];
+    //    //获取MD5字符串
+    //    NSString * MD5Str = [NSString stringToMD5:[josnStr stringByAppendingString:@"1375d7ac2b2a8e25"]];
+    //    NSDictionary * paraDict = @{@"authCode":MD5Str,@"jsonObj":josnStr};
+    if ([QQYYSignleToolNew shareTool].isLogin) {
+        [manager.requestSerializer setValue:[NSString stringWithFormat:@"Bearer %@",[QQYYSignleToolNew shareTool].session_token] forHTTPHeaderField:@"Authorization"];
     }else {
         [manager.requestSerializer setValue:@"Bearer " forHTTPHeaderField:@"Authorization"];
     }
@@ -266,25 +221,25 @@
 {
     
     NSMutableDictionary *mDict = [NSMutableDictionary dictionaryWithDictionary:parameters];
-//    NSString *device = [NSString stringWithFormat:@"%@",[[UIDevice currentDevice] identifierForVendor]];
-//    [mDict setValue:device forKey:@"deviceId"];
-//    [mDict setValue:@1 forKey:@"channel"];
-//    NSString *version = [NSString stringWithFormat:@"V%@",[[[NSBundle mainBundle] infoDictionary] objectForKey:@"CFBundleShortVersionString"]];
-//    [mDict setValue:version forKey:@"version"];
-//    NSString *mdSignature = [NSString stringToMD5:[NSString stringWithFormat:@"%@%@%@%@",device,@1,version,[device substringFromIndex:device.length-5]]];
-//    [mDict setValue:[NSString stringWithFormat:@"%@1",mdSignature] forKey:@"signature"];
+    //    NSString *device = [NSString stringWithFormat:@"%@",[[UIDevice currentDevice] identifierForVendor]];
+    //    [mDict setValue:device forKey:@"deviceId"];
+    //    [mDict setValue:@1 forKey:@"channel"];
+    //    NSString *version = [NSString stringWithFormat:@"V%@",[[[NSBundle mainBundle] infoDictionary] objectForKey:@"CFBundleShortVersionString"]];
+    //    [mDict setValue:version forKey:@"version"];
+    //    NSString *mdSignature = [NSString stringToMD5:[NSString stringWithFormat:@"%@%@%@%@",device,@1,version,[device substringFromIndex:device.length-5]]];
+    //    [mDict setValue:[NSString stringWithFormat:@"%@1",mdSignature] forKey:@"signature"];
     
     AFHTTPSessionManager * manager = [AFHTTPSessionManager manager];
     manager.responseSerializer.acceptableContentTypes = [NSSet setWithObjects:@"application/json",@"text/plain", @"text/html",@"text/json",@"text/javascript", nil];
     [manager.requestSerializer setValue:@"http://iosapi.jkcsoft.com/public/index.html" forHTTPHeaderField:@"Referer"];
     
     
-//    NSDictionary * requestDict = parameters;
-//    //获取josnzi字符串
-//    NSString * josnStr = [NSString convertToJsonData:requestDict];
-//    //获取MD5字符串
-//    NSString * MD5Str = [NSString stringToMD5:[josnStr stringByAppendingString:@"1375d7ac2b2a8e25"]];
-//    NSDictionary * paraDict = @{@"authCode":MD5Str,@"jsonObj":josnStr};
+    //    NSDictionary * requestDict = parameters;
+    //    //获取josnzi字符串
+    //    NSString * josnStr = [NSString convertToJsonData:requestDict];
+    //    //获取MD5字符串
+    //    NSString * MD5Str = [NSString stringToMD5:[josnStr stringByAppendingString:@"1375d7ac2b2a8e25"]];
+    //    NSDictionary * paraDict = @{@"authCode":MD5Str,@"jsonObj":josnStr};
     
     NSString * str = [NSString convertToJsonDataWithDict:mDict];
     
@@ -318,7 +273,7 @@
 
 + (void)uploadImagsWithArr:(NSArray *)arr withType:(NSString *)type result:(void(^)(NSString * str))resultBlock{
     
-    [zkRequestTool NetWorkingUpLoad:[QQYYURLDefineTool uploadURL] images:arr name:@"files" parameters:@{@"type":type} success:^(NSURLSessionDataTask *task, id responseObject) {
+    [QQYYRequestTool NetWorkingUpLoad:[QQYYURLDefineTool uploadURL] images:arr name:@"files" parameters:@{@"type":type} success:^(NSURLSessionDataTask *task, id responseObject) {
         
         NSLog(@"%@",responseObject);
         
@@ -342,8 +297,5 @@
     }];
     
 }
-
-
-
 
 @end

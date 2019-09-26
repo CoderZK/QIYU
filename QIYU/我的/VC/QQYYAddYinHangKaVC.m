@@ -53,7 +53,7 @@
     requestDict[@"realName"] = self.nameTF.text;
     
     
-    [zkRequestTool networkingPOST:[QQYYURLDefineTool addMyBankCardURL] parameters:requestDict success:^(NSURLSessionDataTask *task, id responseObject) {
+    [QQYYRequestTool networkingPOST:[QQYYURLDefineTool addMyBankCardURL] parameters:requestDict success:^(NSURLSessionDataTask *task, id responseObject) {
 
         if ([responseObject[@"code"] intValue]== 0) {
             

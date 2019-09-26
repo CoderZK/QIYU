@@ -155,7 +155,7 @@
     
 
     
-    [zkRequestTool networkingPOST:[QQYYURLDefineTool deletePostURL] parameters:[arr componentsJoinedByString:@","] success:^(NSURLSessionDataTask *task, id responseObject) {
+    [QQYYRequestTool networkingPOST:[QQYYURLDefineTool deletePostURL] parameters:[arr componentsJoinedByString:@","] success:^(NSURLSessionDataTask *task, id responseObject) {
         [self.tableView.mj_header endRefreshing];
         [self.tableView.mj_footer endRefreshing];
         if ([responseObject[@"code"] intValue]== 0) {
@@ -270,7 +270,7 @@
     requestDict[@"pageNo"] = @(self.pageNo);
     requestDict[@"pageSize"] = @(10);
     if (self.isMine) {
-        requestDict[@"createBy"] = [zkSignleTool shareTool].session_uid;
+        requestDict[@"createBy"] = [QQYYSignleToolNew shareTool].session_uid;
     }else {
         requestDict[@"circleId"] = self.circleId;
         if (self.type == 0){
@@ -282,7 +282,7 @@
         }
     }
    
-    [zkRequestTool networkingPOST:[QQYYURLDefineTool getsearchURL] parameters:requestDict success:^(NSURLSessionDataTask *task, id responseObject) {
+    [QQYYRequestTool networkingPOST:[QQYYURLDefineTool getsearchURL] parameters:requestDict success:^(NSURLSessionDataTask *task, id responseObject) {
         [self.tableView.mj_header endRefreshing];
         [self.tableView.mj_footer endRefreshing];
         [SVProgressHUD dismiss];
@@ -341,7 +341,7 @@
         self.rightBt.titleLabel.font = kFont(15);
     }else if (button.tag == 2) {
         
-        if (![zkSignleTool shareTool].isLogin){
+        if (![QQYYSignleToolNew shareTool].isLogin){
             [self gotoLoginVC];
             return ;
         }
@@ -363,7 +363,7 @@
         
     }else if (button.tag == 4) {
         //关注
-        if (![zkSignleTool shareTool].isLogin){
+        if (![QQYYSignleToolNew shareTool].isLogin){
             [self gotoLoginVC];
             return ;
         }
@@ -385,7 +385,7 @@
     if (self.isSubscribed) {
         url = [QQYYURLDefineTool deleteUserSubscribeURL];
     }
-    [zkRequestTool networkingPOST:url parameters:requestDict success:^(NSURLSessionDataTask *task, id responseObject) {
+    [QQYYRequestTool networkingPOST:url parameters:requestDict success:^(NSURLSessionDataTask *task, id responseObject) {
         [self.tableView.mj_header endRefreshing];
         [self.tableView.mj_footer endRefreshing];
         if ([responseObject[@"code"] intValue]== 0) {
@@ -479,7 +479,7 @@
         
         
     }else if (index == 3) {
-        if (![zkSignleTool shareTool].isLogin) {
+        if (![QQYYSignleToolNew shareTool].isLogin) {
             [self gotoLoginVC];
             return;
         }
@@ -487,11 +487,11 @@
         
     }else if (index == 4) {
         
-        if (![zkSignleTool shareTool].isLogin) {
+        if (![QQYYSignleToolNew shareTool].isLogin) {
             [self gotoLoginVC];
             return;
         }
-        if ([[zkSignleTool shareTool].session_uid isEqualToString:self.dataArray[indexPath.row].createBy]) {
+        if ([[QQYYSignleToolNew shareTool].session_uid isEqualToString:self.dataArray[indexPath.row].createBy]) {
             [SVProgressHUD showErrorWithStatus:@"自己不能给自己送爱豆"];
             return;
         }
@@ -505,7 +505,7 @@
         
     }else if (index == 7) {
         
-        if (![zkSignleTool shareTool].isLogin) {
+        if (![QQYYSignleToolNew shareTool].isLogin) {
             [self gotoLoginVC];
             return;
         }
@@ -527,7 +527,7 @@
     if (model.currentUserLike) {
         url = [QQYYURLDefineTool notlikeURL];
     }
-    [zkRequestTool networkingPOST:url parameters:requestDict success:^(NSURLSessionDataTask *task, id responseObject) {
+    [QQYYRequestTool networkingPOST:url parameters:requestDict success:^(NSURLSessionDataTask *task, id responseObject) {
         [self.tableView.mj_header endRefreshing];
         [self.tableView.mj_footer endRefreshing];
         if ([responseObject[@"code"] intValue]== 0) {
@@ -562,7 +562,7 @@
     NSString * url = [QQYYURLDefineTool addMyCollectionURL];
     if (model.currentUserCollect) {
         url = [QQYYURLDefineTool deleteMyCollectionURL];
-        [zkRequestTool networkingPOST:url parameters:self.dataArray[indexPath.row].postId success:^(NSURLSessionDataTask *task, id responseObject) {
+        [QQYYRequestTool networkingPOST:url parameters:self.dataArray[indexPath.row].postId success:^(NSURLSessionDataTask *task, id responseObject) {
             [self.tableView.mj_header endRefreshing];
             [self.tableView.mj_footer endRefreshing];
             if ([responseObject[@"code"] intValue]== 0) {
@@ -587,7 +587,7 @@
             
         }];
     }else {
-        [zkRequestTool networkingPOST:url parameters:requestDict success:^(NSURLSessionDataTask *task, id responseObject) {
+        [QQYYRequestTool networkingPOST:url parameters:requestDict success:^(NSURLSessionDataTask *task, id responseObject) {
             [self.tableView.mj_header endRefreshing];
             [self.tableView.mj_footer endRefreshing];
             if ([responseObject[@"code"] intValue]== 0) {
@@ -643,7 +643,7 @@
 
 - (void)getDetailData {
     
-    [zkRequestTool networkingPOST:[QQYYURLDefineTool getSysSocialCircleDetailURL] parameters:self.circleId success:^(NSURLSessionDataTask *task, id responseObject) {
+    [QQYYRequestTool networkingPOST:[QQYYURLDefineTool getSysSocialCircleDetailURL] parameters:self.circleId success:^(NSURLSessionDataTask *task, id responseObject) {
         [self.tableView.mj_header endRefreshing];
         [self.tableView.mj_footer endRefreshing];
         if ([responseObject[@"code"] intValue]== 0) {

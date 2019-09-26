@@ -27,8 +27,8 @@
     [super viewWillAppear:animated];
     self.navigationController.navigationBar.hidden = YES;
     [UIApplication sharedApplication].statusBarStyle = UIStatusBarStyleLightContent;
-    [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(WXWX:) name:@"WXPAY" object:nil];
-    [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(ZFBZFB:) name:@"ZFBPAY" object:nil];
+    [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(WXWXWXWX:) name:@"WXPAY" object:nil];
+    [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(ZFBZFBZFBZFB:) name:@"ZFBPAY" object:nil];
 }
 
 - (void)viewWillDisappear:(BOOL)animated {
@@ -50,7 +50,7 @@
      [self.tableView registerNib:[UINib nibWithNibName:@"QQYYHuiYuanThreeCell" bundle:nil] forCellReuseIdentifier:@"cellThree"];
     self.tableView.separatorStyle = UITableViewCellSeparatorStyleNone;
     self.tableView.frame = CGRectMake(0, -sstatusHeight, ScreenW, ScreenH+sstatusHeight);
-    [self initHeadV];
+    [self AddHeadView];
     [self initNav];
     
     [self acquireDataFromServe];
@@ -62,11 +62,11 @@
 
 - (void)initNav{
     
-    UIButton * leftbtn=[[UIButton alloc] initWithFrame:CGRectMake(10, sstatusHeight + 2 , 40, 40)];
-    [leftbtn setImage:[UIImage imageNamed:@"nav_back"] forState:UIControlStateNormal];
-    [leftbtn addTarget:self action:@selector(leftOrRightClickAction:) forControlEvents:UIControlEventTouchUpInside];
-    leftbtn.tag = 10;
-    [self.view addSubview:leftbtn];
+    UIButton * LeftOrRightBT=[[UIButton alloc] initWithFrame:CGRectMake(10, sstatusHeight + 2 , 40, 40)];
+    [LeftOrRightBT setImage:[UIImage imageNamed:@"nav_back"] forState:UIControlStateNormal];
+    [LeftOrRightBT addTarget:self action:@selector(leftOrRightClickAction:) forControlEvents:UIControlEventTouchUpInside];
+    LeftOrRightBT.tag = 10;
+    [self.view addSubview:LeftOrRightBT];
 
 }
 
@@ -75,11 +75,8 @@
 }
 
 - (void)acquireDataFromServe {
-    
-    
     NSMutableDictionary * requestDict = @{}.mutableCopy;
-    
-    [zkRequestTool networkingPOST:[QQYYURLDefineTool getVipPkgListURL] parameters:requestDict success:^(NSURLSessionDataTask *task, id responseObject) {
+    [QQYYRequestTool networkingPOST:[QQYYURLDefineTool getVipPkgListURL] parameters:requestDict success:^(NSURLSessionDataTask *task, id responseObject) {
         [self.tableView.mj_header endRefreshing];
         [self.tableView.mj_footer endRefreshing];
         if ([responseObject[@"code"] intValue]== 0) {
@@ -101,26 +98,26 @@
 }
 
 
-- (void)initHeadV {
-    UIView * headView =[[UIView alloc] initWithFrame:CGRectMake(0,0, ScreenW, Kscale(192))];
-    headView.backgroundColor  = WhiteColor;
-    UIImageView *imgV = [[UIImageView alloc] initWithFrame:headView.bounds];
+- (void)AddHeadView {
+    UIView * NewHeadView =[[UIView alloc] initWithFrame:CGRectMake(0,0, ScreenW, Kscale(192))];
+    NewHeadView.backgroundColor  = WhiteColor;
+    UIImageView *imgV = [[UIImageView alloc] initWithFrame:NewHeadView.bounds];
     imgV.image = [UIImage imageNamed:@"96"];
-    [headView addSubview:imgV];
+    [NewHeadView addSubview:imgV];
     
-    UILabel * titleLB  =[[UILabel alloc] initWithFrame:CGRectMake(60, sstatusHeight + 2 , ScreenW-120, 40)];
-    titleLB.font =[UIFont systemFontOfSize:18];
-    titleLB.textColor = WhiteColor;
-    [headView addSubview:titleLB];
-    titleLB.textAlignment = NSTextAlignmentCenter;
-    titleLB.text = @"会员服务";
+    UILabel * NameLB  =[[UILabel alloc] initWithFrame:CGRectMake(60, sstatusHeight + 2 , ScreenW-120, 40)];
+    NameLB.font =[UIFont systemFontOfSize:18];
+    NameLB.textColor = WhiteColor;
+    [NewHeadView addSubview:NameLB];
+    NameLB.textAlignment = NSTextAlignmentCenter;
+    NameLB.text = @"会员服务";
     
 
     
     self.headBt = [[UIButton alloc] initWithFrame:CGRectMake(15, (Kscale(192) - 70 )/2 ,70, 70)];
     self.headBt.layer.cornerRadius = 35;
     self.headBt.clipsToBounds = YES;
-    [headView addSubview:self.headBt];
+    [NewHeadView addSubview:self.headBt];
     [self.headBt sd_setImageWithURL:[NSURL URLWithString:[QQYYURLDefineTool getImgURLWithStr:self.imgStr]] forState:UIControlStateNormal placeholderImage:[UIImage imageNamed:@"369"]];
     
     UILabel * lb = [[UILabel alloc] initWithFrame:CGRectMake(CGRectGetMaxX(self.headBt.frame) + 15 , CGRectGetMinY(self.headBt.frame) + 10, 150, 20)];
@@ -128,7 +125,7 @@
     lb.font = kFont(16);
     lb.text = self.nickName;
     lb.textAlignment = NSTextAlignmentLeft;
-    [headView addSubview:lb];
+    [NewHeadView addSubview:lb];
     self.LB1 = lb;
     
     UILabel * lb2 = [[UILabel alloc] initWithFrame:CGRectMake(CGRectGetMaxX(self.headBt.frame) + 15,CGRectGetMaxY(self.LB1.frame) + 5, ScreenW -CGRectGetMaxX(self.headBt.frame) -30, 40)];
@@ -136,10 +133,10 @@
     lb2.font = kFont(14);
     lb2.text = @"立即开通会员,享受6大特权";
     lb2.textAlignment =  NSTextAlignmentLeft;
-    [headView addSubview:lb2];
+    [NewHeadView addSubview:lb2];
     self.LB2 = lb2;
     
-    self.tableView.tableHeaderView = headView;
+    self.tableView.tableHeaderView = NewHeadView;
 }
 
 - (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView {
@@ -199,14 +196,14 @@
         cell.selectionStyle = UITableViewCellSelectionStyleNone;
         cell.titleLB.text = [NSString stringWithFormat:@"%@  %@ 元",self.dataArray[indexPath.row].name,self.dataArray[indexPath.row].price];
         cell.rightBt.tag = indexPath.row + 100;
-        [cell.rightBt addTarget:self action:@selector(rightBtAction:) forControlEvents:UIControlEventTouchUpInside];
+        [cell.rightBt addTarget:self action:@selector(clickRightBtAction:) forControlEvents:UIControlEventTouchUpInside];
         return cell;
     }
   
     
 }
 
-- (void)rightBtAction:(UIButton *)button {
+- (void)clickRightBtAction:(UIButton *)button {
   
     QQYYTongYongModel * model = self.dataArray[button.tag - 100];
     NSMutableDictionary * requestDict = @{}.mutableCopy;
@@ -216,13 +213,10 @@
         requestDict[@"payType"] = @(3);
     }
     requestDict[@"pkgId"] = model.ID;
-    [zkRequestTool networkingPOST:[QQYYURLDefineTool vipReChargeURL] parameters:requestDict success:^(NSURLSessionDataTask *task, id responseObject) {
+    [QQYYRequestTool networkingPOST:[QQYYURLDefineTool vipReChargeURL] parameters:requestDict success:^(NSURLSessionDataTask *task, id responseObject) {
       
         if ([responseObject[@"code"] intValue]== 0) {
-            
-            
-            
-            
+
         }else {
             [self showAlertWithKey:[NSString stringWithFormat:@"%@",responseObject[@"code"]] message:responseObject[@"message"]];
         }
@@ -234,6 +228,21 @@
     }];
     
     
+}
+
+
+- (void)buzhidaoxieshaWithIndex:(int)index{
+
+    for (int i = 0; i<index; i++) {
+        int f = i*100+arc4random() % 8;
+        if (f % 3 == 0) {
+            NSLog(@"%d",f);
+        }
+    }
+}
+
+- (void)shishiLaJiDaiMaDeXiaoGuo{
+    [self buzhidaoxieshaWithIndex:500];
 }
 
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
@@ -279,7 +288,7 @@
 }
 
 //微信支付结果处理
-- (void)WXWX:(NSNotification *)no {
+- (void)WXWXWXWX:(NSNotification *)no {
     
     BaseResp * resp = no.object;
     if (resp.errCode==WXSuccess)
@@ -350,7 +359,7 @@
 
 
 //支付宝支付结果处理,此处是app 被杀死之后用的
-- (void)ZFBZFB:(NSNotification *)notic {
+- (void)ZFBZFBZFBZFB:(NSNotification *)notic {
     
     NSDictionary *resultDic = notic.object;
     

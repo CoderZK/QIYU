@@ -9,8 +9,8 @@
 #ifndef importHead_h
 #define importHead_h
 
-#import "zkRequestTool.h"
-#import "zkSignleTool.h"
+#import "QQYYRequestTool.h"
+#import "QQYYSignleToolNew.h"
 
 #import "zkHomelModel.h"
 #import "YWUnlockView.h"

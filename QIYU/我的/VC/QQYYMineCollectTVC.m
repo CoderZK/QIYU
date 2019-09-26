@@ -61,33 +61,29 @@
     [newClickUpAndInsideBT addTarget:self action:@selector(leftOrRightClickAction:) forControlEvents:UIControlEventTouchUpInside];
     newClickUpAndInsideBT.tag = 11;
     self.editBt = newClickUpAndInsideBT;
-    UIButton * clickBt1=[[UIButton alloc] initWithFrame:CGRectMake(ScreenW - 70 - 15,  sstatusHeight + 2,70, 40)];
+    UIButton * cancelBT=[[UIButton alloc] initWithFrame:CGRectMake(ScreenW - 70 - 15,  sstatusHeight + 2,70, 40)];
     
     //    [newClickUpAndInsideBT setBackgroundImage:[UIImage imageNamed:@"15"] forState:UIControlStateNormal];
-    [clickBt1 setTitle:@"返回" forState:UIControlStateNormal];
-    clickBt1.contentHorizontalAlignment = UIControlContentHorizontalAlignmentRight;
-    clickBt1.titleLabel.font = kFont(14);
-    [clickBt1 sizeToFit];
-    [clickBt1 setTitleColor:[UIColor blackColor] forState:UIControlStateNormal];
-    [clickBt1 addTarget:self action:@selector(leftOrRightClickAction:) forControlEvents:UIControlEventTouchUpInside];
-    clickBt1.tag = 12;
-    self.backBt = clickBt1;
+    [cancelBT setTitle:@"返回" forState:UIControlStateNormal];
+    cancelBT.contentHorizontalAlignment = UIControlContentHorizontalAlignmentRight;
+    cancelBT.titleLabel.font = kFont(14);
+    [cancelBT sizeToFit];
+    [cancelBT setTitleColor:[UIColor blackColor] forState:UIControlStateNormal];
+    [cancelBT addTarget:self action:@selector(leftOrRightClickAction:) forControlEvents:UIControlEventTouchUpInside];
+    cancelBT.tag = 12;
+    self.backBt = cancelBT;
     self.backBt.hidden = YES;
     //    [self.view addSubview:newClickUpAndInsideBT];
     self.navigationItem.rightBarButtonItems = @[[[UIBarButtonItem alloc] initWithCustomView:self.editBt],[[UIBarButtonItem alloc] initWithCustomView:self.backBt]];
-    
 }
 
-
-
 - (void)acquireDataFromServe {
-    
     
     NSMutableDictionary * requestDict = @{}.mutableCopy;
     //    requestDict[@"tagId"] = @(self.tagId);
     requestDict[@"pageNo"] = @(self.pageNo);
     requestDict[@"pageSize"] = @(10);
-    [zkRequestTool networkingPOST:[QQYYURLDefineTool getMyCollectionListURL] parameters:requestDict success:^(NSURLSessionDataTask *task, id responseObject) {
+    [QQYYRequestTool networkingPOST:[QQYYURLDefineTool getMyCollectionListURL] parameters:requestDict success:^(NSURLSessionDataTask *task, id responseObject) {
         [self.tableView.mj_header endRefreshing];
         [self.tableView.mj_footer endRefreshing];
         if ([responseObject[@"code"] intValue]== 0) {
@@ -95,7 +91,6 @@
             if (self.pageNo == 1) {
                 [self.dataArray removeAllObjects];
             }
-            
             [self.dataArray addObjectsFromArray:arr];
             if (self.dataArray.count == 0) {
                 [SVProgressHUD showSuccessWithStatus:@"暂无数据"];
@@ -160,7 +155,7 @@
 - (void)deleteWithIds:(NSArray *)arr{
     
 
-    [zkRequestTool networkingPOST:[QQYYURLDefineTool deleteMyCollectionURL] parameters:[arr componentsJoinedByString:@","] success:^(NSURLSessionDataTask *task, id responseObject) {
+    [QQYYRequestTool networkingPOST:[QQYYURLDefineTool deleteMyCollectionURL] parameters:[arr componentsJoinedByString:@","] success:^(NSURLSessionDataTask *task, id responseObject) {
         [self.tableView.mj_header endRefreshing];
         [self.tableView.mj_footer endRefreshing];
         if ([responseObject[@"code"] intValue]== 0) {
@@ -249,23 +244,23 @@
     NSIndexPath * indexPath = [self.tableView indexPathForCell:cell];
     
     if (index == 3) {
-        if (![zkSignleTool shareTool].isLogin) {
+        if (![QQYYSignleToolNew shareTool].isLogin) {
             [self gotoLoginVC];
             return;
         }
         [self zanActionWithModel:self.dataArray[indexPath.row] WithIndePath:indexPath];
     }else if (index == 4) {
-        if ([[zkSignleTool shareTool].session_uid isEqualToString:self.dataArray[indexPath.row].createBy]) {
+        if ([[QQYYSignleToolNew shareTool].session_uid isEqualToString:self.dataArray[indexPath.row].createBy]) {
             
             [SVProgressHUD showErrorWithStatus:@"自己不能对自己的帖子送爱豆"];
             return;
             
         }else {
-            if (![zkSignleTool shareTool].isLogin) {
+            if (![QQYYSignleToolNew shareTool].isLogin) {
                 [self gotoLoginVC];
                 return;
             }
-            if ([[zkSignleTool shareTool].session_uid isEqualToString:self.dataArray[indexPath.row].createBy]) {
+            if ([[QQYYSignleToolNew shareTool].session_uid isEqualToString:self.dataArray[indexPath.row].createBy]) {
                 [SVProgressHUD showErrorWithStatus:@"自己不能给自己送爱豆"];
                 return;
             }
@@ -292,7 +287,7 @@
 //收藏或者取消操作
 - (void)collectionWithModel:(zkHomelModel *)model WithIndePath:(NSIndexPath *)indexPath{
     
-    [zkRequestTool networkingPOST:[QQYYURLDefineTool deleteMyCollectionURL] parameters:self.dataArray[indexPath.row].postId success:^(NSURLSessionDataTask *task, id responseObject) {
+    [QQYYRequestTool networkingPOST:[QQYYURLDefineTool deleteMyCollectionURL] parameters:self.dataArray[indexPath.row].postId success:^(NSURLSessionDataTask *task, id responseObject) {
         [self.tableView.mj_header endRefreshing];
         [self.tableView.mj_footer endRefreshing];
         if ([responseObject[@"code"] intValue]== 0) {
@@ -335,7 +330,7 @@
     if (model.currentUserLike) {
         url = [QQYYURLDefineTool notlikeURL];
     }
-    [zkRequestTool networkingPOST:url parameters:requestDict success:^(NSURLSessionDataTask *task, id responseObject) {
+    [QQYYRequestTool networkingPOST:url parameters:requestDict success:^(NSURLSessionDataTask *task, id responseObject) {
         [self.tableView.mj_header endRefreshing];
         [self.tableView.mj_footer endRefreshing];
         if ([responseObject[@"code"] intValue]== 0) {

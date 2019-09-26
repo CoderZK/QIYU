@@ -11,8 +11,8 @@
 #import "QQYYTongXunLuTVC.h"
 #import "QQYYHuaTiTVC.h"
 #import "QQYYAddLinkVC.h"
-#import "zkShowVIew.h"
-@interface QQYYPostMessageTVC ()<zkShowVIewDelegate>
+#import "QQYYShowViewNew.h"
+@interface QQYYPostMessageTVC ()<QQYYShowViewNewDelegate>
 @property(nonatomic,strong)UIView  *headView,*linkV,*bottomView;
 @property(nonatomic,strong)UILabel *rightLB,*desLB,*tiXingLB;
 @property(nonatomic,strong)UIButton *BT,*linkBt,*huaTiView;
@@ -22,7 +22,7 @@
 @property(nonatomic,strong)NSMutableArray<QQYYTongYongModel *> *huaTiArr;
 @property(nonatomic,strong)NSString *linkStr ,*circleID,*circleName;
 @property(nonatomic,strong)NSMutableArray *selectFriendsArr;
-@property(nonatomic,strong)zkShowVIew *showView;
+@property(nonatomic,strong)QQYYShowViewNew *showView;
 @property(nonatomic,strong)NSMutableArray<QQYYTongYongModel *> *dataArray;
 @property(nonatomic,strong)NSString *idStr,*nickNameStr;
 @end
@@ -50,9 +50,9 @@
     return _picsStrArr;
 }
 
-- (zkShowVIew *)showView {
+- (QQYYShowViewNew *)showView {
     if (_showView == nil) {
-        _showView = [[zkShowVIew alloc] initWithFrame:CGRectMake(0, 0, ScreenW, ScreenH)];
+        _showView = [[QQYYShowViewNew alloc] initWithFrame:CGRectMake(0, 0, ScreenW, ScreenH)];
         _showView.deleate  = self;
     }
     return _showView;
@@ -270,7 +270,7 @@
     
     NSMutableDictionary * requestDict = @{}.mutableCopy;
     
-    [zkRequestTool networkingPOST:[QQYYURLDefineTool getSysSocialCircleListURL] parameters:requestDict success:^(NSURLSessionDataTask *task, id responseObject) {
+    [QQYYRequestTool networkingPOST:[QQYYURLDefineTool getSysSocialCircleListURL] parameters:requestDict success:^(NSURLSessionDataTask *task, id responseObject) {
         [self.tableView.mj_header endRefreshing];
         [self.tableView.mj_footer endRefreshing];
         if ([responseObject[@"code"] intValue]== 0) {
@@ -623,7 +623,7 @@
     }
     Weak(weakSelf);
     if (self.picsArr.count > 0) {
-        [zkRequestTool uploadImagsWithArr:self.picsArr withType:@"5" result:^(NSString *str) {
+        [QQYYRequestTool uploadImagsWithArr:self.picsArr withType:@"5" result:^(NSString *str) {
             [weakSelf sendTwoWithButton:button withStr:str];
         }];
         
@@ -666,7 +666,7 @@
     }
     requestDict[@"tagId"] = [arr componentsJoinedByString:@","];
     button.userInteractionEnabled = NO;
-    [zkRequestTool networkingPOST:[QQYYURLDefineTool getaddURL] parameters:requestDict success:^(NSURLSessionDataTask *task, id responseObject) {
+    [QQYYRequestTool networkingPOST:[QQYYURLDefineTool getaddURL] parameters:requestDict success:^(NSURLSessionDataTask *task, id responseObject) {
         button.userInteractionEnabled = YES;
         if ([responseObject[@"code"] intValue]== 0) {
             

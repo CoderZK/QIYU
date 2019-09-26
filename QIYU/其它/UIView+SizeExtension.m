@@ -1,26 +1,20 @@
 //
-//  UIView+BSExtension.m
-//  BBB
+//  UIView+SizeExtension.m
+//  QIYU
 //
-//  Created by lanou on 16/5/23.
-//  Copyright © 2016年 lanou. All rights reserved.
+//  Created by zk on 2019/9/26.
+//  Copyright © 2019 kunzhang. All rights reserved.
 //
 
-#import "UIView+BSExtension.h"
+#import "UIView+SizeExtension.h"
 
-@implementation UIView (BSExtension)
-
+@implementation UIView (SizeExtension)
 - (void)setWidth:(CGFloat)width {
     CGRect frame = self.frame;
     frame.size.width = width;
     self.frame = frame;
 }
 
-- (void)setHeight:(CGFloat)height {
-    CGRect frame = self.frame;
-    frame.size.height = height;
-    self.frame = frame;
-}
 
 - (void)setX:(CGFloat)x {
     
@@ -28,6 +22,12 @@
     frame.origin.x= x;
     self.frame = frame;
     
+}
+
+- (void)setHeight:(CGFloat)height {
+    CGRect frame = self.frame;
+    frame.size.height = height;
+    self.frame = frame;
 }
 
 - (void)setCenterX:(CGFloat)centerX {
@@ -45,13 +45,6 @@
 }
 
 
-- (void)setCenterY:(CGFloat)centerY {
-    
-    CGPoint center = self.center;
-    center.y = centerY;
-    self.center = center;
-    
-}
 
 - (CGFloat)centerY {
     return self.center.y;
@@ -63,6 +56,14 @@
     CGRect frame = self.frame;
     frame.origin.y= y;
     self.frame = frame;
+    
+}
+
+- (void)setCenterY:(CGFloat)centerY {
+    
+    CGPoint center = self.center;
+    center.y = centerY;
+    self.center = center;
     
 }
 
@@ -79,17 +80,6 @@
     return self.frame.size;
     
 }
-
-- (CGFloat)width {
-    
-    return self.frame.size.width;
-}
-
-- (CGFloat)height {
-    return self.frame.size.height;
-}
-
-
 - (CGFloat)x {
     return self.frame.origin.x;
     
@@ -99,10 +89,14 @@
     return self.frame.origin.y;
 }
 
+- (CGFloat)width {
+    
+    return self.frame.size.width;
+}
 
-
-
-
+- (CGFloat)height {
+    return self.frame.size.height;
+}
 
 
 

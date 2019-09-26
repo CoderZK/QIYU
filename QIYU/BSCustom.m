@@ -70,7 +70,7 @@
     TabBarController *vc1 = (TabBarController *)[UIApplication sharedApplication].keyWindow.rootViewController;
     BaseNavigationController * vc2 = (BaseNavigationController *)vc1.selectedViewController;
     BaseViewController * vc3 = [vc2.childViewControllers firstObject];
-    if (![zkSignleTool shareTool].isLogin) {
+    if (![QQYYSignleToolNew shareTool].isLogin) {
         [vc3 gotoLoginVC];
         
     }else {

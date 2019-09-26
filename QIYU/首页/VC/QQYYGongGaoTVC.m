@@ -111,7 +111,7 @@
     if (self.dataModel.subscribed) {
         url = [QQYYURLDefineTool deleteUserSubscribeURL];
     }
-    [zkRequestTool networkingPOST:url parameters:requestDict success:^(NSURLSessionDataTask *task, id responseObject) {
+    [QQYYRequestTool networkingPOST:url parameters:requestDict success:^(NSURLSessionDataTask *task, id responseObject) {
         [self.tableView.mj_header endRefreshing];
         [self.tableView.mj_footer endRefreshing];
         if ([responseObject[@"code"] intValue]== 0) {
@@ -119,16 +119,16 @@
             if (self.dataModel.subscribed) {
                 
                 for (zkHomelModel * model  in self.dataModel.fansList) {
-                    if ([model.userId isEqualToString:[zkSignleTool shareTool].session_uid]) {
+                    if ([model.userId isEqualToString:[QQYYSignleToolNew shareTool].session_uid]) {
                         [self.dataModel.fansList removeObject:model];
                         break ;
                     }
                 }
             }else {
                 zkHomelModel * model = [[zkHomelModel alloc] init];
-                model.avatar = [zkSignleTool shareTool].img;
-                model.nickName = [zkSignleTool shareTool].nickName;
-                model.userId = [zkSignleTool shareTool].session_uid;
+                model.avatar = [QQYYSignleToolNew shareTool].img;
+                model.nickName = [QQYYSignleToolNew shareTool].nickName;
+                model.userId = [QQYYSignleToolNew shareTool].session_uid;
                 [self.dataModel.fansList addObject:model];
                 
             }
@@ -178,7 +178,7 @@
 
 - (void)getDetailData {
     
-    [zkRequestTool networkingPOST:[QQYYURLDefineTool getSysSocialCircleDetailURL] parameters:self.cricleID success:^(NSURLSessionDataTask *task, id responseObject) {
+    [QQYYRequestTool networkingPOST:[QQYYURLDefineTool getSysSocialCircleDetailURL] parameters:self.cricleID success:^(NSURLSessionDataTask *task, id responseObject) {
         [self.tableView.mj_header endRefreshing];
         [self.tableView.mj_footer endRefreshing];
         if ([responseObject[@"code"] intValue]== 0) {

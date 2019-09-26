@@ -38,17 +38,16 @@
             return;
         }
         
-        [self send];
+        [self sendMessageAction];
 
 }
 
-- (void)send {
+- (void)sendMessageAction {
     NSMutableDictionary * requestDict = @{}.mutableCopy;
     requestDict[@"reportRemark"] = self.TV.text;
     requestDict[@"linkId"] = self.ID;
     requestDict[@"type"] = @"2";
-    requestDict[@"suibian"] = @"不用管这个字段";
-    [zkRequestTool networkingPOST:[QQYYURLDefineTool addMyReportURL] parameters:requestDict success:^(NSURLSessionDataTask *task, id responseObject) {
+    [QQYYRequestTool networkingPOST:[QQYYURLDefineTool addMyReportURL] parameters:requestDict success:^(NSURLSessionDataTask *task, id responseObject) {
         if ([responseObject[@"code"] intValue]== 0) {
             [SVProgressHUD showSuccessWithStatus:@"意见提交成功,感谢您的宝贵意见我们将进行改进"];
             dispatch_after(dispatch_time(DISPATCH_TIME_NOW, (int64_t)(0.8 * NSEC_PER_SEC)), dispatch_get_main_queue(), ^{

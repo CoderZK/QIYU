@@ -89,7 +89,7 @@
     [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(systemVolumeDidChangeNoti:) name:@"AVSystemController_SystemVolumeDidChangeNotification" object:nil];
     
 
-    [zkSignleTool shareTool].isppp = NO;
+    [QQYYSignleToolNew shareTool].isppp = NO;
     
     return YES;
 }
@@ -168,10 +168,10 @@
     
     NSMutableDictionary * requestDict = @{}.mutableCopy;
     
-    [zkRequestTool networkingPOST:[QQYYURLDefineTool getlogoutURL] parameters:requestDict success:^(NSURLSessionDataTask *task, id responseObject) {
+    [QQYYRequestTool networkingPOST:[QQYYURLDefineTool getlogoutURL] parameters:requestDict success:^(NSURLSessionDataTask *task, id responseObject) {
         if ([responseObject[@"code"] intValue]== 0) {
 
-            [zkSignleTool shareTool].isLogin = NO;
+            [QQYYSignleToolNew shareTool].isLogin = NO;
             TabBarController * tavc = (TabBarController *)self.window.rootViewController;
             tavc.selectedIndex = 0;
             [[EMClient sharedClient] logout:YES];

@@ -13,12 +13,12 @@
 #import "QQYYDetailPingLunCell.h"
 #import "QQYYPingLunTwoCell.h"
 #import "QQYYGuanZhuHeadTVC.h"
-#import "zkJuBaoView.h"
+#import "QQYYReportAndCollectVIew.h"
 #import "QQYYReDuTVC.h"
 #import "QQYYJuBaoVC.h"
 #import "CustomEmojiView.h"
 #import "WZCustomEmojiView.h"
-@interface QQYYDetailTVC ()<UITextFieldDelegate,QQYYDetailZanCellDelegate,zkJuBaoViewDelegate,QQYYDongTaiDetailCellDelegate,QQYYYongBaoViewDeletage,CustomEmojiDelegate,WZCustomEmojiDelegate,UITextViewDelegate>
+@interface QQYYDetailTVC ()<UITextFieldDelegate,QQYYDetailZanCellDelegate,QQYYReportAndCollectVIewDelegate,QQYYDongTaiDetailCellDelegate,QQYYYongBaoViewDeletage,CustomEmojiDelegate,WZCustomEmojiDelegate,UITextViewDelegate>
 @property(nonatomic,strong)zkHomelModel *dataModel;
 @property(nonatomic,strong)UIView *pingLunV;
 //@property(nonatomic,strong)UITextField *TF;
@@ -126,19 +126,19 @@
 - (void)leftOrRightClickAction:(UIButton *)button {
     
     if  (self.dataModel.currentUserCollect) {
-        [zkJuBaoView showWithArray:@[@"举报",@"取消收藏"] withIndexPath:[NSIndexPath indexPathForRow:0 inSection:0]];
+        [QQYYReportAndCollectVIew showWithArray:@[@"举报",@"取消收藏"] withIndexPath:[NSIndexPath indexPathForRow:0 inSection:0]];
     }else {
-        [zkJuBaoView showWithArray:@[@"举报",@"收藏"] withIndexPath:[NSIndexPath indexPathForRow:0 inSection:0]];
+        [QQYYReportAndCollectVIew showWithArray:@[@"举报",@"收藏"] withIndexPath:[NSIndexPath indexPathForRow:0 inSection:0]];
     }
     
 
-    [zkJuBaoView shareInstance].delegate = self;
+    [QQYYReportAndCollectVIew shareInstance].delegate = self;
  
 }
 
 - (void)acquireDataFromServe {
 
-    [zkRequestTool networkingPOST:[QQYYURLDefineTool getdetailURL] parameters:self.ID success:^(NSURLSessionDataTask *task, id responseObject) {
+    [QQYYRequestTool networkingPOST:[QQYYURLDefineTool getdetailURL] parameters:self.ID success:^(NSURLSessionDataTask *task, id responseObject) {
         [self.tableView.mj_header endRefreshing];
         [self.tableView.mj_footer endRefreshing];
         if ([responseObject[@"code"] intValue]== 0) {
@@ -175,7 +175,7 @@
     requestDict[@"postId"] = self.ID;
     requestDict[@"pageNo"] = @(self.pageNo);
     requestDict[@"pageSize"] = @(10);
-    [zkRequestTool networkingPOST:[QQYYURLDefineTool getReplyPageListForPostURL] parameters:requestDict success:^(NSURLSessionDataTask *task, id responseObject) {
+    [QQYYRequestTool networkingPOST:[QQYYURLDefineTool getReplyPageListForPostURL] parameters:requestDict success:^(NSURLSessionDataTask *task, id responseObject) {
         [self.tableView.mj_header endRefreshing];
         [self.tableView.mj_footer endRefreshing];
         if ([responseObject[@"code"] intValue]== 0) {
@@ -500,7 +500,7 @@
     if (!self.isPingTie) {
         requestDict[@"replyId"] = self.dataModel.replyInfoVoList[self.selectIndexPath.row].ID;
     }
-    [zkRequestTool networkingPOST:[QQYYURLDefineTool getreplyURL] parameters:requestDict success:^(NSURLSessionDataTask *task, id responseObject) {
+    [QQYYRequestTool networkingPOST:[QQYYURLDefineTool getreplyURL] parameters:requestDict success:^(NSURLSessionDataTask *task, id responseObject) {
         [self.tableView.mj_header endRefreshing];
         [self.tableView.mj_footer endRefreshing];
         if ([responseObject[@"code"] intValue]== 0) {
@@ -553,7 +553,7 @@
 
 #pragma mark ----- 点击了点赞人的头像  -----
 - (void)didClickZanHeadBtWithIndex:(NSInteger)index{
-    if (![zkSignleTool shareTool].isLogin) {
+    if (![QQYYSignleToolNew shareTool].isLogin) {
         [self gotoLoginVC];
         return;
     }
@@ -586,11 +586,11 @@
         [self zanActionWithModel:self.dataModel WithIndePath:[NSIndexPath indexPathForRow:0 inSection:0]];
     }else if (index == 4) {
         
-        if (![zkSignleTool shareTool].isLogin) {
+        if (![QQYYSignleToolNew shareTool].isLogin) {
             [self gotoLoginVC];
             return;
         }
-        if ([[zkSignleTool shareTool].session_uid isEqualToString:self.dataModel.createBy]) {
+        if ([[QQYYSignleToolNew shareTool].session_uid isEqualToString:self.dataModel.createBy]) {
             [SVProgressHUD showErrorWithStatus:@"自己不能给自己送爱豆"];
             return;
         }
@@ -604,7 +604,7 @@
        
     }else if (index == 7) {
         
-        if (![zkSignleTool shareTool].isLogin) {
+        if (![QQYYSignleToolNew shareTool].isLogin) {
             [self gotoLoginVC];
             return;
         }
@@ -625,7 +625,7 @@
     NSString * url = [QQYYURLDefineTool addMyCollectionURL];
     if (model.currentUserCollect) {
         url = [QQYYURLDefineTool deleteMyCollectionURL];
-        [zkRequestTool networkingPOST:url parameters:model.postId success:^(NSURLSessionDataTask *task, id responseObject) {
+        [QQYYRequestTool networkingPOST:url parameters:model.postId success:^(NSURLSessionDataTask *task, id responseObject) {
             [self.tableView.mj_header endRefreshing];
             [self.tableView.mj_footer endRefreshing];
             if ([responseObject[@"code"] intValue]== 0) {
@@ -650,7 +650,7 @@
             
         }];
     }else {
-        [zkRequestTool networkingPOST:url parameters:requestDict success:^(NSURLSessionDataTask *task, id responseObject) {
+        [QQYYRequestTool networkingPOST:url parameters:requestDict success:^(NSURLSessionDataTask *task, id responseObject) {
             [self.tableView.mj_header endRefreshing];
             [self.tableView.mj_footer endRefreshing];
             if ([responseObject[@"code"] intValue]== 0) {
@@ -692,7 +692,7 @@
     if (model.currentUserLike) {
         url = [QQYYURLDefineTool notlikeURL];
     }
-    [zkRequestTool networkingPOST:url parameters:requestDict success:^(NSURLSessionDataTask *task, id responseObject) {
+    [QQYYRequestTool networkingPOST:url parameters:requestDict success:^(NSURLSessionDataTask *task, id responseObject) {
         [self.tableView.mj_header endRefreshing];
         [self.tableView.mj_footer endRefreshing];
         if ([responseObject[@"code"] intValue]== 0) {
@@ -701,15 +701,15 @@
             if (model.currentUserLike) {
                 model.likeNum = model.likeNum + 1;
                 zkHomelModel * modelNei = [[zkHomelModel alloc] init];
-                modelNei.avatar = [zkSignleTool shareTool].img;
-                modelNei.nickName = [zkSignleTool shareTool].nickName;
-                modelNei.createBy = [zkSignleTool shareTool].session_uid;
+                modelNei.avatar = [QQYYSignleToolNew shareTool].img;
+                modelNei.nickName = [QQYYSignleToolNew shareTool].nickName;
+                modelNei.createBy = [QQYYSignleToolNew shareTool].session_uid;
                 [self.dataModel.postLikeVoList insertObject:modelNei atIndex:0];
             }else {
                 model.likeNum = model.likeNum - 1;
                 
                 for (zkHomelModel * zanModel  in self.dataModel.postLikeVoList) {
-                    if ([zanModel.createBy isEqualToString:[zkSignleTool shareTool].session_uid]) {
+                    if ([zanModel.createBy isEqualToString:[QQYYSignleToolNew shareTool].session_uid]) {
                         [self.dataModel.postLikeVoList removeObject:zanModel];
                         break;
                     }

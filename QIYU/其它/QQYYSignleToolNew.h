@@ -1,17 +1,18 @@
 //
-//  zkSignleTool.h
-//  BYXuNiPan
+//  QQYYSignleToolNew.h
+//  QIYU
 //
-//  Created by kunzhang on 2018/7/5.
-//  Copyright © 2018年 kunzhang. All rights reserved.
+//  Created by zk on 2019/9/26.
+//  Copyright © 2019 kunzhang. All rights reserved.
 //
 
 #import <Foundation/Foundation.h>
+
 #import <UIKit/UIKit.h>
 #import "QQYYUserModel.h"
-@interface zkSignleTool : NSObject
+@interface QQYYSignleToolNew : NSObject
 
-+ (zkSignleTool *)shareTool;
++ (QQYYSignleToolNew *)shareTool;
 @property(nonatomic,assign)BOOL isLogin;
 @property(nonatomic,strong)NSString * session_token;
 @property(nonatomic,strong)NSString * nickName;
@@ -26,3 +27,4 @@
 
 -(void)uploadDeviceToken;
 @end
+

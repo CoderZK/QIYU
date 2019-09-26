@@ -10,7 +10,7 @@
 #import "QQYYMineFriendsCell.h"
 @interface QQYYMineFriendsTVC ()<UITextFieldDelegate>
 @property(nonatomic,strong)UIView *headView;
-@property(nonatomic,strong)UITextField *TF;
+@property(nonatomic,strong)UITextField *NewTFTF;
 @property(nonatomic,strong)UIButton *searchBt;
 @property(nonatomic,assign)NSInteger pageNo;
 @property(nonatomic,strong)NSMutableArray<zkHomelModel *> *dataArray;
@@ -38,13 +38,13 @@
         self.navigationItem.title = @"我的朋友";
         [self createHeadView];
     }else if (self.type ==1) {
-        if (![[zkSignleTool shareTool].huanxin isEqualToString:self.userNo]) {
+        if (![[QQYYSignleToolNew shareTool].huanxin isEqualToString:self.userNo]) {
             self.navigationItem.title = @"他/她的关注";
         }else {
              self.navigationItem.title = @"我的关注";
         }
     }else if(self.type == 2){
-        if (![[zkSignleTool shareTool].huanxin isEqualToString:self.userNo]) {
+        if (![[QQYYSignleToolNew shareTool].huanxin isEqualToString:self.userNo]) {
            self.navigationItem.title = @"他/她的粉丝";
         }else {
            self.navigationItem.title = @"我的粉丝";
@@ -96,7 +96,7 @@
         return;
     }
     
-    [zkRequestTool networkingPOST:url parameters:requestDict success:^(NSURLSessionDataTask *task, id responseObject) {
+    [QQYYRequestTool networkingPOST:url parameters:requestDict success:^(NSURLSessionDataTask *task, id responseObject) {
         [self.tableView.mj_header endRefreshing];
         [self.tableView.mj_footer endRefreshing];
         if ([responseObject[@"code"] intValue]== 0) {
@@ -135,14 +135,14 @@
 //查找添加好友
 - (void)getNewFriendByUserNo {
  
-    if (self.TF.text.length == 0) {
+    if (self.NewTFTF.text.length == 0) {
         [SVProgressHUD showErrorWithStatus:@"请输入你要找的好友ID"];
         return;
     }
     
     NSMutableDictionary * requestDict = @{}.mutableCopy;
-    requestDict[@"userNo"] = self.TF.text;
-    [zkRequestTool networkingPOST:[QQYYURLDefineTool getNewFriendByUserNoURL] parameters:self.TF.text success:^(NSURLSessionDataTask *task, id responseObject) {
+    requestDict[@"userNo"] = self.NewTFTF.text;
+    [QQYYRequestTool networkingPOST:[QQYYURLDefineTool getNewFriendByUserNoURL] parameters:self.NewTFTF.text success:^(NSURLSessionDataTask *task, id responseObject) {
         [self.tableView.mj_header endRefreshing];
         [self.tableView.mj_footer endRefreshing];
         if ([responseObject[@"code"] intValue]== 0) {
@@ -169,24 +169,24 @@
     self.headView = [[UIView alloc] initWithFrame:CGRectMake(0, 0, ScreenW, 90)];
     self.headView.backgroundColor = WhiteColor;
     
-    UIView * grayView = [[UIView alloc] initWithFrame:CGRectMake(15, 15, ScreenW- 30, 50)];
-    grayView.backgroundColor = BackgroundColor;
-    grayView.layer.cornerRadius = 25;
-    grayView.clipsToBounds = YES;
-    [self.headView addSubview:grayView];
+    UIView * NewGrayV = [[UIView alloc] initWithFrame:CGRectMake(15, 15, ScreenW- 30, 50)];
+    NewGrayV.backgroundColor = BackgroundColor;
+    NewGrayV.layer.cornerRadius = 25;
+    NewGrayV.clipsToBounds = YES;
+    [self.headView addSubview:NewGrayV];
     
-    self.TF = [[UITextField alloc] initWithFrame:CGRectMake(20, 10, ScreenW - 30 - 40 - 40, 30)];
-    self.TF.placeholder = @"请输入对方ID";
-    self.TF.font = kFont(15);
-    self.TF.returnKeyType = UIReturnKeySearch;
-    self.TF.delegate = self;
-    [self.TF  setTintColor:CharacterRedColor];
-    [grayView addSubview:self.TF];
+    self.NewTFTF = [[UITextField alloc] initWithFrame:CGRectMake(20, 10, ScreenW - 30 - 40 - 40, 30)];
+    self.NewTFTF.placeholder = @"请输入对方ID";
+    self.NewTFTF.font = kFont(15);
+    self.NewTFTF.returnKeyType = UIReturnKeySearch;
+    self.NewTFTF.delegate = self;
+    [self.NewTFTF  setTintColor:CharacterRedColor];
+    [NewGrayV addSubview:self.NewTFTF];
     
     self.searchBt = [[UIButton alloc] initWithFrame:CGRectMake(ScreenW - 30 - 40 , 5, 40, 40)];
     [self.searchBt setImage:[UIImage imageNamed:@"53"] forState:UIControlStateNormal];
     [self.searchBt addTarget:self action:@selector(searchAction) forControlEvents:UIControlEventTouchUpInside];
-    [grayView addSubview:self.searchBt];
+    [NewGrayV addSubview:self.searchBt];
     
     UIView * lineV = [[UIView alloc] initWithFrame:CGRectMake(0, 80, ScreenW, 10)];
     lineV.backgroundColor =BackgroundColor;
@@ -225,7 +225,7 @@
         model.city = model.cityName;
     }
     cell.type = self.type;
-    if (![self.userNo isEqualToString:[zkSignleTool shareTool].huanxin]) {
+    if (![self.userNo isEqualToString:[QQYYSignleToolNew shareTool].huanxin]) {
         if (self.type == 1 || self.type == 2) {
             cell.guanZhuBt.hidden = cell.xinImgV.hidden = cell.typeLB.hidden = YES;
         }
@@ -342,7 +342,7 @@
    
     zkHomelModel * model = self.dataArray[indexPath.row];
     
-    [zkRequestTool networkingPOST:url parameters:model.userId success:^(NSURLSessionDataTask *task, id responseObject) {
+    [QQYYRequestTool networkingPOST:url parameters:model.userId success:^(NSURLSessionDataTask *task, id responseObject) {
         [self.tableView.mj_header endRefreshing];
         [self.tableView.mj_footer endRefreshing];
         if ([responseObject[@"code"] intValue]== 0) {
@@ -395,7 +395,7 @@
             url =  [QQYYURLDefineTool addUserSubscribeURL];
         }
     }
-    [zkRequestTool networkingPOST:url parameters:requestDict success:^(NSURLSessionDataTask *task, id responseObject) {
+    [QQYYRequestTool networkingPOST:url parameters:requestDict success:^(NSURLSessionDataTask *task, id responseObject) {
         [self.tableView.mj_header endRefreshing];
         [self.tableView.mj_footer endRefreshing];
         if ([responseObject[@"code"] intValue]== 0) {

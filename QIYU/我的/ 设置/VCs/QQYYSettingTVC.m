@@ -8,7 +8,7 @@
 
 #import "QQYYSettingTVC.h"
 #import "QQYYTongYongCell.h"
-#import "Clear.h"
+#import "QQYYClear.h"
 #import "QQYYBindPhoneVC.h"
 #import "QQYYBindPoneTwoVC.h"
 #import "QQYYBindQWXVC.h"
@@ -52,10 +52,10 @@
     
     NSMutableDictionary * requestDict = @{}.mutableCopy;
     
-    [zkRequestTool networkingPOST:[QQYYURLDefineTool getlogoutURL] parameters:requestDict success:^(NSURLSessionDataTask *task, id responseObject) {
+    [QQYYRequestTool networkingPOST:[QQYYURLDefineTool getlogoutURL] parameters:requestDict success:^(NSURLSessionDataTask *task, id responseObject) {
         if ([responseObject[@"code"] intValue]== 0) {
             
-            [zkSignleTool shareTool].isLogin = NO;
+            [QQYYSignleToolNew shareTool].isLogin = NO;
             self.tabBarController.selectedIndex = 0;
             [[EMClient sharedClient] logout:YES];
             [self.navigationController popToRootViewControllerAnimated:YES];
@@ -123,7 +123,7 @@
             cell.TF.text = self.phoneStr;
         }else {
             
-            cell.TF.text = [NSString stringWithFormat:@"%0.1fM",[Clear folderSizeAtPath]];
+            cell.TF.text = [NSString stringWithFormat:@"%0.1fM",[QQYYClear folderSizeAtPath]];
         }
         
         
@@ -176,14 +176,14 @@
             vc.hidesBottomBarWhenPushed = YES;
             [self.navigationController pushViewController:vc animated:YES];
         }else if (indexPath.row == 2) {
-            [Clear cleanCache:^{
+            [QQYYClear cleanCache:^{
                 
                 [tableView reloadData];
                 
             }];
         }else if (indexPath.row == 3) {
             
-            [self shareWithSetPreDefinePlatforms:@[@(UMSocialPlatformType_WechatSession),@(UMSocialPlatformType_QQ),@(UMSocialPlatformType_Sina)] withUrl:[zkSignleTool shareTool].huanxin shareModel:nil];
+            [self shareWithSetPreDefinePlatforms:@[@(UMSocialPlatformType_WechatSession),@(UMSocialPlatformType_QQ),@(UMSocialPlatformType_Sina)] withUrl:[QQYYSignleToolNew shareTool].huanxin shareModel:nil];
             
         }else if (indexPath.row == 4) {
             QQYYAboutUsVC * vc =[[QQYYAboutUsVC alloc] init];

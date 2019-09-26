@@ -40,7 +40,7 @@
     NSMutableDictionary * requestDict = @{}.mutableCopy;
     requestDict[@"pageNo"] = @(self.pageNo);
     requestDict[@"pageSize"] = @(10);
-    [zkRequestTool networkingPOST:[QQYYURLDefineTool getMyWithDrawListURL] parameters:requestDict success:^(NSURLSessionDataTask *task, id responseObject) {
+    [QQYYRequestTool networkingPOST:[QQYYURLDefineTool getMyWithDrawListURL] parameters:requestDict success:^(NSURLSessionDataTask *task, id responseObject) {
         [self.tableView.mj_header endRefreshing];
         [self.tableView.mj_footer endRefreshing];
         if ([responseObject[@"code"] intValue]== 0) {

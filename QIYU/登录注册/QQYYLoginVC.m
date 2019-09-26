@@ -70,7 +70,7 @@
     }else if (button.tag == 104) {
         //登录
         
-//        [zkSignleTool shareTool].isLogin = YES;
+//        [QQYYSignleToolNew shareTool].isLogin = YES;
 //        [self dismissViewControllerAnimated:YES completion:nil];
 //        return;
 //
@@ -115,15 +115,15 @@
     [SVProgressHUD show];
     NSMutableDictionary * requestDict = @{@"phone":self.phoneTF.text}.mutableCopy;
     requestDict[@"password"] = self.passWordTF.text;
-    [zkRequestTool networkingPOST:[QQYYURLDefineTool getLoginURL] parameters:requestDict success:^(NSURLSessionDataTask *task, id responseObject) {
+    [QQYYRequestTool networkingPOST:[QQYYURLDefineTool getLoginURL] parameters:requestDict success:^(NSURLSessionDataTask *task, id responseObject) {
         if ([responseObject[@"code"] intValue]== 0) {
             [SVProgressHUD dismiss];
-            [zkSignleTool shareTool].isLogin = YES;
-            [zkSignleTool shareTool].session_token = responseObject[@"object"][@"token"];
-            [zkSignleTool shareTool].session_uid = [NSString stringWithFormat:@"%@",responseObject[@"object"][@"userId"]];
-            [zkSignleTool shareTool].img =[NSString stringWithFormat:@"%@",responseObject[@"object"][@"avatar"]];
-            [zkSignleTool shareTool].nickName =[NSString stringWithFormat:@"%@",responseObject[@"object"][@"nickName"]];
-             [zkSignleTool shareTool].huanxin =[NSString stringWithFormat:@"%@",responseObject[@"object"][@"huanxin"]];
+            [QQYYSignleToolNew shareTool].isLogin = YES;
+            [QQYYSignleToolNew shareTool].session_token = responseObject[@"object"][@"token"];
+            [QQYYSignleToolNew shareTool].session_uid = [NSString stringWithFormat:@"%@",responseObject[@"object"][@"userId"]];
+            [QQYYSignleToolNew shareTool].img =[NSString stringWithFormat:@"%@",responseObject[@"object"][@"avatar"]];
+            [QQYYSignleToolNew shareTool].nickName =[NSString stringWithFormat:@"%@",responseObject[@"object"][@"nickName"]];
+             [QQYYSignleToolNew shareTool].huanxin =[NSString stringWithFormat:@"%@",responseObject[@"object"][@"huanxin"]];
             EMError * error = [[EMClient sharedClient] loginWithUsername:responseObject[@"object"][@"huanxin"] password:huanXinMiMa];
             if (!error || error.code == 200) {
                 
@@ -180,7 +180,7 @@
         requestDict[@"type"] = @"qq";
     }
     
-    [zkRequestTool networkingPOST:[QQYYURLDefineTool getloginAuthByThirdURL] parameters:requestDict success:^(NSURLSessionDataTask *task, id responseObject) {
+    [QQYYRequestTool networkingPOST:[QQYYURLDefineTool getloginAuthByThirdURL] parameters:requestDict success:^(NSURLSessionDataTask *task, id responseObject) {
         [SVProgressHUD dismiss];
         if ([responseObject[@"code"] intValue]== 10003) {
             //用户未注册
@@ -200,12 +200,12 @@
             
         }else if ([responseObject[@"code"] intValue]== 0) {
             
-            [zkSignleTool shareTool].isLogin = YES;
-            [zkSignleTool shareTool].session_token = responseObject[@"object"][@"token"];
-            [zkSignleTool shareTool].session_uid = [NSString stringWithFormat:@"%@",responseObject[@"object"][@"userId"]];
-            [zkSignleTool shareTool].img =[NSString stringWithFormat:@"%@",responseObject[@"object"][@"avatar"]];
-            [zkSignleTool shareTool].nickName =[NSString stringWithFormat:@"%@",responseObject[@"object"][@"nickName"]];
-            [zkSignleTool shareTool].huanxin =[NSString stringWithFormat:@"%@",responseObject[@"object"][@"huanxin"]];
+            [QQYYSignleToolNew shareTool].isLogin = YES;
+            [QQYYSignleToolNew shareTool].session_token = responseObject[@"object"][@"token"];
+            [QQYYSignleToolNew shareTool].session_uid = [NSString stringWithFormat:@"%@",responseObject[@"object"][@"userId"]];
+            [QQYYSignleToolNew shareTool].img =[NSString stringWithFormat:@"%@",responseObject[@"object"][@"avatar"]];
+            [QQYYSignleToolNew shareTool].nickName =[NSString stringWithFormat:@"%@",responseObject[@"object"][@"nickName"]];
+            [QQYYSignleToolNew shareTool].huanxin =[NSString stringWithFormat:@"%@",responseObject[@"object"][@"huanxin"]];
             EMError * error = [[EMClient sharedClient] loginWithUsername:responseObject[@"object"][@"huanxin"] password:huanXinMiMa];
             if (!error) {
                 

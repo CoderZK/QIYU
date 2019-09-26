@@ -52,7 +52,7 @@
     
     NSMutableDictionary * requestDict = @{}.mutableCopy;
     
-    [zkRequestTool networkingPOST:[QQYYURLDefineTool getMyBankCardListURL] parameters:requestDict success:^(NSURLSessionDataTask *task, id responseObject) {
+    [QQYYRequestTool networkingPOST:[QQYYURLDefineTool getMyBankCardListURL] parameters:requestDict success:^(NSURLSessionDataTask *task, id responseObject) {
         [self.tableView.mj_header endRefreshing];
         [self.tableView.mj_footer endRefreshing];
         if ([responseObject[@"code"] intValue]== 0) {
@@ -99,7 +99,7 @@
     
 
     
-    [zkRequestTool networkingPOST:[QQYYURLDefineTool deleteMyBankCardURL] parameters:self.dataArray[indexPath.row].bankCardId success:^(NSURLSessionDataTask *task, id responseObject) {
+    [QQYYRequestTool networkingPOST:[QQYYURLDefineTool deleteMyBankCardURL] parameters:self.dataArray[indexPath.row].bankCardId success:^(NSURLSessionDataTask *task, id responseObject) {
         [self.tableView.mj_header endRefreshing];
         [self.tableView.mj_footer endRefreshing];
         if ([responseObject[@"code"] intValue]== 0) {

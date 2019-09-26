@@ -177,7 +177,7 @@
     [self.editBt addTarget:self action:@selector(updateAvatar:) forControlEvents:UIControlEventTouchUpInside];
     self.editBt.tag = 101;
     
-    if ([[zkSignleTool shareTool].session_uid isEqualToString:self.userId]) {
+    if ([[QQYYSignleToolNew shareTool].session_uid isEqualToString:self.userId]) {
         [headView addSubview:self.editBt];
          [self.headBt addTarget:self action:@selector(updateAvatar:) forControlEvents:UIControlEventTouchUpInside];
     }else {
@@ -204,7 +204,7 @@
     }else if (section == 1 || section == 2 ) {
         return 1;
     }else if (section == 3) {
-        if (![[zkSignleTool shareTool].session_uid isEqualToString:self.userId] && !self.dataModel.friends) {
+        if (![[QQYYSignleToolNew shareTool].session_uid isEqualToString:self.userId] && !self.dataModel.friends) {
             return self.dataArray.count > 3?3:self.dataArray.count;
         }else {
             return self.dataArray.count;
@@ -269,7 +269,7 @@
         cell.model = self.dataModel;
         cell.biaoQianLB.text = [NSString stringWithFormat:@"已经选择标签(%lu)",(unsigned long)[self.dataModel.tagsName componentsSeparatedByString:@","].count];
         cell.arr = [self.tags componentsSeparatedByString:@","];
-        if ([[zkSignleTool shareTool].session_uid isEqualToString:self.userId]) {
+        if ([[QQYYSignleToolNew shareTool].session_uid isEqualToString:self.userId]) {
             cell.gotoImgV.hidden = NO;
         }
         return cell;
@@ -340,7 +340,7 @@
     headV.clipsToBounds = YES;
     bt.hidden = YES;
     if (section == 1 ) {
-        if ([[zkSignleTool shareTool].session_uid isEqualToString:self.userId]) {
+        if ([[QQYYSignleToolNew shareTool].session_uid isEqualToString:self.userId]) {
             bt.hidden = NO;
             lb.text = @"相册";
         }else {
@@ -349,7 +349,7 @@
     } else if (section == 2) {
         lb.text = @"个人信息";
     } else if (section == 3) {
-        if ( ![[zkSignleTool shareTool].session_uid isEqualToString:self.userId] && !self.dataModel.friends) {
+        if ( ![[QQYYSignleToolNew shareTool].session_uid isEqualToString:self.userId] && !self.dataModel.friends) {
             lb.text = @"帖子(非好友最多看三条)";
         }else {
          lb.text = @"帖子";
@@ -402,7 +402,7 @@
                 if (self.type == 1) {
                     [self.headBt setBackgroundImage:image forState:UIControlStateNormal];
                     Weak(weakSelf);
-                    [zkRequestTool uploadImagsWithArr:@[image] withType:@"2" result:^(NSString *str) {
+                    [QQYYRequestTool uploadImagsWithArr:@[image] withType:@"2" result:^(NSString *str) {
                         weakSelf.dataModel.avatar = str;
                         [weakSelf updateHeadImgOrbackImge];
                         
@@ -411,7 +411,7 @@
                     
                     self.backImgV.image = image;
                     Weak(weakSelf);
-                    [zkRequestTool uploadImagsWithArr:@[image] withType:@"4" result:^(NSString *str) {
+                    [QQYYRequestTool uploadImagsWithArr:@[image] withType:@"4" result:^(NSString *str) {
                         weakSelf.dataModel.background = str;
                         [weakSelf updateHeadImgOrbackImge];
                     }];
@@ -442,7 +442,7 @@
                 if (self.type == 1) {
                     [self.headBt setBackgroundImage:photos[0] forState:UIControlStateNormal];
                     Weak(weakSelf);
-                    [zkRequestTool uploadImagsWithArr:photos withType:@"2" result:^(NSString *str) {
+                    [QQYYRequestTool uploadImagsWithArr:photos withType:@"2" result:^(NSString *str) {
                         weakSelf.dataModel.avatar = str;
                         [weakSelf updateHeadImgOrbackImge];
                     }];
@@ -450,7 +450,7 @@
                     
                     self.backImgV.image = photos[0];
                     Weak(weakSelf);
-                    [zkRequestTool uploadImagsWithArr:photos withType:@"4" result:^(NSString *str) {
+                    [QQYYRequestTool uploadImagsWithArr:photos withType:@"4" result:^(NSString *str) {
                         weakSelf.dataModel.background = str;
                         [weakSelf updateHeadImgOrbackImge];
                     }];
@@ -486,7 +486,7 @@
         requestDict[@"avatar"] = self.dataModel.background;
     }
     
-    [zkRequestTool networkingPOST:[QQYYURLDefineTool updateAvatarURL] parameters:requestDict success:^(NSURLSessionDataTask *task, id responseObject) {
+    [QQYYRequestTool networkingPOST:[QQYYURLDefineTool updateAvatarURL] parameters:requestDict success:^(NSURLSessionDataTask *task, id responseObject) {
         [self.tableView.mj_header endRefreshing];
         [self.tableView.mj_footer endRefreshing];
         if ([responseObject[@"code"] intValue]== 0) {
@@ -509,7 +509,7 @@
 
 
 - (void)yongBaoAction {
-    if ([[zkSignleTool shareTool].session_uid isEqualToString:self.dataModel.userId]) {
+    if ([[QQYYSignleToolNew shareTool].session_uid isEqualToString:self.dataModel.userId]) {
         [SVProgressHUD showErrorWithStatus:@"自己不能给自己送花"];
         return;
     }
@@ -542,7 +542,7 @@
             return;
         }
         
-        if ([[zkSignleTool shareTool].session_uid isEqualToString:self.dataModel.userId]) {
+        if ([[QQYYSignleToolNew shareTool].session_uid isEqualToString:self.dataModel.userId]) {
             
             QQYYReDuTVC * vc =[[QQYYReDuTVC alloc] init];
             vc.hidesBottomBarWhenPushed = YES;
@@ -586,7 +586,7 @@
         return;
     }
     
-    if (!self.dataModel.currentUserIsVip  && ![[zkSignleTool shareTool].session_uid isEqualToString:self.dataModel.userId]) {
+    if (!self.dataModel.currentUserIsVip  && ![[QQYYSignleToolNew shareTool].session_uid isEqualToString:self.dataModel.userId]) {
         
         UIAlertController *ac = [UIAlertController alertControllerWithTitle:@"温馨提示" message:@"只有开通Vip会员才能查看他人的关注和粉丝" preferredStyle:UIAlertControllerStyleAlert];
         UIAlertAction *action1 = [UIAlertAction actionWithTitle:@"取消" style:UIAlertActionStyleDefault handler:^(UIAlertAction * _Nonnull action) {
@@ -649,7 +649,7 @@
     if (self.dataModel.subscribed) {
         url = [QQYYURLDefineTool deleteUserSubscribeURL];
     }
-    [zkRequestTool networkingPOST:url parameters:requestDict success:^(NSURLSessionDataTask *task, id responseObject) {
+    [QQYYRequestTool networkingPOST:url parameters:requestDict success:^(NSURLSessionDataTask *task, id responseObject) {
         
         if ([responseObject[@"code"] intValue]== 0) {
             
@@ -694,7 +694,7 @@
         
         
     }else if (index == 3) {
-        if (![zkSignleTool shareTool].isLogin) {
+        if (![QQYYSignleToolNew shareTool].isLogin) {
             [self gotoLoginVC];
             return;
         }
@@ -702,11 +702,11 @@
         
     }else if (index == 4) {
         
-        if (![zkSignleTool shareTool].isLogin) {
+        if (![QQYYSignleToolNew shareTool].isLogin) {
             [self gotoLoginVC];
             return;
         }
-        if ([[zkSignleTool shareTool].session_uid isEqualToString:self.dataArray[indexPath.row].userId]) {
+        if ([[QQYYSignleToolNew shareTool].session_uid isEqualToString:self.dataArray[indexPath.row].userId]) {
             [SVProgressHUD showErrorWithStatus:@"自己不能给自己送爱豆"];
             return;
         }
@@ -720,7 +720,7 @@
         
     }else if (index == 7) {
         
-        if (![zkSignleTool shareTool].isLogin) {
+        if (![QQYYSignleToolNew shareTool].isLogin) {
             [self gotoLoginVC];
             return;
         }
@@ -742,7 +742,7 @@
     if (model.currentUserLike) {
         url = [QQYYURLDefineTool notlikeURL];
     }
-    [zkRequestTool networkingPOST:url parameters:requestDict success:^(NSURLSessionDataTask *task, id responseObject) {
+    [QQYYRequestTool networkingPOST:url parameters:requestDict success:^(NSURLSessionDataTask *task, id responseObject) {
         [self.tableView.mj_header endRefreshing];
         [self.tableView.mj_footer endRefreshing];
         if ([responseObject[@"code"] intValue]== 0) {
@@ -779,7 +779,7 @@
     NSString * url = [QQYYURLDefineTool addMyCollectionURL];
     if (model.currentUserCollect) {
         url = [QQYYURLDefineTool deleteMyCollectionURL];
-        [zkRequestTool networkingPOST:url parameters:self.dataArray[indexPath.row].postId success:^(NSURLSessionDataTask *task, id responseObject) {
+        [QQYYRequestTool networkingPOST:url parameters:self.dataArray[indexPath.row].postId success:^(NSURLSessionDataTask *task, id responseObject) {
             [self.tableView.mj_header endRefreshing];
             [self.tableView.mj_footer endRefreshing];
             if ([responseObject[@"code"] intValue]== 0) {
@@ -804,7 +804,7 @@
             
         }];
     }else {
-        [zkRequestTool networkingPOST:url parameters:requestDict success:^(NSURLSessionDataTask *task, id responseObject) {
+        [QQYYRequestTool networkingPOST:url parameters:requestDict success:^(NSURLSessionDataTask *task, id responseObject) {
             [self.tableView.mj_header endRefreshing];
             [self.tableView.mj_footer endRefreshing];
             if ([responseObject[@"code"] intValue]== 0) {
@@ -857,14 +857,14 @@
                 [SVProgressHUD showSuccessWithStatus:@"送爱豆成功!"];
                 
                 if (isUser) {
-                    if (![self.dataModel.userId isEqualToString:[zkSignleTool shareTool].session_uid]) {
+                    if (![self.dataModel.userId isEqualToString:[QQYYSignleToolNew shareTool].session_uid]) {
                         //给他人送花要加花,自己送花不需要
                         weakSelf.dataModel.flowerNum += [str integerValue];
                     }
                 }else {
                     
                     self.dataArray[indexPath.row].heat += [str integerValue];
-                    if (![self.dataModel.userId isEqualToString:[zkSignleTool shareTool].session_uid]) {
+                    if (![self.dataModel.userId isEqualToString:[QQYYSignleToolNew shareTool].session_uid]) {
                         //给他人送花要加花,自己送花不需要
                         weakSelf.dataModel.flowerNum += [str integerValue];
                     }
@@ -898,7 +898,7 @@
             }
         }else {
             
-            if (!self.dataModel.currentUserIsVip  && ![[zkSignleTool shareTool].session_uid isEqualToString:self.dataModel.userId]) {
+            if (!self.dataModel.currentUserIsVip  && ![[QQYYSignleToolNew shareTool].session_uid isEqualToString:self.dataModel.userId]) {
                 
                 UIAlertController *ac = [UIAlertController alertControllerWithTitle:@"温馨提示" message:@"只有开通Vip会员才能添加好友" preferredStyle:UIAlertControllerStyleAlert];
                 UIAlertAction *action1 = [UIAlertAction actionWithTitle:@"取消" style:UIAlertActionStyleDefault handler:^(UIAlertAction * _Nonnull action) {
@@ -942,7 +942,7 @@
         if (self.dataModel.subscribed) {
             url = [QQYYURLDefineTool deleteUserSubscribeURL];
         }
-        [zkRequestTool networkingPOST:url parameters:requestDict success:^(NSURLSessionDataTask *task, id responseObject) {
+        [QQYYRequestTool networkingPOST:url parameters:requestDict success:^(NSURLSessionDataTask *task, id responseObject) {
             [self.tableView.mj_header endRefreshing];
             [self.tableView.mj_footer endRefreshing];
             if ([responseObject[@"code"] intValue]== 0) {
@@ -991,7 +991,7 @@
 
 - (void)acquireDataFromServe {
 
-    [zkRequestTool networkingPOST:[QQYYURLDefineTool gethomeURL] parameters:self.userId success:^(NSURLSessionDataTask *task, id responseObject) {
+    [QQYYRequestTool networkingPOST:[QQYYURLDefineTool gethomeURL] parameters:self.userId success:^(NSURLSessionDataTask *task, id responseObject) {
         [self.tableView.mj_header endRefreshing];
         [self.tableView.mj_footer endRefreshing];
         if ([responseObject[@"code"] intValue]== 0) {
@@ -1003,7 +1003,7 @@
             self.tags = self.dataModel.tagsName;
             self.tagIds = self.dataModel.tags;
             
-            if ([self.dataModel.userId isEqualToString:[zkSignleTool shareTool].session_uid]) {
+            if ([self.dataModel.userId isEqualToString:[QQYYSignleToolNew shareTool].session_uid]) {
                   self.tableView.frame = CGRectMake(0, -sstatusHeight, ScreenW, ScreenH  + sstatusHeight );
             }else {
                 [self initfootView];
@@ -1028,7 +1028,7 @@
 
 - (void)getTieZiData {
     
-    if (self.pageNo>1 && ![[zkSignleTool shareTool].session_uid isEqualToString:self.userId] && !self.dataModel.friends) {
+    if (self.pageNo>1 && ![[QQYYSignleToolNew shareTool].session_uid isEqualToString:self.userId] && !self.dataModel.friends) {
         [self.tableView.mj_header endRefreshing];
         [self.tableView.mj_footer endRefreshing];
         return;
@@ -1040,7 +1040,7 @@
     requestDict[@"pageNo"] = @(self.pageNo);
     requestDict[@"pageSize"] = @(10);
     requestDict[@"createBy"] = self.userId;
-    [zkRequestTool networkingPOST:[QQYYURLDefineTool getsearchURL] parameters:requestDict success:^(NSURLSessionDataTask *task, id responseObject) {
+    [QQYYRequestTool networkingPOST:[QQYYURLDefineTool getsearchURL] parameters:requestDict success:^(NSURLSessionDataTask *task, id responseObject) {
         [self.tableView.mj_header endRefreshing];
         [self.tableView.mj_footer endRefreshing];
         if ([responseObject[@"code"] intValue]== 0) {

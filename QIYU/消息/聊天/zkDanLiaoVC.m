@@ -151,10 +151,10 @@
     
     NSMutableDictionary * requestDict = @{}.mutableCopy;
     requestDict[@"friendId"] = self.otherId;
-    requestDict[@"userId"] = [zkSignleTool shareTool].session_uid;
+    requestDict[@"userId"] = [QQYYSignleToolNew shareTool].session_uid;
     requestDict[@"charType"] = @(1);
     requestDict[@"chatContent"] = [NSString emojiConvert:self.lastText];
-    [zkRequestTool networkingPOST:[QQYYURLDefineTool uploadUserChatRecordURL] parameters:requestDict success:^(NSURLSessionDataTask *task, id responseObject) {
+    [QQYYRequestTool networkingPOST:[QQYYURLDefineTool uploadUserChatRecordURL] parameters:requestDict success:^(NSURLSessionDataTask *task, id responseObject) {
         [self.tableView.mj_header endRefreshing];
         [self.tableView.mj_footer endRefreshing];
         if ([responseObject[@"code"] intValue]== 0) {

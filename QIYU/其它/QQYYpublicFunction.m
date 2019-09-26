@@ -95,8 +95,8 @@ static QQYYpublicFunction * hhyP = nil;
     NSLog(@"%f,%f",currentLocation.coordinate.latitude,currentLocation.coordinate.longitude);
     
     [self updateLatitudeAndLongtude:currentLocation.coordinate.latitude andLongitude:currentLocation.coordinate.longitude];
-    [zkSignleTool shareTool].latitude = currentLocation.coordinate.latitude;
-    [zkSignleTool shareTool].longitude = currentLocation.coordinate.longitude;
+    [QQYYSignleToolNew shareTool].latitude = currentLocation.coordinate.latitude;
+    [QQYYSignleToolNew shareTool].longitude = currentLocation.coordinate.longitude;
     
     //反地理编码
 //    [geoCoder reverseGeocodeLocation:currentLocation completionHandler:^(NSArray<CLPlacemark *> * _Nullable placemarks, NSError * _Nullable error)
@@ -124,7 +124,7 @@ static QQYYpublicFunction * hhyP = nil;
     NSMutableDictionary * requestDict = @{}.mutableCopy;
     requestDict[@"latitude"]  = @(latitude);
     requestDict[@"longitude"] = @(longitude);
-    [zkRequestTool networkingPOST:[QQYYURLDefineTool reportLocationURL] parameters:requestDict success:^(NSURLSessionDataTask *task, id responseObject) {
+    [QQYYRequestTool networkingPOST:[QQYYURLDefineTool reportLocationURL] parameters:requestDict success:^(NSURLSessionDataTask *task, id responseObject) {
         
         if ([responseObject[@"code"] intValue]== 0) {
             

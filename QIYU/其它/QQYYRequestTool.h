@@ -1,34 +1,19 @@
 //
-//  zkRequestTool.h
-//  BYXuNiPan
+//  QQYYRequestTool.h
+//  QIYU
 //
-//  Created by kunzhang on 2018/7/5.
-//  Copyright © 2018年 kunzhang. All rights reserved.
+//  Created by zk on 2019/9/26.
+//  Copyright © 2019 kunzhang. All rights reserved.
 //
 
 #import <Foundation/Foundation.h>
 #import <AFNetworking.h>
 typedef void(^SuccessBlock)(NSURLSessionDataTask * task,id responseObject);
 typedef void(^FailureBlock)(NSURLSessionDataTask * task,NSError * error);
+NS_ASSUME_NONNULL_BEGIN
 
-
-@interface zkRequestTool : NSObject
-
-/**
- post_json
- */
+@interface QQYYRequestTool : NSObject
 +(void)networkingPOST:(NSString *)urlStr parameters:(id)parameters success:(SuccessBlock)success failure:(FailureBlock)failure;
-
-///**
-// post_json
-// */
-//+(void)networkingJsonPOST:(NSString *)urlStr parameters:(id)parameters success:(SuccessBlock)success failure:(FailureBlock)failure;
-
-
-
-/**
- get_json
- */
 +(NSURLSessionDataTask *)networkingGET:(NSString *)urlStr parameters:(id)parameters success:(SuccessBlock)success failure:(FailureBlock)failure;
 
 /**
@@ -47,5 +32,6 @@ typedef void(^FailureBlock)(NSURLSessionDataTask * task,NSError * error);
 +(void)NetWorkingUpLoad:(NSString *)urlStr images:(NSArray<UIImage *> *)images imgName:(NSString *)name fileData:(NSData *)fileData andFileName:(NSString *)fileName parameters:(id)parameters success:(SuccessBlock)success failure:(FailureBlock)failure;
 
 + (void)uploadImagsWithArr:(NSArray *)arr withType:(NSString *)type result:(void(^)(NSString * str))resultBlock;
-
 @end
+
+NS_ASSUME_NONNULL_END

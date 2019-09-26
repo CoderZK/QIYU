@@ -106,7 +106,7 @@
         self.huanGuanImgV.hidden = YES;
     }
     
-//    if ([userModel.userId isEqualToString:[zkSignleTool shareTool].session_uid]) {
+//    if ([userModel.userId isEqualToString:[QQYYSignleToolNew shareTool].session_uid]) {
 //        self.typeLB.hidden = self.guanZhuBt.hidden = self.xinImgV.hidden = YES;
 //    }else {
 //        self.typeLB.hidden = self.guanZhuBt.hidden = self.xinImgV.hidden = NO;

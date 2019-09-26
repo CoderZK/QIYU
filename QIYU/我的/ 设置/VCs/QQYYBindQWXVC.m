@@ -58,7 +58,7 @@
         requestDict[@"type"] = @"qq";
     }
     
-    [zkRequestTool networkingPOST:[QQYYURLDefineTool updateThirdAppURL] parameters:requestDict success:^(NSURLSessionDataTask *task, id responseObject) {
+    [QQYYRequestTool networkingPOST:[QQYYURLDefineTool updateThirdAppURL] parameters:requestDict success:^(NSURLSessionDataTask *task, id responseObject) {
         if ([responseObject[@"code"] intValue]== 0) {
             [SVProgressHUD showSuccessWithStatus:@"绑定第三方成功"];
             dispatch_after(dispatch_time(DISPATCH_TIME_NOW, (int64_t)(0.8 * NSEC_PER_SEC)), dispatch_get_main_queue(), ^{

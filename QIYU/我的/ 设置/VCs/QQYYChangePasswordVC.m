@@ -50,7 +50,7 @@
         }
         NSMutableDictionary * requestDict = @{@"phone":self.phoneTF.text}.mutableCopy;
         requestDict[@"deviceId"] = [NSString stringWithFormat:@"%@",[[UIDevice currentDevice] identifierForVendor]];
-        [zkRequestTool networkingPOST:[QQYYURLDefineTool sendValidCodeURL] parameters:requestDict success:^(NSURLSessionDataTask *task, id responseObject) {
+        [QQYYRequestTool networkingPOST:[QQYYURLDefineTool sendValidCodeURL] parameters:requestDict success:^(NSURLSessionDataTask *task, id responseObject) {
             if ([responseObject[@"code"] intValue]== 0) {
                 [self timeAction];
             }else {
@@ -83,7 +83,7 @@
         NSMutableDictionary * requestDict = @{}.mutableCopy;
         requestDict[@"code"] = self.codeTF.text;
         requestDict[@"newPwd"]= self.passWordTF.text;
-        [zkRequestTool networkingPOST:[QQYYURLDefineTool updatePwdURL] parameters:requestDict success:^(NSURLSessionDataTask *task, id responseObject) {
+        [QQYYRequestTool networkingPOST:[QQYYURLDefineTool updatePwdURL] parameters:requestDict success:^(NSURLSessionDataTask *task, id responseObject) {
             if ([responseObject[@"code"] intValue]== 0) {
                 
                 [SVProgressHUD showErrorWithStatus:@"修改密码成功"];

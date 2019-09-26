@@ -1,14 +1,16 @@
 //
-//  UIView+BSExtension.h
-//  BBB
+//  UIView+SizeExtension.h
+//  QIYU
 //
-//  Created by lanou on 16/5/23.
-//  Copyright © 2016年 lanou. All rights reserved.
+//  Created by zk on 2019/9/26.
+//  Copyright © 2019 kunzhang. All rights reserved.
 //
 
 #import <UIKit/UIKit.h>
 
-@interface UIView (BSExtension)
+NS_ASSUME_NONNULL_BEGIN
+
+@interface UIView (SizeExtension)
 @property (nonatomic , assign)CGFloat width;
 @property (nonatomic , assign)CGFloat height;
 @property (nonatomic , assign)CGFloat x;
@@ -16,5 +18,6 @@
 @property (nonatomic , assign)CGSize size;
 @property (nonatomic , assign)CGFloat centerX;
 @property (nonatomic , assign)CGFloat centerY;
-
 @end
+
+NS_ASSUME_NONNULL_END

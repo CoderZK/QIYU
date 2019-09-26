@@ -24,7 +24,7 @@
 #import "SVProgressHUD.h"
 #import <MJExtension.h>
 #import <MJRefresh.h>
-#import "UIView+BSExtension.h"
+#import "UIView+SizeExtension.h"
 #import "UIImageView+WebCache.h"
 #import <UIButton+WebCache.h>
 #import <IQKeyboardManager.h>
@@ -54,7 +54,7 @@
 
 #define sxeArr @[@"",@"男",@"女"]
 
-#define isDDDDDDDD [zkSignleTool shareTool].isppp
+#define isDDDDDDDD [QQYYSignleToolNew shareTool].isppp
 
 #define iOS11Later ([UIDevice currentDevice].systemVersion.floatValue >= 11.0f)
 

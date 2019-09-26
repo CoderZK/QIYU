@@ -93,7 +93,7 @@
     NSMutableDictionary * requestDict = @{}.mutableCopy;
     requestDict[@"tags"] = tagIds;
     //    requestDict[@""]
-    [zkRequestTool networkingPOST:[QQYYURLDefineTool updateMyInfoURL] parameters:requestDict success:^(NSURLSessionDataTask *task, id responseObject) {
+    [QQYYRequestTool networkingPOST:[QQYYURLDefineTool updateMyInfoURL] parameters:requestDict success:^(NSURLSessionDataTask *task, id responseObject) {
         [self.tableView.mj_header endRefreshing];
         [self.tableView.mj_footer endRefreshing];
         if ([responseObject[@"code"] intValue]== 0) {
@@ -160,7 +160,7 @@
 
 - (void)acquireDataFromServe {
     
-    [zkRequestTool networkingPOST:[QQYYURLDefineTool getLabelsURL] parameters:@{} success:^(NSURLSessionDataTask *task, id responseObject) {
+    [QQYYRequestTool networkingPOST:[QQYYURLDefineTool getLabelsURL] parameters:@{} success:^(NSURLSessionDataTask *task, id responseObject) {
         if ([responseObject[@"code"] intValue] == 0) {
             self.dataArray = [QQYYTongYongModel mj_objectArrayWithKeyValuesArray:responseObject[@"object"]];
             [self setBiaoQianWithArr:self.dataArray];

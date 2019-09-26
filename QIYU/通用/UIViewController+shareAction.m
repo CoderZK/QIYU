@@ -14,7 +14,7 @@ static const void *urlKey = &urlKey;
 - (void)shareWithSetPreDefinePlatforms:(NSArray *)platforms withUrl:(NSString *)url shareModel:(zkHomelModel *)model{
 
     if (url == nil) {
-        [zkRequestTool networkingPOST:[QQYYURLDefineTool shareURL] parameters:model.postId success:^(NSURLSessionDataTask *task, id responseObject) {
+        [QQYYRequestTool networkingPOST:[QQYYURLDefineTool shareURL] parameters:model.postId success:^(NSURLSessionDataTask *task, id responseObject) {
             if ([responseObject[@"code"] integerValue] == 0) {
                 
                 self.url = [NSString stringWithFormat:@"%@",responseObject[@"object"][@"data"]];;
@@ -100,7 +100,7 @@ static const void *urlKey = &urlKey;
 
 - (NSDictionary *)getUseInfoWithToken:(NSString *)token {
     
-//    [zkRequestTool networkingPOST:zkURL parameters:<#(id)#> success:<#^(NSURLSessionDataTask *task, id responseObject)success#> failure:<#^(NSURLSessionDataTask *task, NSError *error)failure#>]
+//    [QQYYRequestTool networkingPOST:zkURL parameters:<#(id)#> success:<#^(NSURLSessionDataTask *task, id responseObject)success#> failure:<#^(NSURLSessionDataTask *task, NSError *error)failure#>]
     return @{};
 }
 

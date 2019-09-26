@@ -168,7 +168,7 @@
 
 - (void)getCityArr {
 
-    [zkRequestTool networkingPOST:[QQYYURLDefineTool cityListURL] parameters:self.provityArr[selectIndex].ID success:^(NSURLSessionDataTask *task, id responseObject) {
+    [QQYYRequestTool networkingPOST:[QQYYURLDefineTool cityListURL] parameters:self.provityArr[selectIndex].ID success:^(NSURLSessionDataTask *task, id responseObject) {
 
         if ([responseObject[@"code"] intValue]== 0) {
             

@@ -222,7 +222,7 @@
     
     if (arr.count > 0) {
         Weak(weakSelf);
-        [zkRequestTool uploadImagsWithArr:arr withType:@"3" result:^(NSString *str) {
+        [QQYYRequestTool uploadImagsWithArr:arr withType:@"3" result:^(NSString *str) {
             if (photos.count > 0) {
                 NSString * strtwo = [NSString stringWithFormat:@"%@,%@",[photos componentsJoinedByString:@","],str];
                 [weakSelf gengXinPhotosWithString:strtwo];
@@ -243,7 +243,7 @@
     if (str.length == 0) {
         str = @"123456";//删除时用
     }
-    [zkRequestTool networkingPOST:[QQYYURLDefineTool uploadPhotoURL] parameters:str success:^(NSURLSessionDataTask *task, id responseObject) {
+    [QQYYRequestTool networkingPOST:[QQYYURLDefineTool uploadPhotoURL] parameters:str success:^(NSURLSessionDataTask *task, id responseObject) {
         [self.tableView.mj_header endRefreshing];
         [self.tableView.mj_footer endRefreshing];
         if ([responseObject[@"code"] intValue]== 0) {

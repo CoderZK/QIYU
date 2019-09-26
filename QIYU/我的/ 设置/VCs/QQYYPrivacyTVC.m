@@ -8,10 +8,10 @@
 
 #import "QQYYPrivacyTVC.h"
 #import "QQYYTongYongTwoCell.h"
-#import "zkJuBaoView.h"
+#import "QQYYReportAndCollectVIew.h"
 #import "QQYYPrivacyPassWordVC.h"
 
-@interface QQYYPrivacyTVC ()<zkJuBaoViewDelegate>
+@interface QQYYPrivacyTVC ()<QQYYReportAndCollectVIewDelegate>
 @property(nonatomic,strong)NSArray *titleArr;
 @property(nonatomic,strong)NSString *fuJinStr,*hotStr,*manyouStr;
 @property(nonatomic,assign)NSInteger fuJin,hot,manyou;
@@ -60,7 +60,7 @@
     
     
     NSMutableDictionary * requestDict = @{}.mutableCopy;
-    [zkRequestTool networkingPOST:[QQYYURLDefineTool getUserConfigURL] parameters:requestDict success:^(NSURLSessionDataTask *task, id responseObject) {
+    [QQYYRequestTool networkingPOST:[QQYYURLDefineTool getUserConfigURL] parameters:requestDict success:^(NSURLSessionDataTask *task, id responseObject) {
         [self.tableView.mj_header endRefreshing];
         [self.tableView.mj_footer endRefreshing];
         if ([responseObject[@"code"] intValue]== 0) {
@@ -130,18 +130,18 @@
     
     if (indexPath.row < 2) {
         
-        [zkJuBaoView showWithArray:@[@"出现",@"不出现"] withIndexPath:indexPath];
-        [zkJuBaoView shareInstance].delegate = self;
+        [QQYYReportAndCollectVIew showWithArray:@[@"出现",@"不出现"] withIndexPath:indexPath];
+        [QQYYReportAndCollectVIew shareInstance].delegate = self;
         
     }else if (indexPath.row == 2) {
-        [zkJuBaoView showWithArray:@[@"加载",@"不加载"] withIndexPath:indexPath];
-        [zkJuBaoView shareInstance].delegate = self;
+        [QQYYReportAndCollectVIew showWithArray:@[@"加载",@"不加载"] withIndexPath:indexPath];
+        [QQYYReportAndCollectVIew shareInstance].delegate = self;
     }else {
         //设置隐私密码
         
         if ([YWUnlockView haveGesturePassword]) {
-            [zkJuBaoView showWithArray:@[@"重置",@"关闭"] withIndexPath:indexPath];
-            [zkJuBaoView shareInstance].delegate = self;
+            [QQYYReportAndCollectVIew showWithArray:@[@"重置",@"关闭"] withIndexPath:indexPath];
+            [QQYYReportAndCollectVIew shareInstance].delegate = self;
         }else {
             QQYYPrivacyPassWordVC * vc =[[QQYYPrivacyPassWordVC alloc] init];
             vc.hidesBottomBarWhenPushed = YES;
@@ -202,7 +202,7 @@
     NSMutableDictionary * requestDict = @{}.mutableCopy;
     requestDict[@"showHeat"] = @(self.hot);
     requestDict[@"showNearby"] = @(self.fuJin);
-    [zkRequestTool networkingPOST:[QQYYURLDefineTool updateUserConfigURL] parameters:requestDict success:^(NSURLSessionDataTask *task, id responseObject) {
+    [QQYYRequestTool networkingPOST:[QQYYURLDefineTool updateUserConfigURL] parameters:requestDict success:^(NSURLSessionDataTask *task, id responseObject) {
         [self.tableView.mj_header endRefreshing];
         [self.tableView.mj_footer endRefreshing];
         if ([responseObject[@"code"] intValue]== 0) {

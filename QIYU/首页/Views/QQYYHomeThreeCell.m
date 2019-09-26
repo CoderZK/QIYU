@@ -174,7 +174,7 @@
 
 - (void)clickAction:(UIButton *)button {
     
-    if (button.tag == 2 && ![zkSignleTool shareTool].isLogin) {
+    if (button.tag == 2 && ![QQYYSignleToolNew shareTool].isLogin) {
         if (self.clickIndexBlock != nil) {
             self.clickIndexBlock(button.tag);
         }

@@ -49,12 +49,12 @@
     button.layer.cornerRadius = 22.5;
     button.clipsToBounds = YES;
     [self.footView addSubview:button];
-    [button addTarget:self action:@selector(send) forControlEvents:UIControlEventTouchUpInside];
+    [button addTarget:self action:@selector(sendMessageAction) forControlEvents:UIControlEventTouchUpInside];
     
     self.tableView.tableFooterView = self.footView;
 }
 
-- (void)send {
+- (void)sendMessageAction {
     
     EMError *error = [[EMClient sharedClient].contactManager addContact:self.model.userNo message:self.TV.text];
     if (!error) {
@@ -65,7 +65,7 @@
     NSMutableDictionary * requestDict = @{}.mutableCopy;
     requestDict[@"remark"] = [NSString emojiConvert:self.TV.text];
     requestDict[@"userNo"] = self.model.userNo;
-    [zkRequestTool networkingPOST:[QQYYURLDefineTool addNewFriendURL] parameters:requestDict success:^(NSURLSessionDataTask *task, id responseObject) {
+    [QQYYRequestTool networkingPOST:[QQYYURLDefineTool addNewFriendURL] parameters:requestDict success:^(NSURLSessionDataTask *task, id responseObject) {
         [self.tableView.mj_header endRefreshing];
         [self.tableView.mj_footer endRefreshing];
         if ([responseObject[@"code"] intValue]== 0) {

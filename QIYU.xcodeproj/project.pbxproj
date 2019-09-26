@@ -7,10 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		335010D920EDF8E400F8486B /* Clear.m in Sources */ = {isa = PBXBuildFile; fileRef = 335010D620EDF8E300F8486B /* Clear.m */; };
 		335010DA20EDF8E400F8486B /* UIViewController+AlertShow.m in Sources */ = {isa = PBXBuildFile; fileRef = 335010D720EDF8E300F8486B /* UIViewController+AlertShow.m */; };
-		335010DD20EDF9AE00F8486B /* zkRequestTool.m in Sources */ = {isa = PBXBuildFile; fileRef = 335010DC20EDF9AE00F8486B /* zkRequestTool.m */; };
-		335010E320EDFC9300F8486B /* zkSignleTool.m in Sources */ = {isa = PBXBuildFile; fileRef = 335010E220EDFC9300F8486B /* zkSignleTool.m */; };
 		335010EE20EE05C100F8486B /* NSString+Size.m in Sources */ = {isa = PBXBuildFile; fileRef = 335010EA20EE05C000F8486B /* NSString+Size.m */; };
 		335010EF20EE05C100F8486B /* UIButton+Badge.m in Sources */ = {isa = PBXBuildFile; fileRef = 335010EB20EE05C000F8486B /* UIButton+Badge.m */; };
 		337F3E5B20E9FE3B00C5526A /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 337F3E5A20E9FE3B00C5526A /* AppDelegate.m */; };
@@ -29,7 +26,6 @@
 		337F3EAE20EA014600C5526A /* BaseCollectionReusableView.m in Sources */ = {isa = PBXBuildFile; fileRef = 337F3EA420EA014600C5526A /* BaseCollectionReusableView.m */; };
 		337F3EAF20EA014600C5526A /* BaseViewController+PublicMethod.m in Sources */ = {isa = PBXBuildFile; fileRef = 337F3EA720EA014600C5526A /* BaseViewController+PublicMethod.m */; };
 		337F3EB020EA014600C5526A /* noneDataBg.png in Resources */ = {isa = PBXBuildFile; fileRef = 337F3EA820EA014600C5526A /* noneDataBg.png */; };
-		337F3EB420EA040400C5526A /* UIView+BSExtension.m in Sources */ = {isa = PBXBuildFile; fileRef = 337F3EB320EA040400C5526A /* UIView+BSExtension.m */; };
 		337F3EB920EA050000C5526A /* Podfile in Resources */ = {isa = PBXBuildFile; fileRef = 337F3EB820EA050000C5526A /* Podfile */; };
 		337F3EBE20EA136800C5526A /* CoreFoundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 337F3EBD20EA136800C5526A /* CoreFoundation.framework */; };
 		337F3ED920EA13CF00C5526A /* AlipaySDK.bundle in Resources */ = {isa = PBXBuildFile; fileRef = 337F3EC320EA13CA00C5526A /* AlipaySDK.bundle */; };
@@ -52,7 +48,6 @@
 		58035E8F22C44DDC006F1F6F /* Photos.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 58035E8E22C44DDC006F1F6F /* Photos.framework */; };
 		58035E9222C45182006F1F6F /* zkDanLiaoVC.m in Sources */ = {isa = PBXBuildFile; fileRef = 58035E9022C4517F006F1F6F /* zkDanLiaoVC.m */; };
 		582E2E6422E0105500E99273 /* QQYYMovieVC.m in Sources */ = {isa = PBXBuildFile; fileRef = 582E2E6322E0105500E99273 /* QQYYMovieVC.m */; };
-		582EBD4922BC5DA400109AEF /* zkShowVIew.m in Sources */ = {isa = PBXBuildFile; fileRef = 582EBD4822BC5DA400109AEF /* zkShowVIew.m */; };
 		582FC34122C33F7900729757 /* CoreLocation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 582FC34022C33F7800729757 /* CoreLocation.framework */; };
 		582FD55022C0A68D00A29CC1 /* UIViewController+NewWorkTwo.m in Sources */ = {isa = PBXBuildFile; fileRef = 582FD54F22C0A68D00A29CC1 /* UIViewController+NewWorkTwo.m */; };
 		582FFA37229B84100039971E /* zkPhotoShowVC.m in Sources */ = {isa = PBXBuildFile; fileRef = 582FFA33229B840F0039971E /* zkPhotoShowVC.m */; };
@@ -78,7 +73,6 @@
 		58321CC92338B87700E77553 /* QQYYGouWuDetailTVC.m in Sources */ = {isa = PBXBuildFile; fileRef = 58321CC82338B87700E77553 /* QQYYGouWuDetailTVC.m */; };
 		583297BF22A6257900B52104 /* UIViewController+shareAction.m in Sources */ = {isa = PBXBuildFile; fileRef = 583297BE22A6257800B52104 /* UIViewController+shareAction.m */; };
 		583297C222A6259800B52104 /* zkShareModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 583297C022A6259800B52104 /* zkShareModel.m */; };
-		5833329D229FC816008DD9CF /* zkJuBaoView.m in Sources */ = {isa = PBXBuildFile; fileRef = 5833329C229FC816008DD9CF /* zkJuBaoView.m */; };
 		583332A3229FD488008DD9CF /* SelectTimeV.m in Sources */ = {isa = PBXBuildFile; fileRef = 583332A1229FD488008DD9CF /* SelectTimeV.m */; };
 		5836EB9622CC4F4E00EE6611 /* LxmWebViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 5836EB9422CC4F4A00EE6611 /* LxmWebViewController.m */; };
 		5838A1E822DD79F400239A20 /* qy85@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 5838A19222DD79F300239A20 /* qy85@2x.png */; };
@@ -180,6 +174,12 @@
 		583ADD4922A7479F0064E60F /* gesture_normal@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 583ADD3D22A7479F0064E60F /* gesture_normal@2x.png */; };
 		583BF0E122C996E80033D2F3 /* CoreTelephony.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 583BF0E022C996E80033D2F3 /* CoreTelephony.framework */; };
 		58435DF222DDACF7003E7412 /* QQYYHomeTVC.m in Sources */ = {isa = PBXBuildFile; fileRef = 58435DF122DDACF7003E7412 /* QQYYHomeTVC.m */; };
+		5874FDE5233C921200E21537 /* QQYYSignleToolNew.m in Sources */ = {isa = PBXBuildFile; fileRef = 5874FDE4233C921200E21537 /* QQYYSignleToolNew.m */; };
+		5874FDE8233C92CB00E21537 /* UIView+SizeExtension.m in Sources */ = {isa = PBXBuildFile; fileRef = 5874FDE7233C92CB00E21537 /* UIView+SizeExtension.m */; };
+		5874FDEB233C93C200E21537 /* QQYYRequestTool.m in Sources */ = {isa = PBXBuildFile; fileRef = 5874FDEA233C93C200E21537 /* QQYYRequestTool.m */; };
+		5874FDEE233C948100E21537 /* QQYYClear.m in Sources */ = {isa = PBXBuildFile; fileRef = 5874FDED233C948100E21537 /* QQYYClear.m */; };
+		5874FDF1233C955900E21537 /* QQYYShowViewNew.m in Sources */ = {isa = PBXBuildFile; fileRef = 5874FDF0233C955900E21537 /* QQYYShowViewNew.m */; };
+		5874FDF4233C980A00E21537 /* QQYYReportAndCollectVIew.m in Sources */ = {isa = PBXBuildFile; fileRef = 5874FDF3233C980A00E21537 /* QQYYReportAndCollectVIew.m */; };
 		58917D9A22DC0C4000C46E04 /* QQYYHuaTiTVC.m in Sources */ = {isa = PBXBuildFile; fileRef = 58917D9122DC0C3F00C46E04 /* QQYYHuaTiTVC.m */; };
 		58917D9B22DC0C4000C46E04 /* QQYYAddLinkVC.xib in Resources */ = {isa = PBXBuildFile; fileRef = 58917D9222DC0C3F00C46E04 /* QQYYAddLinkVC.xib */; };
 		58917D9C22DC0C4000C46E04 /* QQYYAddLinkVC.m in Sources */ = {isa = PBXBuildFile; fileRef = 58917D9722DC0C4000C46E04 /* QQYYAddLinkVC.m */; };
@@ -340,14 +340,8 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
-		335010D520EDF8E200F8486B /* Clear.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Clear.h; sourceTree = "<group>"; };
-		335010D620EDF8E300F8486B /* Clear.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Clear.m; sourceTree = "<group>"; };
 		335010D720EDF8E300F8486B /* UIViewController+AlertShow.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIViewController+AlertShow.m"; sourceTree = "<group>"; };
 		335010D820EDF8E400F8486B /* UIViewController+AlertShow.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIViewController+AlertShow.h"; sourceTree = "<group>"; };
-		335010DB20EDF9AE00F8486B /* zkRequestTool.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = zkRequestTool.h; sourceTree = "<group>"; };
-		335010DC20EDF9AE00F8486B /* zkRequestTool.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = zkRequestTool.m; sourceTree = "<group>"; };
-		335010E120EDFC9300F8486B /* zkSignleTool.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = zkSignleTool.h; sourceTree = "<group>"; };
-		335010E220EDFC9300F8486B /* zkSignleTool.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = zkSignleTool.m; sourceTree = "<group>"; };
 		335010EA20EE05C000F8486B /* NSString+Size.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSString+Size.m"; sourceTree = "<group>"; };
 		335010EB20EE05C000F8486B /* UIButton+Badge.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIButton+Badge.m"; sourceTree = "<group>"; };
 		335010EC20EE05C100F8486B /* UIButton+Badge.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIButton+Badge.h"; sourceTree = "<group>"; };
@@ -383,8 +377,6 @@
 		337F3EA620EA014600C5526A /* BaseCollectionViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BaseCollectionViewController.h; sourceTree = "<group>"; };
 		337F3EA720EA014600C5526A /* BaseViewController+PublicMethod.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "BaseViewController+PublicMethod.m"; sourceTree = "<group>"; };
 		337F3EA820EA014600C5526A /* noneDataBg.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = noneDataBg.png; sourceTree = "<group>"; };
-		337F3EB220EA040400C5526A /* UIView+BSExtension.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIView+BSExtension.h"; sourceTree = "<group>"; };
-		337F3EB320EA040400C5526A /* UIView+BSExtension.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIView+BSExtension.m"; sourceTree = "<group>"; };
 		337F3EB820EA050000C5526A /* Podfile */ = {isa = PBXFileReference; lastKnownFileType = text; path = Podfile; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.ruby; };
 		337F3EBA20EA057600C5526A /* Header.pch */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Header.pch; sourceTree = "<group>"; };
 		337F3EBB20EA134C00C5526A /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = System/Library/Frameworks/UIKit.framework; sourceTree = SDKROOT; };
@@ -418,8 +410,6 @@
 		58035E9122C45182006F1F6F /* zkDanLiaoVC.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = zkDanLiaoVC.h; sourceTree = "<group>"; };
 		582E2E6222E0105500E99273 /* QQYYMovieVC.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = QQYYMovieVC.h; sourceTree = "<group>"; };
 		582E2E6322E0105500E99273 /* QQYYMovieVC.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = QQYYMovieVC.m; sourceTree = "<group>"; };
-		582EBD4722BC5DA400109AEF /* zkShowVIew.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = zkShowVIew.h; sourceTree = "<group>"; };
-		582EBD4822BC5DA400109AEF /* zkShowVIew.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = zkShowVIew.m; sourceTree = "<group>"; };
 		582FC34022C33F7800729757 /* CoreLocation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreLocation.framework; path = System/Library/Frameworks/CoreLocation.framework; sourceTree = SDKROOT; };
 		582FD54E22C0A68D00A29CC1 /* UIViewController+NewWorkTwo.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "UIViewController+NewWorkTwo.h"; sourceTree = "<group>"; };
 		582FD54F22C0A68D00A29CC1 /* UIViewController+NewWorkTwo.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = "UIViewController+NewWorkTwo.m"; sourceTree = "<group>"; };
@@ -465,8 +455,6 @@
 		583297BE22A6257800B52104 /* UIViewController+shareAction.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIViewController+shareAction.m"; sourceTree = "<group>"; };
 		583297C022A6259800B52104 /* zkShareModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = zkShareModel.m; sourceTree = "<group>"; };
 		583297C122A6259800B52104 /* zkShareModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = zkShareModel.h; sourceTree = "<group>"; };
-		5833329B229FC816008DD9CF /* zkJuBaoView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = zkJuBaoView.h; sourceTree = "<group>"; };
-		5833329C229FC816008DD9CF /* zkJuBaoView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = zkJuBaoView.m; sourceTree = "<group>"; };
 		583332A1229FD488008DD9CF /* SelectTimeV.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SelectTimeV.m; sourceTree = "<group>"; };
 		583332A2229FD488008DD9CF /* SelectTimeV.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SelectTimeV.h; sourceTree = "<group>"; };
 		5835A67F22AE4F5000B05623 /* Hyphenate.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Hyphenate.framework; path = Pods/Hyphenate/iOS_Pods_IMFullSDK_V3.5.5/Hyphenate.framework; sourceTree = "<group>"; };
@@ -579,6 +567,18 @@
 		583BF0E022C996E80033D2F3 /* CoreTelephony.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreTelephony.framework; path = System/Library/Frameworks/CoreTelephony.framework; sourceTree = SDKROOT; };
 		58435DF022DDACF6003E7412 /* QQYYHomeTVC.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = QQYYHomeTVC.h; sourceTree = "<group>"; };
 		58435DF122DDACF7003E7412 /* QQYYHomeTVC.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = QQYYHomeTVC.m; sourceTree = "<group>"; };
+		5874FDE3233C921200E21537 /* QQYYSignleToolNew.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = QQYYSignleToolNew.h; sourceTree = "<group>"; };
+		5874FDE4233C921200E21537 /* QQYYSignleToolNew.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = QQYYSignleToolNew.m; sourceTree = "<group>"; };
+		5874FDE6233C92CB00E21537 /* UIView+SizeExtension.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "UIView+SizeExtension.h"; sourceTree = "<group>"; };
+		5874FDE7233C92CB00E21537 /* UIView+SizeExtension.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = "UIView+SizeExtension.m"; sourceTree = "<group>"; };
+		5874FDE9233C93C200E21537 /* QQYYRequestTool.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = QQYYRequestTool.h; sourceTree = "<group>"; };
+		5874FDEA233C93C200E21537 /* QQYYRequestTool.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = QQYYRequestTool.m; sourceTree = "<group>"; };
+		5874FDEC233C948100E21537 /* QQYYClear.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = QQYYClear.h; sourceTree = "<group>"; };
+		5874FDED233C948100E21537 /* QQYYClear.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = QQYYClear.m; sourceTree = "<group>"; };
+		5874FDEF233C955900E21537 /* QQYYShowViewNew.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = QQYYShowViewNew.h; sourceTree = "<group>"; };
+		5874FDF0233C955900E21537 /* QQYYShowViewNew.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = QQYYShowViewNew.m; sourceTree = "<group>"; };
+		5874FDF2233C980A00E21537 /* QQYYReportAndCollectVIew.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = QQYYReportAndCollectVIew.h; sourceTree = "<group>"; };
+		5874FDF3233C980A00E21537 /* QQYYReportAndCollectVIew.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = QQYYReportAndCollectVIew.m; sourceTree = "<group>"; };
 		58917D9122DC0C3F00C46E04 /* QQYYHuaTiTVC.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = QQYYHuaTiTVC.m; sourceTree = "<group>"; };
 		58917D9222DC0C3F00C46E04 /* QQYYAddLinkVC.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = QQYYAddLinkVC.xib; sourceTree = "<group>"; };
 		58917D9322DC0C4000C46E04 /* QQYYPostMessageTVC.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = QQYYPostMessageTVC.h; sourceTree = "<group>"; };
@@ -1046,16 +1046,16 @@
 				335010EA20EE05C000F8486B /* NSString+Size.m */,
 				335010EC20EE05C100F8486B /* UIButton+Badge.h */,
 				335010EB20EE05C000F8486B /* UIButton+Badge.m */,
-				335010D520EDF8E200F8486B /* Clear.h */,
-				335010D620EDF8E300F8486B /* Clear.m */,
+				5874FDEC233C948100E21537 /* QQYYClear.h */,
+				5874FDED233C948100E21537 /* QQYYClear.m */,
 				335010D820EDF8E400F8486B /* UIViewController+AlertShow.h */,
 				335010D720EDF8E300F8486B /* UIViewController+AlertShow.m */,
-				337F3EB220EA040400C5526A /* UIView+BSExtension.h */,
-				337F3EB320EA040400C5526A /* UIView+BSExtension.m */,
-				335010DB20EDF9AE00F8486B /* zkRequestTool.h */,
-				335010DC20EDF9AE00F8486B /* zkRequestTool.m */,
-				335010E120EDFC9300F8486B /* zkSignleTool.h */,
-				335010E220EDFC9300F8486B /* zkSignleTool.m */,
+				5874FDE6233C92CB00E21537 /* UIView+SizeExtension.h */,
+				5874FDE7233C92CB00E21537 /* UIView+SizeExtension.m */,
+				5874FDE9233C93C200E21537 /* QQYYRequestTool.h */,
+				5874FDEA233C93C200E21537 /* QQYYRequestTool.m */,
+				5874FDE3233C921200E21537 /* QQYYSignleToolNew.h */,
+				5874FDE4233C921200E21537 /* QQYYSignleToolNew.m */,
 				582FD54E22C0A68D00A29CC1 /* UIViewController+NewWorkTwo.h */,
 				582FD54F22C0A68D00A29CC1 /* UIViewController+NewWorkTwo.m */,
 			);
@@ -1547,14 +1547,14 @@
 				58917DA322DC0C5B00C46E04 /* QQYYYongBaoView.m */,
 				583297C122A6259800B52104 /* zkShareModel.h */,
 				583297C022A6259800B52104 /* zkShareModel.m */,
-				5833329B229FC816008DD9CF /* zkJuBaoView.h */,
-				5833329C229FC816008DD9CF /* zkJuBaoView.m */,
+				5874FDF2233C980A00E21537 /* QQYYReportAndCollectVIew.h */,
+				5874FDF3233C980A00E21537 /* QQYYReportAndCollectVIew.m */,
 				583332A2229FD488008DD9CF /* SelectTimeV.h */,
 				583332A1229FD488008DD9CF /* SelectTimeV.m */,
 				583297BD22A6257800B52104 /* UIViewController+shareAction.h */,
 				583297BE22A6257800B52104 /* UIViewController+shareAction.m */,
-				582EBD4722BC5DA400109AEF /* zkShowVIew.h */,
-				582EBD4822BC5DA400109AEF /* zkShowVIew.m */,
+				5874FDEF233C955900E21537 /* QQYYShowViewNew.h */,
+				5874FDF0233C955900E21537 /* QQYYShowViewNew.m */,
 			);
 			path = "通用";
 			sourceTree = "<group>";
@@ -2093,6 +2093,7 @@
 				582FFA64229BAEE90039971E /* GuanZhuVC.m in Sources */,
 				58917D9E22DC0C4000C46E04 /* QQYYTongXunLuTVC.m in Sources */,
 				58917E0722DC0CF600C46E04 /* QQYYHomeTwoCell.m in Sources */,
+				5874FDF4233C980A00E21537 /* QQYYReportAndCollectVIew.m in Sources */,
 				58917E3322DC0D0B00C46E04 /* QQYYQuanZiGuiZeListTVC.m in Sources */,
 				58917E3122DC0D0B00C46E04 /* QQYYAboutUsVC.m in Sources */,
 				58035E9222C45182006F1F6F /* zkDanLiaoVC.m in Sources */,
@@ -2112,10 +2113,10 @@
 				58917EDE22DC0D6A00C46E04 /* QQYYQunSettingTVC.m in Sources */,
 				58917F0422DC0D8B00C46E04 /* QQYYShouDaoDePingLunCell.m in Sources */,
 				33DC823420EA20D700D1C283 /* LYGuideViewController.m in Sources */,
+				5874FDE5233C921200E21537 /* QQYYSignleToolNew.m in Sources */,
 				33DC824920EA220400D1C283 /* MineVC.m in Sources */,
 				58917E3922DC0D0B00C46E04 /* QQYYBindPoneTwoVC.m in Sources */,
 				337F3EAB20EA014600C5526A /* BaseNavigationController.m in Sources */,
-				335010E320EDFC9300F8486B /* zkSignleTool.m in Sources */,
 				58917E0A22DC0CF600C46E04 /* QQYYPingLunTwoCell.m in Sources */,
 				58917E7D22DC0D3A00C46E04 /* QQYYXingQuBiaoQianTVC.m in Sources */,
 				58917DB222DC0C7300C46E04 /* QQYYShauiXuanView.m in Sources */,
@@ -2130,21 +2131,21 @@
 				582FFA50229B84170039971E /* UIViewController+MXPhotoPicker.m in Sources */,
 				58917E8422DC0D3A00C46E04 /* QQYYTiXianTwoTVC.m in Sources */,
 				337F3E6920E9FE5300C5526A /* main.m in Sources */,
-				582EBD4922BC5DA400109AEF /* zkShowVIew.m in Sources */,
 				58917E0C22DC0CF600C46E04 /* QQYYDetailPingLunCell.m in Sources */,
 				58917E0622DC0CF600C46E04 /* QQYYDetailZanCell.m in Sources */,
 				582E2E6422E0105500E99273 /* QQYYMovieVC.m in Sources */,
 				58917EDA22DC0D5600C46E04 /* QQYYZhiFuCell.m in Sources */,
 				58917DB622DC0C8B00C46E04 /* QQYYpublicFunction.m in Sources */,
-				337F3EB420EA040400C5526A /* UIView+BSExtension.m in Sources */,
 				58917DDC22DC0CCF00C46E04 /* QQYYAddressModel.m in Sources */,
 				583297BF22A6257900B52104 /* UIViewController+shareAction.m in Sources */,
 				58917DC722DC0C9A00C46E04 /* QQYYLoginVC.m in Sources */,
+				5874FDEB233C93C200E21537 /* QQYYRequestTool.m in Sources */,
 				58917EEB22DC0D7A00C46E04 /* QQYYNewFriendsTVC.m in Sources */,
 				58917EC322DC0D5600C46E04 /* QQYYMineThreeCell.m in Sources */,
 				58917E1322DC0CF600C46E04 /* QQYYHomeFiveCell.m in Sources */,
 				33DC824F20EA224F00D1C283 /* HangQingVC.m in Sources */,
 				58917F0022DC0D8B00C46E04 /* QQYYZanOrAiTeMineCell.m in Sources */,
+				5874FDE8233C92CB00E21537 /* UIView+SizeExtension.m in Sources */,
 				58917EBE22DC0D5600C46E04 /* QQYYHuiYuanTwoCell.m in Sources */,
 				58917EFE22DC0D8B00C46E04 /* QQYYNewsTwoCell.m in Sources */,
 				58917DE722DC0CDE00C46E04 /* QQYYGuanZhuHeadTVC.m in Sources */,
@@ -2167,13 +2168,12 @@
 				58917E3622DC0D0B00C46E04 /* QQYYPrivacyTVC.m in Sources */,
 				58917E0922DC0CF600C46E04 /* QQYYGongGaoTwoCell.m in Sources */,
 				583297C222A6259800B52104 /* zkShareModel.m in Sources */,
-				335010DD20EDF9AE00F8486B /* zkRequestTool.m in Sources */,
 				5838A24322DD7C5800239A20 /* QQYYHomeHeadView.m in Sources */,
 				58917E8022DC0D3A00C46E04 /* QQYYMineTaskTVC.m in Sources */,
+				5874FDF1233C955900E21537 /* QQYYShowViewNew.m in Sources */,
 				58917EE922DC0D7A00C46E04 /* QQYYAiTeMeTVC.m in Sources */,
 				33DC825520EA245E00D1C283 /* HomeVC.m in Sources */,
 				589ABFEE2297AF20000BBD89 /* BSCustom.m in Sources */,
-				335010D920EDF8E400F8486B /* Clear.m in Sources */,
 				58917DCD22DC0CAA00C46E04 /* QQYYMakeFriendsCell.m in Sources */,
 				58917E7E22DC0D3A00C46E04 /* QQYYYiJianTVC.m in Sources */,
 				58917E3422DC0D0B00C46E04 /* QQYYPrivacyPassWordVC.m in Sources */,
@@ -2197,6 +2197,7 @@
 				58917DC322DC0C9A00C46E04 /* QQYYForGetPassVC.m in Sources */,
 				58917F0322DC0D8B00C46E04 /* QQYYNewsOneCell.m in Sources */,
 				58917E3022DC0D0B00C46E04 /* QQYYSettingTVC.m in Sources */,
+				5874FDEE233C948100E21537 /* QQYYClear.m in Sources */,
 				582FFA4F229B84170039971E /* MXImagePreviewCell.m in Sources */,
 				58917EC522DC0D5600C46E04 /* QQYYHuaDuoFiveCell.m in Sources */,
 				582FFA57229B84170039971E /* MXImageGroupController.m in Sources */,
@@ -2223,7 +2224,6 @@
 				58917D9D22DC0C4000C46E04 /* QQYYPostMessageTVC.m in Sources */,
 				337F3EAF20EA014600C5526A /* BaseViewController+PublicMethod.m in Sources */,
 				583ADD4822A7479F0064E60F /* YWGesturesUnlockView.m in Sources */,
-				5833329D229FC816008DD9CF /* zkJuBaoView.m in Sources */,
 				582FFA37229B84100039971E /* zkPhotoShowVC.m in Sources */,
 				58917EEA22DC0D7A00C46E04 /* QQYYReceivePingLunTVC.m in Sources */,
 				58917E8322DC0D3A00C46E04 /* QQYYAddYinHangKaVC.m in Sources */,
@@ -2398,7 +2398,7 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_IDENTITY = "iPhone Developer";
 				CODE_SIGN_STYLE = Manual;
-				DEVELOPMENT_TEAM = ZSL4MW2WKS;
+				DEVELOPMENT_TEAM = N6ZU25A67U;
 				ENABLE_BITCODE = YES;
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
@@ -2424,7 +2424,7 @@
 				PRODUCT_BUNDLE_IDENTIFIER = com.yiqu.app;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE = "3bdcf4b3-e396-4d7a-ab2b-739f2269ddaa";
-				PROVISIONING_PROFILE_SPECIFIER = ccccc;
+				PROVISIONING_PROFILE_SPECIFIER = xuxuecom;
 				TARGETED_DEVICE_FAMILY = 1;
 			};
 			name = Debug;

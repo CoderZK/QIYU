@@ -91,7 +91,7 @@
         requestDict[@"flowerNum"] = self.moneyTF.text;
         requestDict[@"targetAccount"] = self.carNumber;
         
-        [zkRequestTool networkingPOST:[QQYYURLDefineTool addWithDrawURL] parameters:requestDict success:^(NSURLSessionDataTask *task, id responseObject) {
+        [QQYYRequestTool networkingPOST:[QQYYURLDefineTool addWithDrawURL] parameters:requestDict success:^(NSURLSessionDataTask *task, id responseObject) {
 
             if ([responseObject[@"code"] intValue]== 0) {
                 

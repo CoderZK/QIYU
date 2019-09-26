@@ -8,12 +8,12 @@
 
 #import "QQYYAddZiLiaoTVC.h"
 #import "QQYYTongYongCell.h"
-#import "zkJuBaoView.h"
+#import "QQYYReportAndCollectVIew.h"
 #import "SelectTimeV.h"
 #import "QQYYShowPickerView.h"
 #import "QQYYXingQuBiaoQianTVC.h"
 #import "QQYYLoginVC.h"
-@interface QQYYAddZiLiaoTVC ()<zkJuBaoViewDelegate,UITextFieldDelegate>
+@interface QQYYAddZiLiaoTVC ()<QQYYReportAndCollectVIewDelegate,UITextFieldDelegate>
 @property(nonatomic,strong)UIButton * headBt;
 @property(nonatomic,strong)NSArray *titleArr;
 @property(nonatomic,strong)NSArray *placeHolderArr;
@@ -270,7 +270,7 @@
     requestDict[@"cityId"] = self.cityID;
     requestDict[@"tags"] = self.tagIds;
     requestDict[@"invitationCode"] = self.yaoQingStr;
-    [zkRequestTool networkingPOST:[QQYYURLDefineTool registerURL] parameters:requestDict success:^(NSURLSessionDataTask *task, id responseObject) {
+    [QQYYRequestTool networkingPOST:[QQYYURLDefineTool registerURL] parameters:requestDict success:^(NSURLSessionDataTask *task, id responseObject) {
         if ([responseObject[@"code"] intValue]== 0) {
             [SVProgressHUD showSuccessWithStatus:@"注册成功"];
             QQYYLoginVC * vc = (QQYYLoginVC *)[self.navigationController.childViewControllers firstObject];
@@ -366,7 +366,7 @@
 
 - (void)uploadHeadImageWithImage:(UIImage *)image {
     
-    [zkRequestTool uploadImagsWithArr:@[image] withType:@"2" result:^(NSString *str) {
+    [QQYYRequestTool uploadImagsWithArr:@[image] withType:@"2" result:^(NSString *str) {
         if ([str isEqualToString:@"0"]) {
            
         }else {
@@ -380,7 +380,7 @@
 //获取省份
 - (void)getProvinceListData {
     
-    [zkRequestTool networkingPOST:[QQYYURLDefineTool provinceListURL] parameters:@{} success:^(NSURLSessionDataTask *task, id responseObject) {
+    [QQYYRequestTool networkingPOST:[QQYYURLDefineTool provinceListURL] parameters:@{} success:^(NSURLSessionDataTask *task, id responseObject) {
         if ([responseObject[@"code"] intValue] == 0) {
             
             self.addressArr = [QQYYTongYongModel mj_objectArrayWithKeyValuesArray:responseObject[@"object"]];

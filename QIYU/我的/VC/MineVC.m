@@ -75,13 +75,13 @@
 - (void)acquireDataFromServe {
     
     NSMutableDictionary * requestDict = @{}.mutableCopy;
-    [zkRequestTool networkingPOST:[QQYYURLDefineTool getMyInfoCenterURL] parameters:requestDict success:^(NSURLSessionDataTask *task, id responseObject) {
+    [QQYYRequestTool networkingPOST:[QQYYURLDefineTool getMyInfoCenterURL] parameters:requestDict success:^(NSURLSessionDataTask *task, id responseObject) {
         [self.tableView.mj_header endRefreshing];
         [self.tableView.mj_footer endRefreshing];
         if ([responseObject[@"code"] intValue]== 0) {
             self.dataModel = [QQYYUserModel mj_objectWithKeyValues:responseObject[@"object"]];
-            [zkSignleTool shareTool].nickName = self.dataModel.nickName;
-            [zkSignleTool shareTool].img = self.dataModel.avatar;
+            [QQYYSignleToolNew shareTool].nickName = self.dataModel.nickName;
+            [QQYYSignleToolNew shareTool].img = self.dataModel.avatar;
             [self.tableView reloadData];
         }else {
             [self showAlertWithKey:[NSString stringWithFormat:@"%@",responseObject[@"code"]] message:responseObject[@"message"]];

@@ -1,22 +1,22 @@
 //
-//  zkSignleTool.m
-//  BYXuNiPan
+//  QQYYSignleToolNew.m
+//  QIYU
 //
-//  Created by kunzhang on 2018/7/5.
-//  Copyright © 2018年 kunzhang. All rights reserved.
+//  Created by zk on 2019/9/26.
+//  Copyright © 2019 kunzhang. All rights reserved.
 //
 
-#import "zkSignleTool.h"
-#import "zkRequestTool.h"
-static zkSignleTool * tool = nil;
+#import "QQYYSignleToolNew.h"
+#import "QQYYRequestTool.h"
+static QQYYSignleToolNew * tool = nil;
 
 
-@implementation zkSignleTool
+@implementation QQYYSignleToolNew
 
-+ (zkSignleTool *)shareTool {
++ (QQYYSignleToolNew *)shareTool {
     static dispatch_once_t onceToken;
     dispatch_once(&onceToken, ^{
-        tool = [[zkSignleTool alloc] init];
+        tool = [[QQYYSignleToolNew alloc] init];
     });
     return tool;
 }
@@ -36,7 +36,7 @@ static zkSignleTool * tool = nil;
     [[NSUserDefaults standardUserDefaults] synchronize];
 }
 - (BOOL)isppp {
-     return [[NSUserDefaults standardUserDefaults] boolForKey:@"isppp"];
+    return [[NSUserDefaults standardUserDefaults] boolForKey:@"isppp"];
 }
 
 -(void)setSession_token:(NSString *)session_token
@@ -89,13 +89,13 @@ static zkSignleTool * tool = nil;
                                @"type":@1,
                                @"deviceToken":self.deviceToken
                                };
-//        [zkRequestTool networkingPOST:[zkFMURL GETapi_user_upTokenURL] parameters:dic success:^(NSURLSessionDataTask *task, id responseObject) {
-//            
-//            NSLog(@"上传友盟推送成功\n%@",responseObject);
-//            
-//        } failure:^(NSURLSessionDataTask *task, NSError *error) {
-//            NSLog(@"%@",error);
-//        }];
+        //        [QQYYRequestTool networkingPOST:[zkFMURL GETapi_user_upTokenURL] parameters:dic success:^(NSURLSessionDataTask *task, id responseObject) {
+        //
+        //            NSLog(@"上传友盟推送成功\n%@",responseObject);
+        //
+        //        } failure:^(NSURLSessionDataTask *task, NSError *error) {
+        //            NSLog(@"%@",error);
+        //        }];
     }
     
 }
@@ -154,9 +154,9 @@ static zkSignleTool * tool = nil;
 
 
 - (void)setUserModel:(QQYYUserModel *)userModel{
-
-
-
+    
+    
+    
     if (userModel) {
         NSData *data = [NSKeyedArchiver archivedDataWithRootObject:userModel];
         if (data) {
@@ -166,15 +166,15 @@ static zkSignleTool * tool = nil;
 }
 - (QQYYUserModel *)userModel{
     //取出
-
+    
     NSData *data = [[NSUserDefaults standardUserDefaults] objectForKey:@"userModel"];
-
+    
     if (data) {
         QQYYUserModel *model = [NSKeyedUnarchiver unarchiveObjectWithData:data];
         return model;
     }
     return nil;
-
+    
 }
 
 

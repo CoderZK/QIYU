@@ -14,7 +14,7 @@
 #import "QQYYHomeDongTaiCell.h"
 #import "zkHomelModel.h"
 #import "QQYYTongYongCell.h"
-#import "zkJuBaoView.h"
+#import "QQYYReportAndCollectVIew.h"
 #import "SelectTimeV.h"
 #import "QQYYShowPickerView.h"
 #import "QQYYXingQuBiaoQianTVC.h"
@@ -91,7 +91,7 @@
     
     NSMutableDictionary * requestDict = @{}.mutableCopy;
     
-    [zkRequestTool networkingPOST:[QQYYURLDefineTool getMyInfoURL] parameters:requestDict success:^(NSURLSessionDataTask *task, id responseObject) {
+    [QQYYRequestTool networkingPOST:[QQYYURLDefineTool getMyInfoURL] parameters:requestDict success:^(NSURLSessionDataTask *task, id responseObject) {
         [self.tableView.mj_header endRefreshing];
         [self.tableView.mj_footer endRefreshing];
         if ([responseObject[@"code"] intValue]== 0) {
@@ -309,7 +309,7 @@
         
     }else if (indexPath.section == 1) {
         if (indexPath.row == 1) {
-//           [zkJuBaoView showWithArray:@[@"男",@"女",@"CD",@"FtM",@"MtF"] withIndexPath:indexPath];
+//           [QQYYReportAndCollectVIew showWithArray:@[@"男",@"女",@"CD",@"FtM",@"MtF"] withIndexPath:indexPath];
             //性别
 //            QQYYShowPickerView * pickerV = [[QQYYShowPickerView alloc] initWithFrame:[UIApplication sharedApplication].keyWindow.bounds];
 //            Weak(weakSelf);
@@ -453,7 +453,7 @@
 //获取省份
 - (void)getProvinceListData {
     
-    [zkRequestTool networkingPOST:[QQYYURLDefineTool provinceListURL] parameters:@{} success:^(NSURLSessionDataTask *task, id responseObject) {
+    [QQYYRequestTool networkingPOST:[QQYYURLDefineTool provinceListURL] parameters:@{} success:^(NSURLSessionDataTask *task, id responseObject) {
         if ([responseObject[@"code"] intValue] == 0) {
             
             self.addressArr = [QQYYTongYongModel mj_objectArrayWithKeyValuesArray:responseObject[@"object"]];
@@ -498,7 +498,7 @@
                 if (self.type == 1) {
                     [self.headBt setBackgroundImage:image forState:UIControlStateNormal];
                     Weak(weakSelf);
-                    [zkRequestTool uploadImagsWithArr:@[image] withType:@"2" result:^(NSString *str) {
+                    [QQYYRequestTool uploadImagsWithArr:@[image] withType:@"2" result:^(NSString *str) {
                         weakSelf.dataModel.avatar = str;
                         [weakSelf updateHeadImgOrbackImge];
                         
@@ -507,7 +507,7 @@
                     
                     self.backImgV.image = image;
                     Weak(weakSelf);
-                    [zkRequestTool uploadImagsWithArr:@[image] withType:@"4" result:^(NSString *str) {
+                    [QQYYRequestTool uploadImagsWithArr:@[image] withType:@"4" result:^(NSString *str) {
                         weakSelf.dataModel.background = str;
                         [weakSelf updateHeadImgOrbackImge];
                     }];
@@ -538,7 +538,7 @@
                 if (self.type == 1) {
                     [self.headBt setBackgroundImage:photos[0] forState:UIControlStateNormal];
                     Weak(weakSelf);
-                    [zkRequestTool uploadImagsWithArr:photos withType:@"2" result:^(NSString *str) {
+                    [QQYYRequestTool uploadImagsWithArr:photos withType:@"2" result:^(NSString *str) {
                         weakSelf.dataModel.avatar = str;
                         [weakSelf updateHeadImgOrbackImge];
                     }];
@@ -546,7 +546,7 @@
                     
                     self.backImgV.image = photos[0];
                     Weak(weakSelf);
-                    [zkRequestTool uploadImagsWithArr:photos withType:@"4" result:^(NSString *str) {
+                    [QQYYRequestTool uploadImagsWithArr:photos withType:@"4" result:^(NSString *str) {
                         weakSelf.dataModel.background = str;
                         [weakSelf updateHeadImgOrbackImge];
                     }];
@@ -582,7 +582,7 @@
         requestDict[@"avatar"] = self.dataModel.background;
     }
     
-    [zkRequestTool networkingPOST:[QQYYURLDefineTool updateAvatarURL] parameters:requestDict success:^(NSURLSessionDataTask *task, id responseObject) {
+    [QQYYRequestTool networkingPOST:[QQYYURLDefineTool updateAvatarURL] parameters:requestDict success:^(NSURLSessionDataTask *task, id responseObject) {
         [self.tableView.mj_header endRefreshing];
         [self.tableView.mj_footer endRefreshing];
         if ([responseObject[@"code"] intValue]== 0) {
@@ -628,7 +628,7 @@
     requestDict[@"sign"] = self.dataModel.sign;
     requestDict[@"tags"] = self.tagIds;
 //    requestDict[@""]
-    [zkRequestTool networkingPOST:[QQYYURLDefineTool updateMyInfoURL] parameters:requestDict success:^(NSURLSessionDataTask *task, id responseObject) {
+    [QQYYRequestTool networkingPOST:[QQYYURLDefineTool updateMyInfoURL] parameters:requestDict success:^(NSURLSessionDataTask *task, id responseObject) {
         [self.tableView.mj_header endRefreshing];
         [self.tableView.mj_footer endRefreshing];
         if ([responseObject[@"code"] intValue]== 0) {

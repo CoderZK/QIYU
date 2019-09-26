@@ -16,7 +16,7 @@
     
 
     
-    [zkRequestTool networkingPOST:[QQYYURLDefineTool deleteMegURL] parameters:ID success:^(NSURLSessionDataTask *task, id responseObject) {
+    [QQYYRequestTool networkingPOST:[QQYYURLDefineTool deleteMegURL] parameters:ID success:^(NSURLSessionDataTask *task, id responseObject) {
 
         if ([responseObject[@"code"] intValue]== 0) {
             deleteBlock(YES);
@@ -35,7 +35,7 @@
 
 - (void)gotoCharWithOtherHuanXinID:(NSString *)huanxin andOtherUserId:(NSString *)userId andOtherNickName:(NSString *)nickName andOtherImg:(NSString *)img andVC:(BaseViewController *)baseVc{
     
-    if ([userId isEqualToString:[zkSignleTool shareTool].session_uid]) {
+    if ([userId isEqualToString:[QQYYSignleToolNew shareTool].session_uid]) {
         [SVProgressHUD showErrorWithStatus:@"自己不能喝自己聊天"];
         return;
     }
@@ -45,9 +45,9 @@
     vc.otherName = nickName;
     vc.otherHuanXinId = huanxin;
     vc.otherHeadImg = [QQYYURLDefineTool getImgURLWithStr:img];
-    vc.myName = [zkSignleTool shareTool].nickName;
-    vc.myHeadImg = [zkSignleTool shareTool].img;
-    vc.myHuanXinId = [zkSignleTool shareTool].huanxin;
+    vc.myName = [QQYYSignleToolNew shareTool].nickName;
+    vc.myHeadImg = [QQYYSignleToolNew shareTool].img;
+    vc.myHuanXinId = [QQYYSignleToolNew shareTool].huanxin;
     vc.hidesBottomBarWhenPushed = YES;
     [baseVc.navigationController pushViewController:vc animated:YES];
     
@@ -65,7 +65,7 @@
     }else {
         requestDict[@"type"] = @"postInfo";
     }
-    [zkRequestTool networkingPOST:[QQYYURLDefineTool sendFlowers] parameters:requestDict success:^(NSURLSessionDataTask *task, id responseObject) {
+    [QQYYRequestTool networkingPOST:[QQYYURLDefineTool sendFlowers] parameters:requestDict success:^(NSURLSessionDataTask *task, id responseObject) {
 
         if ([responseObject[@"code"] intValue]== 0) {
             

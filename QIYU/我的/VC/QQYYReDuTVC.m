@@ -28,8 +28,8 @@
     [super viewWillAppear:animated];
     self.navigationController.navigationBar.hidden = YES;
     [UIApplication sharedApplication].statusBarStyle = UIStatusBarStyleLightContent;
-    [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(WXWX:) name:@"WXPAY" object:nil];
-    [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(ZFBZFB:) name:@"ZFBPAY" object:nil];
+    [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(WXWXWXWX:) name:@"WXPAY" object:nil];
+    [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(ZFBZFBZFBZFB:) name:@"ZFBPAY" object:nil];
 }
 
 - (void)viewWillDisappear:(BOOL)animated {
@@ -60,7 +60,7 @@
 - (void)acquireDataFromServeTwo {
     
     NSMutableDictionary * requestDict = @{}.mutableCopy;
-    [zkRequestTool networkingPOST:[QQYYURLDefineTool getMyInfoCenterURL] parameters:requestDict success:^(NSURLSessionDataTask *task, id responseObject) {
+    [QQYYRequestTool networkingPOST:[QQYYURLDefineTool getMyInfoCenterURL] parameters:requestDict success:^(NSURLSessionDataTask *task, id responseObject) {
         [self.tableView.mj_header endRefreshing];
         [self.tableView.mj_footer endRefreshing];
         if ([responseObject[@"code"] intValue]== 0) {
@@ -139,7 +139,7 @@
     
     NSMutableDictionary * requestDict = @{}.mutableCopy;
     
-    [zkRequestTool networkingPOST:[QQYYURLDefineTool getHeatPkgListURL] parameters:requestDict success:^(NSURLSessionDataTask *task, id responseObject) {
+    [QQYYRequestTool networkingPOST:[QQYYURLDefineTool getHeatPkgListURL] parameters:requestDict success:^(NSURLSessionDataTask *task, id responseObject) {
         [self.tableView.mj_header endRefreshing];
         [self.tableView.mj_footer endRefreshing];
         if ([responseObject[@"code"] intValue]== 0) {
@@ -294,7 +294,7 @@
     }else {
         requestDict[@"payType"] = @(3);
     }
-    [zkRequestTool networkingPOST:[QQYYURLDefineTool heatReChargeURL] parameters:requestDict success:^(NSURLSessionDataTask *task, id responseObject) {
+    [QQYYRequestTool networkingPOST:[QQYYURLDefineTool heatReChargeURL] parameters:requestDict success:^(NSURLSessionDataTask *task, id responseObject) {
         
         if ([responseObject[@"code"] intValue]== 0) {
             
@@ -360,7 +360,7 @@
 }
 
 //微信支付结果处理
-- (void)WXWX:(NSNotification *)no {
+- (void)WXWXWXWX:(NSNotification *)no {
     
     BaseResp * resp = no.object;
     if (resp.errCode==WXSuccess)
@@ -431,7 +431,7 @@
 
 
 //支付宝支付结果处理,此处是app 被杀死之后用的
-- (void)ZFBZFB:(NSNotification *)notic {
+- (void)ZFBZFBZFBZFB:(NSNotification *)notic {
     
     NSDictionary *resultDic = notic.object;
     

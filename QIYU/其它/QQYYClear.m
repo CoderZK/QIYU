@@ -1,14 +1,36 @@
 //
-//  Clear.m
-//  古风圈
+//  QQYYClear.m
+//  QIYU
 //
-//  Created by qingyun on 16/7/4.
-//  Copyright © 2016年 李炎. All rights reserved.
+//  Created by zk on 2019/9/26.
+//  Copyright © 2019 kunzhang. All rights reserved.
 //
 
-#import "Clear.h"
+#import "QQYYClear.h"
 
-@implementation Clear
+@implementation QQYYClear
+
+//计算整个目录大小
++(float)folderSizeAtPath
+{
+    NSString *folderPath=[NSSearchPathForDirectoriesInDomains(NSCachesDirectory, NSUserDomainMask, YES) firstObject];
+    
+    NSFileManager * manager=[NSFileManager defaultManager ];
+    if (![manager fileExistsAtPath :folderPath]) {
+        return 0 ;
+    }
+    NSEnumerator *childFilesEnumerator = [[manager subpathsAtPath :folderPath] objectEnumerator ];
+    NSString * fileName;
+    long long folderSize = 0 ;
+    while ((fileName = [childFilesEnumerator nextObject ]) != nil ){
+        NSString * fileAbsolutePath = [folderPath stringByAppendingPathComponent :fileName];
+        folderSize += [ self fileSizeAtPath :fileAbsolutePath];
+    }
+    //SDWebImage框架自身计算缓存的实现
+    folderSize+=[[SDImageCache sharedImageCache] getSize];
+    return folderSize/( 1024.0 * 1024.0 );
+}
+
 //清理缓存
 +(void)cleanCache:(cleanCacheBlock)block
 {
@@ -29,27 +51,7 @@
     });
     
 }
-//计算整个目录大小
 
-+(float)folderSizeAtPath
-{
-    NSString *folderPath=[NSSearchPathForDirectoriesInDomains(NSCachesDirectory, NSUserDomainMask, YES) firstObject];
-    
-    NSFileManager * manager=[NSFileManager defaultManager ];
-    if (![manager fileExistsAtPath :folderPath]) {
-        return 0 ;
-    }
-    NSEnumerator *childFilesEnumerator = [[manager subpathsAtPath :folderPath] objectEnumerator ];
-    NSString * fileName;
-    long long folderSize = 0 ;
-    while ((fileName = [childFilesEnumerator nextObject ]) != nil ){
-        NSString * fileAbsolutePath = [folderPath stringByAppendingPathComponent :fileName];
-        folderSize += [ self fileSizeAtPath :fileAbsolutePath];
-    }
-    //SDWebImage框架自身计算缓存的实现
-    folderSize+=[[SDImageCache sharedImageCache] getSize];
-    return folderSize/( 1024.0 * 1024.0 );
-}
 //计算单个文件大小
 
 +(long long)fileSizeAtPath:(NSString *)filePath{

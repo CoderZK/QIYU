@@ -61,13 +61,13 @@
         url = [QQYYURLDefineTool heatUserListURL];
     }else {
         
-        if ([zkSignleTool shareTool].latitude > 0) {
-            requestDict[@"latitude"] = @([zkSignleTool shareTool].latitude);
-            requestDict[@"longitude"] = @([zkSignleTool shareTool].longitude);
+        if ([QQYYSignleToolNew shareTool].latitude > 0) {
+            requestDict[@"latitude"] = @([QQYYSignleToolNew shareTool].latitude);
+            requestDict[@"longitude"] = @([QQYYSignleToolNew shareTool].longitude);
         }
     }
     
-    [zkRequestTool networkingPOST:url parameters:requestDict success:^(NSURLSessionDataTask *task, id responseObject) {
+    [QQYYRequestTool networkingPOST:url parameters:requestDict success:^(NSURLSessionDataTask *task, id responseObject) {
         [self.tableView.mj_header endRefreshing];
         [self.tableView.mj_footer endRefreshing];
         if ([responseObject[@"code"] intValue]== 0) {

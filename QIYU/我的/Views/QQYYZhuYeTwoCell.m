@@ -113,7 +113,7 @@
     }
     
 
-    self.guanZhuBt.hidden = [[zkSignleTool shareTool].session_uid isEqualToString:model.userId];
+    self.guanZhuBt.hidden = [[QQYYSignleToolNew shareTool].session_uid isEqualToString:model.userId];
     
     
     if (model.subscribed) {

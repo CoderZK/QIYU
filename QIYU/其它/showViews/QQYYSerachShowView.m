@@ -422,7 +422,7 @@
 
 - (void)getcityArrWithProviceID:(NSString *)ID {
     
-    [zkRequestTool networkingPOST:[QQYYURLDefineTool cityListURL] parameters:ID success:^(NSURLSessionDataTask *task, id responseObject) {
+    [QQYYRequestTool networkingPOST:[QQYYURLDefineTool cityListURL] parameters:ID success:^(NSURLSessionDataTask *task, id responseObject) {
         
         if ([responseObject[@"code"] intValue]== 0) {
             self.cityArr = [QQYYTongYongModel mj_objectArrayWithKeyValuesArray:responseObject[@"object"]];

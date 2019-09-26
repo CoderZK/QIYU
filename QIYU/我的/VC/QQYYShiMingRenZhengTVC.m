@@ -172,7 +172,7 @@
     requestDict[@"idCardFront"] = self.footStr;
     requestDict[@"idCardBack"] = self.backStr;
     requestDict[@"handIdCard"] = self.handStr;
-    [zkRequestTool networkingPOST:[QQYYURLDefineTool userAuthURL] parameters:requestDict success:^(NSURLSessionDataTask *task, id responseObject) {
+    [QQYYRequestTool networkingPOST:[QQYYURLDefineTool userAuthURL] parameters:requestDict success:^(NSURLSessionDataTask *task, id responseObject) {
         [self.tableView.mj_header endRefreshing];
         [self.tableView.mj_footer endRefreshing];
         if ([responseObject[@"code"] intValue]== 0) {
@@ -266,7 +266,7 @@
 - (void)updateImgWithImg:(UIImage *)imge {
     
     Weak(weakSelf);
-    [zkRequestTool uploadImagsWithArr:@[imge] withType:@"6" result:^(NSString *str) {
+    [QQYYRequestTool uploadImagsWithArr:@[imge] withType:@"6" result:^(NSString *str) {
         if (weakSelf.type == 100) {
             weakSelf.footStr = str;
         }else if (weakSelf.type == 101) {

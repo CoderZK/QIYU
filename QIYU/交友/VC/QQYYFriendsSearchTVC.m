@@ -138,9 +138,9 @@
     if (self.isHot) {
         url = [QQYYURLDefineTool heatUserListURL];
     }else {
-        if ([zkSignleTool shareTool].latitude > 0) {
-            requestDict[@"latitude"] = @([zkSignleTool shareTool].latitude);
-            requestDict[@"longitude"] = @([zkSignleTool shareTool].longitude);
+        if ([QQYYSignleToolNew shareTool].latitude > 0) {
+            requestDict[@"latitude"] = @([QQYYSignleToolNew shareTool].latitude);
+            requestDict[@"longitude"] = @([QQYYSignleToolNew shareTool].longitude);
         }
     }
     if (self.genderArr.count > 0) {
@@ -158,7 +158,7 @@
     if (self.proviceId) {
         requestDict[@"provinceId"] = self.proviceId;
     }
-    [zkRequestTool networkingPOST:url parameters:requestDict success:^(NSURLSessionDataTask *task, id responseObject) {
+    [QQYYRequestTool networkingPOST:url parameters:requestDict success:^(NSURLSessionDataTask *task, id responseObject) {
         [self.tableView.mj_header endRefreshing];
         [self.tableView.mj_footer endRefreshing];
         if ([responseObject[@"code"] intValue]== 0) {
@@ -282,7 +282,7 @@
 
 - (void)getQianMingData {
     
-    [zkRequestTool networkingPOST:[QQYYURLDefineTool getLabelsURL] parameters:@{} success:^(NSURLSessionDataTask *task, id responseObject) {
+    [QQYYRequestTool networkingPOST:[QQYYURLDefineTool getLabelsURL] parameters:@{} success:^(NSURLSessionDataTask *task, id responseObject) {
         if ([responseObject[@"code"] intValue] == 0) {
             self.qianMingArr = [QQYYTongYongModel mj_objectArrayWithKeyValuesArray:responseObject[@"object"]];
         }else {
@@ -302,7 +302,7 @@
 //获取省份
 - (void)getProvinceListData {
     
-    [zkRequestTool networkingPOST:[QQYYURLDefineTool provinceListURL] parameters:@{} success:^(NSURLSessionDataTask *task, id responseObject) {
+    [QQYYRequestTool networkingPOST:[QQYYURLDefineTool provinceListURL] parameters:@{} success:^(NSURLSessionDataTask *task, id responseObject) {
         if ([responseObject[@"code"] intValue] == 0) {
             
             self.addressArr = [QQYYTongYongModel mj_objectArrayWithKeyValuesArray:responseObject[@"object"]];

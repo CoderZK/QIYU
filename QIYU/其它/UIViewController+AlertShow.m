@@ -20,13 +20,13 @@
          
         case 10004:
         {
-            [zkSignleTool shareTool].isLogin = NO;
+            [QQYYSignleToolNew shareTool].isLogin = NO;
             msg=[NSString stringWithFormat:@"%@",message];
             break;
         }
         case 10005:
         {
-            [zkSignleTool shareTool].isLogin = NO;
+            [QQYYSignleToolNew shareTool].isLogin = NO;
             msg=[NSString stringWithFormat:@"%@",message];
             break;
         }
