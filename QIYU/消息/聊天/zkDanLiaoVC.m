@@ -78,7 +78,7 @@
 
 }
 
-//-(void)initNav
+//-(void)createBackNavigation
 //{
 //
 //    CGFloat navH = 44;

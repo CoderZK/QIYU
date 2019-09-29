@@ -110,7 +110,6 @@
             [weakSelf.dataArray removeObjectAtIndex:indexPath.row];
             [weakSelf.tableView reloadData];
         }
-        
     }];
     
 }

@@ -50,7 +50,7 @@
     [self settitleView];
     
     [self addSubViews];
-    [self initNav];
+    [self createBackNavigation];
     
 }
 
@@ -135,7 +135,7 @@
     
 }
 
-- (void)initNav{
+- (void)createBackNavigation{
     
     
     UIButton * leftbtn=[[UIButton alloc] initWithFrame:CGRectMake(0, 0, 24, 24)];

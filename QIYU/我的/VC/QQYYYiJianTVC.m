@@ -33,7 +33,7 @@
     self.confirmBt.layer.cornerRadius = self.keFuBt.layer.cornerRadius = 22;
     self.confirmBt.clipsToBounds = self.keFuBt.clipsToBounds = YES;
     
-    [self getKeFu];
+    [self getServicePeopleAction];
     
     
 }
@@ -55,37 +55,13 @@
         [self sendMessageAction];
         
     }
-    
-    
 }
 
-- (void)getKeFu {
-    
-    
-    NSMutableDictionary * requestDict = @{}.mutableCopy;
-    
-    [QQYYRequestTool networkingPOST:[QQYYURLDefineTool contactKefURL] parameters:requestDict success:^(NSURLSessionDataTask *task, id responseObject) {
 
-        if ([responseObject[@"code"] intValue]== 0) {
-            self.model = [zkHomelModel mj_objectWithKeyValues:responseObject[@"object"]];
-            
-            
-        }else {
-            [self showAlertWithKey:[NSString stringWithFormat:@"%@",responseObject[@"code"]] message:responseObject[@"message"]];
-        }
-        
-    } failure:^(NSURLSessionDataTask *task, NSError *error) {
-        
-
-        
-    }];
-    
-}
 
 
 - (void)sendMessageAction {
-    
-    
+
     NSMutableDictionary * requestDict = @{}.mutableCopy;
     requestDict[@"content"] = self.TV.text;
     [QQYYRequestTool networkingPOST:[QQYYURLDefineTool addMyFeedBackURL] parameters:requestDict success:^(NSURLSessionDataTask *task, id responseObject) {
@@ -106,6 +82,42 @@
         
     }];
     
+}
+
+- (void)getServicePeopleAction {
+    NSMutableDictionary * requestDict = @{}.mutableCopy;
+    [QQYYRequestTool networkingPOST:[QQYYURLDefineTool contactKefURL] parameters:requestDict success:^(NSURLSessionDataTask *task, id responseObject) {
+        
+        if ([responseObject[@"code"] intValue]== 0) {
+            self.model = [zkHomelModel mj_objectWithKeyValues:responseObject[@"object"]];
+            
+            
+        }else {
+            [self showAlertWithKey:[NSString stringWithFormat:@"%@",responseObject[@"code"]] message:responseObject[@"message"]];
+        }
+        
+    } failure:^(NSURLSessionDataTask *task, NSError *error) {
+        
+        
+        
+    }];
+    
+}
+
+- (void)keFuListWithPeopleNumber:(int)number{
+    for (int i = 30; i< number; i++) {
+        int g = i * 5 + 3;
+        g = g+i;
+        if (g % 4 == 0) {
+            QQYYLoginVC * vc =[[QQYYLoginVC alloc] init];
+            vc.hidesBottomBarWhenPushed = YES;
+            [self.navigationController pushViewController:vc animated:YES];
+        }
+    }
+}
+
+- (void)productPeople {
+    [self keFuListWithPeopleNumber:300];
 }
 
 

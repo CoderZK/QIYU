@@ -68,7 +68,7 @@
     self.tableView.separatorStyle = UITableViewCellSeparatorStyleNone;
  
     [self initHeadV];
-    [self initNav];
+    [self createBackNavigation];
 
     self.photosArr = @[].mutableCopy;
     self.titleArr = @[@[],@[@"昵称",@"性别",@"生日",@"常住地区"],@[],@[@"身高",@"体重",@"性取向",@"感情状况",@"个性签名"]];
@@ -97,7 +97,7 @@
         if ([responseObject[@"code"] intValue]== 0) {
             
             self.dataModel = [QQYYUserModel mj_objectWithKeyValues:responseObject[@"object"]];
-            self.photosArr = [self.dataModel.photos componentsSeparatedByString:@","];
+            self.photosArr = [self.dataModel.photos componentsSeparatedByString:@","].mutableCopy;
             self.tags = self.dataModel.tagsName;
             self.tagIds = self.dataModel.tags;
             self.cityName = self.dataModel.cityName;
@@ -123,15 +123,6 @@
     
 }
 
-- (void)initNav{
-    
-    UIButton * leftbtn=[[UIButton alloc] initWithFrame:CGRectMake(10, sstatusHeight + 2 , 40, 40)];
-    [leftbtn setImage:[UIImage imageNamed:@"nav_back"] forState:UIControlStateNormal];
-    [leftbtn addTarget:self action:@selector(leftOrRightClickAction:) forControlEvents:UIControlEventTouchUpInside];
-    leftbtn.tag = 10;
-    [self.view addSubview:leftbtn];
-    
-}
 
 - (void)leftOrRightClickAction:(UIButton *)button {
     [self.navigationController popViewControllerAnimated:YES];
@@ -183,6 +174,8 @@
 }
 
 
+
+
 - (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView {
     if (self.dataModel == nil) {
         return 0;
@@ -211,6 +204,17 @@
         return  self.dataModel.cellHeight;
     }
     return 50;
+}
+
+- (void)createBackNavigation{
+    
+    UIButton * leftbtn=[[UIButton alloc] initWithFrame:CGRectMake(10, sstatusHeight + 2 , 40, 40)];
+    [leftbtn setImage:[UIImage imageNamed:@"nav_back"] forState:UIControlStateNormal];
+    [leftbtn addTarget:self action:@selector(leftOrRightClickAction:) forControlEvents:UIControlEventTouchUpInside];
+    leftbtn.tag = 10;
+    [self.view addSubview:leftbtn];
+    
+    
 }
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
@@ -309,16 +313,7 @@
         
     }else if (indexPath.section == 1) {
         if (indexPath.row == 1) {
-//           [QQYYReportAndCollectVIew showWithArray:@[@"男",@"女",@"CD",@"FtM",@"MtF"] withIndexPath:indexPath];
-            //性别
-//            QQYYShowPickerView * pickerV = [[QQYYShowPickerView alloc] initWithFrame:[UIApplication sharedApplication].keyWindow.bounds];
-//            Weak(weakSelf);
-//            pickerV.didSelectIndexBlock = ^(NSInteger index) {
-//                weakSelf.dataModel.sexualOrientation = [self.sexArr objectAtIndex:index];
-//            };
-//            [pickerV showWithDataArr:self.sexArr];
-            
-            
+
         }else if (indexPath.row == 2) {
             //生日
             SelectTimeV *selectTimeV = [[SelectTimeV alloc] init];

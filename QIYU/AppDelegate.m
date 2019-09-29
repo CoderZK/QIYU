@@ -296,7 +296,7 @@
             [[NSNotificationCenter defaultCenter] postNotificationName:@"ZFBPAY" object:resultDic];
             NSLog(@"result ======================== %@",resultDic);
         }];
-    } else if ([url.absoluteString hasPrefix:@"wx013aad9217dedd99://pay"] ) {
+    } else if ([url.absoluteString hasPrefix:@"wx0e4284e5ce1faacf://pay"] ) {
         //微信
         [WXApi handleOpenURL:url delegate:self];
     }else {//友盟
@@ -314,7 +314,7 @@
             [[NSNotificationCenter defaultCenter] postNotificationName:@"ZFBPAY" object:resultDic];
             NSLog(@"result ======================== %@",resultDic);
         }];
-    } else if ([url.absoluteString hasPrefix:@"wx013aad9217dedd99://pay"] ) {
+    } else if ([url.absoluteString hasPrefix:@"wx0e4284e5ce1faacf://pay"] ) {
         [WXApi handleOpenURL:url delegate:self];
     }else {
         [[UMSocialManager defaultManager] handleOpenURL:url];
@@ -330,7 +330,7 @@
             [[NSNotificationCenter defaultCenter] postNotificationName:@"ZFBPAY" object:resultDic];
             NSLog(@"result ======================== %@",resultDic);
         }];
-    } else if ([url.absoluteString hasPrefix:@"wx013aad9217dedd99://pay"] ) {
+    } else if ([url.absoluteString hasPrefix:@"wx0e4284e5ce1faacf://pay"] ) {
         [WXApi handleOpenURL:url delegate:self];
     }else {
         [[UMSocialManager defaultManager] handleOpenURL:url options:options];

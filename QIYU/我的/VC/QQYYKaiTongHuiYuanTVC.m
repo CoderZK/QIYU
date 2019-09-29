@@ -51,7 +51,7 @@
     self.tableView.separatorStyle = UITableViewCellSeparatorStyleNone;
     self.tableView.frame = CGRectMake(0, -sstatusHeight, ScreenW, ScreenH+sstatusHeight);
     [self AddHeadView];
-    [self initNav];
+    [self createBackNavigation];
     
     [self acquireDataFromServe];
     self.tableView.mj_header = [MJRefreshNormalHeader headerWithRefreshingBlock:^{
@@ -60,7 +60,7 @@
 
 }
 
-- (void)initNav{
+- (void)createBackNavigation{
     
     UIButton * LeftOrRightBT=[[UIButton alloc] initWithFrame:CGRectMake(10, sstatusHeight + 2 , 40, 40)];
     [LeftOrRightBT setImage:[UIImage imageNamed:@"nav_back"] forState:UIControlStateNormal];

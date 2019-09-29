@@ -66,7 +66,7 @@
     self.dataArray = @[].mutableCopy;
     [self initHeadV];
    
-    [self initNav];
+    [self createBackNavigation];
     
     
     [self.tableView registerClass:[QQYYZhuYeOneCell class] forCellReuseIdentifier:@"cell1"];
@@ -93,7 +93,7 @@
     
 }
 
-- (void)initNav{
+- (void)createBackNavigation{
     
     UIButton * leftbtn=[[UIButton alloc] initWithFrame:CGRectMake(10, sstatusHeight + 2 , 40, 40)];
     [leftbtn setImage:[UIImage imageNamed:@"nav_back"] forState:UIControlStateNormal];
@@ -490,9 +490,7 @@
         [self.tableView.mj_header endRefreshing];
         [self.tableView.mj_footer endRefreshing];
         if ([responseObject[@"code"] intValue]== 0) {
-            
-            
-            
+
         }else {
             [self showAlertWithKey:[NSString stringWithFormat:@"%@",responseObject[@"code"]] message:responseObject[@"message"]];
         }
@@ -503,19 +501,58 @@
         [self.tableView.mj_footer endRefreshing];
         
     }];
-    
 }
-
-
-
-- (void)yongBaoAction {
-    if ([[QQYYSignleToolNew shareTool].session_uid isEqualToString:self.dataModel.userId]) {
-        [SVProgressHUD showErrorWithStatus:@"自己不能给自己送花"];
-        return;
+#pragma mark ------ 点击cell 内部的按钮 ----
+//0 头像 1 查看,2 评论 3 赞 ,4送花,5分享 6 点击查看原文
+-(void)didClickButtonWithCell:(QQYYHomeDongTaiCell *)cell andIndex:(NSInteger)index {
+    
+    NSIndexPath * indexPath = [self.tableView indexPathForCell:cell];
+    
+    if (index == 0) {
+        QQYYZhuYeTVC * vc =[[QQYYZhuYeTVC alloc] init];
+        vc.hidesBottomBarWhenPushed = YES;
+        vc.userId = self.dataArray[indexPath.row].createBy;
+        [self.navigationController pushViewController:vc animated:YES];
+    }else if (index == 1) {
+        
+    }else if (index == 2) {
+        
+    }else if (index == 3) {
+        if (![QQYYSignleToolNew shareTool].isLogin) {
+            [self gotoLoginVC];
+            return;
+        }
+        [self zanActionWithModel:self.dataArray[indexPath.row] WithIndePath:indexPath];
+        
+    }else if (index == 4) {
+        
+        if (![QQYYSignleToolNew shareTool].isLogin) {
+            [self gotoLoginVC];
+            return;
+        }
+        if ([[QQYYSignleToolNew shareTool].session_uid isEqualToString:self.dataArray[indexPath.row].userId]) {
+            [SVProgressHUD showErrorWithStatus:@"自己不能给自己送爱豆"];
+            return;
+        }
+        [self.showView showWithIndexPath:indexPath];
+        
+    }else if (index == 5) {
+        
+        [self shareWithSetPreDefinePlatforms:@[@(UMSocialPlatformType_WechatSession),@(UMSocialPlatformType_QQ),@(UMSocialPlatformType_Sina)] withUrl:nil shareModel:self.dataArray[indexPath.row]];
+        
+    }else if (index == 6) {
+        
+    }else if (index == 7) {
+        
+        if (![QQYYSignleToolNew shareTool].isLogin) {
+            [self gotoLoginVC];
+            return;
+        }
+        [self collectionWithModel:self.dataArray[indexPath.row] WithIndePath:indexPath];
     }
-    [self.showView showWithIndexPath:[NSIndexPath indexPathForRow:0 inSection:0]];
-    
+
 }
+
 
 #pragma mark ------ 点击cell 内部的按钮 关注和粉丝  关注 ----
 - (void)didClickGuanZhuOrFansWith:(NSInteger )index {
@@ -568,14 +605,8 @@
         }];
         
         UIAlertAction *action3 = [UIAlertAction actionWithTitle:@"取消" style:UIAlertActionStyleDefault handler:^(UIAlertAction * _Nonnull action) {
-            
-          
-            
-            
-            
+
         }];
-        
-       
         [ac addAction:action1];
         [ac addAction:action2];
         [ac addAction:action3];
@@ -598,9 +629,7 @@
             QQYYKaiTongHuiYuanTVC * vc =[[QQYYKaiTongHuiYuanTVC alloc] init];
             vc.hidesBottomBarWhenPushed = YES;
             [self.navigationController pushViewController:vc animated:YES];
-            
-            
-            
+
         }];
         
         [ac addAction:action1];
@@ -626,6 +655,15 @@
         self.cancelGuanZhuBt.mj_y = self.minY;
         
     }];
+}
+
+- (void)yongBaoAction {
+    if ([[QQYYSignleToolNew shareTool].session_uid isEqualToString:self.dataModel.userId]) {
+        [SVProgressHUD showErrorWithStatus:@"自己不能给自己送花"];
+        return;
+    }
+    [self.showView showWithIndexPath:[NSIndexPath indexPathForRow:0 inSection:0]];
+    
 }
 
 #pragma mark ----- 关注或者取消关注------
@@ -676,61 +714,6 @@
     
 }
 
-#pragma mark ------ 点击cell 内部的按钮 ----
-//0 头像 1 查看,2 评论 3 赞 ,4送花,5分享 6 点击查看原文
--(void)didClickButtonWithCell:(QQYYHomeDongTaiCell *)cell andIndex:(NSInteger)index {
-    
-    NSIndexPath * indexPath = [self.tableView indexPathForCell:cell];
-    
-    if (index == 0) {
-        QQYYZhuYeTVC * vc =[[QQYYZhuYeTVC alloc] init];
-        vc.hidesBottomBarWhenPushed = YES;
-        vc.userId = self.dataArray[indexPath.row].createBy;
-        [self.navigationController pushViewController:vc animated:YES];
-    }else if (index == 1) {
-        
-    }else if (index == 2) {
-        
-        
-        
-    }else if (index == 3) {
-        if (![QQYYSignleToolNew shareTool].isLogin) {
-            [self gotoLoginVC];
-            return;
-        }
-        [self zanActionWithModel:self.dataArray[indexPath.row] WithIndePath:indexPath];
-        
-    }else if (index == 4) {
-        
-        if (![QQYYSignleToolNew shareTool].isLogin) {
-            [self gotoLoginVC];
-            return;
-        }
-        if ([[QQYYSignleToolNew shareTool].session_uid isEqualToString:self.dataArray[indexPath.row].userId]) {
-            [SVProgressHUD showErrorWithStatus:@"自己不能给自己送爱豆"];
-            return;
-        }
-        [self.showView showWithIndexPath:indexPath]; 
-        
-    }else if (index == 5) {
-        
-         [self shareWithSetPreDefinePlatforms:@[@(UMSocialPlatformType_WechatSession),@(UMSocialPlatformType_QQ),@(UMSocialPlatformType_Sina)] withUrl:nil shareModel:self.dataArray[indexPath.row]];
-        
-    }else if (index == 6) {
-        
-    }else if (index == 7) {
-        
-        if (![QQYYSignleToolNew shareTool].isLogin) {
-            [self gotoLoginVC];
-            return;
-        }
-        [self collectionWithModel:self.dataArray[indexPath.row] WithIndePath:indexPath];
-    }
-    
-    
-    
-    
-}
 
 - (void)zanActionWithModel:(zkHomelModel *)model WithIndePath:(NSIndexPath *)indexPath{
   
@@ -834,141 +817,7 @@
     
 }
 
-#pragma  mark ---- 点击 抱一抱 的内容 ----
-- (void)didClcikIndex:(NSInteger)index withIndexPath:(NSIndexPath *)indexPath WithNumber:(nonnull NSString *)str{
-    
-    if (index == 4) {
-        [self.showView diss];
-        QQYYReDuTVC * vc =[[QQYYReDuTVC alloc] init];
-        vc.hidesBottomBarWhenPushed = YES;
-        [self.navigationController pushViewController:vc animated:YES];
-        
-    }else {
-        Weak(weakSelf);
-        BOOL isUser = YES;
-        NSString * linkId = self.userId;
-        if (indexPath.section == 3){
-            isUser = NO;
-            linkId = self.dataArray[indexPath.row].postId;
-        }
-        
-        [self sendFlowerWithNumber:str andLinkId:linkId andIsGiveUser:isUser result:^(BOOL isOK) {
-            if (isOK) {
-                [SVProgressHUD showSuccessWithStatus:@"送爱豆成功!"];
-                
-                if (isUser) {
-                    if (![self.dataModel.userId isEqualToString:[QQYYSignleToolNew shareTool].session_uid]) {
-                        //给他人送花要加花,自己送花不需要
-                        weakSelf.dataModel.flowerNum += [str integerValue];
-                    }
-                }else {
-                    
-                    self.dataArray[indexPath.row].heat += [str integerValue];
-                    if (![self.dataModel.userId isEqualToString:[QQYYSignleToolNew shareTool].session_uid]) {
-                        //给他人送花要加花,自己送花不需要
-                        weakSelf.dataModel.flowerNum += [str integerValue];
-                    }
-                    
-                }
-                
-                [weakSelf.tableView reloadRowsAtIndexPaths:@[indexPath,[NSIndexPath indexPathForRow:1 inSection:0]] withRowAnimation:(UITableViewRowAnimationNone)];
 
-            }
-            
-            
-        }];
-    }
-    
-}
-
-#pragma mark ---- 点击添加好友或者关注 -----
-- (void)footAction:(UIButton *)button {
-    if (button.tag == 100) {
-        
-        if (self.dataModel.friends) {
-            //
-            if (self.dataModel.inMyBlackList) {
-                [SVProgressHUD showErrorWithStatus:@"对方被你拉黑了,请去我的黑名单左滑操作,然后重新加好友"];
-                return;
-            }else {
-                //去聊天
-                
-                [self gotoCharWithOtherHuanXinID:self.dataModel.userNo andOtherUserId:self.dataModel.userId andOtherNickName:self.dataModel.nickName andOtherImg:self.dataModel.avatar andVC:self];
-                
-            }
-        }else {
-            
-            if (!self.dataModel.currentUserIsVip  && ![[QQYYSignleToolNew shareTool].session_uid isEqualToString:self.dataModel.userId]) {
-                
-                UIAlertController *ac = [UIAlertController alertControllerWithTitle:@"温馨提示" message:@"只有开通Vip会员才能添加好友" preferredStyle:UIAlertControllerStyleAlert];
-                UIAlertAction *action1 = [UIAlertAction actionWithTitle:@"取消" style:UIAlertActionStyleDefault handler:^(UIAlertAction * _Nonnull action) {
-                    
-                    
-                }];
-                UIAlertAction *action2 = [UIAlertAction actionWithTitle:@"开通会员" style:UIAlertActionStyleDefault handler:^(UIAlertAction * _Nonnull action) {
-                    
-                    QQYYKaiTongHuiYuanTVC * vc =[[QQYYKaiTongHuiYuanTVC alloc] init];
-                    vc.hidesBottomBarWhenPushed = YES;
-                    [self.navigationController pushViewController:vc animated:YES];
-                    
-                    
-                    
-                }];
-                
-                [ac addAction:action1];
-                [ac addAction:action2];
-                
-                [self.navigationController presentViewController:ac animated:YES completion:nil];
-                
-            }else {
-                //添加好友
-                QQYYAddFriendsTVC * vc =[[QQYYAddFriendsTVC alloc] init];
-                vc.hidesBottomBarWhenPushed = YES;
-                vc.model = self.model;
-                [self.navigationController pushViewController:vc animated:YES];
-            }
-            
-           
-        }
-        
-        
-    }else {
-        
-        
-        NSMutableDictionary * requestDict = @{}.mutableCopy;
-        requestDict[@"type"] = @"1";
-        requestDict[@"userId"] = self.userId;
-        NSString * url = [QQYYURLDefineTool addUserSubscribeURL];
-        if (self.dataModel.subscribed) {
-            url = [QQYYURLDefineTool deleteUserSubscribeURL];
-        }
-        [QQYYRequestTool networkingPOST:url parameters:requestDict success:^(NSURLSessionDataTask *task, id responseObject) {
-            [self.tableView.mj_header endRefreshing];
-            [self.tableView.mj_footer endRefreshing];
-            if ([responseObject[@"code"] intValue]== 0) {
-                
-                self.dataModel.subscribed = !self.dataModel.subscribed;
-                if (self.dataModel.subscribed) {
-                     [self.attentionBt setTitle:@"已关注" forState:UIControlStateNormal];
-                }else {
-                   [self.attentionBt setTitle:@"关注动态" forState:UIControlStateNormal];
-                }
-
-            }else {
-                [self showAlertWithKey:[NSString stringWithFormat:@"%@",responseObject[@"code"]] message:responseObject[@"message"]];
-            }
-            
-        } failure:^(NSURLSessionDataTask *task, NSError *error) {
-            
-            [self.tableView.mj_header endRefreshing];
-            [self.tableView.mj_footer endRefreshing];
-            
-        }];
-        
-    }
-    
-    
-}
 
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
     [tableView deselectRowAtIndexPath:indexPath animated:YES];
@@ -1068,5 +917,140 @@
     
 }
 
+#pragma  mark ---- 点击 抱一抱 的内容 ----
+- (void)didClcikIndex:(NSInteger)index withIndexPath:(NSIndexPath *)indexPath WithNumber:(nonnull NSString *)str{
+    
+    if (index == 4) {
+        [self.showView diss];
+        QQYYReDuTVC * vc =[[QQYYReDuTVC alloc] init];
+        vc.hidesBottomBarWhenPushed = YES;
+        [self.navigationController pushViewController:vc animated:YES];
+        
+    }else {
+        Weak(weakSelf);
+        BOOL isUser = YES;
+        NSString * linkId = self.userId;
+        if (indexPath.section == 3){
+            isUser = NO;
+            linkId = self.dataArray[indexPath.row].postId;
+        }
+        
+        [self sendFlowerWithNumber:str andLinkId:linkId andIsGiveUser:isUser result:^(BOOL isOK) {
+            if (isOK) {
+                [SVProgressHUD showSuccessWithStatus:@"送爱豆成功!"];
+                
+                if (isUser) {
+                    if (![self.dataModel.userId isEqualToString:[QQYYSignleToolNew shareTool].session_uid]) {
+                        //给他人送花要加花,自己送花不需要
+                        weakSelf.dataModel.flowerNum += [str integerValue];
+                    }
+                }else {
+                    
+                    self.dataArray[indexPath.row].heat += [str integerValue];
+                    if (![self.dataModel.userId isEqualToString:[QQYYSignleToolNew shareTool].session_uid]) {
+                        //给他人送花要加花,自己送花不需要
+                        weakSelf.dataModel.flowerNum += [str integerValue];
+                    }
+                    
+                }
+                
+                [weakSelf.tableView reloadRowsAtIndexPaths:@[indexPath,[NSIndexPath indexPathForRow:1 inSection:0]] withRowAnimation:(UITableViewRowAnimationNone)];
+                
+            }
+            
+            
+        }];
+    }
+    
+}
+
+#pragma mark ---- 点击添加好友或者关注 -----
+- (void)footAction:(UIButton *)button {
+    if (button.tag == 100) {
+        
+        if (self.dataModel.friends) {
+            //
+            if (self.dataModel.inMyBlackList) {
+                [SVProgressHUD showErrorWithStatus:@"对方被你拉黑了,请去我的黑名单左滑操作,然后重新加好友"];
+                return;
+            }else {
+                //去聊天
+                
+                [self gotoCharWithOtherHuanXinID:self.dataModel.userNo andOtherUserId:self.dataModel.userId andOtherNickName:self.dataModel.nickName andOtherImg:self.dataModel.avatar andVC:self];
+                
+            }
+        }else {
+            
+            if (!self.dataModel.currentUserIsVip  && ![[QQYYSignleToolNew shareTool].session_uid isEqualToString:self.dataModel.userId]) {
+                
+                UIAlertController *ac = [UIAlertController alertControllerWithTitle:@"温馨提示" message:@"只有开通Vip会员才能添加好友" preferredStyle:UIAlertControllerStyleAlert];
+                UIAlertAction *action1 = [UIAlertAction actionWithTitle:@"取消" style:UIAlertActionStyleDefault handler:^(UIAlertAction * _Nonnull action) {
+                    
+                    
+                }];
+                UIAlertAction *action2 = [UIAlertAction actionWithTitle:@"开通会员" style:UIAlertActionStyleDefault handler:^(UIAlertAction * _Nonnull action) {
+                    
+                    QQYYKaiTongHuiYuanTVC * vc =[[QQYYKaiTongHuiYuanTVC alloc] init];
+                    vc.hidesBottomBarWhenPushed = YES;
+                    [self.navigationController pushViewController:vc animated:YES];
+                    
+                    
+                    
+                }];
+                
+                [ac addAction:action1];
+                [ac addAction:action2];
+                
+                [self.navigationController presentViewController:ac animated:YES completion:nil];
+                
+            }else {
+                //添加好友
+                QQYYAddFriendsTVC * vc =[[QQYYAddFriendsTVC alloc] init];
+                vc.hidesBottomBarWhenPushed = YES;
+                vc.model = self.model;
+                [self.navigationController pushViewController:vc animated:YES];
+            }
+            
+            
+        }
+        
+        
+    }else {
+        
+        
+        NSMutableDictionary * requestDict = @{}.mutableCopy;
+        requestDict[@"type"] = @"1";
+        requestDict[@"userId"] = self.userId;
+        NSString * url = [QQYYURLDefineTool addUserSubscribeURL];
+        if (self.dataModel.subscribed) {
+            url = [QQYYURLDefineTool deleteUserSubscribeURL];
+        }
+        [QQYYRequestTool networkingPOST:url parameters:requestDict success:^(NSURLSessionDataTask *task, id responseObject) {
+            [self.tableView.mj_header endRefreshing];
+            [self.tableView.mj_footer endRefreshing];
+            if ([responseObject[@"code"] intValue]== 0) {
+                
+                self.dataModel.subscribed = !self.dataModel.subscribed;
+                if (self.dataModel.subscribed) {
+                    [self.attentionBt setTitle:@"已关注" forState:UIControlStateNormal];
+                }else {
+                    [self.attentionBt setTitle:@"关注动态" forState:UIControlStateNormal];
+                }
+                
+            }else {
+                [self showAlertWithKey:[NSString stringWithFormat:@"%@",responseObject[@"code"]] message:responseObject[@"message"]];
+            }
+            
+        } failure:^(NSURLSessionDataTask *task, NSError *error) {
+            
+            [self.tableView.mj_header endRefreshing];
+            [self.tableView.mj_footer endRefreshing];
+            
+        }];
+        
+    }
+    
+    
+}
 
 @end

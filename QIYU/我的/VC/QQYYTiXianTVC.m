@@ -37,12 +37,12 @@
     
     self.tableView.frame = CGRectMake(0, -sstatusHeight, ScreenW, ScreenH+sstatusHeight);
     [self initHeadV];
-    [self initNav];
+    [self createBackNavigation];
     
     
 }
 
-- (void)initNav{
+- (void)createBackNavigation{
     
     UIButton * leftbtn=[[UIButton alloc] initWithFrame:CGRectMake(10, sstatusHeight + 2 , 40, 40)];
     [leftbtn setImage:[UIImage imageNamed:@"icon_back"] forState:UIControlStateNormal];
