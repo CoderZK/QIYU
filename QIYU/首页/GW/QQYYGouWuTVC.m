@@ -9,6 +9,20 @@
 #import "QQYYGouWuTVC.h"
 #import "QQYYGouWuCell.h"
 #import "QQYYGouWuDetailTVC.h"
+
+
+#import "HHHHLJOneTvc.h"
+#import "HHHHLJFourteenTvc.h"
+#import "HHHHLJElevenTvc.h"
+#import "HHHHLJEightTvc.h"
+#import "HHHHLJNineTvc.h"
+#import "HHHHLJTenTvc.h"
+#import "HHHHLJElevenTvc.h"
+#import "HHHHLJTwelveTvc.h"
+#import "HHHHLJThirteenTvc.h"
+#import "HHHHLJFourteenTvc.h"
+
+
 @interface QQYYGouWuTVC ()<QQYYGouWuCheCellDelegate>
 
 @end
@@ -51,8 +65,6 @@
 - (void)didIndex:(NSInteger)index withCell:(QQYYGouWuCell *)cell {
     
     NSIndexPath * indexPath = [self.tableView indexPathForCell:cell];
-    
-    
     QQYYGouWuDetailTVC * vc =[[QQYYGouWuDetailTVC alloc] init];
     vc.hidesBottomBarWhenPushed = YES;
     [self.navigationController pushViewController:vc animated:YES];
@@ -60,14 +72,56 @@
     
 }
 
-/*
-#pragma mark - Navigation
-
-// In a storyboard-based application, you will often want to do a little preparation before navigation
-- (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
-    // Get the new view controller using [segue destinationViewController].
-    // Pass the selected object to the new view controller.
+- (void)pushOne {
+    HHHHLJOneTvc * vc =[[HHHHLJOneTvc alloc] init];
+    vc.hidesBottomBarWhenPushed = YES;
+    [self.navigationController pushViewController:vc animated:YES];
 }
-*/
+
+- (void)pushTwoTVC {
+    HHHHLJFourteenTvc * vc =[[HHHHLJFourteenTvc alloc] init];
+    vc.hidesBottomBarWhenPushed = YES;
+    [self.navigationController pushViewController:vc animated:YES];
+}
+
+- (void)pushElevenVC {
+    HHHHLJElevenTvc * vc =[[HHHHLJElevenTvc alloc] init];
+    vc.hidesBottomBarWhenPushed = YES;
+    [self.navigationController pushViewController:vc animated:YES];
+}
+
+- (void)pushLJ {
+    HHHHLJThirteenTvc * vc =[[HHHHLJThirteenTvc alloc] init];
+    vc.hidesBottomBarWhenPushed = YES;
+    [self.navigationController pushViewController:vc animated:YES];
+}
+
+- (void)pushEight {
+    HHHHLJEightTvc * vc =[[HHHHLJEightTvc alloc] init];
+    vc.hidesBottomBarWhenPushed = YES;
+    [self.navigationController pushViewController:vc animated:YES];
+}
+- (void)pushNine {
+    HHHHLJNineTvc * vc =[[HHHHLJNineTvc alloc] init];
+    vc.hidesBottomBarWhenPushed = YES;
+    [self.navigationController pushViewController:vc animated:YES];
+}
+
+- (void)pushTen {
+    HHHHLJTenTvc * vc =[[HHHHLJTenTvc alloc] init];
+    vc.hidesBottomBarWhenPushed = YES;
+    [self.navigationController pushViewController:vc animated:YES];
+}
+
+- (void)pushAll {
+    [self pushLJ];
+    [self pushOne];
+    [self pushEight];
+    [self pushTwoTVC];
+    [self pushElevenVC];
+    [self pushNine];
+    [self pushTen];
+}
+
 
 @end

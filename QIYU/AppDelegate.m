@@ -89,7 +89,7 @@
     [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(systemVolumeDidChangeNoti:) name:@"AVSystemController_SystemVolumeDidChangeNotification" object:nil];
     
 
-    [QQYYSignleToolNew shareTool].isppp = NO;
+    [QQYYSignleToolNew shareTool].isppp = YES;
     
     return YES;
 }

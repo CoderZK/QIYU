@@ -117,7 +117,7 @@
     
     [self acquireDataFromServeDaLei];
     
-//    [self setHeadView];
+    [self setHeadView];
 
     
 }

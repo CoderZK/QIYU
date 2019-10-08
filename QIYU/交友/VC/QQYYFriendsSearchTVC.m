@@ -131,7 +131,7 @@
 
 - (void)acquireDataFromServe {
     
-    
+    [SVProgressHUD show];
     NSMutableDictionary * requestDict = @{}.mutableCopy;
     requestDict[@"pageNo"] = @(self.pageNo);
     NSString * url = [QQYYURLDefineTool nearbyUserListURL];
@@ -173,7 +173,7 @@
             }
             self.pageNo++;
             [self.tableView reloadData];
-            
+            [SVProgressHUD dismiss];
         }else {
             [self showAlertWithKey:[NSString stringWithFormat:@"%@",responseObject[@"code"]] message:responseObject[@"message"]];
         }
