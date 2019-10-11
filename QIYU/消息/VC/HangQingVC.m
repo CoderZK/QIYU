@@ -235,24 +235,7 @@
 
 
 
-- (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
-    [tableView deselectRowAtIndexPath:indexPath animated:YES];
-    
-    
-    if (indexPath.section == 1) {
-        QQYYSysMsgTVC * vc =[[QQYYSysMsgTVC alloc] init];
-        vc.hidesBottomBarWhenPushed = YES;
-        [self.navigationController pushViewController:vc animated:YES];
-    }
-    
-    if (indexPath.section == 2) {
-        QQYYTongYongModel * model = self.dataArray[indexPath.row];
-        [self gotoCharWithOtherHuanXinID:model.friendHuanXin andOtherUserId:model.friendId andOtherNickName:model.friendNickName andOtherImg:model.friendAvatar andVC:self];
-    }
-    
-    
 
-}
 
 
 - (void)goToTheOtherHomePageClickAction:(UIButton *)button {
@@ -276,10 +259,22 @@
     return UITableViewCellEditingStyleDelete;
 }
 
+- (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
+    [tableView deselectRowAtIndexPath:indexPath animated:YES];
+    if (indexPath.section == 1) {
+        QQYYSysMsgTVC * vc =[[QQYYSysMsgTVC alloc] init];
+        vc.hidesBottomBarWhenPushed = YES;
+        [self.navigationController pushViewController:vc animated:YES];
+    }
+    if (indexPath.section == 2) {
+        QQYYTongYongModel * model = self.dataArray[indexPath.row];
+        [self gotoCharWithOtherHuanXinID:model.friendHuanXin andOtherUserId:model.friendId andOtherNickName:model.friendNickName andOtherImg:model.friendAvatar andVC:self];
+    }
+}
+
 - (NSString *)tableView:(UITableView *)tableView titleForDeleteConfirmationButtonForRowAtIndexPath:(NSIndexPath *)indexPath {
     return @"删除";
 }
-
 - (void)tableView:(UITableView *)tableView commitEditingStyle:(UITableViewCellEditingStyle)editingStyle forRowAtIndexPath:(NSIndexPath *)indexPath {
     if (editingStyle == UITableViewCellEditingStyleDelete) {
         [self deleteMesgWithIndexPath:indexPath];

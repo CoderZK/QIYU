@@ -28,8 +28,6 @@
             [self addSubview:vv];
             
         }
-        
-        
     }
     return self;
 }

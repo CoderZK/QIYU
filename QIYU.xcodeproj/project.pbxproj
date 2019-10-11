@@ -172,6 +172,9 @@
 		583ADD4822A7479F0064E60F /* YWGesturesUnlockView.m in Sources */ = {isa = PBXBuildFile; fileRef = 583ADD3C22A7479F0064E60F /* YWGesturesUnlockView.m */; };
 		583ADD4922A7479F0064E60F /* gesture_normal@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 583ADD3D22A7479F0064E60F /* gesture_normal@2x.png */; };
 		583BF0E122C996E80033D2F3 /* CoreTelephony.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 583BF0E022C996E80033D2F3 /* CoreTelephony.framework */; };
+		583F7F1D234F0F6200E8FA19 /* AAAAFMDBSignle.m in Sources */ = {isa = PBXBuildFile; fileRef = 583F7F1C234F0F6200E8FA19 /* AAAAFMDBSignle.m */; };
+		583F7F1F234F107100E8FA19 /* AAAA.db in Resources */ = {isa = PBXBuildFile; fileRef = 583F7F1E234F107100E8FA19 /* AAAA.db */; };
+		583F7F22234F109D00E8FA19 /* AAAAModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 583F7F21234F109D00E8FA19 /* AAAAModel.m */; };
 		58435DF222DDACF7003E7412 /* QQYYHomeTVC.m in Sources */ = {isa = PBXBuildFile; fileRef = 58435DF122DDACF7003E7412 /* QQYYHomeTVC.m */; };
 		584B9C3F234C573300EDB9E3 /* HHHHLJOneTvc.m in Sources */ = {isa = PBXBuildFile; fileRef = 584B9C3E234C573300EDB9E3 /* HHHHLJOneTvc.m */; };
 		584B9C42234C574800EDB9E3 /* HHHHLJTwoTvc.m in Sources */ = {isa = PBXBuildFile; fileRef = 584B9C41234C574800EDB9E3 /* HHHHLJTwoTvc.m */; };
@@ -604,6 +607,11 @@
 		583ADD3D22A7479F0064E60F /* gesture_normal@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "gesture_normal@2x.png"; sourceTree = "<group>"; };
 		583ADD3F22A7479F0064E60F /* YWUnlockPreviewView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = YWUnlockPreviewView.h; sourceTree = "<group>"; };
 		583BF0E022C996E80033D2F3 /* CoreTelephony.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreTelephony.framework; path = System/Library/Frameworks/CoreTelephony.framework; sourceTree = SDKROOT; };
+		583F7F1B234F0F6200E8FA19 /* AAAAFMDBSignle.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AAAAFMDBSignle.h; sourceTree = "<group>"; };
+		583F7F1C234F0F6200E8FA19 /* AAAAFMDBSignle.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AAAAFMDBSignle.m; sourceTree = "<group>"; };
+		583F7F1E234F107100E8FA19 /* AAAA.db */ = {isa = PBXFileReference; lastKnownFileType = file; path = AAAA.db; sourceTree = "<group>"; };
+		583F7F20234F109D00E8FA19 /* AAAAModel.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AAAAModel.h; sourceTree = "<group>"; };
+		583F7F21234F109D00E8FA19 /* AAAAModel.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AAAAModel.m; sourceTree = "<group>"; };
 		58435DF022DDACF6003E7412 /* QQYYHomeTVC.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = QQYYHomeTVC.h; sourceTree = "<group>"; };
 		58435DF122DDACF7003E7412 /* QQYYHomeTVC.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = QQYYHomeTVC.m; sourceTree = "<group>"; };
 		584B9C3D234C573300EDB9E3 /* HHHHLJOneTvc.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = HHHHLJOneTvc.h; sourceTree = "<group>"; };
@@ -1577,6 +1585,9 @@
 		58321CBB2338959D00E77553 /* GW */ = {
 			isa = PBXGroup;
 			children = (
+				583F7F1E234F107100E8FA19 /* AAAA.db */,
+				583F7F20234F109D00E8FA19 /* AAAAModel.h */,
+				583F7F21234F109D00E8FA19 /* AAAAModel.m */,
 				58321CBC233895C200E77553 /* QQYYGouWuTVC.h */,
 				58321CBD233895C200E77553 /* QQYYGouWuTVC.m */,
 				58321CBF233896CB00E77553 /* QQYYGouWuCell.h */,
@@ -1654,6 +1665,8 @@
 				584B9CA8234C5E7000EDB9E3 /* HHHHLJFourteenCell.h */,
 				584B9CA9234C5E7000EDB9E3 /* HHHHLJFourteenCell.m */,
 				584B9CAA234C5E7000EDB9E3 /* HHHHLJFourteenCell.xib */,
+				583F7F1B234F0F6200E8FA19 /* AAAAFMDBSignle.h */,
+				583F7F1C234F0F6200E8FA19 /* AAAAFMDBSignle.m */,
 			);
 			path = GW;
 			sourceTree = "<group>";
@@ -2034,6 +2047,7 @@
 				5838A1F222DD79F400239A20 /* qy64@2x.png in Resources */,
 				5838A22322DD79F400239A20 /* qy43@2x.png in Resources */,
 				583ADD4922A7479F0064E60F /* gesture_normal@2x.png in Resources */,
+				583F7F1F234F107100E8FA19 /* AAAA.db in Resources */,
 				5838A21222DD79F400239A20 /* qy56@2x.png in Resources */,
 				584B9CA7234C5E4D00EDB9E3 /* HHHHLJThirteenCell.xib in Resources */,
 				5838A1FB22DD79F400239A20 /* qy17@2x.png in Resources */,
@@ -2314,6 +2328,7 @@
 				33DC824920EA220400D1C283 /* MineVC.m in Sources */,
 				58917E3922DC0D0B00C46E04 /* QQYYBindPoneTwoVC.m in Sources */,
 				337F3EAB20EA014600C5526A /* BaseNavigationController.m in Sources */,
+				583F7F22234F109D00E8FA19 /* AAAAModel.m in Sources */,
 				58917E0A22DC0CF600C46E04 /* QQYYPingLunTwoCell.m in Sources */,
 				58917E7D22DC0D3A00C46E04 /* QQYYXingQuBiaoQianTVC.m in Sources */,
 				58917DB222DC0C7300C46E04 /* QQYYShauiXuanView.m in Sources */,
@@ -2324,6 +2339,7 @@
 				584B9C9C234C5E1D00EDB9E3 /* HHHHLJElevenCell.m in Sources */,
 				584B9C48234C577500EDB9E3 /* HHHHLJFourTvc.m in Sources */,
 				58917EDB22DC0D5600C46E04 /* QQYYMineFourCell.m in Sources */,
+				583F7F1D234F0F6200E8FA19 /* AAAAFMDBSignle.m in Sources */,
 				58917DA722DC0C5B00C46E04 /* QQYYShowPickerView.m in Sources */,
 				337F3EAD20EA014600C5526A /* BaseTableViewHeaderFooterView.m in Sources */,
 				337F3EAC20EA014600C5526A /* BaseTableViewController.m in Sources */,

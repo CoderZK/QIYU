@@ -50,12 +50,10 @@
     if (self.type == 0) {
         str = [QQYYURLDefineTool getAtMeMsgListURL] ;
     }
-    
     [QQYYRequestTool networkingPOST:str parameters:requestDict success:^(NSURLSessionDataTask *task, id responseObject) {
         [self.tableView.mj_header endRefreshing];
         [self.tableView.mj_footer endRefreshing];
         if ([responseObject[@"code"] intValue]== 0) {
-            
             NSArray * arr = [QQYYTongYongModel mj_objectArrayWithKeyValuesArray:responseObject[@"rows"]];
             if (self.pageNo == 1) {
                 [self.dataArray removeAllObjects];
@@ -80,15 +78,6 @@
     
 }
 
-- (BOOL)tableView:(UITableView *)tableView canEditRowAtIndexPath:(NSIndexPath *)indexPath {
-    return YES;
-    
-}
-
-// 定义编辑样式
-- (UITableViewCellEditingStyle)tableView:(UITableView *)tableView editingStyleForRowAtIndexPath:(NSIndexPath *)indexPath {
-    return UITableViewCellEditingStyleDelete;
-}
 
 - (NSString *)tableView:(UITableView *)tableView titleForDeleteConfirmationButtonForRowAtIndexPath:(NSIndexPath *)indexPath {
     return @"删除";
@@ -100,6 +89,16 @@
     }
     
 }
+
+- (BOOL)tableView:(UITableView *)tableView canEditRowAtIndexPath:(NSIndexPath *)indexPath {
+    return YES;
+}
+
+// 定义编辑样式
+- (UITableViewCellEditingStyle)tableView:(UITableView *)tableView editingStyleForRowAtIndexPath:(NSIndexPath *)indexPath {
+    return UITableViewCellEditingStyleDelete;
+}
+
 
 - (void)deleteMesgWithIndexPath:(NSIndexPath *)indexPath {
     
@@ -114,11 +113,6 @@
     
 }
 
-
-- (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView {
-    return 1;
-}
-
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
     return self.dataArray.count;
 }
@@ -126,6 +120,12 @@
 - (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath {
     return 90;
 }
+
+
+- (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView {
+    return 1;
+}
+
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
     
@@ -140,6 +140,15 @@
     return cell;
     
 }
+
+- (void)LJONE {
+    NSLog(@"%@",@"程序稳定性");
+}
+
+- (void)LJTWO {
+    [self LJONE];
+}
+
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
     [tableView deselectRowAtIndexPath:indexPath animated:YES];
     
@@ -157,12 +166,6 @@
     [self.navigationController pushViewController:vc animated:YES];
 }
 
-- (void)LJONE {
-    NSLog(@"%@",@"程序稳定性");
-}
 
-- (void)LJTWO {
-    [self LJONE];
-}
 
 @end

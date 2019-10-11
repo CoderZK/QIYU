@@ -34,6 +34,9 @@ PODS:
     - Hyphenate (~> 3.5.3)
     - MJRefresh (~> 3.1.0)
     - MWPhotoBrowser (~> 2.1.1)
+  - FMDB (2.7.5):
+    - FMDB/standard (= 2.7.5)
+  - FMDB/standard (2.7.5)
   - Hyphenate (3.5.5)
   - IQKeyboardManager (6.4.0)
   - JKRBDMuteSwitch (0.1.2):
@@ -81,6 +84,7 @@ DEPENDENCIES:
   - AFNetworking
   - BlocksKit
   - EaseUI (from `https://github.com/easemob/easeui-ios-hyphenate-cocoapods.git`)
+  - FMDB
   - Hyphenate
   - IQKeyboardManager
   - JKRBDMuteSwitch
@@ -103,6 +107,7 @@ SPEC REPOS:
     - AFNetworking
     - BlocksKit
     - DACircularProgress
+    - FMDB
     - Hyphenate
     - IQKeyboardManager
     - JKRBDMuteSwitch
@@ -134,6 +139,7 @@ SPEC CHECKSUMS:
   BlocksKit: 7f422b971407001178d181a43b99014ea2591fe6
   DACircularProgress: 4dd437c0fc3da5161cb289e07ac449493d41db71
   EaseUI: 3bb4554d25fbbac5f7369e4393a9bab9ea09a689
+  FMDB: 2ce00b547f966261cd18927a3ddb07cb6f3db82a
   Hyphenate: 396b936de5b3d68ec266c4bb9078e3ec95a45f31
   IQKeyboardManager: fcef267266379c003181fc3592f6bdb8bf4db839
   JKRBDMuteSwitch: 35615e6ad15da527d100069e518a91b0a5eaa481
@@ -151,6 +157,6 @@ SPEC CHECKSUMS:
   TZImagePickerController: bf4c57b98d8707fce41ea6be872414a71c7a8c9d
   UMengUShare: 370d180101e13ee0227ae657ab119ba97243d2b3
 
-PODFILE CHECKSUM: 790fb6b8aa409406f0fdd8b3c671bfae96541d13
+PODFILE CHECKSUM: 2b0a64668460911c8bc8731a19f7d978807b4268
 
 COCOAPODS: 1.7.0

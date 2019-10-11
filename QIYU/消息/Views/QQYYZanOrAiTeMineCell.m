@@ -17,20 +17,6 @@
     self.nameLB.text = @"等你来";
 }
 
-- (void)setType:(NSInteger)type {
-    _type = type;
-    
-//    if (type == 1) {
-//        NSString * str = @"赞了我的帖子: 怎么打不出去";
-//        self.contentLB.attributedText = [str getMutableAttributeStringWithFont:14 lineSpace:0 textColor:CharacterBlackColor textColorTwo:[UIColor blackColor] nsrange:NSMakeRange(0, 7)];
-//    }else {
-//        NSString * str = @"@了我的帖子: 最近状态不错,假的规范和我去额日胡富国结合人工费";
-//         self.contentLB.attributedText = [str getMutableAttributeStringWithFont:14 lineSpace:0 textColor:CharacterBlackColor textColorTwo:[UIColor blackColor] nsrange:NSMakeRange(0, 7)];
-//    }
-    
-    
-    
-}
 
 - (void)setModel:(QQYYTongYongModel *)model {
     _model = model;
@@ -49,6 +35,13 @@
 
     
 }
+
+- (void)setType:(NSInteger)type {
+    _type = type;
+
+}
+
+
 
 
 

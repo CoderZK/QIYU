@@ -578,7 +578,6 @@
         if (isDDDDDDDD) {
             return;
         }
-        
         if ([[QQYYSignleToolNew shareTool].session_uid isEqualToString:self.dataModel.userId]) {
             
             QQYYReDuTVC * vc =[[QQYYReDuTVC alloc] init];
@@ -587,7 +586,6 @@
             
             return;
         }
-        
         UIAlertController *ac = [UIAlertController alertControllerWithTitle:@"温馨提示" message:@"送爱豆给他/她 充值买爱豆" preferredStyle:UIAlertControllerStyleAlert];
         UIAlertAction *action1 = [UIAlertAction actionWithTitle:@"送爱豆" style:UIAlertActionStyleDefault handler:^(UIAlertAction * _Nonnull action) {
             
@@ -596,12 +594,9 @@
         }];
         UIAlertAction *action2 = [UIAlertAction actionWithTitle:@"买爱豆" style:UIAlertActionStyleDefault handler:^(UIAlertAction * _Nonnull action) {
             
-            QQYYKaiTongHuiYuanTVC * vc =[[QQYYKaiTongHuiYuanTVC alloc] init];
+            QQYYReDuTVC * vc =[[QQYYReDuTVC alloc] init];
             vc.hidesBottomBarWhenPushed = YES;
             [self.navigationController pushViewController:vc animated:YES];
-            
-            
-            
         }];
         
         UIAlertAction *action3 = [UIAlertAction actionWithTitle:@"取消" style:UIAlertActionStyleDefault handler:^(UIAlertAction * _Nonnull action) {
@@ -612,8 +607,6 @@
         [ac addAction:action3];
        
         [self.navigationController presentViewController:ac animated:YES completion:nil];
-        
-        
         return;
     }
     

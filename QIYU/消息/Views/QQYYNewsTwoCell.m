@@ -14,6 +14,38 @@
 
 @implementation QQYYNewsTwoCell
 
+- (void)setModel:(QQYYTongYongModel *)model {
+    _model = model;
+    [self.headBt sd_setBackgroundImageWithURL:[NSURL URLWithString:[QQYYURLDefineTool getImgURLWithStr:model.createByAvatar]] forState:UIControlStateNormal placeholderImage:[UIImage imageNamed:@"369"]];
+     [self.bageBt setBadge:[NSString stringWithFormat:@"%ld",(long)model.unreadMessagesCount] andFont:10];
+    self.nameLB.text = model.createByNickName;
+    self.contentLB.text = model.remark;
+    self.timeLB.text = [NSString stringWithTime:model.createTime];
+  
+    if (self.type == 0) {
+        if (model.status == 1) {
+            self.cancelBt.hidden = self.typeBt.hidden = NO;
+            [self.cancelBt setTitle:@"拒绝" forState:UIControlStateNormal];
+            [self.typeBt setTitle:@"同意" forState:UIControlStateNormal];
+        }else if (model.status == 2) {
+            self.cancelBt.hidden = YES;
+            self.typeBt.hidden = NO;
+            [self.typeBt setBackgroundImage:[UIImage imageNamed:@""] forState:UIControlStateNormal];
+            [self.typeBt setTitle:@"已通过" forState:UIControlStateNormal];
+        }else {
+            self.cancelBt.hidden = YES;
+            self.typeBt.hidden = NO;
+            [self.typeBt setBackgroundImage:[UIImage imageNamed:@""] forState:UIControlStateNormal];
+            [self.typeBt setTitle:@"已拒绝" forState:UIControlStateNormal];
+        }
+    }else {
+      
+        self.nameLB.text = model.friendNickName;
+        self.contentLB.text = model.chatContent;
+
+    }
+
+}
 - (instancetype)initWithStyle:(UITableViewCellStyle)style reuseIdentifier:(NSString *)reuseIdentifier {
     self = [super initWithStyle:style reuseIdentifier:reuseIdentifier];
     if (self) {
@@ -24,9 +56,7 @@
         self.headBt.frame = CGRectMake(15, 15, 55, 55);
         self.headBt.layer.cornerRadius = 5;
         self.headBt.clipsToBounds = YES;
-//        [self.headBt setBackgroundImage:[UIImage imageNamed:@"369"] forState:UIControlStateNormal];
         [self addSubview:self.headBt];
-        //        [self.headBt addTarget:self action:@selector(clickAction:) forControlEvents:UIControlEventTouchUpInside];
         self.headBt.tag = 100;
         
         self.bageBt = [[UIButton alloc] initWithFrame:CGRectMake(15, 15, 55, 55)];
@@ -91,43 +121,7 @@
 
 
 
-- (void)setModel:(QQYYTongYongModel *)model {
-    _model = model;
-    [self.headBt sd_setBackgroundImageWithURL:[NSURL URLWithString:[QQYYURLDefineTool getImgURLWithStr:model.createByAvatar]] forState:UIControlStateNormal placeholderImage:[UIImage imageNamed:@"369"]];
-     [self.bageBt setBadge:[NSString stringWithFormat:@"%ld",(long)model.unreadMessagesCount] andFont:10];
-    self.nameLB.text = model.createByNickName;
-    self.contentLB.text = model.remark;
-    self.timeLB.text = [NSString stringWithTime:model.createTime];
-  
-    if (self.type == 0) {
-        if (model.status == 1) {
-            self.cancelBt.hidden = self.typeBt.hidden = NO;
-            [self.cancelBt setTitle:@"拒绝" forState:UIControlStateNormal];
-            [self.typeBt setTitle:@"同意" forState:UIControlStateNormal];
-        }else if (model.status == 2) {
-            self.cancelBt.hidden = YES;
-            self.typeBt.hidden = NO;
-            [self.typeBt setBackgroundImage:[UIImage imageNamed:@""] forState:UIControlStateNormal];
-            [self.typeBt setTitle:@"已通过" forState:UIControlStateNormal];
-        }else {
-            self.cancelBt.hidden = YES;
-            self.typeBt.hidden = NO;
-            [self.typeBt setBackgroundImage:[UIImage imageNamed:@""] forState:UIControlStateNormal];
-            [self.typeBt setTitle:@"已拒绝" forState:UIControlStateNormal];
-        }
-    }else {
-      
-        self.nameLB.text = model.friendNickName;
-        self.contentLB.text = model.chatContent;
 
-    }
-   
-        
-
-    
-    
-    
-}
 
 
 - (void)awakeFromNib {

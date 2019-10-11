@@ -17,6 +17,8 @@ pod 'UMengUShare/Social/QQ'
 pod 'Masonry'
 pod 'TZImagePickerController'
 
+pod 'FMDB'
+
 pod 'JKRBDMuteSwitch'
 #pod 'WechatOpenSDK'
 pod 'ReactiveObjC'

@@ -42,8 +42,6 @@
 }
 
 - (void)acquireDataFromServe {
-    
-    
     NSMutableDictionary * requestDict = @{}.mutableCopy;
     requestDict[@"pageNo"] = @(self.pageNo);
     requestDict[@"pageSize"] = @(10);
@@ -112,14 +110,7 @@
     [self.navigationController pushViewController:vc animated:YES];
 }
 
-- (void)cancelClickAction:(UIButton *)button {
-     [self actionWithIndex:button.tag - 100 withisOk:0];
-}
-- (void)confirmClickActionNew:(UIButton *)button {
- 
-    [self actionWithIndex:button.tag - 100 withisOk:1];
-    
-}
+
 
 - (void)actionWithIndex:(NSInteger)index withisOk:(NSInteger)isOk{
     
@@ -152,6 +143,13 @@
     
 }
 
+- (void)cancelClickAction:(UIButton *)button {
+     [self actionWithIndex:button.tag - 100 withisOk:0];
+}
+- (void)confirmClickActionNew:(UIButton *)button {
+    [self actionWithIndex:button.tag - 100 withisOk:1];
+}
+
 - (void)goToTheOtherHomePageClickAction:(UIButton *)button {
     QQYYZhuYeTVC * vc =[[QQYYZhuYeTVC alloc] init];
     vc.hidesBottomBarWhenPushed = YES;
@@ -161,7 +159,6 @@
 
 - (BOOL)tableView:(UITableView *)tableView canEditRowAtIndexPath:(NSIndexPath *)indexPath {
     return YES;
-
 }
 
 // 定义编辑样式
@@ -174,14 +171,8 @@
     }
     
 }
-- (NSString *)tableView:(UITableView *)tableView titleForDeleteConfirmationButtonForRowAtIndexPath:(NSIndexPath *)indexPath {
-    return @"删除";
-}
-
-
 
 - (void)deleteMesgWithIndexPath:(NSIndexPath *)indexPath {
-
     Weak(weakSelf);
     [self deleteMessageWithMessageId:self.dataArray[indexPath.row].msgId result:^(BOOL isOK) {
 
@@ -194,6 +185,9 @@
 
 }
 
+- (NSString *)tableView:(UITableView *)tableView titleForDeleteConfirmationButtonForRowAtIndexPath:(NSIndexPath *)indexPath {
+    return @"删除";
+}
 
 - (void)addLaJiWithIndex:(NSInteger)index{
     NSLog(@"%ld",index);

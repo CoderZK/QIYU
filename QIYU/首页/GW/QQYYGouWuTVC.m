@@ -22,12 +22,21 @@
 #import "HHHHLJThirteenTvc.h"
 #import "HHHHLJFourteenTvc.h"
 
+#import "AAAAModel.h"
 
 @interface QQYYGouWuTVC ()<QQYYGouWuCheCellDelegate>
-
+@property(nonatomic,strong)NSMutableArray<AAAAModel *> *dataArray;
+@property(nonatomic,assign)NSInteger pageNo;
 @end
 
 @implementation QQYYGouWuTVC
+
+- (NSMutableArray *)dataArray {
+    if (_dataArray == nil) {
+        _dataArray = [NSMutableArray array];
+    }
+    return _dataArray;
+}
 
 - (void)viewDidLoad {
     [super viewDidLoad];
@@ -36,6 +45,62 @@
     
     [self.tableView registerNib:[UINib nibWithNibName:@"QQYYGouWuCell" bundle:nil] forCellReuseIdentifier:@"cell"];
     self.tableView.separatorStyle = UITableViewCellSeparatorStyleNone;
+    [self getGoodsList];
+    self.tableView.mj_header = [MJRefreshNormalHeader headerWithRefreshingBlock:^{
+        self.pageNo = 1;
+        [SVProgressHUD show];
+        dispatch_after(dispatch_time(DISPATCH_TIME_NOW, (int64_t)(0.5 * NSEC_PER_SEC)), dispatch_get_main_queue(), ^{
+            [SVProgressHUD dismiss];
+            [self.tableView.mj_header endRefreshing];
+            [self.tableView.mj_footer endRefreshing];
+            [self.tableView reloadData];
+        });
+    }];
+    self.tableView.mj_footer = [MJRefreshBackNormalFooter footerWithRefreshingBlock:^{
+        self.pageNo++;
+        [SVProgressHUD show];
+               dispatch_after(dispatch_time(DISPATCH_TIME_NOW, (int64_t)(0.5 * NSEC_PER_SEC)), dispatch_get_main_queue(), ^{
+                   [SVProgressHUD dismiss];
+                   [self.tableView.mj_header endRefreshing];
+                   [self.tableView.mj_footer endRefreshing];
+                   [self.tableView reloadData];
+                   
+            });
+    }];
+    
+    
+}
+
+- (void)getGoodsList {
+    
+    FMDatabase * db = [AAAAFMDBSignle shareFMDB].fd;
+    if ([db open]) {
+        
+        NSString * sql = @"select * from 'goods_ios' ";
+           FMResultSet *result = [db executeQuery:sql];
+           while ([result next]) {
+               AAAAModel *goodsModel = [AAAAModel new];
+               goodsModel.id = [result intForColumn:@"id"];
+               goodsModel.desTwo = [result stringForColumn:@"desTwo"];
+               goodsModel.name = [result stringForColumn:@"name"];
+               goodsModel.imgStr = [result stringForColumn:@"imgStr"];
+               goodsModel.des = [result stringForColumn:@"des"];
+               goodsModel.price =[result doubleForColumn:@"price"];
+               goodsModel.status = [result intForColumn:@"status"];
+               [self.dataArray addObject:goodsModel];
+           }
+           [db close];
+           [self.tableView.mj_header endRefreshing];
+           [self.tableView.mj_footer endRefreshing];
+        
+           [self.tableView reloadData];
+        
+        
+    }else {
+        [SVProgressHUD showErrorWithStatus:@"获取数据失败"];
+    }
+    
+    
 }
 
 - (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView {
@@ -43,7 +108,7 @@
 }
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
-    return 10;
+    return self.dataArray.count / 2 + self.dataArray.count % 2;
 }
 
 - (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath {
@@ -54,6 +119,26 @@
     
     QQYYGouWuCell * cell =[tableView dequeueReusableCellWithIdentifier:@"cell" forIndexPath:indexPath];
     cell.delegate = self;
+    
+    
+    
+    AAAAModel * model1 = self.dataArray[indexPath.row * 2];
+    AAAAModel * model2 = nil;
+    if (self.dataArray.count % 2 == 0) {
+        model2 = self.dataArray[indexPath.row * 2 + 1];
+    }else {
+    }
+    cell.leftImgV.image = [UIImage imageNamed:[NSString stringWithFormat:@"%@",model1.imgStr]];
+    cell.leftMoneyLB.text = [NSString stringWithFormat:@"%0.2f",model1.price];
+    cell.leftTitleLB.text = model1.name;
+    if (model2 != nil) {
+        cell.rightImgV.hidden = cell.rightMoneyLB.hidden = cell.rightTitleLB.hidden = NO;
+        cell.rightImgV.image = [UIImage imageNamed:[NSString stringWithFormat:@"%@",model2.imgStr]];
+        cell.rightMoneyLB.text = [NSString stringWithFormat:@"￥%0.2f",model2.price];
+                cell.rightTitleLB.text = model2.name;
+    }else {
+        cell.rightImgV.hidden = cell.rightMoneyLB.hidden = cell.rightTitleLB.hidden = YES;
+    }
     return cell;
     
 }
@@ -66,6 +151,7 @@
     
     NSIndexPath * indexPath = [self.tableView indexPathForCell:cell];
     QQYYGouWuDetailTVC * vc =[[QQYYGouWuDetailTVC alloc] init];
+    vc.model = self.dataArray[indexPath.row *2 + index];
     vc.hidesBottomBarWhenPushed = YES;
     [self.navigationController pushViewController:vc animated:YES];
     

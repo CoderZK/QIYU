@@ -42,4 +42,6 @@
 #import <ReactiveObjC/ReactiveObjC.h>
 #import "UIViewController+shareAction.h"
 
+#import "AAAAFMDBSignle.h"
+
 #endif /* importHead_h */

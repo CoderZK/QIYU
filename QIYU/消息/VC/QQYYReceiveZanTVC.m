@@ -22,13 +22,6 @@
     return 1;
 }
 
-- (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
-    return 10;
-}
-
-- (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath {
-    return 85;
-}
 
 - (void)tianJiaLaJiDaiMaNew {
     
@@ -37,21 +30,19 @@
     }
 }
 
+- (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
+    return 10;
+}
+
+- (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath {
+    return 85;
+}
+
+
 - (void)tianJiaLaJiDaiMaOne {
     [self tianJiaLaJiDaiMaOne];
 }
 
-- (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
-    
-    QQYYNewsTwoCell * cell =[tableView dequeueReusableCellWithIdentifier:@"cellTwo" forIndexPath:indexPath];
-    [cell.headBt addTarget:self action:@selector(goToTheOtherHomePageClickAction:) forControlEvents:UIControlEventTouchUpInside];
-    cell.headBt.tag = indexPath.row + 100;
-    [cell.headBt setImage:[UIImage imageNamed:@"36"] forState:UIControlStateNormal];
-    cell.type = 1;
-    cell.typeBt.hidden = YES;
-    return cell;
-    
-}
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
     [tableView deselectRowAtIndexPath:indexPath animated:YES];
 }
@@ -59,6 +50,17 @@
 - (void)goToTheOtherHomePageClickAction:(UIButton *)button {
   
 }
+
+- (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
+    QQYYNewsTwoCell * cell =[tableView dequeueReusableCellWithIdentifier:@"cellTwo" forIndexPath:indexPath];
+    [cell.headBt addTarget:self action:@selector(goToTheOtherHomePageClickAction:) forControlEvents:UIControlEventTouchUpInside];
+    cell.headBt.tag = indexPath.row + 100;
+    [cell.headBt setImage:[UIImage imageNamed:@"36"] forState:UIControlStateNormal];
+    cell.type = 1;
+    cell.typeBt.hidden = YES;
+    return cell;
+}
+
 
 
 

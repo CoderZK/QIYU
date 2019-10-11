@@ -20,12 +20,11 @@
     self.headV = [[UIView alloc] initWithFrame:CGRectMake(0, 0, ScreenW, ScreenW /2)];
     UIImageView * imgV = [[UIImageView alloc] initWithFrame:CGRectMake(0, 0, ScreenW, ScreenW /2)];
     [self.headV addSubview:imgV];
-        imgV.image =[UIImage imageNamed: [NSString stringWithFormat:@"%@",@"11111"]];
+        imgV.image =[UIImage imageNamed: [NSString stringWithFormat:@"%@",self.model.imgStr]];
     self.tableView.tableHeaderView = self.headV;
 
     self.tableView.estimatedRowHeight = 100;
     self.tableView.frame = CGRectMake(0, 0, ScreenW, ScreenH - 60);
-    self.tableView.backgroundColor = [UIColor redColor];
     self.tableView.rowHeight = UITableViewAutomaticDimension;
     [self.tableView registerClass:[UITableViewCell class] forCellReuseIdentifier:@"cell"];
     self.tableView.separatorStyle = UITableViewCellSeparatorStyleNone;
@@ -100,13 +99,14 @@
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
     
     UITableViewCell * cell =[tableView dequeueReusableCellWithIdentifier:@"cell" forIndexPath:indexPath];
-    //    if (indexPath.row == 0) {
-    //        cell.textLabel.text =  [NSString stringWithFormat:@"￥%.2f",_model.price];
-    //        cell.textLabel.textColor = [UIColor redColor];
-    //    }else {
-    //        cell.textLabel.numberOfLines = 0;
-    //        cell.textLabel.text = _model.desTwo;
-    //    }
+
+        if (indexPath.row == 0) {
+            cell.textLabel.text =  [NSString stringWithFormat:@"￥%.2f",self.model.price];
+            cell.textLabel.textColor = [UIColor redColor];
+        }else {
+            cell.textLabel.numberOfLines = 0;
+            cell.textLabel.text = self.model.desTwo;
+        }
     return cell;
     
 }

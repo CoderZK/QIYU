@@ -48,7 +48,6 @@
             make.height.equalTo(@20);
         }];
     
-        
         self.contentLB = [[UILabel alloc] initWithFrame:CGRectMake(CGRectGetMaxX(self.headBt.frame) + 10, CGRectGetMaxY(self.nameLB.frame) + 5, ScreenW - 95, 20)];
         self.contentLB.font = kFont(14);
         self.contentLB.textColor = CharacterBlackColor;

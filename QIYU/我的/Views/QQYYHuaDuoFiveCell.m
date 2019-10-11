@@ -42,16 +42,6 @@
     return self;
 }
 
-
-- (void)clickAction:(UIButton *)button {
-    
-    if (self.delegate != nil && [self.delegate respondsToSelector:@selector(didClickCell:index:)]){
-        [self.delegate didClickCell:self index:button.tag];
-    }
-    
-    
-}
-
 - (void)setDataArray:(NSMutableArray<QQYYTongYongModel *> *)dataArray {
     _dataArray = dataArray;
     self.leftBt.hidden = self.centerBt.hidden = self.rightBt.hidden = YES;
@@ -114,6 +104,14 @@
     
 }
 
+- (void)clickAction:(UIButton *)button {
+    
+    if (self.delegate != nil && [self.delegate respondsToSelector:@selector(didClickCell:index:)]){
+        [self.delegate didClickCell:self index:button.tag];
+    }
+    
+    
+}
 
 - (void)awakeFromNib {
     [super awakeFromNib];
