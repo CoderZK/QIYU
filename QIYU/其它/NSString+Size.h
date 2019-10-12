@@ -15,20 +15,12 @@
 
 +(NSString *)convertToJsonData:(NSArray *)arr;
 
-
-
-
-// 电话号码验证
--(BOOL) verifyPhone;
-
+//// 电话号码验证
+//-(BOOL) verifyPhone;
 /**
  获得字符串的大小
  */
-
 -(CGSize)getSizeWithMaxSize:(CGSize)maxSize withFontSize:(int)fontSize;
-
-
-
 //根据行间距 和 行的宽 字的大小计算行的高度
 -(CGFloat)getWidhtWithFontSize:(int)fontSize;
 - (CGFloat)getHeigtWithFontSize:(int)fontSize lineSpace:(int )lineSpace width:(CGFloat )widht;
@@ -42,9 +34,7 @@
 把字符串装换成日期型的格式化字符串
  */
 +(NSString *)stringWithDateStrwithyymmddHHmm:(NSNumber *)str;
-
 +(NSString *)stringWithDateStrwithshuxianyymmddHHmm:(NSNumber *)str;
-
 /**
  *  将时间转化多少天
  */
@@ -53,7 +43,6 @@
  *  将时间转化多少天
  */
 +(NSString *)stringWithTime:(NSString *)str;
-
 /**
  把字符串装换成日期型的格式化字符串
  */
@@ -72,23 +61,16 @@
  */
 - (NSString *)pinyin;
 
-+ (NSString *)dateToOld:(NSDate *)bornDate;
-
-+ (NSString *)getDengjiWithScroe:(NSString *)scroe;
+//+ (NSString *)dateToOld:(NSDate *)bornDate;
 /**
  把视频的播放时长格式化
  */
 +(NSString *)stringWithVideoTime:(NSString *)video_time;
 
-
-- (NSString *)getQuanUrl;
-
 + (NSString *)stringToMD5:(NSString *)str;
-
 
 //从json转时
 +(NSString *)decodeString:(NSString*)encodedString;
-
 //转json时
 +(NSString*)encodeString:(NSString*)unencodedString;
 

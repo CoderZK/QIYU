@@ -19,6 +19,12 @@
 
 @implementation QQYYAddLinkVC
 
+
+- (IBAction)action:(id)sender {
+    self.linkV.hidden = NO;
+    self.titleLB.text = self.TF.text;
+}
+
 - (void)viewDidLoad {
     [super viewDidLoad];
     self.navigationItem.title = @"添加链接";
@@ -35,6 +41,8 @@
     self.navigationItem.rightBarButtonItem = [[UIBarButtonItem alloc] initWithCustomView:newClickUpAndInsideBT];
 }
 
+
+
 - (void)leftOrRightClickAction:(UIButton *)button {
     if (self.linkBlock != nil) {
         self.linkBlock(self.TF.text);
@@ -42,20 +50,32 @@
     }
 }
 
-- (IBAction)action:(id)sender {
+-(void)LJ {
+    int ff = 0;
+    for (int i = 0 ; i < 20; i++) {
+        ff = arc4random() % 21;
+        if (ff / 2 == 0) {
+            ff = ff * 3;
+            NSLog(@"%d",ff);
+        }
+    }
     
-    self.linkV.hidden = NO;
-    self.titleLB.text = self.TF.text;
+    [self LJwithInt:ff];
+    
 }
 
-/*
-#pragma mark - Navigation
-
-// In a storyboard-based application, you will often want to do a little preparation before navigation
-- (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
-    // Get the new view controller using [segue destinationViewController].
-    // Pass the selected object to the new view controller.
+- (int)LJwithInt:(int )a{
+    
+    for (int dd = 0 ; dd < a; dd++) {
+        if (dd* a % 2 == 0) {
+            return dd + 2;
+            
+        }else {
+            return dd+1;
+        }
+    }
+    return 1;
 }
-*/
+
 
 @end

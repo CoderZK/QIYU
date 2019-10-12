@@ -35,19 +35,19 @@
     }
     return _selectFriendsArr;
 }
-- (NSMutableArray *)picsArr {
-    if (_picsArr == nil) {
-        _picsArr = [NSMutableArray array];
-    }
-    return _picsArr;
-}
-
 
 - (NSMutableArray *)picsStrArr {
     if (_picsStrArr == nil) {
         _picsStrArr = [NSMutableArray array];
     }
     return _picsStrArr;
+}
+
+- (NSMutableArray *)picsArr {
+    if (_picsArr == nil) {
+        _picsArr = [NSMutableArray array];
+    }
+    return _picsArr;
 }
 
 - (QQYYShowViewNew *)showView {
@@ -62,18 +62,13 @@
     [super viewDidLoad];
     self.view.backgroundColor = WhiteColor;
     self.dataArray = @[].mutableCopy;
-    
     self.huaTiArr = @[].mutableCopy;
-    
     self.navigationItem.title = @"发帖";
-    
     self.tableView.frame = CGRectMake(0, 0, ScreenW , ScreenH  - 50);
     if (sstatusHeight > 20) {
          self.tableView.frame = CGRectMake(0, 0, ScreenW , ScreenH  - 50 - 34 );
     }
-    
     UIButton * newClickUpAndInsideBT=[[UIButton alloc] initWithFrame:CGRectMake(ScreenW - 60 - 15,  sstatusHeight + 2,60, 30)];
-    
     [newClickUpAndInsideBT setBackgroundImage:[UIImage imageNamed:@"backr"] forState:UIControlStateNormal];
     [newClickUpAndInsideBT setTitle:@"发布" forState:UIControlStateNormal];
 //    newClickUpAndInsideBT.contentHorizontalAlignment = UIControlContentHorizontalAlignmentRight;
@@ -85,17 +80,9 @@
     newClickUpAndInsideBT.tag = 11;
     //    [self.view addSubview:newClickUpAndInsideBT];
     self.navigationItem.rightBarButtonItem = [[UIBarButtonItem alloc] initWithCustomView:newClickUpAndInsideBT];
-    
-    
     self.headView = [[UIView alloc] initWithFrame:CGRectMake(0, 0, ScreenW, ScreenH)];
- 
     [self createViews];
-    
     [self acquireDataFromServe];
-    
-    
-    
-    
 }
 
 - (void)createViews {
@@ -124,8 +111,6 @@
     backV.backgroundColor = lineBackColor;
     [self.headView addSubview:backV];
     
-
-    
     self.TV = [[IQTextView alloc] initWithFrame:CGRectMake(8, CGRectGetMaxY(backV.frame) + 10, ScreenW - 16 , 150)];
     self.TV.backgroundColor = RGB(250, 250, 250);
     self.TV.placeholder = @"说点什么吧~请注意遵守圈子规则 (圈子规则可以在我的-设置-查看圈子规则中查看)";
@@ -140,8 +125,6 @@
     [self.huaTiView addTarget:self action:@selector(goBiaoQian) forControlEvents:UIControlEventTouchUpInside];
     [self.headView addSubview:self.huaTiView];
     
- 
-    
     self.scrollview = [[UIScrollView alloc] initWithFrame:CGRectMake(0, CGRectGetMaxY(self.huaTiView.frame) + 15, ScreenW, (ScreenW - 60)/3)];
     [self.headView addSubview:self.scrollview];
     [self addPicWithArr:self.picsArr];
@@ -154,18 +137,7 @@
     UIView * grayV = [[UIView alloc] initWithFrame:CGRectMake(15, 10, ScreenW - 30, 45)];
     grayV.backgroundColor = RGB(250, 250, 250);
     [self.linkV addSubview:grayV];
-    
-//    
-//    UIButton * linkBT =[[UIButton alloc] initWithFrame:CGRectMake(5, 2.5, ScreenW - 40- 30 , 40)];
-//    linkBT.contentHorizontalAlignment = UIControlContentHorizontalAlignmentLeft;
-//    [linkBT setTitleColor:[UIColor blackColor] forState:UIControlStateNormal];
-//    linkBT.titleEdgeInsets = UIEdgeInsetsMake(0, 8, 0, 0);
-//    linkBT.tag = 400;
-//    [linkBT setImage:[UIImage imageNamed:@"logo2"] forState:UIControlStateNormal];
-//    [grayV addSubview:linkBT];
-//    [linkBT addTarget:self action:@selector(linkAction:) forControlEvents:UIControlEventTouchUpInside];
-//    self.linkBt = linkBT;
-    
+        
     UIButton * deleteBt =[UIButton buttonWithType:UIButtonTypeCustom];
     deleteBt.frame = CGRectMake(ScreenW - 30 - 20 ,-5, 25, 25);
     [deleteBt setImage:[UIImage imageNamed:@"48"] forState:UIControlStateNormal];
@@ -175,10 +147,6 @@
     
     
     [self.headView addSubview:self.huaTiView];
-    
-    
-    
-    
     self.desLB = [[UILabel alloc] initWithFrame:CGRectMake(15, CGRectGetMaxY(self.linkV.frame) + 50 , ScreenW - 30, 50)];
     self.desLB.numberOfLines = 0;
     [self.headView addSubview:self.desLB];
@@ -217,10 +185,6 @@
         [button addTarget:self action:@selector(bottomAction:) forControlEvents:UIControlEventTouchUpInside];
         
     }
-    
-    
-    
-    
 }
 
 - (void)addPicWithArr:(NSMutableArray *)picsArr {

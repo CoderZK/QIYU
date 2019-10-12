@@ -63,7 +63,7 @@
     
     if (button.tag == 100) {
         //发送验证码
-        [self sendCode];
+        [self getCode];
     }else if (button.tag == 101){
         //注册同意
         button.selected = !button.selected;
@@ -97,37 +97,6 @@
     
 }
 
-- (void)sendCode {
-    
-    if (self.phoneTF.text.length == 0) {
-        [SVProgressHUD showErrorWithStatus:@"请输入手机号"];
-        return;
-    }
-    if (self.phoneTF.text.length != 11) {
-        [SVProgressHUD showErrorWithStatus:@"请输入正确手机号"];
-        return;
-    }
-    NSMutableDictionary * requestDict = @{@"phone":self.phoneTF.text}.mutableCopy;
-    if (self.isTherd) {
-        requestDict[@"type"] = @"0";
-    }else {
-        requestDict[@"type"] = @"1";
-    }
-    requestDict[@"deviceId"] = [NSString stringWithFormat:@"%@",[[UIDevice currentDevice] identifierForVendor]];
-    [QQYYRequestTool networkingPOST:[QQYYURLDefineTool sendValidCodeURL] parameters:requestDict success:^(NSURLSessionDataTask *task, id responseObject) {
-        if ([responseObject[@"code"] intValue]== 0) {
-            [self timeAction];
-        }else {
-            [self showAlertWithKey:[NSString stringWithFormat:@"%@",responseObject[@"code"]] message:responseObject[@"message"]];
-        }
-        
-    } failure:^(NSURLSessionDataTask *task, NSError *error) {
-        
-        
-        
-    }];
-    
-}
 
 - (void)registerAction{
     if (self.phoneTF.text.length == 0) {
@@ -226,15 +195,41 @@
         }
         
     } failure:^(NSURLSessionDataTask *task, NSError *error) {
+
+    }];
+    
+}
+
+- (void)getCode {
+    if (self.phoneTF.text.length == 0) {
+        [SVProgressHUD showErrorWithStatus:@"请输入手机号"];
+        return;
+    }
+    if (self.phoneTF.text.length != 11) {
+        [SVProgressHUD showErrorWithStatus:@"请输入正确手机号"];
+        return;
+    }
+    NSMutableDictionary * requestDict = @{@"phone":self.phoneTF.text}.mutableCopy;
+    if (self.isTherd) {
+        requestDict[@"type"] = @"0";
+    }else {
+        requestDict[@"type"] = @"1";
+    }
+    requestDict[@"deviceId"] = [NSString stringWithFormat:@"%@",[[UIDevice currentDevice] identifierForVendor]];
+    [QQYYRequestTool networkingPOST:[QQYYURLDefineTool sendValidCodeURL] parameters:requestDict success:^(NSURLSessionDataTask *task, id responseObject) {
+        if ([responseObject[@"code"] intValue]== 0) {
+            [self timeStareAtion];
+        }else {
+            [self showAlertWithKey:[NSString stringWithFormat:@"%@",responseObject[@"code"]] message:responseObject[@"message"]];
+        }
         
-        
-        
+    } failure:^(NSURLSessionDataTask *task, NSError *error) {
     }];
     
 }
 
 
-- (void)timeAction {
+- (void)timeStareAtion {
     self.timer = [NSTimer scheduledTimerWithTimeInterval:1.0 target:self selector:@selector(timerStar) userInfo:nil repeats:YES];
     self.codeBt.userInteractionEnabled = NO;
     self.number = 60;

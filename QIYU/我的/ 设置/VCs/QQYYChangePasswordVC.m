@@ -52,7 +52,7 @@
         requestDict[@"deviceId"] = [NSString stringWithFormat:@"%@",[[UIDevice currentDevice] identifierForVendor]];
         [QQYYRequestTool networkingPOST:[QQYYURLDefineTool sendValidCodeURL] parameters:requestDict success:^(NSURLSessionDataTask *task, id responseObject) {
             if ([responseObject[@"code"] intValue]== 0) {
-                [self timeAction];
+                [self timeStareAtion];
             }else {
                 [self showAlertWithKey:[NSString stringWithFormat:@"%@",responseObject[@"code"]] message:responseObject[@"message"]];
             }
@@ -107,7 +107,7 @@
     
 }
 
-- (void)timeAction {
+- (void)timeStareAtion {
     self.timer = [NSTimer scheduledTimerWithTimeInterval:1.0 target:self selector:@selector(timerStar) userInfo:nil repeats:YES];
     self.codeBt.userInteractionEnabled = NO;
     self.number = 60;

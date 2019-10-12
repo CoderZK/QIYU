@@ -17,6 +17,27 @@
 
 @implementation QQYYSearchHeadView
 
+- (void)clickAction:(UIButton *)bt {
+    BOOL isShow = NO;
+    for (int i = 1000 ; i < 1004 ; i++) {
+        UIButton * button = [self viewWithTag:i];
+        if (bt == button ) {
+            if (bt.selected == NO) {
+                isShow = YES;
+                bt.selected = YES;
+            }else {
+                isShow =  bt.selected = NO;
+            }
+           
+        }else {
+            [button setImage:[UIImage imageNamed:@"xia"] forState:UIControlStateNormal];
+            button.selected = NO;
+        }
+    }
+    if (self.delegate != nil && [self.delegate respondsToSelector:@selector(didClickIndex:withIsShow:)]) {
+        [self.delegate didClickIndex:bt.tag - 1000 withIsShow:isShow];
+    }
+}
 - (instancetype)initWithFrame:(CGRect)frame {
     self =[super initWithFrame:frame];
     if (self) {
@@ -34,15 +55,6 @@
             [button setTitleColor:CharacterBlackColor forState:UIControlStateNormal];
             button.titleLabel.font = kFont(14);
             [button setImageEdgeInsets:UIEdgeInsetsMake(0, 0, 0, 10)];
-//            if (i== 0) {
-//                button.contentHorizontalAlignment = UIControlContentHorizontalAlignmentLeft;
-//                [button setContentEdgeInsets:UIEdgeInsetsMake(0, 10, 0, 10)];
-//
-//            }else if (i == 3) {
-//               button.contentHorizontalAlignment = UIControlContentHorizontalAlignmentRight;
-//            }else {
-//                button.contentHorizontalAlignment = UIControlContentHorizontalAlignmentCenter;
-//            }
             x=x+[widhtArr[i] floatValue];
             button.tag = 1000+i;
             [button addTarget:self action:@selector(clickAction:) forControlEvents:UIControlEventTouchUpInside];
@@ -52,29 +64,6 @@
     }
     return self;
 }
-
-- (void)clickAction:(UIButton *)bt {
-    BOOL isShow = NO;
-    for (int i = 1000 ; i < 1004 ; i++) {
-        UIButton * button = [self viewWithTag:i];
-        if (bt == button ) { 
-            if (bt.selected == NO) {
-                isShow = YES;
-                bt.selected = YES;
-            }else {
-                isShow =  bt.selected = NO;
-            }
-           
-        }else {
-            [button setImage:[UIImage imageNamed:@"xia"] forState:UIControlStateNormal];
-            button.selected = NO;
-        }
-    }
-    if (self.delegate != nil && [self.delegate respondsToSelector:@selector(didClickIndex:withIsShow:)]) {
-        [self.delegate didClickIndex:bt.tag - 1000 withIsShow:isShow];
-    }
-}
-
 - (void)cancel{
     for (int i = 1000 ; i < 1004 ; i++) {
         UIButton * button = [self viewWithTag:i];
@@ -82,6 +71,32 @@
         [button setImage:[UIImage imageNamed:@"xia"] forState:UIControlStateNormal];
     }
     
+}
+
+-(void)LJOne {
+    for (int i = 0 ; i<100; i++ ) {
+        
+        int d = arc4random() % 6 + 4;
+        if (d % 3 == 0) {
+            d = d+1;
+            NSLog(@"%d",d);
+
+        }
+        
+    }
+}
+
+- (void)LJTwo {
+    for (int i = 5 ; i<10; i++) {
+        
+        int e = arc4random() % 9;
+        if (e / 3 == 0){
+            e = e*e;
+            NSLog(@"%d",e);
+
+        }
+        
+    }
 }
 
 @end

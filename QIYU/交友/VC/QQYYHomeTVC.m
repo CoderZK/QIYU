@@ -125,13 +125,12 @@
 - (void)getConfig {
     [QQYYRequestTool networkingPOST:[QQYYURLDefineTool getIosConfigURL] parameters:@{} success:^(NSURLSessionDataTask *task, id responseObject) {
         if ([responseObject[@"code"] intValue]== 0) {
-            
             if ([[NSString stringWithFormat:@"%@",responseObject[@"object"][@"show"]] isEqualToString:@"1"]) {
                 [QQYYSignleToolNew shareTool].isppp = YES;
             }else {
                 [QQYYSignleToolNew shareTool].isppp = NO;
             }
-                [self setHeadView];
+            [self setHeadView];
         }
         
     } failure:^(NSURLSessionDataTask *task, NSError *error) {

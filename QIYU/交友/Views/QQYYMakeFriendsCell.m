@@ -36,8 +36,6 @@
         self.nameLB.font =[UIFont systemFontOfSize:14];
         self.nameLB.textColor = CharacterBlackColor;
         [self addSubview:self.nameLB];
-        
-        
         //性别
         self.sexBt = [[UIButton alloc] init];
         [self.sexBt setTitle:@"19" forState:UIControlStateNormal];
@@ -59,8 +57,6 @@
         [self.biaoQianTwoBt setBackgroundImage:[UIImage imageNamed:@"bg"] forState:UIControlStateNormal];
         self.sexBt.clipsToBounds = self.biaoQianTwoBt.clipsToBounds = self.biaoQianOneBt.clipsToBounds = YES;
          self.biaoQianOneBt.hidden = self.biaoQianTwoBt.hidden = YES;
-
-        
         //皇冠
         self.huanGuanImgV = [[UIImageView alloc] init];
         self.huanGuanImgV.size = CGSizeMake(17, 17);
@@ -68,7 +64,6 @@
         self.huanGuanImgV.centerY = self.nameLB.centerY;
         self.huanGuanImgV.image =[UIImage imageNamed:@"huanguan"];
         [self addSubview:self.huanGuanImgV];
-        
         //时间
         self.timeLB = [[UILabel alloc] init];
         self.timeLB.text = @"上海 05-06";
@@ -76,7 +71,6 @@
         self.timeLB.textColor = CharacterBackColor;
         [self addSubview:self.timeLB];
         self.timeLB.textAlignment = NSTextAlignmentRight;
-        
         [self.timeLB mas_makeConstraints:^(MASConstraintMaker *make) {
             make.right.equalTo(self).offset(-15);
             make.centerY.equalTo(self.headBt.mas_centerY).offset(-12);
@@ -97,8 +91,6 @@
             make.width.equalTo(@150);
             make.height.equalTo(@20);
         }];
-        
-        
         //状态
         self.typeLB = [[UILabel alloc] initWithFrame:CGRectMake(ScreenW - 135, 27.5, 120, 20)];
         self.typeLB.font = kFont(14);
@@ -118,15 +110,11 @@
     return self;
 }
 
-- (void)setIsHot:(BOOL)isHot  {
-    _isHot = isHot;
-}
+
 
 - (void)setModel:(zkHomelModel *)model {
     _model = model;
-    
-   
-    
+
     [self.headBt sd_setBackgroundImageWithURL:[NSURL URLWithString:[QQYYURLDefineTool getImgURLWithStr:model.avatar]] forState:UIControlStateNormal placeholderImage:[UIImage imageNamed:@"369"]];
     self.nameLB.text = model.nickName;
     
@@ -214,6 +202,10 @@
 //    self.biaoQianOneBt.layer.mask = [QQYYpublicFunction getBezierWithFrome:self.biaoQianOneBt andRadi:7.5];
 //    self.biaoQianTwoBt.layer.mask = [QQYYpublicFunction getBezierWithFrome:self.biaoQianTwoBt andRadi:7.5];
     
+}
+
+- (void)setIsHot:(BOOL)isHot  {
+    _isHot = isHot;
 }
 
 - (void)awakeFromNib {

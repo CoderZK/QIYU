@@ -43,18 +43,17 @@
     
 }
 
-- (IBAction)sendCode:(id)sender {
+- (IBAction)getCode:(id)sender {
    
     
 }
 
 
-- (void)timeAction {
+- (void)timeStareAtion {
     self.timer = [NSTimer scheduledTimerWithTimeInterval:1.0 target:self selector:@selector(timerStar) userInfo:nil repeats:YES];
     self.codeBt.userInteractionEnabled = NO;
     self.number = 60;
-    
-    
+
 }
 
 - (void)timerStar {

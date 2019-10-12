@@ -135,7 +135,7 @@
     self.attentionBt = [[UIButton alloc] initWithFrame:CGRectMake(10 + 5 +(ScreenW - 25)/2, 5, (ScreenW - 25)/2, 40)];
     [self.attentionBt setTitle:@"关注动态" forState:UIControlStateNormal];
     if (self.dataModel.subscribed) {
-        [self.attentionBt setTitle:@"已关注" forState:UIControlStateNormal];
+        [self.attentionBt setTitle:@"取消关注" forState:UIControlStateNormal];
     }
     [self.attentionBt setBackgroundImage:[UIImage imageNamed:@"backr"] forState:UIControlStateNormal];
     self.attentionBt.titleLabel.font = kFont(14);
@@ -1025,7 +1025,7 @@
                 
                 self.dataModel.subscribed = !self.dataModel.subscribed;
                 if (self.dataModel.subscribed) {
-                    [self.attentionBt setTitle:@"已关注" forState:UIControlStateNormal];
+                    [self.attentionBt setTitle:@"取消关注" forState:UIControlStateNormal];
                 }else {
                     [self.attentionBt setTitle:@"关注动态" forState:UIControlStateNormal];
                 }

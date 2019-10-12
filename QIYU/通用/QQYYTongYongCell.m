@@ -36,14 +36,7 @@
         [self addSubview:self.swith];
         self.swith.hidden = YES;
         self.swith.on = YES;
-        [self.swith setOnTintColor:CharacterRedColor];
-        
-        
-        
-        
-        
-        
-        
+        [self.swith setOnTintColor:CharacterRedColor];        
     }
     return self;
 }

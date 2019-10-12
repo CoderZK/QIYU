@@ -47,19 +47,12 @@
     lb.text = @"请选择和您话题相关的话题, 若无相关科选自其它分类";
     [self.headV addSubview:lb];
     self.whiteView = [[UIView alloc] initWithFrame:CGRectMake(0, CGRectGetMaxY(lb.frame) + 10 , ScreenW, 20)];
-
     [self.headV addSubview:self.whiteView];
-    
-//    [self setHuaTiWithArr:@[@"女王范",@"参赛活动",@"实力了",@"道具",@"自拍",@"玩法",@"故事",@"运动",@"面积",@"其它"]];
-    
- 
     [self acquireDataFromServe];
     self.tableView.mj_header = [MJRefreshNormalHeader headerWithRefreshingBlock:^{
         [self acquireDataFromServe];
     }];
 
-    
-    
 }
 
 - (void)acquireDataFromServe {

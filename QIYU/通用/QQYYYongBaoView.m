@@ -137,11 +137,30 @@
 }
 
 
+
+
+- (void)showWithIndexPath:(NSIndexPath *)indexPath {
+    self.indexPath = indexPath;
+    [self show];
+}
+- (void)show {
+    [[UIApplication sharedApplication].keyWindow addSubview:self];
+    [UIView animateWithDuration:0.25 animations:^{
+        
+        self.backgroundColor =[UIColor colorWithWhite:0 alpha:0.4];
+        self.whiteV.transform = CGAffineTransformMakeScale(1, 1);
+        
+    }completion:^(BOOL finished) {
+    }];
+}
+
+- (void)textFieldDidEndEditing:(UITextField *)textField{
+    self.number = [textField.text integerValue];
+}
+
 - (void)clickAction:(UIButton *)button {
-    
     if (button.tag == 100) {
         self.number+=20;
-        
     }else if (button.tag == 101) {
         self.number+=50;
     }else if (button.tag == 102) {
@@ -152,56 +171,23 @@
             return;
         }
         if (self.deletage != nil && [self.deletage respondsToSelector:@selector(didClcikIndex:withIndexPath:WithNumber:)]) {
-            
             [self.deletage didClcikIndex:button.tag - 100 withIndexPath:self.indexPath WithNumber:self.TF.text];
-            
         }
     }
     self.TF.text = [NSString stringWithFormat:@"%ld",self.number];
-    
 }
-
-- (void)showWithIndexPath:(NSIndexPath *)indexPath {
-    self.indexPath = indexPath;
-    [self show];
-    
-}
-
-
-- (void)show {
-    
-    [[UIApplication sharedApplication].keyWindow addSubview:self];
-    
-    [UIView animateWithDuration:0.25 animations:^{
-        
-        self.backgroundColor =[UIColor colorWithWhite:0 alpha:0.4];
-        self.whiteV.transform = CGAffineTransformMakeScale(1, 1);
-        
-    }completion:^(BOOL finished) {
-        
-    }];
-    
-    
-}
-
 
 - (void)diss {
-    
     [UIView animateWithDuration:0.25 animations:^{
         self.whiteV.transform = CGAffineTransformMakeScale(0.4, 0.4);
         self.backgroundColor =[UIColor colorWithWhite:0 alpha:0];
-        
     }completion:^(BOOL finished) {
         [self removeFromSuperview];
     }];
     
 }
 
-- (void)textFieldDidEndEditing:(UITextField *)textField{
 
-    self.number = [textField.text integerValue];
-
-}
 
 
 @end

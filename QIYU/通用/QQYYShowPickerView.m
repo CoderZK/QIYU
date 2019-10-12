@@ -97,6 +97,12 @@
     return self;
 }
 
+
+
+- (void)setProvityArr:(NSMutableArray<QQYYTongYongModel *> *)provityArr {
+    _provityArr = provityArr;
+}
+
 - (void)showWithDataArr:(NSArray *)arr {
     self.dataArray = arr;
     [self.pickerView reloadComponent:0];
@@ -111,10 +117,6 @@
         _pickerView.frame = CGRectMake(0, CGRectGetMaxY(topV.frame), screenWidth, aspectRatio(207));
     }];
     
-}
-
-- (void)setProvityArr:(NSMutableArray<QQYYTongYongModel *> *)provityArr {
-    _provityArr = provityArr;
 }
 
 - (void)setIsAddress:(BOOL)isAddress {
@@ -166,29 +168,7 @@
     }
 }
 
-- (void)getCityArr {
 
-    [QQYYRequestTool networkingPOST:[QQYYURLDefineTool cityListURL] parameters:self.provityArr[selectIndex].ID success:^(NSURLSessionDataTask *task, id responseObject) {
-
-        if ([responseObject[@"code"] intValue]== 0) {
-            
-            self.cityArr = [QQYYTongYongModel mj_objectArrayWithKeyValuesArray:responseObject[@"object"]];
-            [self.pickerView reloadAllComponents];
-            [self.pickerView selectRow:0 inComponent:0 animated:YES];
-            [self pickerView:self.pickerView didSelectRow:0 inComponent:0];
-            
-        }else {
-     
-        }
-        
-    } failure:^(NSURLSessionDataTask *task, NSError *error) {
-      
-        
-    }];
-    
-    
-    
-}
 
 
 #pragma mark -UIPickerView
@@ -221,6 +201,31 @@
     }];
     
 }
+
+- (void)getCityArr {
+
+    [QQYYRequestTool networkingPOST:[QQYYURLDefineTool cityListURL] parameters:self.provityArr[selectIndex].ID success:^(NSURLSessionDataTask *task, id responseObject) {
+
+        if ([responseObject[@"code"] intValue]== 0) {
+            
+            self.cityArr = [QQYYTongYongModel mj_objectArrayWithKeyValuesArray:responseObject[@"object"]];
+            [self.pickerView reloadAllComponents];
+            [self.pickerView selectRow:0 inComponent:0 animated:YES];
+            [self pickerView:self.pickerView didSelectRow:0 inComponent:0];
+            
+        }else {
+     
+        }
+        
+    } failure:^(NSURLSessionDataTask *task, NSError *error) {
+      
+        
+    }];
+    
+    
+    
+}
+
 #pragma mark -UIPickerView的代理
 
 // 滚动UIPickerView就会调用

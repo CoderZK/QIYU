@@ -13,9 +13,7 @@
 @implementation UIViewController (NewWorkTwo)
 
 - (void)deleteMessageWithMessageId:(NSString *)ID result:(void(^)(BOOL isOK))deleteBlock{
-    
 
-    
     [QQYYRequestTool networkingPOST:[QQYYURLDefineTool deleteMegURL] parameters:ID success:^(NSURLSessionDataTask *task, id responseObject) {
 
         if ([responseObject[@"code"] intValue]== 0) {
@@ -25,9 +23,7 @@
         }
         
     } failure:^(NSURLSessionDataTask *task, NSError *error) {
-        
 
-        
     }];
     
     
@@ -76,9 +72,7 @@
         }
         
     } failure:^(NSURLSessionDataTask *task, NSError *error) {
-        
-       
-        
+
     }];
     
     

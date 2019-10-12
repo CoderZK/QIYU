@@ -31,9 +31,7 @@
     self.gender = 0;
     self.addressArr = @[].mutableCopy;
     [self getProvinceListData];
-    
     self.navigationItem.title = @"资料完善";
-    
     UIView * headView = [[UIView alloc] initWithFrame:CGRectMake(0, 0, ScreenW, 130)];
     self.headBt = [[UIButton alloc] initWithFrame:CGRectMake(ScreenW/2- 50, 20, 100, 100)];
     self.headBt.layer.cornerRadius = 5;
@@ -58,15 +56,11 @@
     [confrimBt setBackgroundImage:[UIImage imageNamed:@"backr"] forState:UIControlStateNormal];
     [confrimBt setTitle:@"完成" forState:UIControlStateNormal];
     [footView addSubview:confrimBt];
-    
     self.tableView.tableFooterView = footView;
-    
     self.titleArr = @[@"昵称",@"生日",@"性别",@"地址",@"标签"];
     self.placeHolderArr = @[@"输入昵称(1~8)",@"选择生日",@"选择性别",@"地址",@"选择标签"];
-    
     [self.tableView registerClass:[QQYYTongYongCell class] forCellReuseIdentifier:@"cell1"];
     self.tableView.separatorStyle = UITableViewCellSeparatorStyleNone;
-
 }
 
 
@@ -180,26 +174,7 @@
     
 }
 
-- (void)textFieldDidEndEditing:(UITextField *)textField {
-    
-    QQYYTongYongCell * cell = (QQYYTongYongCell *)[textField superview];
-    NSIndexPath * indexPath = [self.tableView indexPathForCell:cell];
-    if (indexPath.row == 0) {
-        self.nickName = textField.text;
-    }
-    
-    
-}
 
-//举报界面
-- (void)didSelectAtIndex:(NSInteger )index withIndexPath:(NSIndexPath *)indexPath{
-   
-    NSArray * arr = @[@"男",@"女"];
-    self.gender = index+1;
-    self.genderStr = arr[index];
-    [self.tableView reloadData];
-    
-}
 
 
 - (void)confrimAction:(UIButton *)button {
@@ -296,7 +271,23 @@
     
 }
 
+- (void)textFieldDidEndEditing:(UITextField *)textField {
+    QQYYTongYongCell * cell = (QQYYTongYongCell *)[textField superview];
+    NSIndexPath * indexPath = [self.tableView indexPathForCell:cell];
+    if (indexPath.row == 0) {
+        self.nickName = textField.text;
+    }
+}
 
+//举报界面
+- (void)didSelectAtIndex:(NSInteger )index withIndexPath:(NSIndexPath *)indexPath{
+   
+    NSArray * arr = @[@"男",@"女"];
+    self.gender = index+1;
+    self.genderStr = arr[index];
+    [self.tableView reloadData];
+    
+}
 
 - (void)addPict {
     
@@ -305,9 +296,6 @@
         
         if ([self isCanUsePhotos]) {
             [self showMXPhotoCameraAndNeedToEdit:YES completion:^(UIImage *image, UIImage *originImage, CGRect cutRect) {
-                
-                
-                
                  [self.headBt setBackgroundImage:image forState:UIControlStateNormal];
                 
             }];
@@ -318,9 +306,7 @@
         
     }];
     UIAlertAction *action2 = [UIAlertAction actionWithTitle:@"从相册选择" style:UIAlertActionStyleDefault handler:^(UIAlertAction * _Nonnull action) {
-        
         if ([self isCanUsePicture]) {
-           
             [self showMXPickerWithMaximumPhotosAllow:1 completion:^(NSArray *assets) {
                 if (assets.count>0) {
                     ALAsset *asset = assets[0];
@@ -345,9 +331,6 @@
                     
                     [self.headBt setBackgroundImage:image forState:UIControlStateNormal];
                 }
-               
-                
-                
             }];
             
         }else{
@@ -359,44 +342,27 @@
     [ac addAction:action1];
     [ac addAction:action2];
     [ac addAction:action3];
-    
     [self.navigationController presentViewController:ac animated:YES completion:nil];
-    
 }
 
 - (void)uploadHeadImageWithImage:(UIImage *)image {
-    
     [QQYYRequestTool uploadImagsWithArr:@[image] withType:@"2" result:^(NSString *str) {
         if ([str isEqualToString:@"0"]) {
-           
         }else {
            self.headImgStr = str;
         }
-        
     }];
 }
-
-
 //获取省份
 - (void)getProvinceListData {
-    
     [QQYYRequestTool networkingPOST:[QQYYURLDefineTool provinceListURL] parameters:@{} success:^(NSURLSessionDataTask *task, id responseObject) {
         if ([responseObject[@"code"] intValue] == 0) {
-            
             self.addressArr = [QQYYTongYongModel mj_objectArrayWithKeyValuesArray:responseObject[@"object"]];
-            
         }else {
             [self showAlertWithKey:[NSString stringWithFormat:@"%@",responseObject[@"code"]] message:responseObject[@"message"]];
         }
-        
-     
-        
-        
     } failure:^(NSURLSessionDataTask *task, NSError *error) {
-        
-        
     }];
-    
 }
 
 

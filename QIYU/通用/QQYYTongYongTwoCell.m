@@ -31,19 +31,11 @@
         [self addSubview:self.moreImgV];
         self.moreImgV.image = [UIImage imageNamed:@"more"];
         
-        
         UIView * backV =[[UIView alloc] initWithFrame:CGRectMake(15, 49.4, ScreenW-30, 0.6)];
         backV.backgroundColor = [UIColor clearColor];
         [self addSubview:backV];
         self.lineV = backV;
-        
 
-        
-        
-        
-        
-        
-        
     }
     return self;
 }

@@ -56,190 +56,139 @@
 
 
 // 电话号码验证
-
--(BOOL) verifyPhone
-{
-    
-    NSString * phoneString = [self stringByTrimmingCharactersInSet:[NSCharacterSet whitespaceAndNewlineCharacterSet]];
-    /**
-     * 手机号码
-     * 移动：134[0-8],135,136,137,138,139,150,151,157,158,159,182,187,188
-     * 联通：130,131,132,152,155,156,185,186
-     * 电信：133,1349,153,180,189
-     */
-    NSString * MOBILE = @"^1(3[0-9]|5[0-35-9]|8[0-9]|7[0-9])\\d{8}$";
-    /**
-     10         * 中国移动：China Mobile
-     11         * 134[0-8],135,136,137,138,139,150,151,157,158,159,182,187,188
-     12         */
-    NSString * CM = @"^1(34[0-8]|(3[5-9]|5[017-9]|8[278])\\d)\\d{7}$";
-    /**
-     15         * 中国联通：China Unicom
-     16         * 130,131,132,152,155,156,185,186
-     17         */
-    NSString * CU = @"^1(3[0-2]|5[256]|8[56])\\d{8}$";
-    /**
-     20         * 中国电信：China Telecom
-     21         * 133,1349,153,180,189
-     22         */
-    NSString * CT = @"^1((33|53|8[09])[0-9]|349)\\d{7}$";
-    /**
-     25         * 大陆地区固话及小灵通
-     26         * 区号：010,020,021,022,023,024,025,027,028,029
-     27         * 号码：七位或八位
-     28         */
-    // NSString * PHS = @"^0(10|2[0-5789]|\\d{3})\\d{7,8}$";
-    
-    NSPredicate *regextestmobile = [NSPredicate predicateWithFormat:@"SELF MATCHES %@", MOBILE];
-    NSPredicate *regextestcm = [NSPredicate predicateWithFormat:@"SELF MATCHES %@", CM];
-    NSPredicate *regextestcu = [NSPredicate predicateWithFormat:@"SELF MATCHES %@", CU];
-    NSPredicate *regextestct = [NSPredicate predicateWithFormat:@"SELF MATCHES %@", CT];
-    
-    if (([regextestmobile evaluateWithObject:phoneString] == YES)
-        || ([regextestcm evaluateWithObject:phoneString] == YES)
-        || ([regextestct evaluateWithObject:phoneString] == YES)
-        || ([regextestcu evaluateWithObject:phoneString] == YES))
-    {
-        return YES;
-    }
-    else
-    {
-        return NO;
-    }
-    
-}
-
-
+//-(BOOL) verifyPhone
+//{
+//
+//    NSString * phoneString = [self stringByTrimmingCharactersInSet:[NSCharacterSet whitespaceAndNewlineCharacterSet]];
+//    /**
+//     * 手机号码
+//     * 移动：134[0-8],135,136,137,138,139,150,151,157,158,159,182,187,188
+//     * 联通：130,131,132,152,155,156,185,186
+//     * 电信：133,1349,153,180,189
+//     */
+//    NSString * MOBILE = @"^1(3[0-9]|5[0-35-9]|8[0-9]|7[0-9])\\d{8}$";
+//    /**
+//     10         * 中国移动：China Mobile
+//     11         * 134[0-8],135,136,137,138,139,150,151,157,158,159,182,187,188
+//     12         */
+//    NSString * CM = @"^1(34[0-8]|(3[5-9]|5[017-9]|8[278])\\d)\\d{7}$";
+//    /**
+//     15         * 中国联通：China Unicom
+//     16         * 130,131,132,152,155,156,185,186
+//     17         */
+//    NSString * CU = @"^1(3[0-2]|5[256]|8[56])\\d{8}$";
+//    /**
+//     20         * 中国电信：China Telecom
+//     21         * 133,1349,153,180,189
+//     22         */
+//    NSString * CT = @"^1((33|53|8[09])[0-9]|349)\\d{7}$";
+//    /**
+//     25         * 大陆地区固话及小灵通
+//     26         * 区号：010,020,021,022,023,024,025,027,028,029
+//     27         * 号码：七位或八位
+//     28         */
+//    // NSString * PHS = @"^0(10|2[0-5789]|\\d{3})\\d{7,8}$";
+//
+//    NSPredicate *regextestmobile = [NSPredicate predicateWithFormat:@"SELF MATCHES %@", MOBILE];
+//    NSPredicate *regextestcm = [NSPredicate predicateWithFormat:@"SELF MATCHES %@", CM];
+//    NSPredicate *regextestcu = [NSPredicate predicateWithFormat:@"SELF MATCHES %@", CU];
+//    NSPredicate *regextestct = [NSPredicate predicateWithFormat:@"SELF MATCHES %@", CT];
+//
+//    if (([regextestmobile evaluateWithObject:phoneString] == YES)
+//        || ([regextestcm evaluateWithObject:phoneString] == YES)
+//        || ([regextestct evaluateWithObject:phoneString] == YES)
+//        || ([regextestcu evaluateWithObject:phoneString] == YES))
+//    {
+//        return YES;
+//    }
+//    else
+//    {
+//        return NO;
+//    }
+//
+//}
 /**
  获得字符串的大小
  */
-
 -(CGSize)getSizeWithMaxSize:(CGSize)maxSize withFontSize:(int)fontSize
 {
     CGSize size=[self boundingRectWithSize:maxSize options:NSStringDrawingUsesLineFragmentOrigin|NSStringDrawingUsesFontLeading  attributes:@{NSFontAttributeName: [UIFont systemFontOfSize:fontSize]} context:nil].size;
     return size;
 }
-
 -(CGFloat)getWidhtWithFontSize:(int)fontSize
 {
     CGSize size=[self boundingRectWithSize:CGSizeMake(MAXFLOAT, MAXFLOAT) options:NSStringDrawingUsesLineFragmentOrigin|NSStringDrawingUsesFontLeading  attributes:@{NSFontAttributeName: [UIFont systemFontOfSize:fontSize]} context:nil].size;
     return size.width;
 }
-
 - (CGFloat)getHeigtWithFontSize:(int)fontSize lineSpace:(int )lineSpace width:(CGFloat )widht {
     NSMutableAttributedString *attributedString = [[NSMutableAttributedString alloc] initWithString:self];
-    
     [attributedString addAttribute:NSFontAttributeName value:[UIFont systemFontOfSize:fontSize] range:NSMakeRange(0, self.length)];
-    
-    
     NSMutableParagraphStyle *paragraphStyle = [[NSMutableParagraphStyle alloc] init];
-    
     [paragraphStyle setLineSpacing:lineSpace];//调整行间距
-    
     [attributedString addAttribute:NSParagraphStyleAttributeName value:paragraphStyle range:NSMakeRange(0, self.length)];
-
     CGFloat height = [attributedString boundingRectWithSize:CGSizeMake(widht, MAXFLOAT) options:NSStringDrawingUsesLineFragmentOrigin | NSStringDrawingUsesFontLeading  context:nil].size.height;
-
     return height;
 }
-
 - (CGFloat)getHeigtWithIsBlodFontSize:(int)fontSize lineSpace:(int )lineSpace width:(CGFloat )widht {
     NSMutableAttributedString *attributedString = [[NSMutableAttributedString alloc] initWithString:self];
-    
     [attributedString addAttribute:NSFontAttributeName value:[UIFont boldSystemFontOfSize:fontSize] range:NSMakeRange(0, self.length)];
-    
     NSMutableParagraphStyle *paragraphStyle = [[NSMutableParagraphStyle alloc] init];
-    
     [paragraphStyle setLineSpacing:lineSpace];//调整行间距
-    
     [attributedString addAttribute:NSParagraphStyleAttributeName value:paragraphStyle range:NSMakeRange(0, self.length)];
-    
     CGFloat height = [attributedString boundingRectWithSize:CGSizeMake(widht, MAXFLOAT) options:NSStringDrawingUsesLineFragmentOrigin | NSStringDrawingUsesFontLeading  context:nil].size.height;
-    
     return height;
 }
 
 - (NSMutableAttributedString *)getMutableAttributeStringWithFont:(int)fontSize lineSpace:(int)lineSpace textColor:(UIColor *)color{
-    
     NSMutableAttributedString *attributedString = [[NSMutableAttributedString alloc] initWithString:self];
-    
     [attributedString addAttribute:NSFontAttributeName value:[UIFont systemFontOfSize:fontSize] range:NSMakeRange(0, self.length)];
-    
     [attributedString addAttribute:NSForegroundColorAttributeName value:color range:NSMakeRange(0, self.length)];
-    
-    
     NSMutableParagraphStyle *paragraphStyle = [[NSMutableParagraphStyle alloc] init];
-    
     [paragraphStyle setLineSpacing:lineSpace];//调整行间距
     paragraphStyle.lineBreakMode = NSLineBreakByTruncatingTail;
     [attributedString addAttribute:NSParagraphStyleAttributeName value:paragraphStyle range:NSMakeRange(0, self.length)];
     return attributedString;
-    
 }
 
 
 
 - (NSMutableAttributedString *)getMutableAttributeStringWithFont:(int)fontSize withBlood:(BOOL)isBlood lineSpace:(int)lineSpace textColor:(UIColor *)color {
-    
-    
     NSMutableAttributedString *attributedString = [[NSMutableAttributedString alloc] initWithString:self];
-    
     if (isBlood) {
        [attributedString addAttribute:NSFontAttributeName value:[UIFont boldSystemFontOfSize:fontSize] range:NSMakeRange(0, self.length)];
     }else {
       [attributedString addAttribute:NSFontAttributeName value:[UIFont systemFontOfSize:fontSize] range:NSMakeRange(0, self.length)];
     }
-    
-    
-    
     [attributedString addAttribute:NSForegroundColorAttributeName value:color range:NSMakeRange(0, self.length)];
-    
-    
     NSMutableParagraphStyle *paragraphStyle = [[NSMutableParagraphStyle alloc] init];
-    
     [paragraphStyle setLineSpacing:lineSpace];//调整行间距
     paragraphStyle.lineBreakMode = NSLineBreakByTruncatingTail;
     [attributedString addAttribute:NSParagraphStyleAttributeName value:paragraphStyle range:NSMakeRange(0, self.length)];
     return attributedString;
-    
-    
 }
 
 - (NSMutableAttributedString *)getMutableAttributeStringWithFont:(int)fontSize lineSpace:(int)lineSpace textColor:(UIColor *)color textColorTwo:(UIColor *)colorTwo nsrange:(NSRange )range {
-    
     NSMutableAttributedString *attributedString = [[NSMutableAttributedString alloc] initWithString:self];
-    
     [attributedString addAttribute:NSFontAttributeName value:[UIFont systemFontOfSize:fontSize] range:NSMakeRange(0, self.length)];
-    
     [attributedString addAttribute:NSForegroundColorAttributeName value:color range:NSMakeRange(0, self.length)];
     [attributedString addAttribute:NSForegroundColorAttributeName value:colorTwo range:range];
-    
     NSMutableParagraphStyle *paragraphStyle = [[NSMutableParagraphStyle alloc] init];
-    
     [paragraphStyle setLineSpacing:lineSpace];//调整行间距
     paragraphStyle.lineBreakMode = NSLineBreakByTruncatingMiddle;
     [attributedString addAttribute:NSParagraphStyleAttributeName value:paragraphStyle range:NSMakeRange(0, self.length)];
     return attributedString;
-    
 }
 
 - (NSMutableAttributedString *)getMutableAttributeStringWithFont:(int)fontSize lineSpace:(int)lineSpace textColor:(UIColor *)color fontTwo:(int)fontTwo nsrange:(NSRange )range {
-    
     NSMutableAttributedString *attributedString = [[NSMutableAttributedString alloc] initWithString:self];
-    
     [attributedString addAttribute:NSFontAttributeName value:[UIFont boldSystemFontOfSize:fontSize] range:NSMakeRange(0, self.length - range.length)];
-    
     [attributedString addAttribute:NSFontAttributeName value:[UIFont systemFontOfSize:fontTwo] range:range];
-    
     [attributedString addAttribute:NSForegroundColorAttributeName value:color range:NSMakeRange(0, self.length)];
-    
-    
     NSMutableParagraphStyle *paragraphStyle = [[NSMutableParagraphStyle alloc] init];
     [paragraphStyle setLineSpacing:lineSpace];//调整行间距
     paragraphStyle.lineBreakMode = NSLineBreakByTruncatingTail;
     [attributedString addAttribute:NSParagraphStyleAttributeName value:paragraphStyle range:NSMakeRange(0, self.length)];
     return attributedString;
-    
 }
 
 
@@ -248,7 +197,6 @@
     //以毫秒为单位 就除以1000 默认以秒为单位
     long long beTime = [str longLongValue];//1000.0;
     NSString * distanceStr;
-    
     NSDate * beDate = [NSDate dateWithTimeIntervalSince1970:beTime];
     NSDateFormatter * df = [[NSDateFormatter alloc]init];
     [df setDateFormat:@"yyyy/MM/dd HH:mm"];
@@ -260,7 +208,6 @@
     //以毫秒为单位 就除以1000 默认以秒为单位
     long long beTime = [str longLongValue];//1000.0;
     NSString * distanceStr;
-    
     NSDate * beDate = [NSDate dateWithTimeIntervalSince1970:beTime];
     NSDateFormatter * df = [[NSDateFormatter alloc]init];
     [df setDateFormat:@"yyyy-MM-dd HH:mm"];
@@ -272,7 +219,6 @@
     //以毫秒为单位 就除以1000 默认以秒为单位
     long long beTime = [str longLongValue];//1000.0;
     NSString * distanceStr;
-    
     NSDate * beDate = [NSDate dateWithTimeIntervalSince1970:beTime];
     NSDateFormatter * df = [[NSDateFormatter alloc]init];
     [df setDateFormat:@"MM月dd日 HH: mm"];
@@ -296,20 +242,16 @@
     NSTimeInterval now = [[NSDate date] timeIntervalSince1970];
     double distanceTime = now - beTime;
     NSString * distanceStr;
-    
     NSDate * beDate = [NSDate dateWithTimeIntervalSince1970:beTime];
     NSDateFormatter * df = [[NSDateFormatter alloc]init];
     [df setDateFormat:@"HH:mm"];
     NSString * timeStr = [df stringFromDate:beDate];
-    
     [df setDateFormat:@"yyyy"];
     NSString * nowYear = [df stringFromDate:[NSDate date]];
     NSString * lastYear = [df stringFromDate:beDate];
-    
     [df setDateFormat:@"dd"];
     NSString * nowDay = [df stringFromDate:[NSDate date]];
     NSString * lastDay = [df stringFromDate:beDate];
-    
     if (distanceTime < 60)
     {   //小于一分钟
         distanceStr = @"刚刚";
@@ -380,12 +322,9 @@
             [df0 setDateFormat:@"yyyy/MM/dd HH:mm:ss"];
             
         }
-        
         NSDate *date0 = [df0 dateFromString:str];
         beTime = [date0 timeIntervalSince1970];
-  
     }else {
-        
         beTime = [str longLongValue];
     }
     
@@ -395,20 +334,16 @@
     NSTimeInterval now = [[NSDate date] timeIntervalSince1970];
     double distanceTime = now - beTime;
     NSString * distanceStr;
-    
     NSDate * beDate = [NSDate dateWithTimeIntervalSince1970:beTime];
     NSDateFormatter * df = [[NSDateFormatter alloc]init];
     [df setDateFormat:@"HH:mm"];
     NSString * timeStr = [df stringFromDate:beDate];
-    
     [df setDateFormat:@"yyyy"];
     NSString * nowYear = [df stringFromDate:[NSDate date]];
     NSString * lastYear = [df stringFromDate:beDate];
-    
     [df setDateFormat:@"dd"];
     NSString * nowDay = [df stringFromDate:[NSDate date]];
     NSString * lastDay = [df stringFromDate:beDate];
-    
     if (distanceTime < 60)
     {   //小于一分钟
         distanceStr = @"刚刚";
@@ -526,36 +461,19 @@
     NSMutableString *str = [self mutableCopy];
     CFStringTransform(( CFMutableStringRef)str, NULL, kCFStringTransformMandarinLatin, NO);
     CFStringTransform((CFMutableStringRef)str, NULL, kCFStringTransformStripDiacritics, NO);
-    
     return [str stringByReplacingOccurrencesOfString:@" " withString:@""];
 }
 
-+ (NSString *)dateToOld:(NSDate *)bornDate{
-    //获得当前系统时间
-    NSDate *currentDate = [NSDate date];
-    //获得当前系统时间与出生日期之间的时间间隔
-    NSTimeInterval time = [currentDate timeIntervalSinceDate:bornDate];
-    //时间间隔以秒作为单位,求年的话除以60*60*24*356
-    int age = ((int)time)/(3600*24*365);
-    return [NSString stringWithFormat:@"%d",age];
-}
+//+ (NSString *)dateToOld:(NSDate *)bornDate{
+//    //获得当前系统时间
+//    NSDate *currentDate = [NSDate date];
+//    //获得当前系统时间与出生日期之间的时间间隔
+//    NSTimeInterval time = [currentDate timeIntervalSinceDate:bornDate];
+//    //时间间隔以秒作为单位,求年的话除以60*60*24*356
+//    int age = ((int)time)/(3600*24*365);
+//    return [NSString stringWithFormat:@"%d",age];
+//}
 
-+ (NSString *)getDengjiWithScroe:(NSString *)scroe{
-    
-    NSInteger x = [scroe integerValue];
-    if (x <121) {
-        return @"小种子";
-    }else if (x < 251){
-        return @"小嫩芽";
-    }else if (x < 501){
-        return @"大绿叶";
-    }else if (x < 1000){
-        return @"花骨朵";
-    }else{
-        return @"果果王";
-    }
-    
-}
 
 +(NSString *)stringWithVideoTime:(NSString *)video_time
 {
@@ -594,19 +512,12 @@
     return @"0s";
 }
 
-//获取图片全路径
-- (NSString *)getQuanUrl {
-//    return  [NSString stringWithFormat:@"%@/%@%@",KKBaseUrl,@"downloadFile.do?id=",self];
-    return @"";
-}
 
 
 +(NSString *)decodeString:(NSString*)encodedString
 
 {
-    
-    //NSString *decodedString = [encodedString stringByReplacingPercentEscapesUsingEncoding:NSUTF8StringEncoding ];
-    
+
     NSString *decodedString  = (__bridge_transfer NSString *)CFURLCreateStringByReplacingPercentEscapesUsingEncoding(NULL,
                                                                                                                      
                                                                                                                      (__bridge CFStringRef)encodedString,
@@ -616,29 +527,18 @@
                                                                                                                      CFStringConvertNSStringEncodingToEncoding(NSUTF8StringEncoding));
     
     return decodedString;
-    
 }
 
 +(NSString*)encodeString:(NSString*)unencodedString{
-    
-    // CharactersToBeEscaped = @":/?&=;+!@#$()~',*";
-    
-    // CharactersToLeaveUnescaped = @"[].";
-    
     NSString *encodedString = (NSString *)
-    
     CFBridgingRelease(CFURLCreateStringByAddingPercentEscapes(kCFAllocatorDefault,
                                                               
                                                               (CFStringRef)unencodedString,
-                                                              
                                                               NULL,
-                                                              
                                                               (CFStringRef)@"!*'();:@&=+$,/?%#[]",
-                                                              
                                                               kCFStringEncodingUTF8));
     
     return encodedString;
-    
 }
 
 
