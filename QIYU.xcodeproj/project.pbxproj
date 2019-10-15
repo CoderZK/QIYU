@@ -171,6 +171,8 @@
 		583ADD4722A7479F0064E60F /* YWFingerprintVerification.m in Sources */ = {isa = PBXBuildFile; fileRef = 583ADD3B22A7479F0064E60F /* YWFingerprintVerification.m */; };
 		583ADD4822A7479F0064E60F /* YWGesturesUnlockView.m in Sources */ = {isa = PBXBuildFile; fileRef = 583ADD3C22A7479F0064E60F /* YWGesturesUnlockView.m */; };
 		583ADD4922A7479F0064E60F /* gesture_normal@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 583ADD3D22A7479F0064E60F /* gesture_normal@2x.png */; };
+		583AF15523559D3C006AB337 /* QQYYRegistProtocolVC.m in Sources */ = {isa = PBXBuildFile; fileRef = 583AF15323559D3C006AB337 /* QQYYRegistProtocolVC.m */; };
+		583AF15623559D3C006AB337 /* QQYYRegistProtocolVC.xib in Resources */ = {isa = PBXBuildFile; fileRef = 583AF15423559D3C006AB337 /* QQYYRegistProtocolVC.xib */; };
 		583BF0E122C996E80033D2F3 /* CoreTelephony.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 583BF0E022C996E80033D2F3 /* CoreTelephony.framework */; };
 		583F7F1D234F0F6200E8FA19 /* AAAAFMDBSignle.m in Sources */ = {isa = PBXBuildFile; fileRef = 583F7F1C234F0F6200E8FA19 /* AAAAFMDBSignle.m */; };
 		583F7F1F234F107100E8FA19 /* AAAA.db in Resources */ = {isa = PBXBuildFile; fileRef = 583F7F1E234F107100E8FA19 /* AAAA.db */; };
@@ -606,6 +608,9 @@
 		583ADD3C22A7479F0064E60F /* YWGesturesUnlockView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = YWGesturesUnlockView.m; sourceTree = "<group>"; };
 		583ADD3D22A7479F0064E60F /* gesture_normal@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "gesture_normal@2x.png"; sourceTree = "<group>"; };
 		583ADD3F22A7479F0064E60F /* YWUnlockPreviewView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = YWUnlockPreviewView.h; sourceTree = "<group>"; };
+		583AF15223559D3C006AB337 /* QQYYRegistProtocolVC.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = QQYYRegistProtocolVC.h; sourceTree = "<group>"; };
+		583AF15323559D3C006AB337 /* QQYYRegistProtocolVC.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = QQYYRegistProtocolVC.m; sourceTree = "<group>"; };
+		583AF15423559D3C006AB337 /* QQYYRegistProtocolVC.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = QQYYRegistProtocolVC.xib; sourceTree = "<group>"; };
 		583BF0E022C996E80033D2F3 /* CoreTelephony.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreTelephony.framework; path = System/Library/Frameworks/CoreTelephony.framework; sourceTree = SDKROOT; };
 		583F7F1B234F0F6200E8FA19 /* AAAAFMDBSignle.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AAAAFMDBSignle.h; sourceTree = "<group>"; };
 		583F7F1C234F0F6200E8FA19 /* AAAAFMDBSignle.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AAAAFMDBSignle.m; sourceTree = "<group>"; };
@@ -1093,6 +1098,9 @@
 				58917DBE22DC0C9A00C46E04 /* QQYYRgisterVC.h */,
 				58917DBF22DC0C9A00C46E04 /* QQYYRgisterVC.m */,
 				58917DC122DC0C9A00C46E04 /* QQYYRgisterVC.xib */,
+				583AF15223559D3C006AB337 /* QQYYRegistProtocolVC.h */,
+				583AF15323559D3C006AB337 /* QQYYRegistProtocolVC.m */,
+				583AF15423559D3C006AB337 /* QQYYRegistProtocolVC.xib */,
 			);
 			path = "登录注册";
 			sourceTree = "<group>";
@@ -2153,6 +2161,7 @@
 				5838A20822DD79F400239A20 /* qy60@2x.png in Resources */,
 				58917ECE22DC0D5600C46E04 /* QQYYHuaDuoOneCell.xib in Resources */,
 				5838A20122DD79F400239A20 /* qy37@2x.png in Resources */,
+				583AF15623559D3C006AB337 /* QQYYRegistProtocolVC.xib in Resources */,
 				58917EFD22DC0D8B00C46E04 /* QQYYSysMsgCell.xib in Resources */,
 				584B9C89234C5DCF00EDB9E3 /* HHHHLJSevenCell.xib in Resources */,
 				5838A1EC22DD79F400239A20 /* qy23@2x.png in Resources */,
@@ -2289,6 +2298,7 @@
 				584B9C79234C5D8D00EDB9E3 /* HHHHLJFourCell.m in Sources */,
 				58917EBC22DC0D5600C46E04 /* QQYYHuaDuoOneCell.m in Sources */,
 				337F3E5E20E9FE3C00C5526A /* ViewController.m in Sources */,
+				583AF15523559D3C006AB337 /* QQYYRegistProtocolVC.m in Sources */,
 				584B9C74234C5C8900EDB9E3 /* HHHHLJThreeCell.m in Sources */,
 				58917DC222DC0C9A00C46E04 /* QQYYAddZiLiaoTVC.m in Sources */,
 				58917E7122DC0D3A00C46E04 /* QQYYTiXianGuiZeVC.m in Sources */,

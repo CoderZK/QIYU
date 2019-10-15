@@ -184,10 +184,5 @@
     }completion:^(BOOL finished) {
         [self removeFromSuperview];
     }];
-    
 }
-
-
-
-
 @end

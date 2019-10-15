@@ -93,9 +93,9 @@
     [self.tableView registerClass:[QQYYMakeFriendsCell class] forCellReuseIdentifier:@"cell"];
     self.tableView.separatorStyle = UITableViewCellSeparatorStyleNone;
     
-    self.tableView.estimatedSectionHeaderHeight = 0;
-    
-    self.tableView.estimatedSectionFooterHeight = 0;
+//    self.tableView.estimatedSectionHeaderHeight = 0;
+//
+//    self.tableView.estimatedSectionFooterHeight = 0;
     
     
     self.tabBarController.delegate = self;
@@ -114,11 +114,8 @@
     self.tableView.mj_footer = [MJRefreshBackNormalFooter footerWithRefreshingBlock:^{
         [self acquireDataFromServe];
     }];
-    
     [self acquireDataFromServeDaLei];
-    
-    [self setHeadView];
-
+    [self getConfig];
     
 }
 
@@ -196,7 +193,8 @@
     if (isDDDDDDDD) {
         self.headView.mj_h =  250;
     }else {
-       self.headView.mj_h =  0;
+        self.headView.mj_h =  0.01;
+        return;
     }
     UIButton * imgBt = [[UIButton alloc] initWithFrame:CGRectMake(0, 0, ScreenW, 250)];
     [imgBt addTarget:self action:@selector(goShoping) forControlEvents:UIControlEventTouchUpInside];

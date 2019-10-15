@@ -8,6 +8,7 @@
 
 #import "QQYYRgisterVC.h"
 #import "QQYYAddZiLiaoTVC.h"
+#import "QQYYRegistProtocolVC.h"
 @interface QQYYRgisterVC ()
 @property (weak, nonatomic) IBOutlet UIView *view1;
 @property (weak, nonatomic) IBOutlet UIView *view2;
@@ -67,14 +68,11 @@
     }else if (button.tag == 101){
         //注册同意
         button.selected = !button.selected;
-    }else if (button.tag == 102){
-        //用户协议
-        
-    }else if (button.tag == 103){
-        //隐私协议
-        
-       
-        
+    }else if (button.tag == 102 || button.tag == 103){
+        //用户协议&注册协议
+        QQYYRegistProtocolVC * vc =[[QQYYRegistProtocolVC alloc] init];
+        vc.hidesBottomBarWhenPushed = YES;
+        [self.navigationController pushViewController:vc animated:YES]; 
     }else if (button.tag == 104){
         //注册
         

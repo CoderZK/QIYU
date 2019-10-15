@@ -53,10 +53,7 @@
                 QQYYReDuTVC * vc1 =[[QQYYReDuTVC alloc] init];
               
                 [navc pushViewController:vc1 animated:YES];
-                
             }
-            
-            
         }];
         [alertVC addAction:confirm];
         [self presentViewController:alertVC animated:YES completion:nil];

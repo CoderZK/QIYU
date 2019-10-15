@@ -139,24 +139,17 @@ static QQYYSignleToolNew * tool = nil;
 }
 
 - (void)setImg:(NSString *)img {
-    
     [[NSUserDefaults standardUserDefaults] setObject:img forKey:@"img"];
     [[NSUserDefaults standardUserDefaults] synchronize];
-    
 }
 
 - (NSString *)img {
-    
     return [[NSUserDefaults standardUserDefaults] objectForKey:@"img"];
-    
 }
 
 
 
 - (void)setUserModel:(QQYYUserModel *)userModel{
-    
-    
-    
     if (userModel) {
         NSData *data = [NSKeyedArchiver archivedDataWithRootObject:userModel];
         if (data) {
@@ -166,9 +159,7 @@ static QQYYSignleToolNew * tool = nil;
 }
 - (QQYYUserModel *)userModel{
     //取出
-    
     NSData *data = [[NSUserDefaults standardUserDefaults] objectForKey:@"userModel"];
-    
     if (data) {
         QQYYUserModel *model = [NSKeyedUnarchiver unarchiveObjectWithData:data];
         return model;
