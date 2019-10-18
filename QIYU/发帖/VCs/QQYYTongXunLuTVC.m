@@ -33,6 +33,25 @@
     return _rightDataArr;
 }
 
+
+- (void)leftOrRightClickAction:(UIButton *)button {
+    
+    NSMutableArray * nameArr = @[].mutableCopy;
+    NSMutableArray * idArr = @[].mutableCopy;
+    for (int i = 0 ; i < self.rightDataArr.count; i++) {
+        for (zkHomelModel * model  in self.dataDict[self.rightDataArr[i]]) {
+            if (model.isSelect) {
+                [nameArr addObject:model.nickName];
+                [idArr addObject:model.userId];
+            }
+        }
+    }
+    if (self.sendFriendsBlock != nil) {
+        self.sendFriendsBlock([nameArr componentsJoinedByString:@","], [idArr componentsJoinedByString:@","]);
+        [self.navigationController popViewControllerAnimated:YES];
+    }
+}
+
 - (void)viewDidLoad {
     [super viewDidLoad];
     self.dataArray = @[].mutableCopy;
@@ -59,46 +78,19 @@
     self.tableView.mj_header = [MJRefreshNormalHeader headerWithRefreshingBlock:^{
         [self acquireDataFromServe];
     }];
-
-    
-    
 }
 
-- (void)leftOrRightClickAction:(UIButton *)button {
-    
-    NSMutableArray * nameArr = @[].mutableCopy;
-    NSMutableArray * idArr = @[].mutableCopy;
-    for (int i = 0 ; i < self.rightDataArr.count; i++) {
-        
-        for (zkHomelModel * model  in self.dataDict[self.rightDataArr[i]]) {
-            if (model.isSelect) {
-                [nameArr addObject:model.nickName];
-                [idArr addObject:model.userId];
-            }
-        }
-        
-        
-    }
-    
-    if (self.sendFriendsBlock != nil) {
-        self.sendFriendsBlock([nameArr componentsJoinedByString:@","], [idArr componentsJoinedByString:@","]);
-        [self.navigationController popViewControllerAnimated:YES];
-    }
-    
-}
+
 
 
 //排序
 - (void)paiXunAction {
-    
     for (int i = 0 ; i < self.dataArray.count; i++) {
-        
         if (self.dataArray[i]) {
             //将取出的名字转换成字母
             NSMutableString *pinyin = [self.dataArray[i].nickName mutableCopy];
             CFStringTransform((__bridge CFMutableStringRef)pinyin, NULL, kCFStringTransformMandarinLatin, NO);
             CFStringTransform((__bridge CFMutableStringRef)pinyin, NULL, kCFStringTransformStripCombiningMarks, NO);
-            
             /*多音字处理*/
             NSString * firstStr = [self.dataArray[i].nickName substringToIndex:1];
             if ([firstStr compare:@"长"] == NSOrderedSame)
@@ -136,12 +128,10 @@
                     [pinyin replaceCharactersInRange:NSMakeRange(0, 5) withString:@"chong"];
                 }
             }
-            
             //将拼音转换成大写拼音
             NSString * upPinyin = [pinyin uppercaseString];
             //取出第一个首字母当做字典的key
             NSString * firstChar = [upPinyin substringToIndex:1];
-            
             NSMutableArray * arr = [self.dataDict objectForKey:firstChar];
             if (!arr)
             {
@@ -166,9 +156,6 @@
             }
             [arr addObject:self.dataArray[i]];
         }
-        
-        
-        
     }
     
     self.rightDataArr = [self paixuArrWithArr:self.dataDict.allKeys].mutableCopy;
@@ -182,19 +169,14 @@
 
 - (void)acquireDataFromServe {
     
-    
     NSMutableDictionary * requestDict = @{}.mutableCopy;
     requestDict[@"pageNo"] = @(1);
     requestDict[@"pageSize"] = @(10000000);
     NSString * url = [QQYYURLDefineTool getMyFriendUserListURL];
-    
-    
     [QQYYRequestTool networkingPOST:url parameters:requestDict success:^(NSURLSessionDataTask *task, id responseObject) {
         [self.tableView.mj_header endRefreshing];
         [self.tableView.mj_footer endRefreshing];
         if ([responseObject[@"code"] intValue]== 0) {
-            
-      
             NSArray * arr = [zkHomelModel mj_objectArrayWithKeyValuesArray:responseObject[@"rows"]];
             [self.dataArray removeAllObjects];
             [self.dataArray addObjectsFromArray:arr];
@@ -203,18 +185,14 @@
             }
             self.dataDict = nil;
             [self paiXunAction];
-            
         }else {
             [self showAlertWithKey:[NSString stringWithFormat:@"%@",responseObject[@"code"]] message:responseObject[@"message"]];
         }
         
     } failure:^(NSURLSessionDataTask *task, NSError *error) {
-        
         [self.tableView.mj_header endRefreshing];
         [self.tableView.mj_footer endRefreshing];
-        
     }];
-    
 }
 
 

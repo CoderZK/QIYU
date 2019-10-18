@@ -15,9 +15,7 @@ static QQYYpublicFunction * hhyP = nil;
 {
     
     CLLocationManager*locationmanager;//定位服务
-    
     NSString*strlatitude;//经度
-    
     NSString*strlongitude;//纬度
     
 }
@@ -35,33 +33,24 @@ static QQYYpublicFunction * hhyP = nil;
 }
 
 + (CAShapeLayer *)getBezierWithFrome:(UIView * )view andRadi:(CGFloat)radi {
-    
     UIBezierPath *maskPath = [UIBezierPath bezierPathWithRoundedRect:view.bounds byRoundingCorners:UIRectCornerTopLeft | UIRectCornerBottomRight cornerRadii:CGSizeMake(radi, radi)];
-    
     CAShapeLayer *maskLayer = [[CAShapeLayer alloc] init];
-    
     maskLayer.frame = view.bounds;
-    
     maskLayer.path = maskPath.CGPath;
-    
     return maskLayer;
-    
 }
 
 + (void)updateLatitudeAndLongitude {
-    
     [[QQYYpublicFunction sharTool] starAction];
 }
 
 - (void)starAction {
-    
     //判断定位功能是否打开
     if ([CLLocationManager locationServicesEnabled]) {
         locationmanager = [[CLLocationManager alloc]init];
         locationmanager.delegate = self;
         [locationmanager requestAlwaysAuthorization];
         [locationmanager requestWhenInUseAuthorization];
-        
         //设置寻址精度
         locationmanager.desiredAccuracy = kCLLocationAccuracyBest;
         locationmanager.distanceFilter = 5.0;
@@ -77,7 +66,6 @@ static QQYYpublicFunction * hhyP = nil;
     //设置提示提醒用户打开定位服务
     UIAlertController *alert = [UIAlertController alertControllerWithTitle:@"允许定位提示" message:@"请在设置中打开定位" preferredStyle:UIAlertControllerStyleAlert];
     UIAlertAction *okAction = [UIAlertAction actionWithTitle:@"打开定位" style:UIAlertActionStyleDefault handler:nil];
-    
     UIAlertAction *cancelAction = [UIAlertAction actionWithTitle:@"取消" style:UIAlertActionStyleCancel handler:nil];
     [alert addAction:okAction];
     [alert addAction:cancelAction];
@@ -97,7 +85,6 @@ static QQYYpublicFunction * hhyP = nil;
     [self updateLatitudeAndLongtude:currentLocation.coordinate.latitude andLongitude:currentLocation.coordinate.longitude];
     [QQYYSignleToolNew shareTool].latitude = currentLocation.coordinate.latitude;
     [QQYYSignleToolNew shareTool].longitude = currentLocation.coordinate.longitude;
-    
     //反地理编码
 //    [geoCoder reverseGeocodeLocation:currentLocation completionHandler:^(NSArray<CLPlacemark *> * _Nullable placemarks, NSError * _Nullable error)
 //     {
@@ -120,24 +107,15 @@ static QQYYpublicFunction * hhyP = nil;
 
 - (void)updateLatitudeAndLongtude:(CGFloat)latitude andLongitude:(CGFloat)longitude{
     
-    
     NSMutableDictionary * requestDict = @{}.mutableCopy;
     requestDict[@"latitude"]  = @(latitude);
     requestDict[@"longitude"] = @(longitude);
     [QQYYRequestTool networkingPOST:[QQYYURLDefineTool reportLocationURL] parameters:requestDict success:^(NSURLSessionDataTask *task, id responseObject) {
-        
         if ([responseObject[@"code"] intValue]== 0) {
-            
-            
-            
         }else {
-           
         }
         
     } failure:^(NSURLSessionDataTask *task, NSError *error) {
-        
-  
-        
     }];
     
 }

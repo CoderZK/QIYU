@@ -51,13 +51,6 @@
    self.view4.clipsToBounds = self.view3.clipsToBounds =self.view2.clipsToBounds = self.view1.clipsToBounds = self.confrimBt.clipsToBounds = YES;
     self.view4.layer.borderWidth =  self.view3.layer.borderWidth = self.view1.layer.borderWidth =  self.view2.layer.borderWidth = 0.5;
    self.view4.layer.borderColor = self.view3.layer.borderColor = self.view1.layer.borderColor = self.view2.layer.borderColor = CharacterBlack40.CGColor;
-    if (self.isTherd) {
-//        self.conH1.constant = self.conH2.constant = self.conH3.constant = self.space1.constant = self.space2.constant = self.space3.constant = 0;
-        
-        
-      
-        
-    }
 }
 
 - (IBAction)action:(UIButton *)button {

@@ -498,10 +498,8 @@
             imagePickerVc.circleCropRadius = ScreenW/2;
             [imagePickerVc setDidFinishPickingPhotosHandle:^(NSArray<UIImage *> *photos, NSArray *assets, BOOL isSelectOriginalPhoto) {
                 [self.picsArr addObjectsFromArray:photos];
-               
                 [self addPicWithArr:self.picsArr];
-                
-                
+
             }];
             [self presentViewController:imagePickerVc animated:YES completion:nil];
         }else{
