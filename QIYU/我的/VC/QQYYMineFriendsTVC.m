@@ -380,6 +380,9 @@
     QQYYZhuYeTVC * vc =[[QQYYZhuYeTVC alloc] init];
     vc.hidesBottomBarWhenPushed = YES;
     vc.userId = self.dataArray[button.tag - 100].userId;
+    if (self.type == 3) {
+           vc.userId = self.dataArray[button.tag - 100].createBy;
+       }
     [self.navigationController pushViewController:vc animated:YES];
 }
 
@@ -390,11 +393,14 @@
     requestDict[@"type"] = @"1";
     requestDict[@"userId"] = self.dataArray[button.tag - 100].userId;
     NSString * url = [QQYYURLDefineTool deleteUserSubscribeURL];
-    if (self.type == 2) {
+    if (self.type == 2 || self.type == 3) {
         if (!self.dataArray[button.tag - 100].subscribed) {
             url =  [QQYYURLDefineTool addUserSubscribeURL];
         }
     }
+    if (self.type == 3) {
+         requestDict[@"userId"] = self.dataArray[button.tag - 100].createBy;
+      }
     [QQYYRequestTool networkingPOST:url parameters:requestDict success:^(NSURLSessionDataTask *task, id responseObject) {
         [self.tableView.mj_header endRefreshing];
         [self.tableView.mj_footer endRefreshing];

@@ -24,6 +24,7 @@
 @property(nonatomic,strong)NSString * session_uid;
 @property(nonatomic,strong)NSString * deviceToken;
 @property(nonatomic,strong)QQYYUserModel *userModel;
+@property(nonatomic,strong)NSString * downUrl;
 
 -(void)uploadDeviceToken;
 @end

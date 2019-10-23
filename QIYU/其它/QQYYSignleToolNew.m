@@ -147,6 +147,15 @@ static QQYYSignleToolNew * tool = nil;
     return [[NSUserDefaults standardUserDefaults] objectForKey:@"img"];
 }
 
+- (void)setDownUrl:(NSString *)downUrl {
+    [[NSUserDefaults standardUserDefaults] setObject:downUrl forKey:@"downUrl"];
+       [[NSUserDefaults standardUserDefaults] synchronize];
+}
+
+- (NSString *)downUrl {
+    return [[NSUserDefaults standardUserDefaults] objectForKey:@"downUrl"];
+}
+
 
 
 - (void)setUserModel:(QQYYUserModel *)userModel{

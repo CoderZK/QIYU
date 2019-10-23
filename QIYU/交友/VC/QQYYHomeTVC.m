@@ -127,6 +127,7 @@
             }else {
                 [QQYYSignleToolNew shareTool].isppp = NO;
             }
+              [QQYYSignleToolNew shareTool].downUrl = [NSString stringWithFormat:@"%@",responseObject[@"object"][@"downUrl"]];
             [self setHeadView];
         }
         
