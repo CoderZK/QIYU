@@ -36,7 +36,7 @@
 #import "QQYYReDuTVC.h"
 #import "QQYYDetailTVC.h"
 #import "TabBarController.h"
-#import "HangQingVC.h"
+#import "QQYYMessageTVC.h"
 //#import <ReactiveCocoa.h>
 
 #import <ReactiveObjC/ReactiveObjC.h>

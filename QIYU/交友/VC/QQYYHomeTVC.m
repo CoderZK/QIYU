@@ -16,7 +16,7 @@
 #import "QQYYDetailTVC.h"
 #import "QQYYGongGaoTVC.h"
 #import "QQYYReDuTVC.h"
-#import "HangQingVC.h"
+#import "QQYYMessageTVC.h"
 #import "MineVC.h"
 #import "QQYYHomeFiveCell.h"
 #import "QQYYMineDongTaiTVC.h"
@@ -122,7 +122,7 @@
 - (void)getConfig {
     [QQYYRequestTool networkingPOST:[QQYYURLDefineTool getIosConfigURL] parameters:@{} success:^(NSURLSessionDataTask *task, id responseObject) {
         if ([responseObject[@"code"] intValue]== 0) {
-            if ([[NSString stringWithFormat:@"%@",responseObject[@"object"][@"show"]] isEqualToString:@"1"]) {
+            if ([[NSString stringWithFormat:@"%@",responseObject[@"object"][@"show"]] isEqualToString:@"0"]) {
                 [QQYYSignleToolNew shareTool].isppp = YES;
             }else {
                 [QQYYSignleToolNew shareTool].isppp = NO;
@@ -549,7 +549,7 @@
     
     BaseTableViewController * tvc = (BaseTableViewController *)[vc.childViewControllers firstObject];
     
-    if (([tvc isKindOfClass:[HangQingVC class]] || [tvc isKindOfClass:[MineVC class]]) && ![QQYYSignleToolNew shareTool].isLogin) {
+    if (([tvc isKindOfClass:[QQYYMessageTVC class]] || [tvc isKindOfClass:[MineVC class]]) && ![QQYYSignleToolNew shareTool].isLogin) {
         [self gotoLoginVC];
         return NO;
     }

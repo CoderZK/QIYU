@@ -16,7 +16,7 @@
 #import "QQYYDetailTVC.h"
 #import "QQYYGongGaoTVC.h"
 #import "QQYYReDuTVC.h"
-#import "HangQingVC.h"
+#import "QQYYMessageTVC.h"
 #import "MineVC.h"
 #import "QQYYHomeFiveCell.h"
 #import "QQYYMineDongTaiTVC.h"
@@ -74,7 +74,7 @@
 //}
 - (void)viewDidLoad {
     [super viewDidLoad];
-    self.navigationItem.title = @"社交";
+    self.navigationItem.title = @"社区";
     self.type = 0;
     self.dataArrayDaLei = @[].mutableCopy;
     
@@ -568,7 +568,7 @@
   
     BaseTableViewController * tvc = (BaseTableViewController *)[vc.childViewControllers firstObject];
     
-    if (([tvc isKindOfClass:[HangQingVC class]] || [tvc isKindOfClass:[MineVC class]]) && ![QQYYSignleToolNew shareTool].isLogin) {
+    if (([tvc isKindOfClass:[QQYYMessageTVC class]] || [tvc isKindOfClass:[MineVC class]]) && ![QQYYSignleToolNew shareTool].isLogin) {
         [self gotoLoginVC];
         return NO;
     }

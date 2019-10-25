@@ -1,12 +1,12 @@
 //
-//  HangQingVC.m
-//  BYXuNiPan
+//  QQYYMessageTVC.m
+//  QIYU
 //
-//  Created by kunzhang on 2018/7/2.
-//  Copyright © 2018年 kunzhang. All rights reserved.
+//  Created by zk on 2019/10/24.
+//  Copyright © 2019 kunzhang. All rights reserved.
 //
 
-#import "HangQingVC.h"
+#import "QQYYMessageTVC.h"
 #import "QQYYNewsOneCell.h"
 #import "QQYYShowView.h"
 #import "QQYYNewsTwoCell.h"
@@ -16,7 +16,7 @@
 #import "QQYYReceivePingLunTVC.h"
 #import "QQYYMineFriendsTVC.h"
 #import "QQYYSysMsgTVC.h"
-@interface HangQingVC ()<QQYYShowViewdelegate,EMContactManagerDelegate>
+@interface QQYYMessageTVC ()<QQYYShowViewdelegate,EMContactManagerDelegate>
 @property(nonatomic,strong)QQYYTongYongModel *model;
 @property(nonatomic,strong)QQYYShowView *showV;
 
@@ -25,7 +25,7 @@
 @property(nonatomic,strong)NSString *sysMsg;
 @end
 
-@implementation HangQingVC
+@implementation QQYYMessageTVC
 
 - (QQYYShowView *)showV {
     if (_showV == nil) {
@@ -166,6 +166,9 @@
 
 - (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath {
     if (indexPath.section == 0) {
+        if (isDDDDDDDD){
+            return 0;
+        }
         return 100;
     }else {
         return 85;
@@ -200,6 +203,7 @@
                 [weakSelf.navigationController pushViewController:vc animated:YES];
             }
         };
+        cell.clipsToBounds = YES;
         return cell;
     }else if (indexPath.section == 1) {
         QQYYNewsTwoCell * cell =[tableView dequeueReusableCellWithIdentifier:@"cellTwo" forIndexPath:indexPath];
@@ -404,3 +408,4 @@
  */
 
 @end
+

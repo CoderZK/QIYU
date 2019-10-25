@@ -89,7 +89,7 @@
     [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(systemVolumeDidChangeNoti:) name:@"AVSystemController_SystemVolumeDidChangeNotification" object:nil];
     
 
-    [QQYYSignleToolNew shareTool].isppp = YES;
+//    [QQYYSignleToolNew shareTool].isppp = YES;
     
     return YES;
 }
@@ -120,8 +120,8 @@
     UITabBarController * tabvc = self.window.rootViewController;
     if (tabvc.selectedIndex == 2) {
         BaseNavigationController * navc = tabvc.childViewControllers[2];
-        if ([[navc.childViewControllers lastObject] isKindOfClass:[HangQingVC class]]) {
-            HangQingVC * vc = (HangQingVC *)[navc.childViewControllers lastObject];
+        if ([[navc.childViewControllers lastObject] isKindOfClass:[QQYYMessageTVC class]]) {
+            QQYYMessageTVC * vc = (QQYYMessageTVC *)[navc.childViewControllers lastObject];
             vc.pageNo = 1;
             [vc acquireDataFromServe];
         }

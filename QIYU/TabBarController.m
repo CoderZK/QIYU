@@ -10,7 +10,7 @@
 #import "BaseViewController.h"
 #import "HomeVC.h"
 #import "MineVC.h"
-#import "HangQingVC.h"
+#import "QQYYMessageTVC.h"
 #import "GuanZhuVC.h"
 #import "BSCustom.h"
 #import "QQYYHomeTVC.h"
@@ -40,7 +40,7 @@
     NSArray *imgArr=@[@"qy35",@"qy36",@"qy37",@"qy38"];
     NSArray *selectedImgArr=@[@"qy39",@"qy40",@"qy41",@"qy42"];
     NSArray *barTitleArr=@[@"交友",@"消息",@"社区",@"我"];
-    NSArray *className=@[@"QQYYHomeTVC",@"HangQingVC",@"HomeVC",@"MineVC"];
+    NSArray *className=@[@"QQYYHomeTVC",@"QQYYMessageTVC",@"HomeVC",@"MineVC"];
     NSMutableArray *arr=[[NSMutableArray alloc] init];
     for (int i=0; i<className.count; i++)
     {

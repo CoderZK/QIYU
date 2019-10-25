@@ -43,7 +43,6 @@
 		33DC822E20EA1CA700D1C283 /* libc++.1.tbd in Frameworks */ = {isa = PBXBuildFile; fileRef = 33DC821E20EA17F700D1C283 /* libc++.1.tbd */; };
 		33DC823420EA20D700D1C283 /* LYGuideViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 33DC823220EA20D700D1C283 /* LYGuideViewController.m */; };
 		33DC824920EA220400D1C283 /* MineVC.m in Sources */ = {isa = PBXBuildFile; fileRef = 33DC824820EA220400D1C283 /* MineVC.m */; };
-		33DC824F20EA224F00D1C283 /* HangQingVC.m in Sources */ = {isa = PBXBuildFile; fileRef = 33DC824E20EA224F00D1C283 /* HangQingVC.m */; };
 		33DC825520EA245E00D1C283 /* HomeVC.m in Sources */ = {isa = PBXBuildFile; fileRef = 33DC825320EA245E00D1C283 /* HomeVC.m */; };
 		58035E8F22C44DDC006F1F6F /* Photos.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 58035E8E22C44DDC006F1F6F /* Photos.framework */; };
 		58035E9222C45182006F1F6F /* zkDanLiaoVC.m in Sources */ = {isa = PBXBuildFile; fileRef = 58035E9022C4517F006F1F6F /* zkDanLiaoVC.m */; };
@@ -174,6 +173,7 @@
 		583AF15523559D3C006AB337 /* QQYYRegistProtocolVC.m in Sources */ = {isa = PBXBuildFile; fileRef = 583AF15323559D3C006AB337 /* QQYYRegistProtocolVC.m */; };
 		583AF15623559D3C006AB337 /* QQYYRegistProtocolVC.xib in Resources */ = {isa = PBXBuildFile; fileRef = 583AF15423559D3C006AB337 /* QQYYRegistProtocolVC.xib */; };
 		583BF0E122C996E80033D2F3 /* CoreTelephony.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 583BF0E022C996E80033D2F3 /* CoreTelephony.framework */; };
+		583E256023613F8E00F2136F /* QQYYMessageTVC.m in Sources */ = {isa = PBXBuildFile; fileRef = 583E255F23613F8E00F2136F /* QQYYMessageTVC.m */; };
 		583F7F1D234F0F6200E8FA19 /* AAAAFMDBSignle.m in Sources */ = {isa = PBXBuildFile; fileRef = 583F7F1C234F0F6200E8FA19 /* AAAAFMDBSignle.m */; };
 		583F7F1F234F107100E8FA19 /* AAAA.db in Resources */ = {isa = PBXBuildFile; fileRef = 583F7F1E234F107100E8FA19 /* AAAA.db */; };
 		583F7F22234F109D00E8FA19 /* AAAAModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 583F7F21234F109D00E8FA19 /* AAAAModel.m */; };
@@ -447,8 +447,6 @@
 		33DC823220EA20D700D1C283 /* LYGuideViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LYGuideViewController.m; sourceTree = "<group>"; };
 		33DC824720EA220400D1C283 /* MineVC.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = MineVC.h; sourceTree = "<group>"; };
 		33DC824820EA220400D1C283 /* MineVC.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = MineVC.m; sourceTree = "<group>"; };
-		33DC824D20EA224F00D1C283 /* HangQingVC.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = HangQingVC.h; sourceTree = "<group>"; };
-		33DC824E20EA224F00D1C283 /* HangQingVC.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = HangQingVC.m; sourceTree = "<group>"; };
 		33DC825320EA245E00D1C283 /* HomeVC.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HomeVC.m; sourceTree = "<group>"; };
 		33DC825420EA245E00D1C283 /* HomeVC.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HomeVC.h; sourceTree = "<group>"; };
 		58035E8E22C44DDC006F1F6F /* Photos.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Photos.framework; path = System/Library/Frameworks/Photos.framework; sourceTree = SDKROOT; };
@@ -612,6 +610,8 @@
 		583AF15323559D3C006AB337 /* QQYYRegistProtocolVC.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = QQYYRegistProtocolVC.m; sourceTree = "<group>"; };
 		583AF15423559D3C006AB337 /* QQYYRegistProtocolVC.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = QQYYRegistProtocolVC.xib; sourceTree = "<group>"; };
 		583BF0E022C996E80033D2F3 /* CoreTelephony.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreTelephony.framework; path = System/Library/Frameworks/CoreTelephony.framework; sourceTree = SDKROOT; };
+		583E255E23613F8E00F2136F /* QQYYMessageTVC.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = QQYYMessageTVC.h; sourceTree = "<group>"; };
+		583E255F23613F8E00F2136F /* QQYYMessageTVC.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = QQYYMessageTVC.m; sourceTree = "<group>"; };
 		583F7F1B234F0F6200E8FA19 /* AAAAFMDBSignle.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AAAAFMDBSignle.h; sourceTree = "<group>"; };
 		583F7F1C234F0F6200E8FA19 /* AAAAFMDBSignle.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AAAAFMDBSignle.m; sourceTree = "<group>"; };
 		583F7F1E234F107100E8FA19 /* AAAA.db */ = {isa = PBXFileReference; lastKnownFileType = file; path = AAAA.db; sourceTree = "<group>"; };
@@ -1415,8 +1415,8 @@
 				58917EE522DC0D7A00C46E04 /* QQYYReceiveZanTVC.m */,
 				58917EDF22DC0D7A00C46E04 /* QQYYSysMsgTVC.h */,
 				58917EE622DC0D7A00C46E04 /* QQYYSysMsgTVC.m */,
-				33DC824D20EA224F00D1C283 /* HangQingVC.h */,
-				33DC824E20EA224F00D1C283 /* HangQingVC.m */,
+				583E255E23613F8E00F2136F /* QQYYMessageTVC.h */,
+				583E255F23613F8E00F2136F /* QQYYMessageTVC.m */,
 			);
 			path = VC;
 			sourceTree = "<group>";
@@ -2329,6 +2329,7 @@
 				584B9C42234C574800EDB9E3 /* HHHHLJTwoTvc.m in Sources */,
 				58917EFF22DC0D8B00C46E04 /* QQYYSysMsgCell.m in Sources */,
 				58917E7A22DC0D3A00C46E04 /* QQYYYinHangKaTVC.m in Sources */,
+				583E256023613F8E00F2136F /* QQYYMessageTVC.m in Sources */,
 				583332A3229FD488008DD9CF /* SelectTimeV.m in Sources */,
 				58917F0222DC0D8B00C46E04 /* QQYYAiTeMeCell.m in Sources */,
 				58917EDE22DC0D6A00C46E04 /* QQYYQunSettingTVC.m in Sources */,
@@ -2376,7 +2377,6 @@
 				58917EC322DC0D5600C46E04 /* QQYYMineThreeCell.m in Sources */,
 				584B9C6F234C5A8700EDB9E3 /* HHHHLJTwoCell.m in Sources */,
 				58917E1322DC0CF600C46E04 /* QQYYHomeFiveCell.m in Sources */,
-				33DC824F20EA224F00D1C283 /* HangQingVC.m in Sources */,
 				58917F0022DC0D8B00C46E04 /* QQYYZanOrAiTeMineCell.m in Sources */,
 				5874FDE8233C92CB00E21537 /* UIView+SizeExtension.m in Sources */,
 				58917EBE22DC0D5600C46E04 /* QQYYHuiYuanTwoCell.m in Sources */,
