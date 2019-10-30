@@ -1,12 +1,12 @@
 //
-//  HomeVC.m
-//  BYXuNiPan
+//  QQYYHomeNewTVC.m
+//  QIYU
 //
-//  Created by kunzhang on 2018/7/2.
-//  Copyright © 2018年 kunzhang. All rights reserved.
+//  Created by zk on 2019/10/29.
+//  Copyright © 2019 kunzhang. All rights reserved.
 //
 
-#import "HomeVC.h"
+#import "QQYYHomeNewTVC.h"
 #import "QQYYHomeOneCell.h"
 #import "QQYYHomeTwoCell.h"
 #import "QQYYHomeThreeCell.h"
@@ -17,12 +17,12 @@
 #import "QQYYGongGaoTVC.h"
 #import "QQYYReDuTVC.h"
 #import "QQYYMessageTVC.h"
-#import "MineVC.h"
+#import "QQYYMineNewTVC.h"
 #import "QQYYHomeFiveCell.h"
 #import "QQYYMineDongTaiTVC.h"
 #import "LxmWebViewController.h"
 #import "QQYYPostMessageTVC.h"
-@interface HomeVC ()<SDCycleScrollViewDelegate,QQYYHomeDongTaiCellDelegate,QQYYYongBaoViewDeletage,UITabBarControllerDelegate>
+@interface QQYYHomeNewTVC ()<SDCycleScrollViewDelegate,QQYYHomeDongTaiCellDelegate,QQYYYongBaoViewDeletage,UITabBarControllerDelegate>
 @property(nonatomic,strong)UIView *headView;
 @property(nonatomic,strong)SDCycleScrollView *sdcycView;
 @property(nonatomic,strong)NSMutableArray<QQYYTongYongModel *> *scrollDataArray;
@@ -37,7 +37,7 @@
 @property(nonatomic,strong)UIButton *faBuBt;
 @end
 
-@implementation HomeVC
+@implementation QQYYHomeNewTVC
 
 - (NSMutableArray<QQYYTongYongModel *> *)scrollDataArray {
     if (_scrollDataArray == nil) {
@@ -406,12 +406,12 @@
         
          [self shareWithSetPreDefinePlatforms:@[@(UMSocialPlatformType_WechatSession),@(UMSocialPlatformType_QQ),@(UMSocialPlatformType_Sina)] withUrl:nil shareModel:self.dataArray[indexPath.row]];
 //        [UMSocialUIManager showShareMenuViewInWindowWithPlatformSelectionBlock:^(UMSocialPlatformType platformType, NSDictionary *userInfo) {
-//           
-//            
+//
+//
 //            NSLog(@"---\n%@",userInfo);
 //
-//            self 
-//            
+//            self
+//
 //        }];
         
         
@@ -568,7 +568,7 @@
   
     BaseTableViewController * tvc = (BaseTableViewController *)[vc.childViewControllers firstObject];
     
-    if (([tvc isKindOfClass:[QQYYMessageTVC class]] || [tvc isKindOfClass:[MineVC class]]) && ![QQYYSignleToolNew shareTool].isLogin) {
+    if (([tvc isKindOfClass:[QQYYMessageTVC class]] || [tvc isKindOfClass:[QQYYMineNewTVC class]]) && ![QQYYSignleToolNew shareTool].isLogin) {
         [self gotoLoginVC];
         return NO;
     }
@@ -659,3 +659,4 @@
 
 
 @end
+

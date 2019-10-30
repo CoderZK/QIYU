@@ -1,12 +1,12 @@
 //
-//  MineVC.m
-//  BYXuNiPan
+//  QQYYMineNewTVC.m
+//  QIYU
 //
-//  Created by kunzhang on 2018/7/2.
-//  Copyright © 2018年 kunzhang. All rights reserved.
+//  Created by zk on 2019/10/29.
+//  Copyright © 2019 kunzhang. All rights reserved.
 //
 
-#import "MineVC.h"
+#import "QQYYMineNewTVC.h"
 #import "QQYYMineOneCell.h"
 #import "QQYYMineTwoCell.h"
 #import "QQYYMineThreeCell.h"
@@ -25,12 +25,12 @@
 #import "QQYYYiJianTVC.h"
 #import "QQYYTiXianTVC.h"
 #import "QQYYSettingTVC.h"
-@interface MineVC ()<QQYYMineFourCellDelegate,QQYYMineOneCellDelegate>
+@interface QQYYMineNewTVC ()<QQYYMineFourCellDelegate,QQYYMineOneCellDelegate>
 @property(nonatomic,strong)NSArray *titleArr;
 @property(nonatomic,strong)QQYYUserModel *dataModel;
 @end
 
-@implementation MineVC
+@implementation QQYYMineNewTVC
 
 - (void)viewWillAppear:(BOOL)animated {
     [super viewWillAppear:animated];
@@ -365,3 +365,4 @@
 
 
 @end
+

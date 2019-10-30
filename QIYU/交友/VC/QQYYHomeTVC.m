@@ -1,5 +1,5 @@
 //
-//  HomeVC.m
+//  QQYYHomeNewTVC.m
 //  BYXuNiPan
 //
 //  Created by kunzhang on 2018/7/2.
@@ -17,7 +17,7 @@
 #import "QQYYGongGaoTVC.h"
 #import "QQYYReDuTVC.h"
 #import "QQYYMessageTVC.h"
-#import "MineVC.h"
+#import "QQYYMineNewTVC.h"
 #import "QQYYHomeFiveCell.h"
 #import "QQYYMineDongTaiTVC.h"
 #import "LxmWebViewController.h"
@@ -122,11 +122,14 @@
 - (void)getConfig {
     [QQYYRequestTool networkingPOST:[QQYYURLDefineTool getIosConfigURL] parameters:@{} success:^(NSURLSessionDataTask *task, id responseObject) {
         if ([responseObject[@"code"] intValue]== 0) {
-            if ([[NSString stringWithFormat:@"%@",responseObject[@"object"][@"show"]] isEqualToString:@"0"]) {
+            if ([[NSString stringWithFormat:@"%@",responseObject[@"object"][@"show"]] isEqualToString:@"1"]) {
                 [QQYYSignleToolNew shareTool].isppp = YES;
             }else {
                 [QQYYSignleToolNew shareTool].isppp = NO;
             }
+            
+            //测试用
+            [QQYYSignleToolNew shareTool].isppp = NO;
               [QQYYSignleToolNew shareTool].downUrl = [NSString stringWithFormat:@"%@",responseObject[@"object"][@"downUrl"]];
             [self setHeadView];
         }
@@ -294,7 +297,7 @@
         QQYYMakeFriendsCell * cell =[tableView dequeueReusableCellWithIdentifier:@"cell" forIndexPath:indexPath];
         [cell.headBt addTarget:self action:@selector(goToTheOtherHomePageClickAction:) forControlEvents:UIControlEventTouchUpInside];
         cell.headBt.tag = indexPath.row + 100;
-        cell.isHot = self.isHot;
+        cell.isHot = !self.isHot;
         cell.model = self.dataArray[indexPath.row];
         return cell;
         
@@ -549,7 +552,7 @@
     
     BaseTableViewController * tvc = (BaseTableViewController *)[vc.childViewControllers firstObject];
     
-    if (([tvc isKindOfClass:[QQYYMessageTVC class]] || [tvc isKindOfClass:[MineVC class]]) && ![QQYYSignleToolNew shareTool].isLogin) {
+    if (([tvc isKindOfClass:[QQYYMessageTVC class]] || [tvc isKindOfClass:[QQYYMineNewTVC class]]) && ![QQYYSignleToolNew shareTool].isLogin) {
         [self gotoLoginVC];
         return NO;
     }

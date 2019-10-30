@@ -42,10 +42,10 @@
 		33DC822B20EA1C4600D1C283 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 33DC822A20EA1C4600D1C283 /* Foundation.framework */; };
 		33DC822E20EA1CA700D1C283 /* libc++.1.tbd in Frameworks */ = {isa = PBXBuildFile; fileRef = 33DC821E20EA17F700D1C283 /* libc++.1.tbd */; };
 		33DC823420EA20D700D1C283 /* LYGuideViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 33DC823220EA20D700D1C283 /* LYGuideViewController.m */; };
-		33DC824920EA220400D1C283 /* MineVC.m in Sources */ = {isa = PBXBuildFile; fileRef = 33DC824820EA220400D1C283 /* MineVC.m */; };
-		33DC825520EA245E00D1C283 /* HomeVC.m in Sources */ = {isa = PBXBuildFile; fileRef = 33DC825320EA245E00D1C283 /* HomeVC.m */; };
 		58035E8F22C44DDC006F1F6F /* Photos.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 58035E8E22C44DDC006F1F6F /* Photos.framework */; };
 		58035E9222C45182006F1F6F /* zkDanLiaoVC.m in Sources */ = {isa = PBXBuildFile; fileRef = 58035E9022C4517F006F1F6F /* zkDanLiaoVC.m */; };
+		581B2924236801BB00953EE8 /* QQYYMineNewTVC.m in Sources */ = {isa = PBXBuildFile; fileRef = 581B2923236801BB00953EE8 /* QQYYMineNewTVC.m */; };
+		581B29272368027C00953EE8 /* QQYYHomeNewTVC.m in Sources */ = {isa = PBXBuildFile; fileRef = 581B29262368027C00953EE8 /* QQYYHomeNewTVC.m */; };
 		582E2E6422E0105500E99273 /* QQYYMovieVC.m in Sources */ = {isa = PBXBuildFile; fileRef = 582E2E6322E0105500E99273 /* QQYYMovieVC.m */; };
 		582FC34122C33F7900729757 /* CoreLocation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 582FC34022C33F7800729757 /* CoreLocation.framework */; };
 		582FD55022C0A68D00A29CC1 /* UIViewController+NewWorkTwo.m in Sources */ = {isa = PBXBuildFile; fileRef = 582FD54F22C0A68D00A29CC1 /* UIViewController+NewWorkTwo.m */; };
@@ -392,7 +392,7 @@
 		335010EB20EE05C000F8486B /* UIButton+Badge.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIButton+Badge.m"; sourceTree = "<group>"; };
 		335010EC20EE05C100F8486B /* UIButton+Badge.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIButton+Badge.h"; sourceTree = "<group>"; };
 		335010ED20EE05C100F8486B /* NSString+Size.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSString+Size.h"; sourceTree = "<group>"; };
-		337F3E5620E9FE3B00C5526A /* QIYU.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = QIYU.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		337F3E5620E9FE3B00C5526A /* 花与蛇.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "花与蛇.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		337F3E5920E9FE3B00C5526A /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
 		337F3E5A20E9FE3B00C5526A /* AppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
 		337F3E5C20E9FE3C00C5526A /* ViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ViewController.h; sourceTree = "<group>"; };
@@ -445,13 +445,13 @@
 		33DC822C20EA1C9D00D1C283 /* libstdc++.6.0.9.tbd */ = {isa = PBXFileReference; lastKnownFileType = "sourcecode.text-based-dylib-definition"; name = "libstdc++.6.0.9.tbd"; path = "usr/lib/libstdc++.6.0.9.tbd"; sourceTree = SDKROOT; };
 		33DC822F20EA20D600D1C283 /* LYGuideViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LYGuideViewController.h; sourceTree = "<group>"; };
 		33DC823220EA20D700D1C283 /* LYGuideViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LYGuideViewController.m; sourceTree = "<group>"; };
-		33DC824720EA220400D1C283 /* MineVC.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = MineVC.h; sourceTree = "<group>"; };
-		33DC824820EA220400D1C283 /* MineVC.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = MineVC.m; sourceTree = "<group>"; };
-		33DC825320EA245E00D1C283 /* HomeVC.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HomeVC.m; sourceTree = "<group>"; };
-		33DC825420EA245E00D1C283 /* HomeVC.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HomeVC.h; sourceTree = "<group>"; };
 		58035E8E22C44DDC006F1F6F /* Photos.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Photos.framework; path = System/Library/Frameworks/Photos.framework; sourceTree = SDKROOT; };
 		58035E9022C4517F006F1F6F /* zkDanLiaoVC.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = zkDanLiaoVC.m; sourceTree = "<group>"; };
 		58035E9122C45182006F1F6F /* zkDanLiaoVC.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = zkDanLiaoVC.h; sourceTree = "<group>"; };
+		581B2922236801BB00953EE8 /* QQYYMineNewTVC.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = QQYYMineNewTVC.h; sourceTree = "<group>"; };
+		581B2923236801BB00953EE8 /* QQYYMineNewTVC.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = QQYYMineNewTVC.m; sourceTree = "<group>"; };
+		581B29252368027C00953EE8 /* QQYYHomeNewTVC.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = QQYYHomeNewTVC.h; sourceTree = "<group>"; };
+		581B29262368027C00953EE8 /* QQYYHomeNewTVC.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = QQYYHomeNewTVC.m; sourceTree = "<group>"; };
 		582E2E6222E0105500E99273 /* QQYYMovieVC.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = QQYYMovieVC.h; sourceTree = "<group>"; };
 		582E2E6322E0105500E99273 /* QQYYMovieVC.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = QQYYMovieVC.m; sourceTree = "<group>"; };
 		582FC34022C33F7800729757 /* CoreLocation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreLocation.framework; path = System/Library/Frameworks/CoreLocation.framework; sourceTree = SDKROOT; };
@@ -1009,7 +1009,7 @@
 		337F3E5720E9FE3B00C5526A /* Products */ = {
 			isa = PBXGroup;
 			children = (
-				337F3E5620E9FE3B00C5526A /* QIYU.app */,
+				337F3E5620E9FE3B00C5526A /* 花与蛇.app */,
 				337F3E6E20E9FE5400C5526A /* QIYUTests.xctest */,
 				337F3E7920E9FE5400C5526A /* QIYUUITests.xctest */,
 			);
@@ -1298,8 +1298,8 @@
 				58917E5022DC0D3800C46E04 /* QQYYYinHangKaTVC.m */,
 				58917E5122DC0D3800C46E04 /* QQYYZhuYeTVC.h */,
 				58917E5F22DC0D3900C46E04 /* QQYYZhuYeTVC.m */,
-				33DC824720EA220400D1C283 /* MineVC.h */,
-				33DC824820EA220400D1C283 /* MineVC.m */,
+				581B2922236801BB00953EE8 /* QQYYMineNewTVC.h */,
+				581B2923236801BB00953EE8 /* QQYYMineNewTVC.m */,
 			);
 			path = VC;
 			sourceTree = "<group>";
@@ -1486,8 +1486,8 @@
 				58917DE022DC0CDD00C46E04 /* QQYYGuanZhuHeadTVC.m */,
 				58917DDE22DC0CDD00C46E04 /* QQYYMineDongTaiTVC.h */,
 				58917DDF22DC0CDD00C46E04 /* QQYYMineDongTaiTVC.m */,
-				33DC825420EA245E00D1C283 /* HomeVC.h */,
-				33DC825320EA245E00D1C283 /* HomeVC.m */,
+				581B29252368027C00953EE8 /* QQYYHomeNewTVC.h */,
+				581B29262368027C00953EE8 /* QQYYHomeNewTVC.m */,
 				5836EB9522CC4F4D00EE6611 /* LxmWebViewController.h */,
 				5836EB9422CC4F4A00EE6611 /* LxmWebViewController.m */,
 			);
@@ -1966,7 +1966,7 @@
 			);
 			name = QIYU;
 			productName = QIYU;
-			productReference = 337F3E5620E9FE3B00C5526A /* QIYU.app */;
+			productReference = 337F3E5620E9FE3B00C5526A /* 花与蛇.app */;
 			productType = "com.apple.product-type.application";
 		};
 		337F3E6D20E9FE5400C5526A /* QIYUTests */ = {
@@ -2293,6 +2293,7 @@
 				582FFA53229B84170039971E /* MXALAsset.m in Sources */,
 				58917DAA22DC0C5B00C46E04 /* QQYYYongBaoView.m in Sources */,
 				582FFA5A229B8AA00039971E /* zkHomelModel.m in Sources */,
+				581B2924236801BB00953EE8 /* QQYYMineNewTVC.m in Sources */,
 				58917E3D22DC0D1E00C46E04 /* QQYYUserModel.m in Sources */,
 				58917E7822DC0D3A00C46E04 /* QQYYFlowerListTVC.m in Sources */,
 				584B9C79234C5D8D00EDB9E3 /* HHHHLJFourCell.m in Sources */,
@@ -2336,7 +2337,6 @@
 				58917F0422DC0D8B00C46E04 /* QQYYShouDaoDePingLunCell.m in Sources */,
 				33DC823420EA20D700D1C283 /* LYGuideViewController.m in Sources */,
 				5874FDE5233C921200E21537 /* QQYYSignleToolNew.m in Sources */,
-				33DC824920EA220400D1C283 /* MineVC.m in Sources */,
 				58917E3922DC0D0B00C46E04 /* QQYYBindPoneTwoVC.m in Sources */,
 				337F3EAB20EA014600C5526A /* BaseNavigationController.m in Sources */,
 				583F7F22234F109D00E8FA19 /* AAAAModel.m in Sources */,
@@ -2404,7 +2404,6 @@
 				58917E8022DC0D3A00C46E04 /* QQYYMineTaskTVC.m in Sources */,
 				5874FDF1233C955900E21537 /* QQYYShowViewNew.m in Sources */,
 				58917EE922DC0D7A00C46E04 /* QQYYAiTeMeTVC.m in Sources */,
-				33DC825520EA245E00D1C283 /* HomeVC.m in Sources */,
 				584B9C60234C58E500EDB9E3 /* HHHHLJTwelveTvc.m in Sources */,
 				589ABFEE2297AF20000BBD89 /* BSCustom.m in Sources */,
 				58917DCD22DC0CAA00C46E04 /* QQYYMakeFriendsCell.m in Sources */,
@@ -2443,6 +2442,7 @@
 				582FFA52229B84170039971E /* MXImagePreviewController.m in Sources */,
 				5836EB9622CC4F4E00EE6611 /* LxmWebViewController.m in Sources */,
 				58917EC622DC0D5600C46E04 /* QQYYTiXianListCell.m in Sources */,
+				581B29272368027C00953EE8 /* QQYYHomeNewTVC.m in Sources */,
 				58917DC622DC0C9A00C46E04 /* QQYYRgisterVC.m in Sources */,
 				58917E6E22DC0D3A00C46E04 /* QQYYShiMingRenZhengTVC.m in Sources */,
 				58917DE922DC0CDE00C46E04 /* QQYYGongGaoTVC.m in Sources */,
@@ -2666,7 +2666,7 @@
 					"$(PROJECT_DIR)/QIYU/消息/环信/EaseUI/EMUIKit/3rdparty/DeviceHelper/VoiceConvert/opencore-amrnb",
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = com.yiqu.app;
-				PRODUCT_NAME = "$(TARGET_NAME)";
+				PRODUCT_NAME = "花与蛇";
 				PROVISIONING_PROFILE = "3bdcf4b3-e396-4d7a-ab2b-739f2269ddaa";
 				PROVISIONING_PROFILE_SPECIFIER = xuxuecom;
 				TARGETED_DEVICE_FAMILY = 1;
@@ -2704,7 +2704,7 @@
 					"$(PROJECT_DIR)/QIYU/消息/环信/EaseUI/EMUIKit/3rdparty/DeviceHelper/VoiceConvert/opencore-amrnb",
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = com.yiqu.app;
-				PRODUCT_NAME = "$(TARGET_NAME)";
+				PRODUCT_NAME = "花与蛇";
 				PROVISIONING_PROFILE_SPECIFIER = comcomzk;
 				TARGETED_DEVICE_FAMILY = 1;
 			};
