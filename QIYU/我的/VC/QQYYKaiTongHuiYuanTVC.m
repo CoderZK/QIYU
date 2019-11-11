@@ -47,7 +47,7 @@
     [self.tableView registerClass:[QQYYZhiFuCell class] forCellReuseIdentifier:@"cellZhiFu"];
     [self.tableView registerClass:[QQYYHuiYuanOneCell class] forCellReuseIdentifier:@"cell"];
     [self.tableView registerNib:[UINib nibWithNibName:@"QQYYHuiYuanTwoCell" bundle:nil] forCellReuseIdentifier:@"cellTwo"];
-     [self.tableView registerNib:[UINib nibWithNibName:@"QQYYHuiYuanThreeCell" bundle:nil] forCellReuseIdentifier:@"cellThree"];
+    [self.tableView registerNib:[UINib nibWithNibName:@"QQYYHuiYuanThreeCell" bundle:nil] forCellReuseIdentifier:@"cellThree"];
     self.tableView.separatorStyle = UITableViewCellSeparatorStyleNone;
     self.tableView.frame = CGRectMake(0, -sstatusHeight, ScreenW, ScreenH+sstatusHeight);
     [self AddHeadView];
@@ -57,7 +57,7 @@
     self.tableView.mj_header = [MJRefreshNormalHeader headerWithRefreshingBlock:^{
         [self acquireDataFromServe];
     }];
-
+    
 }
 
 - (void)createBackNavigation{
@@ -67,7 +67,7 @@
     [LeftOrRightBT addTarget:self action:@selector(leftOrRightClickAction:) forControlEvents:UIControlEventTouchUpInside];
     LeftOrRightBT.tag = 10;
     [self.view addSubview:LeftOrRightBT];
-
+    
 }
 
 - (void)leftOrRightClickAction:(UIButton *)button {
@@ -112,7 +112,7 @@
     NameLB.textAlignment = NSTextAlignmentCenter;
     NameLB.text = @"会员服务";
     
-
+    
     
     self.headBt = [[UIButton alloc] initWithFrame:CGRectMake(15, (Kscale(192) - 70 )/2 ,70, 70)];
     self.headBt.layer.cornerRadius = 35;
@@ -194,17 +194,17 @@
     }else {
         QQYYHuiYuanThreeCell * cell =[tableView dequeueReusableCellWithIdentifier:@"cellThree" forIndexPath:indexPath];
         cell.selectionStyle = UITableViewCellSelectionStyleNone;
-        cell.titleLB.text = [NSString stringWithFormat:@"%@  %@ 元",self.dataArray[indexPath.row].name,self.dataArray[indexPath.row].price];
+        cell.titleLB.text = [NSString stringWithFormat:@"%@  %0.2f 元",self.dataArray[indexPath.row].name,[self.dataArray[indexPath.row].price floatValue]];
         cell.rightBt.tag = indexPath.row + 100;
         [cell.rightBt addTarget:self action:@selector(clickRightBtAction:) forControlEvents:UIControlEventTouchUpInside];
         return cell;
     }
-  
+    
     
 }
 
 - (void)clickRightBtAction:(UIButton *)button {
-  
+    
     QQYYTongYongModel * model = self.dataArray[button.tag - 100];
     NSMutableDictionary * requestDict = @{}.mutableCopy;
     if (self.selectIndexZhiFu == 0) {
@@ -212,18 +212,29 @@
     }else {
         requestDict[@"payType"] = @(3);
     }
-    requestDict[@"pkgId"] = model.ID;
+    requestDict[@"pkgId"] = model.pkgId;
     [QQYYRequestTool networkingPOST:[QQYYURLDefineTool vipReChargeURL] parameters:requestDict success:^(NSURLSessionDataTask *task, id responseObject) {
-      
+        
         if ([responseObject[@"code"] intValue]== 0) {
-
+            
+            if (self.selectIndexZhiFu == 0) {
+                //支付宝
+                self.payDic = responseObject[@"object"];
+                [self goZFB];
+                
+            }else {
+                //微信
+                self.payDic = responseObject[@"object"];
+                [self goWXpay];
+            }
+            
         }else {
             [self showAlertWithKey:[NSString stringWithFormat:@"%@",responseObject[@"code"]] message:responseObject[@"message"]];
         }
         
     } failure:^(NSURLSessionDataTask *task, NSError *error) {
         
-      
+        
         
     }];
     
@@ -232,7 +243,7 @@
 
 
 - (void)buzhidaoxieshaWithIndex:(int)index{
-
+    
     for (int i = 0; i<index; i++) {
         int f = i*100+arc4random() % 8;
         if (f % 3 == 0) {
@@ -247,11 +258,11 @@
 
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
     [tableView deselectRowAtIndexPath:indexPath animated:YES];
-
+    
     if (indexPath.section == 2) {
         self.selectIndexZhiFu = indexPath.row;
         [self.tableView reloadData];
-//        [self.tableView reloadSections:[NSIndexSet indexSetWithIndex:indexPath.section] withRowAnimation:UITableViewRowAnimationFade];
+        //        [self.tableView reloadSections:[NSIndexSet indexSetWithIndex:indexPath.section] withRowAnimation:UITableViewRowAnimationFade];
     }
 }
 
@@ -298,10 +309,10 @@
         
         dispatch_after(dispatch_time(DISPATCH_TIME_NOW, (int64_t)(1.0 * NSEC_PER_SEC)), dispatch_get_main_queue(), ^{
             
-//            zkBaoMingChengGongVC * vc =[[zkBaoMingChengGongVC alloc] init];
-//            vc.isHuoDong = YES;
-//            vc.ID = self.ID;
-//            [self.navigationController pushViewController:vc animated:YES];
+            //            zkBaoMingChengGongVC * vc =[[zkBaoMingChengGongVC alloc] init];
+            //            vc.isHuoDong = YES;
+            //            vc.ID = self.ID;
+            //            [self.navigationController pushViewController:vc animated:YES];
             
         });
         
@@ -321,10 +332,9 @@
 
 //支付宝支付结果处理
 - (void)goZFB{
-    NSString *str;
-    str = self.payDic[@"alipay"];
+
     
-    [[AlipaySDK defaultService] payOrder:self.payDic[@"alipay"] fromScheme:@"com.cz001.binfenjiari" callback:^(NSDictionary *resultDic) {
+    [[AlipaySDK defaultService] payOrder:self.payDic[@"prepayId"] fromScheme:@"com.yiqu.app" callback:^(NSDictionary *resultDic) {
         
         
         if ([resultDic[@"resultStatus"] isEqualToString:@"6001"]) {
@@ -336,10 +346,10 @@
             [SVProgressHUD showSuccessWithStatus:@"支付成功"];
             dispatch_after(dispatch_time(DISPATCH_TIME_NOW, (int64_t)(1.0 * NSEC_PER_SEC)), dispatch_get_main_queue(), ^{
                 
-//                zkBaoMingChengGongVC * vc =[[zkBaoMingChengGongVC alloc] init];
-//                vc.isHuoDong = YES;
-//                vc.ID = self.ID;
-//                [self.navigationController pushViewController:vc animated:YES];
+                //                zkBaoMingChengGongVC * vc =[[zkBaoMingChengGongVC alloc] init];
+                //                vc.isHuoDong = YES;
+                //                vc.ID = self.ID;
+                //                [self.navigationController pushViewController:vc animated:YES];
                 
             });
             
@@ -371,10 +381,10 @@
         
         [SVProgressHUD showSuccessWithStatus:@"支付成功"];
         dispatch_after(dispatch_time(DISPATCH_TIME_NOW, (int64_t)(1.0 * NSEC_PER_SEC)), dispatch_get_main_queue(), ^{
-//            zkBaoMingChengGongVC * vc =[[zkBaoMingChengGongVC alloc] init];
-//            vc.isHuoDong = YES;
-//            vc.ID = self.ID;
-//            [self.navigationController pushViewController:vc animated:YES];
+            //            zkBaoMingChengGongVC * vc =[[zkBaoMingChengGongVC alloc] init];
+            //            vc.isHuoDong = YES;
+            //            vc.ID = self.ID;
+            //            [self.navigationController pushViewController:vc animated:YES];
         });
         
     } else {

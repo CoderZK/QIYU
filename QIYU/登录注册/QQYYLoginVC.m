@@ -62,6 +62,7 @@
         //忘记秘密
         QQYYChangePasswordVC * vc =[[QQYYChangePasswordVC alloc] init];
         vc.hidesBottomBarWhenPushed = YES;
+        vc.isForGet = YES;
         [self.navigationController pushViewController:vc animated:YES];
     }else if (button.tag == 103) {
          QQYYRgisterVC* vc =[[QQYYRgisterVC alloc] init];

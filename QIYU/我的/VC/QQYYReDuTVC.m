@@ -86,17 +86,17 @@
     [leftbtn addTarget:self action:@selector(leftOrRightClickAction:) forControlEvents:UIControlEventTouchUpInside];
     leftbtn.tag = 10;
     [self.view addSubview:leftbtn];
-//    self.navigationItem.leftBarButtonItem = [[UIBarButtonItem alloc] initWithCustomView:leftbtn];
+    //    self.navigationItem.leftBarButtonItem = [[UIBarButtonItem alloc] initWithCustomView:leftbtn];
     
     UIButton * newClickUpAndInsideBT=[[UIButton alloc] initWithFrame:CGRectMake(ScreenW - 60 - 15,  sstatusHeight + 2,60, 40)];
     
-//    [newClickUpAndInsideBT setBackgroundImage:[UIImage imageNamed:@"15"] forState:UIControlStateNormal];
+    //    [newClickUpAndInsideBT setBackgroundImage:[UIImage imageNamed:@"15"] forState:UIControlStateNormal];
     [newClickUpAndInsideBT setTitle:@"历史记录" forState:UIControlStateNormal];
     newClickUpAndInsideBT.titleLabel.font = kFont(14);
     [newClickUpAndInsideBT addTarget:self action:@selector(leftOrRightClickAction:) forControlEvents:UIControlEventTouchUpInside];
     newClickUpAndInsideBT.tag = 11;
     [self.view addSubview:newClickUpAndInsideBT];
-//    self.navigationItem.rightBarButtonItem = [[UIBarButtonItem alloc] initWithCustomView:newClickUpAndInsideBT];
+    //    self.navigationItem.rightBarButtonItem = [[UIBarButtonItem alloc] initWithCustomView:newClickUpAndInsideBT];
 }
 
 - (void)initHeadV {
@@ -193,8 +193,8 @@
     if (indexPath.section == 0) {
         return 15+20+7.5;
     }else if(indexPath.section == 1) {
-    
-    return 90;
+        
+        return 90;
     }else if (indexPath.section == 2) {
         return  15 + [@"支付须知:在支付过程中遇到任何问题\n请联系官方客服: 花与蛇小姐姐" getHeigtWithFontSize:14 lineSpace:2 width:ScreenW - 30];
     }else if (indexPath.section == 3) {
@@ -244,7 +244,7 @@
         if (indexPath.row == 0) {
             cell.titleLB.text = @"支付宝支付";
         }else {
-           cell.titleLB.text = @"微信支付";
+            cell.titleLB.text = @"微信支付";
         }
         cell.leftImgV.image = [UIImage imageNamed:[NSString stringWithFormat:@"zhifu_%ld",indexPath.row]];
         cell.selectionStyle = UITableViewCellSelectionStyleNone;
@@ -266,7 +266,7 @@
         return cell;
         
     }
-
+    
     
 }
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
@@ -288,7 +288,7 @@
     
     
     NSMutableDictionary * requestDict = @{}.mutableCopy;
-    requestDict[@"pkgId"] = self.dataArray[self.selctIndex].ID;
+    requestDict[@"pkgId"] = self.dataArray[self.selctIndex].pkgId;
     if (self.selectIndexZhiFu == 0) {
         requestDict[@"payType"] = @(4);
     }else {
@@ -297,6 +297,17 @@
     [QQYYRequestTool networkingPOST:[QQYYURLDefineTool heatReChargeURL] parameters:requestDict success:^(NSURLSessionDataTask *task, id responseObject) {
         
         if ([responseObject[@"code"] intValue]== 0) {
+            
+            if (self.selectIndexZhiFu == 0) {
+                //支付宝
+                self.payDic = responseObject[@"object"];
+                [self goZFB];
+                
+            }else {
+                //微信
+                self.payDic = responseObject[@"object"];
+                [self goWXpay];
+            }
             
             
         }else {
@@ -322,17 +333,17 @@
         QQYYFlowerListTVC * vc =[[QQYYFlowerListTVC alloc] init];
         vc.hidesBottomBarWhenPushed = YES;
         [self.navigationController pushViewController:vc animated:YES];
-       
+        
     }
 }
 
 #pragma mark -微信、支付宝支付
 - (void)goWXpay {
     
-
+    
     
     PayReq * req = [[PayReq alloc]init];
-
+    
     //    /** 商家向财付通申请的商家id */
     //    @property (nonatomic, retain) NSString *partnerId;
     //    /** 预支付订单 */
@@ -345,7 +356,7 @@
     //    @property (nonatomic, retain) NSString *package;
     //    /** 商家根据微信开放平台文档对数据做的签名 */
     //    @property (nonatomic, retain) NSString *sign;
-
+    
     req.partnerId = [NSString stringWithFormat:@"%@",self.payDic[@"partnerid"]];
     req.prepayId =  [NSString stringWithFormat:@"%@",self.payDic[@"prepayid"]];
     req.nonceStr =  [NSString stringWithFormat:@"%@",self.payDic[@"noncestr"]];
@@ -353,7 +364,7 @@
     req.timeStamp = [self.payDic[@"timestamp"] intValue];
     req.package =  [NSString stringWithFormat:@"%@",self.payDic[@"package"]];
     req.sign =  [NSString stringWithFormat:@"%@",self.payDic[@"sign"]];
-
+    
     //发起支付
     [WXApi sendReq:req];
     
@@ -370,10 +381,10 @@
         
         dispatch_after(dispatch_time(DISPATCH_TIME_NOW, (int64_t)(1.0 * NSEC_PER_SEC)), dispatch_get_main_queue(), ^{
             
-//            zkBaoMingChengGongVC * vc =[[zkBaoMingChengGongVC alloc] init];
-//            vc.isHuoDong = YES;
-//            vc.ID = self.ID;
-//            [self.navigationController pushViewController:vc animated:YES];
+            //            zkBaoMingChengGongVC * vc =[[zkBaoMingChengGongVC alloc] init];
+            //            vc.isHuoDong = YES;
+            //            vc.ID = self.ID;
+            //            [self.navigationController pushViewController:vc animated:YES];
             
         });
         
@@ -393,10 +404,9 @@
 
 //支付宝支付结果处理
 - (void)goZFB{
-    NSString *str;
-    str = self.payDic[@"alipay"];
+  
     
-    [[AlipaySDK defaultService] payOrder:self.payDic[@"alipay"] fromScheme:@"com.cz001.binfenjiari" callback:^(NSDictionary *resultDic) {
+    [[AlipaySDK defaultService] payOrder:self.payDic[@"prepayId"] fromScheme:@"com.yiqu.app" callback:^(NSDictionary *resultDic) {
         
         
         if ([resultDic[@"resultStatus"] isEqualToString:@"6001"]) {
@@ -408,10 +418,10 @@
             [SVProgressHUD showSuccessWithStatus:@"支付成功"];
             dispatch_after(dispatch_time(DISPATCH_TIME_NOW, (int64_t)(1.0 * NSEC_PER_SEC)), dispatch_get_main_queue(), ^{
                 
-//                zkBaoMingChengGongVC * vc =[[zkBaoMingChengGongVC alloc] init];
-//                vc.isHuoDong = YES;
-//                vc.ID = self.ID;
-//                [self.navigationController pushViewController:vc animated:YES];
+                //                zkBaoMingChengGongVC * vc =[[zkBaoMingChengGongVC alloc] init];
+                //                vc.isHuoDong = YES;
+                //                vc.ID = self.ID;
+                //                [self.navigationController pushViewController:vc animated:YES];
                 
             });
             
@@ -443,10 +453,10 @@
         
         [SVProgressHUD showSuccessWithStatus:@"支付成功"];
         dispatch_after(dispatch_time(DISPATCH_TIME_NOW, (int64_t)(1.0 * NSEC_PER_SEC)), dispatch_get_main_queue(), ^{
-//            zkBaoMingChengGongVC * vc =[[zkBaoMingChengGongVC alloc] init];
-//            vc.isHuoDong = YES;
-//            vc.ID = self.ID;
-//            [self.navigationController pushViewController:vc animated:YES];
+            //            zkBaoMingChengGongVC * vc =[[zkBaoMingChengGongVC alloc] init];
+            //            vc.isHuoDong = YES;
+            //            vc.ID = self.ID;
+            //            [self.navigationController pushViewController:vc animated:YES];
         });
         
     } else {
@@ -460,13 +470,13 @@
 
 
 /*
-#pragma mark - Navigation
-
-// In a storyboard-based application, you will often want to do a little preparation before navigation
-- (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
-    // Get the new view controller using [segue destinationViewController].
-    // Pass the selected object to the new view controller.
-}
-*/
+ #pragma mark - Navigation
+ 
+ // In a storyboard-based application, you will often want to do a little preparation before navigation
+ - (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
+ // Get the new view controller using [segue destinationViewController].
+ // Pass the selected object to the new view controller.
+ }
+ */
 
 @end

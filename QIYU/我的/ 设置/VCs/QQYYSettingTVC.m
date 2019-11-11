@@ -165,6 +165,7 @@
         }else if (indexPath.row == 3) {
             QQYYChangePasswordVC * vc =[[QQYYChangePasswordVC alloc] init];
             vc.hidesBottomBarWhenPushed = YES;
+            vc.phoneStr = self.phoneStr;
             [self.navigationController pushViewController:vc animated:YES];
             
         }

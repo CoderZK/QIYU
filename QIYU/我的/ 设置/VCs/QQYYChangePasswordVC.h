@@ -11,7 +11,8 @@
 NS_ASSUME_NONNULL_BEGIN
 
 @interface QQYYChangePasswordVC : BaseViewController
-
+@property(nonatomic,assign)BOOL isForGet;
+@property(nonatomic,strong)NSString *phoneStr;
 @end
 
 NS_ASSUME_NONNULL_END

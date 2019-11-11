@@ -12,9 +12,9 @@ NS_ASSUME_NONNULL_BEGIN
 
 
 ////测试本地
-#define URLOne @"http://47.100.198.68"
+#define URLOne @"http://www.flowersnake.com"
 ////图片地址
-#define ImgURL @"http://47.100.198.68/upload"
+#define ImgURL @"http://www.flowersnake.com/upload"
 
 ////测试本地映射
 //#define URLOne @"http://efi7fb.natappfree.cc"

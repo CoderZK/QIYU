@@ -26,7 +26,16 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-    self.navigationItem.title = @"修改密码";
+    
+    if (self.isForGet) {
+          self.phoneTF.userInteractionEnabled = YES;
+          self.navigationItem.title = @"忘记密码";
+      }else {
+          self.navigationItem.title = @"修改密码";
+          self.phoneTF.userInteractionEnabled = NO;
+          self.phoneTF.text = self.phoneStr;
+      }
+    
     self.view1.layer.cornerRadius = self.view2.layer.cornerRadius = self.view3.layer.cornerRadius = 25;
     self.confrimBt.layer.cornerRadius=22.5;
     self.view3.clipsToBounds =self.view2.clipsToBounds = self.view1.clipsToBounds = self.confrimBt.clipsToBounds = YES;
@@ -48,7 +57,7 @@
             [SVProgressHUD showErrorWithStatus:@"请输入正确手机号"];
             return;
         }
-        NSMutableDictionary * requestDict = @{@"phone":self.phoneTF.text}.mutableCopy;
+        NSMutableDictionary * requestDict =  @{@"phone":self.phoneTF.text,@"type":@"3"}.mutableCopy;
         requestDict[@"deviceId"] = [NSString stringWithFormat:@"%@",[[UIDevice currentDevice] identifierForVendor]];
         [QQYYRequestTool networkingPOST:[QQYYURLDefineTool sendValidCodeURL] parameters:requestDict success:^(NSURLSessionDataTask *task, id responseObject) {
             if ([responseObject[@"code"] intValue]== 0) {
@@ -81,6 +90,7 @@
         
         
         NSMutableDictionary * requestDict = @{}.mutableCopy;
+        requestDict[@"phone"] = self.phoneTF.text;
         requestDict[@"code"] = self.codeTF.text;
         requestDict[@"newPwd"]= self.passWordTF.text;
         [QQYYRequestTool networkingPOST:[QQYYURLDefineTool updatePwdURL] parameters:requestDict success:^(NSURLSessionDataTask *task, id responseObject) {

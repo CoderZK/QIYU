@@ -127,7 +127,6 @@
             }else {
                 [QQYYSignleToolNew shareTool].isppp = NO;
             }
-            
             //测试用
             [QQYYSignleToolNew shareTool].isppp = NO;
               [QQYYSignleToolNew shareTool].downUrl = [NSString stringWithFormat:@"%@",responseObject[@"object"][@"downUrl"]];

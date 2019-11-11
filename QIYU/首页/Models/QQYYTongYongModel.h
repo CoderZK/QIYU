@@ -12,6 +12,7 @@ NS_ASSUME_NONNULL_BEGIN
 
 @interface QQYYTongYongModel : NSObject
 @property(nonatomic,strong)NSString *ID;
+@property(nonatomic,strong)NSString *pkgId;
 @property(nonatomic,strong)NSString *pic;
 @property(nonatomic,strong)NSString *icon;
 @property(nonatomic,strong)NSString *name;
