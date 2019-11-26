@@ -124,7 +124,7 @@
     
     AAAAModel * model1 = self.dataArray[indexPath.row * 2];
     AAAAModel * model2 = nil;
-    if (self.dataArray.count % 2 == 0) {
+    if (self.dataArray.count >=  (indexPath.row * 2 + 1)) {
         model2 = self.dataArray[indexPath.row * 2 + 1];
     }else {
     }

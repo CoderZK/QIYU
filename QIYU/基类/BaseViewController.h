@@ -35,7 +35,7 @@
 
 - (BOOL)isCanUsePhotos;
 - (BOOL)isCanUsePicture;
-
+//- (void)updateNewAppWith:(NSString *)strOfAppid;
 
 
 @end

@@ -9,6 +9,7 @@
 #import "QQYYMineFourCell.h"
 
 @interface QQYYMineFourCell()
+@property (weak, nonatomic) IBOutlet UILabel *aidouLB;
 
 
 @end
@@ -17,6 +18,11 @@
 - (void)awakeFromNib {
     [super awakeFromNib];
     // Initialization code
+    
+    if (isDDDDDDDD) {
+        self.aidouLB.hidden = self.flowerLB.hidden = YES;
+    }
+    
 }
 
 - (void)setSelected:(BOOL)selected animated:(BOOL)animated {
@@ -25,6 +31,10 @@
     // Configure the view for the selected state
 }
 - (IBAction)clickAction:(UIButton *)sender {
+    
+    if (isDDDDDDDD && sender.tag == 103) {
+          return;
+      }
     
     if (self.delegate != nil && [self.delegate respondsToSelector:@selector(didClickView:withIndex:)]){
         [self.delegate didClickView:self withIndex:sender.tag - 100];

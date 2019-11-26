@@ -357,11 +357,11 @@
     //    /** 商家根据微信开放平台文档对数据做的签名 */
     //    @property (nonatomic, retain) NSString *sign;
     
-    req.partnerId = [NSString stringWithFormat:@"%@",self.payDic[@"partnerid"]];
-    req.prepayId =  [NSString stringWithFormat:@"%@",self.payDic[@"prepayid"]];
-    req.nonceStr =  [NSString stringWithFormat:@"%@",self.payDic[@"noncestr"]];
+    req.partnerId = [NSString stringWithFormat:@"%@",self.payDic[@"partnerId"]];
+    req.prepayId =  [NSString stringWithFormat:@"%@",self.payDic[@"prepayId"]];
+    req.nonceStr =  [NSString stringWithFormat:@"%@",self.payDic[@"nonceStr"]];
     //注意此处是int 类型
-    req.timeStamp = [self.payDic[@"timestamp"] intValue];
+    req.timeStamp = [self.payDic[@"timeStamp"] intValue];
     req.package =  [NSString stringWithFormat:@"%@",self.payDic[@"package"]];
     req.sign =  [NSString stringWithFormat:@"%@",self.payDic[@"sign"]];
     
@@ -404,7 +404,7 @@
 
 //支付宝支付结果处理
 - (void)goZFB{
-  
+    
     
     [[AlipaySDK defaultService] payOrder:self.payDic[@"prepayId"] fromScheme:@"com.yiqu.app" callback:^(NSDictionary *resultDic) {
         

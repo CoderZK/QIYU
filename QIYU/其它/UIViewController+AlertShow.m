@@ -47,11 +47,13 @@
                 BaseNavigationController * navc =[[BaseNavigationController alloc] initWithRootViewController:vc1];;
                 [vc presentViewController:navc animated:YES completion:nil];
             }else if (n == 10007) {
-                
+            
+//                if (isDDDDDDDD) {
+//                    return ;
+//                }
                 TabBarController * barVC = (TabBarController *)[UIApplication sharedApplication].keyWindow.rootViewController;
                 BaseNavigationController * navc = (BaseNavigationController *)barVC.selectedViewController;
                 QQYYReDuTVC * vc1 =[[QQYYReDuTVC alloc] init];
-              
                 [navc pushViewController:vc1 animated:YES];
             }
         }];

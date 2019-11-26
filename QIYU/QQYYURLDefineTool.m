@@ -347,7 +347,15 @@
 /** 银行卡列表*/
 +(NSString *)getMyBankCardListURL{
      return [NSString stringWithFormat:@"%@%@",URLOne,@"/api/userInfo/getMyBankCardList"];
+
 }
+
+    /** 领取奖励*/
++(NSString *)getMyTaskRewardURL{
+     return [NSString stringWithFormat:@"%@%@",URLOne,@"/api/userInfo/getMyTaskReward"];
+    
+}
+
 /** 删除银行卡*/
 +(NSString *)deleteMyBankCardURL{
     return [NSString stringWithFormat:@"%@%@",URLOne,@"/api/userInfo/deleteMyBankCard"];
@@ -392,7 +400,12 @@
     return [NSString stringWithFormat:@"%@%@",URLOne,@"/common/getIosConfig"];
 }
     
-
+/** 支付*/
++(NSString *)cccOrderURL{
+    
+    return [NSString stringWithFormat:@"%@%@",URLOne,@"/api/order/iosTestPay"];
+    
+}
 
 
 //图片地址

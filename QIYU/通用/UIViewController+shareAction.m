@@ -31,8 +31,12 @@ static const void *urlKey = &urlKey;
                     if (model.content.length > 20) {
                         title = [model.content substringFromIndex:20];
                     }
-                    
-                    [self shareWebPageToPlatformType:platformType withTitle:title andContent:model.content thumImage:thumbURL];
+                    if (thumbURL.length == 0) {
+                         [self shareWebPageToPlatformType:platformType withTitle:title andContent:model.content thumImage:[UIImage imageNamed:@"logo"]];
+                    }else {
+                        [self shareWebPageToPlatformType:platformType withTitle:title andContent:model.content thumImage:thumbURL];
+                    }
+                   
                     
                 }];
                 
@@ -48,7 +52,7 @@ static const void *urlKey = &urlKey;
         [UMSocialUIManager setPreDefinePlatforms:platforms];
         [UMSocialUIManager showShareMenuViewInWindowWithPlatformSelectionBlock:^(UMSocialPlatformType platformType, NSDictionary *userInfo) {
             // 根据获取的platformType确定所选平台进行下一步操作
-            self.url = @"http://www.baidu.com";
+            self.url = [QQYYSignleToolNew shareTool].downUrl;
             [self shareWebPageToPlatformType:platformType withTitle:@"花与蛇" andContent:[NSString stringWithFormat:@"注册邀请码:%@,欢迎下载注册使用",url] thumImage:[UIImage imageNamed:@"logo"]];
             
         }];

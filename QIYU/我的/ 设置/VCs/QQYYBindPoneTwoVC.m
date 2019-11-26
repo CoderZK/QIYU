@@ -56,7 +56,7 @@
 - (void)getCode {
     
   
-    NSMutableDictionary * requestDict = @{@"phone":self.phoneStr}.mutableCopy;
+    NSMutableDictionary * requestDict = @{@"phone":self.phoneStr,@"type":@"0"}.mutableCopy;
     requestDict[@"deviceId"] = [NSString stringWithFormat:@"%@",[[UIDevice currentDevice] identifierForVendor]];
     [QQYYRequestTool networkingPOST:[QQYYURLDefineTool sendValidCodeURL] parameters:requestDict success:^(NSURLSessionDataTask *task, id responseObject) {
         if ([responseObject[@"code"] intValue]== 0) {

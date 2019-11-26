@@ -90,12 +90,45 @@
     
     QQYYTaskTCell * cell =[tableView dequeueReusableCellWithIdentifier:@"cell" forIndexPath:indexPath];
     cell.model = self.dataArray[indexPath.row];
+    [cell.rightBt addTarget:self action:@selector(action:) forControlEvents:UIControlEventTouchUpInside];
+    cell.rightBt.tag = indexPath.row;
     return cell;
     
 }
 
 - (BOOL)tableView:(UITableView *)tableView canEditRowAtIndexPath:(NSIndexPath *)indexPath {
     return YES;
+    
+}
+
+- (void)action:(UIButton *)button  {
+    
+      QQYYTongYongModel * model = self.dataArray[button.tag];
+    
+    if (model.status == 1) {
+        [SVProgressHUD showErrorWithStatus:@"任务还未完成不能领取"];
+        return;
+    }
+    if (model.status == 3) {
+        return;
+    }
+      [QQYYRequestTool networkingPOST:[QQYYURLDefineTool getMyTaskRewardURL] parameters:model.userTaskId success:^(NSURLSessionDataTask *task, id responseObject) {
+
+          if ([responseObject[@"code"] intValue]== 0) {
+              model.status = 3;
+              [SVProgressHUD showSuccessWithStatus:@"领取任务成功"];
+              [self.tableView reloadData];
+          }else {
+              [self showAlertWithKey:[NSString stringWithFormat:@"%@",responseObject[@"code"]] message:responseObject[@"message"]];
+          }
+          
+      } failure:^(NSURLSessionDataTask *task, NSError *error) {
+          
+          [self.tableView.mj_header endRefreshing];
+          [self.tableView.mj_footer endRefreshing];
+          
+      }];
+    
     
 }
 

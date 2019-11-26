@@ -138,7 +138,7 @@
 
 - (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath {
     
-    if ((indexPath.section == 1 && indexPath.row == 0 && isDDDDDDDD) || (indexPath.section == 3 && indexPath.row == 2 && isDDDDDDDD) ||(indexPath.section == 3 && indexPath.row == 3 && isDDDDDDDD)||(indexPath.section == 3 && indexPath.row == 4 && isDDDDDDDD)){
+    if ((indexPath.section == 1 && indexPath.row == 0 && isDDDDDDDD) || (indexPath.section == 3 && indexPath.row == 2 && isDDDDDDDD) ||(indexPath.section == 3 && indexPath.row == 3 && isDDDDDDDD)||(indexPath.section == 3 && indexPath.row == 4 && isDDDDDDDD)|| (indexPath.section == 3 && indexPath.row == 0 && isDDDDDDDD)){
         return 0;
     }
     

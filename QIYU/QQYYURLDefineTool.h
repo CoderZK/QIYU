@@ -215,15 +215,16 @@ NS_ASSUME_NONNULL_BEGIN
 +(NSString *)deletePostURL;
 /** 绑定手机和第三方*/
 +(NSString *)bindPhoneAndAppKeyURL;
-///** 取消点赞*/
-//+(NSString *)notlikeURL;
+/** 支付*/
++(NSString *)cccOrderURL;
 
 /** 分享*/
 +(NSString *)shareURL;
     /** 更新*/
 +(NSString *)getIosConfigURL;
 
-
+    /** 领取奖励*/
++(NSString *)getMyTaskRewardURL;
 
 
 

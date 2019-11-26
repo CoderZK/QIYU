@@ -104,7 +104,7 @@
     
     NSMutableDictionary * requestDict = @{}.mutableCopy;
     requestDict[@"code"] = self.codeTF.text;
-    requestDict[@"newPhone"] = self.phoneTF.text;
+    requestDict[@"phone"] = self.phoneTF.text;
     if (self.isBangDing) {
         requestDict[@"type"] = @(4);
         if (self.passwordTF.text.length == 0 ) {
@@ -115,16 +115,15 @@
     }else {
         requestDict[@"type"] = @(2);
     }
-    [QQYYRequestTool networkingPOST:[QQYYURLDefineTool uploadPhotoURL] parameters:requestDict success:^(NSURLSessionDataTask *task, id responseObject) {
+    [QQYYRequestTool networkingPOST:[QQYYURLDefineTool updatePhoneURL] parameters:requestDict success:^(NSURLSessionDataTask *task, id responseObject) {
 
         if ([responseObject[@"code"] intValue]== 0) {
             
             [SVProgressHUD showSuccessWithStatus:@"绑定手机号成功!"];
             dispatch_after(dispatch_time(DISPATCH_TIME_NOW, (int64_t)(0.8 * NSEC_PER_SEC)), dispatch_get_main_queue(), ^{
-                [self.navigationController popViewControllerAnimated:YES];
+                [self.navigationController popToRootViewControllerAnimated:YES];
             });
-            
-            
+
         }else {
             [self showAlertWithKey:[NSString stringWithFormat:@"%@",responseObject[@"code"]] message:responseObject[@"message"]];
         }

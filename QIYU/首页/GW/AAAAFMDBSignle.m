@@ -22,8 +22,8 @@
 - (FMDatabase *)fd {
     
     NSString *documentPath = [NSSearchPathForDirectoriesInDomains(NSDocumentDirectory, NSUserDomainMask, YES) firstObject];
-    NSString *filePath = [documentPath stringByAppendingPathComponent:@"AAAA.db"];
-    NSString *filePathTwo = [[NSBundle mainBundle] pathForResource:@"AAAA" ofType:@"db"];
+    NSString *filePath = [documentPath stringByAppendingPathComponent:@"BBBB.db"];
+    NSString *filePathTwo = [[NSBundle mainBundle] pathForResource:@"BBBB" ofType:@"db"];
     NSFileManager * fileManger = [NSFileManager defaultManager];
     NSError * error;
     

@@ -244,6 +244,11 @@
             cell.typeLB.text = @"送爱豆";
             [cell.guanZhuBt  addTarget:self action:@selector(yongBaoAction) forControlEvents:UIControlEventTouchUpInside];
             cell.typeLB.textAlignment = NSTextAlignmentCenter;
+            
+            if (isDDDDDDDD) {
+                cell.xinImgV.hidden = cell.typeLB.hidden = cell.guanZhuBt.hidden = YES;
+            }
+            
             cell.userModel = self.dataModel;
             cell.selectionStyle = UITableViewCellSelectionStyleNone;
             return cell;
@@ -652,7 +657,7 @@
 
 - (void)yongBaoAction {
     if ([[QQYYSignleToolNew shareTool].session_uid isEqualToString:self.dataModel.userId]) {
-        [SVProgressHUD showErrorWithStatus:@"自己不能给自己送花"];
+        [SVProgressHUD showErrorWithStatus:@"自己不能给自己送爱豆"];
         return;
     }
     [self.showView showWithIndexPath:[NSIndexPath indexPathForRow:0 inSection:0]];

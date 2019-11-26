@@ -39,6 +39,15 @@ static QQYYSignleToolNew * tool = nil;
     return [[NSUserDefaults standardUserDefaults] boolForKey:@"isppp"];
 }
 
+- (void)setVersion:(NSString *)version {
+       [[NSUserDefaults standardUserDefaults] setObject:version forKey:@"version"];
+       [[NSUserDefaults standardUserDefaults] synchronize];
+}
+
+- (NSString *)version {
+    return [[NSUserDefaults standardUserDefaults] objectForKey:@"version"];
+}
+
 -(void)setSession_token:(NSString *)session_token
 {
     

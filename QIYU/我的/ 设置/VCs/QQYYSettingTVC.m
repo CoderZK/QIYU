@@ -196,7 +196,8 @@
         }else if (indexPath.row == 5) {
             //版本检测
             //版本检测
-            [self updateNewAppWith:@""];
+            [self updateNewAppWith:appStoreID];
+            
         }
     }else if (indexPath.section == 2) {
         
@@ -211,52 +212,60 @@
 }
 
 - (void)updateNewAppWith:(NSString *)strOfAppid {
+    
+    
     [SVProgressHUD show];
     NSURL *url = [NSURL URLWithString:[NSString stringWithFormat:@"http://itunes.apple.com/lookup?id=%@",strOfAppid]];
     
     NSMutableURLRequest *request = [[NSMutableURLRequest alloc]initWithURL:url];
     [request setHTTPMethod:@"POST"];
-    
+    Weak(weakSelf);
     [[[NSURLSession sharedSession] dataTaskWithRequest:request
                                      completionHandler:^(NSData * _Nullable data, NSURLResponse * _Nullable response, NSError * _Nullable error) {
-                                         [SVProgressHUD dismiss];
-                                         if (data)
-                                         {
-                                             NSDictionary *dic = [NSJSONSerialization JSONObjectWithData:data options:NSJSONReadingMutableContainers error:nil];
-                                             
-                                             if (dic)
-                                             {
-                                                 NSArray * arr = [dic objectForKey:@"results"];
-                                                 if (arr.count>0)
-                                                 {
-                                                     NSDictionary * versionDict = arr.firstObject;
-                                                     
-                                                     NSString * version = [[versionDict objectForKey:@"version"] stringByReplacingOccurrencesOfString:@"." withString:@""];
-                                                     NSString * currentVersion = [[[NSBundle mainBundle].infoDictionary objectForKey:@"CFBundleShortVersionString"] stringByReplacingOccurrencesOfString:@"." withString:@""];
-                                                     
-                                                     if ([version integerValue]>[currentVersion integerValue])
-                                                     {
-                                                         
-                                                         
-                                                         UIAlertController * alert = [UIAlertController alertControllerWithTitle:@"发现新版本" message:nil preferredStyle:UIAlertControllerStyleAlert];
-                                                         
-                                                         [alert addAction:[UIAlertAction actionWithTitle:@"知道了" style:UIAlertActionStyleCancel handler:nil]];
-                                                         [alert addAction:[UIAlertAction actionWithTitle:@"去更新" style:UIAlertActionStyleDefault handler:^(UIAlertAction * _Nonnull action) {
-                                                             
-                                                             [[UIApplication sharedApplication] openURL:[NSURL URLWithString:[NSString stringWithFormat:@"https://itunes.apple.com/cn/app/id%@?mt=8",strOfAppid]]];
-                                                             exit(0);
-                                                             
-                                                         }]];
-                                                         [self presentViewController:alert animated:YES completion:nil];
-                                                     }else {
-                                                         [SVProgressHUD showSuccessWithStatus:@"目前安装的已是最新版本"];
-                                                     }
-                                                     
-                                                     
-                                                 }
-                                             }
-                                         }
-                                     }] resume];
+        [SVProgressHUD dismiss];
+        if (data)
+        {
+            NSDictionary *dic = [NSJSONSerialization JSONObjectWithData:data options:NSJSONReadingMutableContainers error:nil];
+            
+            if (dic)
+            {
+                NSArray * arr = [dic objectForKey:@"results"];
+                if (arr.count>0)
+                {
+                    NSDictionary * versionDict = arr.firstObject;
+                    
+                    NSString * version = [[versionDict objectForKey:@"version"] stringByReplacingOccurrencesOfString:@"." withString:@""];
+                    NSString * currentVersion = [[[NSBundle mainBundle].infoDictionary objectForKey:@"CFBundleShortVersionString"] stringByReplacingOccurrencesOfString:@"." withString:@""];
+                    
+                    if ([version integerValue]>[currentVersion integerValue])
+                    {
+                        
+                        
+                        dispatch_async(dispatch_get_main_queue(), ^{
+                            
+                            UIAlertController * alert = [UIAlertController alertControllerWithTitle:@"发现新版本" message:nil preferredStyle:UIAlertControllerStyleAlert];
+                            [alert addAction:[UIAlertAction actionWithTitle:@"知道了" style:UIAlertActionStyleCancel handler:nil]];
+                            [alert addAction:[UIAlertAction actionWithTitle:@"去更新" style:UIAlertActionStyleDefault handler:^(UIAlertAction * _Nonnull action) {
+                                
+                                [[UIApplication sharedApplication] openURL:[NSURL URLWithString:[NSString stringWithFormat:@"https://itunes.apple.com/cn/app/id%@?mt=8",strOfAppid]]];
+                                exit(0);
+                                
+                            }]];
+                            [self.navigationController presentViewController:alert animated:YES completion:nil];
+                            
+                            
+                        });
+                        
+
+                    }else {
+                        [SVProgressHUD showSuccessWithStatus:@"目前安装的已是最新版本"];
+                    }
+                    
+                    
+                }
+            }
+        }
+    }] resume];
     
     
 }

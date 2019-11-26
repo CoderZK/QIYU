@@ -25,6 +25,7 @@
 @property(nonatomic,strong)NSString * deviceToken;
 @property(nonatomic,strong)QQYYUserModel *userModel;
 @property(nonatomic,strong)NSString * downUrl;
+@property(nonatomic,strong)NSString *version;
 
 -(void)uploadDeviceToken;
 @end

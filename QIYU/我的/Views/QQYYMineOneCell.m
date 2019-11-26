@@ -12,6 +12,7 @@
 @property (weak, nonatomic) IBOutlet UILabel *nameLB;
 @property (weak, nonatomic) IBOutlet UILabel *idLb;
 @property (weak, nonatomic) IBOutlet UIImageView *sexImgV;
+@property (weak, nonatomic) IBOutlet UILabel *aidouLB;
 
 @end
 
@@ -24,6 +25,9 @@
     self.headBt.clipsToBounds = YES;
     self.nameLB.textColor = WhiteColor;
     self.nameLB.font = [UIFont systemFontOfSize:14 weight:0.2];
+    if (isDDDDDDDD) {
+        self.flowerLB.hidden = self.aidouLB.hidden = YES;
+    }
     
     
 }
@@ -72,7 +76,9 @@
 }
 
 - (IBAction)clickAction:(UIButton *)sender {
-    
+    if (isDDDDDDDD && sender.tag == 103) {
+        return;
+    }
     if (self.delegate != nil && [self.delegate respondsToSelector:@selector(didClickHeadView:withIndex:)]){
         [self.delegate didClickHeadView:self withIndex:sender.tag - 100];
     }

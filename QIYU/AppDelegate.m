@@ -18,12 +18,12 @@
 #import <MediaPlayer/MediaPlayer.h>
 #import "QQYYMovieVC.h"
 
-#define UMKey @"5d43d8d13fc195f5a2000497"
+#define UMKey @"5dd20ecd570df37fe800001c"
 //友盟安全密钥//r6xbw5gy0zenei6x56xtm9wmkrrz653y
 #define SinaAppKey @"2593734403"
 #define SinaAppSecret @"f021858321817f3b0e3bdb570fb87401"
 #define WXAppID @"wx0e4284e5ce1faacf"
-#define WXAppSecret @"0a977030a1b23d21ce2478015aefb202"
+#define WXAppSecret @"e3877f21f967f86c909c654d0167ac24"
 #define QQAppID @"101755968"
 #define QQAppKey @"c735a72f6f30331957a435c6ad80980a"
 
@@ -91,6 +91,8 @@
 
 //    [QQYYSignleToolNew shareTool].isppp = YES;
     
+
+    
     return YES;
 }
 
@@ -100,6 +102,9 @@
     self.yinLiang = voiceSize;
     
 }
+
+
+
 
 
 //收到环信消息时发送通知去刷新通知和校信的信息
@@ -226,6 +231,13 @@
 //在用户接受推送通知后系统会调用
 -(void)application:(UIApplication *)application didRegisterForRemoteNotificationsWithDeviceToken:(NSData *)deviceToken
 {
+    
+            [UMessage registerDeviceToken:deviceToken];
+            //2.获取到deviceToken
+            NSString *token = [[[deviceToken description] stringByTrimmingCharactersInSet:[NSCharacterSet characterSetWithCharactersInString:@"<>"]] stringByReplacingOccurrencesOfString:@" " withString:@""];
+            //将deviceToken给后台
+            NSLog(@"send_token:%@",token);
+    
 //    self.pushToken = deviceToken;
 //    if (![LxmTool ShareTool].isClosePush)
 //    {

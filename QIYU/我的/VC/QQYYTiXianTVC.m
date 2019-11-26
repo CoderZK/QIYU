@@ -79,7 +79,7 @@
     }else {
         QQYYTiXianTwoTVC * vc =[[QQYYTiXianTwoTVC alloc] init];
         vc.hidesBottomBarWhenPushed = YES;
-        vc.flowerNumber = [NSString stringWithFormat:@"%ld",[self.flowerNumber integerValue]/100];
+        vc.flowerNumber = [NSString stringWithFormat:@"%f",[self.flowerNumber integerValue]/10.0];
         [self.navigationController pushViewController:vc animated:YES];
     }
     
@@ -144,7 +144,7 @@
     [view1 addSubview:leftLB1];
     
     self.rightLB = [[UILabel alloc] initWithFrame:CGRectMake(10, 15, view1.width - 20, 20)];
-    self.rightLB.text = [NSString stringWithFormat:@"%ld个",[self.flowerNumber integerValue]/100 * 100];
+    self.rightLB.text = [NSString stringWithFormat:@"%@个",self.flowerNumber];
     self.rightLB.font = kFont(15);
     self.rightLB.textColor = [UIColor whiteColor];
     self.rightLB.textAlignment = NSTextAlignmentCenter;

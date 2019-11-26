@@ -48,9 +48,10 @@
 //环信登录的统一密码
 #define huanXinMiMa @"hhy123456!@#$%"
 
-
-
-
+//逅花园
+//#define appStoreID @"1481795553" 
+//花与蛇
+#define appStoreID @"1475866608"
 
 #define sxeArr @[@"",@"男",@"女"]
 

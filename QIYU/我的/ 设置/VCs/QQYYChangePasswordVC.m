@@ -58,6 +58,11 @@
             return;
         }
         NSMutableDictionary * requestDict =  @{@"phone":self.phoneTF.text,@"type":@"3"}.mutableCopy;
+//        if (self.isForGet) {
+//            requestDict =  @{@"phone":self.phoneTF.text,@"type":@"3"}.mutableCopy;
+//        }else {
+//            requestDict =  @{@"phone":self.phoneTF.text,@"type":@"3"}.mutableCopy;
+//        }
         requestDict[@"deviceId"] = [NSString stringWithFormat:@"%@",[[UIDevice currentDevice] identifierForVendor]];
         [QQYYRequestTool networkingPOST:[QQYYURLDefineTool sendValidCodeURL] parameters:requestDict success:^(NSURLSessionDataTask *task, id responseObject) {
             if ([responseObject[@"code"] intValue]== 0) {
@@ -95,8 +100,7 @@
         requestDict[@"newPwd"]= self.passWordTF.text;
         [QQYYRequestTool networkingPOST:[QQYYURLDefineTool updatePwdURL] parameters:requestDict success:^(NSURLSessionDataTask *task, id responseObject) {
             if ([responseObject[@"code"] intValue]== 0) {
-                
-                [SVProgressHUD showErrorWithStatus:@"修改密码成功"];
+                [SVProgressHUD showSuccessWithStatus:@"修改密码成功"];
                 dispatch_after(dispatch_time(DISPATCH_TIME_NOW, (int64_t)(0.8 * NSEC_PER_SEC)), dispatch_get_main_queue(), ^{
                     [self.navigationController popViewControllerAnimated:YES];
                 });

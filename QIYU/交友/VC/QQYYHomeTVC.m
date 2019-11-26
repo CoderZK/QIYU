@@ -93,9 +93,9 @@
     [self.tableView registerClass:[QQYYMakeFriendsCell class] forCellReuseIdentifier:@"cell"];
     self.tableView.separatorStyle = UITableViewCellSeparatorStyleNone;
     
-//    self.tableView.estimatedSectionHeaderHeight = 0;
-//
-//    self.tableView.estimatedSectionFooterHeight = 0;
+    //    self.tableView.estimatedSectionHeaderHeight = 0;
+    //
+    //    self.tableView.estimatedSectionFooterHeight = 0;
     
     
     self.tabBarController.delegate = self;
@@ -117,6 +117,8 @@
     [self acquireDataFromServeDaLei];
     [self getConfig];
     
+    [self updateNewAppWith:appStoreID];
+    
 }
 
 - (void)getConfig {
@@ -128,8 +130,7 @@
                 [QQYYSignleToolNew shareTool].isppp = NO;
             }
             //测试用
-            [QQYYSignleToolNew shareTool].isppp = NO;
-              [QQYYSignleToolNew shareTool].downUrl = [NSString stringWithFormat:@"%@",responseObject[@"object"][@"downUrl"]];
+            [QQYYSignleToolNew shareTool].downUrl = [NSString stringWithFormat:@"%@",responseObject[@"object"][@"downUrl"]];
             [self setHeadView];
         }
         
@@ -139,7 +140,69 @@
     
 }
 
+- (void)updateNewAppWith:(NSString *)strOfAppid {
+    [SVProgressHUD show];
+    NSURL *url = [NSURL URLWithString:[NSString stringWithFormat:@"http://itunes.apple.com/lookup?id=%@",strOfAppid]];
     
+    NSMutableURLRequest *request = [[NSMutableURLRequest alloc]initWithURL:url];
+    [request setHTTPMethod:@"POST"];
+    
+    [[[NSURLSession sharedSession] dataTaskWithRequest:request
+                                     completionHandler:^(NSData * _Nullable data, NSURLResponse * _Nullable response, NSError * _Nullable error) {
+        [SVProgressHUD dismiss];
+        if (data)
+        {
+            NSDictionary *dic = [NSJSONSerialization JSONObjectWithData:data options:NSJSONReadingMutableContainers error:nil];
+            
+            if (dic)
+            {
+                NSArray * arr = [dic objectForKey:@"results"];
+                if (arr.count>0)
+                {
+                    NSDictionary * versionDict = arr.firstObject;
+                    
+                    NSString * version = [[versionDict objectForKey:@"version"] stringByReplacingOccurrencesOfString:@"." withString:@""];
+                    
+                    if ([[QQYYSignleToolNew shareTool].version intValue] >= [version intValue]) {
+                        return ;
+                    }
+                    
+                    NSString * currentVersion = [[[NSBundle mainBundle].infoDictionary objectForKey:@"CFBundleShortVersionString"] stringByReplacingOccurrencesOfString:@"." withString:@""];
+                    
+                    if ([version integerValue]>[currentVersion integerValue])
+                    {
+                        dispatch_async(dispatch_get_main_queue(), ^{
+                            
+                            UIAlertController * alert = [UIAlertController alertControllerWithTitle:@"发现新版本" message:nil preferredStyle:UIAlertControllerStyleAlert];
+                            
+                            [alert addAction:[UIAlertAction actionWithTitle:@"知道了" style:UIAlertActionStyleCancel handler:^(UIAlertAction * _Nonnull action) {
+                                
+                                [QQYYSignleToolNew shareTool].version = version;
+                                
+                            }]];
+                            [alert addAction:[UIAlertAction actionWithTitle:@"去更新" style:UIAlertActionStyleDefault handler:^(UIAlertAction * _Nonnull action) {
+                                
+                                [[UIApplication sharedApplication] openURL:[NSURL URLWithString:[NSString stringWithFormat:@"https://itunes.apple.com/cn/app/id%@?mt=8",strOfAppid]]];
+                                exit(0);
+                                
+                            }]];
+                            [self presentViewController:alert animated:YES completion:nil];
+                        });
+                        
+                    }else {
+                        [SVProgressHUD showSuccessWithStatus:@"目前安装的已是最新版本"];
+                    }
+                    
+                    
+                }
+            }
+        }
+    }] resume];
+    
+    
+}
+
+
 - (void)acquireDataFromServe {
     
     NSMutableDictionary * requestDict = @{}.mutableCopy;
@@ -269,7 +332,7 @@
         __weak typeof(self) weakSelf = self;
         QQYYHomeThreeCell * cell =[tableView dequeueReusableCellWithIdentifier:@"cellThree" forIndexPath:indexPath];
         cell.selectionStyle = UITableViewCellSelectionStyleNone;
-
+        
         cell.selectIndex = self.type;
         cell.dataArray = self.titleArr;
         cell.clickIndexBlock = ^(NSInteger index) {
@@ -309,18 +372,18 @@
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
     [tableView deselectRowAtIndexPath:indexPath animated:YES];
     
-//    if (indexPath.section == 2) {
-//        QQYYDetailTVC * vc =[[QQYYDetailTVC alloc] init];
-//        vc.ID = self.dataArray[indexPath.row].postId;
-//        Weak(weakSelf);
-//        vc.sendZanYesOrNoBlock = ^(BOOL isZan, NSInteger number) {
-//            weakSelf.dataArray[indexPath.row].currentUserLike = isZan;
-//            weakSelf.dataArray[indexPath.row].likeNum = number;
-//            [weakSelf.tableView reloadData];
-//        };
-//        vc.hidesBottomBarWhenPushed = YES;
-//        [self.navigationController pushViewController:vc animated:YES];
-//    }
+    //    if (indexPath.section == 2) {
+    //        QQYYDetailTVC * vc =[[QQYYDetailTVC alloc] init];
+    //        vc.ID = self.dataArray[indexPath.row].postId;
+    //        Weak(weakSelf);
+    //        vc.sendZanYesOrNoBlock = ^(BOOL isZan, NSInteger number) {
+    //            weakSelf.dataArray[indexPath.row].currentUserLike = isZan;
+    //            weakSelf.dataArray[indexPath.row].likeNum = number;
+    //            [weakSelf.tableView reloadData];
+    //        };
+    //        vc.hidesBottomBarWhenPushed = YES;
+    //        [self.navigationController pushViewController:vc animated:YES];
+    //    }
     
     if (indexPath.section == 2){
         zkHomelModel * model = self.dataArray[indexPath.row];
@@ -396,7 +459,7 @@
         
     }else if (index == 5) {
         
-       [self shareWithSetPreDefinePlatforms:@[@(UMSocialPlatformType_WechatSession),@(UMSocialPlatformType_QQ),@(UMSocialPlatformType_Sina)] withUrl:nil shareModel:self.dataArray[indexPath.row]];
+        [self shareWithSetPreDefinePlatforms:@[@(UMSocialPlatformType_WechatSession),@(UMSocialPlatformType_QQ),@(UMSocialPlatformType_Sina)] withUrl:nil shareModel:self.dataArray[indexPath.row]];
         
     }else if (index == 6) {
         

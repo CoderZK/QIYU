@@ -291,6 +291,10 @@
 
 - (void)clickAction:(UIButton *)button {
     
+    if (isDDDDDDDD && button.tag == 104) {
+        return;
+    }
+    
     if (self.delegate != nil && [self.delegate respondsToSelector:@selector(didClickButtonWithCell:andIndex:)]) {
         [self.delegate didClickButtonWithCell:self andIndex:button.tag - 100];
     }

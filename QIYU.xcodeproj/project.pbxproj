@@ -46,6 +46,7 @@
 		58035E9222C45182006F1F6F /* zkDanLiaoVC.m in Sources */ = {isa = PBXBuildFile; fileRef = 58035E9022C4517F006F1F6F /* zkDanLiaoVC.m */; };
 		581B2924236801BB00953EE8 /* QQYYMineNewTVC.m in Sources */ = {isa = PBXBuildFile; fileRef = 581B2923236801BB00953EE8 /* QQYYMineNewTVC.m */; };
 		581B29272368027C00953EE8 /* QQYYHomeNewTVC.m in Sources */ = {isa = PBXBuildFile; fileRef = 581B29262368027C00953EE8 /* QQYYHomeNewTVC.m */; };
+		582D18A9238376C3002B5271 /* BBBB.db in Resources */ = {isa = PBXBuildFile; fileRef = 582D18A8238376C2002B5271 /* BBBB.db */; };
 		582E2E6422E0105500E99273 /* QQYYMovieVC.m in Sources */ = {isa = PBXBuildFile; fileRef = 582E2E6322E0105500E99273 /* QQYYMovieVC.m */; };
 		582FC34122C33F7900729757 /* CoreLocation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 582FC34022C33F7800729757 /* CoreLocation.framework */; };
 		582FD55022C0A68D00A29CC1 /* UIViewController+NewWorkTwo.m in Sources */ = {isa = PBXBuildFile; fileRef = 582FD54F22C0A68D00A29CC1 /* UIViewController+NewWorkTwo.m */; };
@@ -175,7 +176,6 @@
 		583BF0E122C996E80033D2F3 /* CoreTelephony.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 583BF0E022C996E80033D2F3 /* CoreTelephony.framework */; };
 		583E256023613F8E00F2136F /* QQYYMessageTVC.m in Sources */ = {isa = PBXBuildFile; fileRef = 583E255F23613F8E00F2136F /* QQYYMessageTVC.m */; };
 		583F7F1D234F0F6200E8FA19 /* AAAAFMDBSignle.m in Sources */ = {isa = PBXBuildFile; fileRef = 583F7F1C234F0F6200E8FA19 /* AAAAFMDBSignle.m */; };
-		583F7F1F234F107100E8FA19 /* AAAA.db in Resources */ = {isa = PBXBuildFile; fileRef = 583F7F1E234F107100E8FA19 /* AAAA.db */; };
 		583F7F22234F109D00E8FA19 /* AAAAModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 583F7F21234F109D00E8FA19 /* AAAAModel.m */; };
 		58435DF222DDACF7003E7412 /* QQYYHomeTVC.m in Sources */ = {isa = PBXBuildFile; fileRef = 58435DF122DDACF7003E7412 /* QQYYHomeTVC.m */; };
 		584B9C3F234C573300EDB9E3 /* HHHHLJOneTvc.m in Sources */ = {isa = PBXBuildFile; fileRef = 584B9C3E234C573300EDB9E3 /* HHHHLJOneTvc.m */; };
@@ -452,6 +452,7 @@
 		581B2923236801BB00953EE8 /* QQYYMineNewTVC.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = QQYYMineNewTVC.m; sourceTree = "<group>"; };
 		581B29252368027C00953EE8 /* QQYYHomeNewTVC.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = QQYYHomeNewTVC.h; sourceTree = "<group>"; };
 		581B29262368027C00953EE8 /* QQYYHomeNewTVC.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = QQYYHomeNewTVC.m; sourceTree = "<group>"; };
+		582D18A8238376C2002B5271 /* BBBB.db */ = {isa = PBXFileReference; lastKnownFileType = file; path = BBBB.db; sourceTree = "<group>"; };
 		582E2E6222E0105500E99273 /* QQYYMovieVC.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = QQYYMovieVC.h; sourceTree = "<group>"; };
 		582E2E6322E0105500E99273 /* QQYYMovieVC.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = QQYYMovieVC.m; sourceTree = "<group>"; };
 		582FC34022C33F7800729757 /* CoreLocation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreLocation.framework; path = System/Library/Frameworks/CoreLocation.framework; sourceTree = SDKROOT; };
@@ -614,9 +615,9 @@
 		583E255F23613F8E00F2136F /* QQYYMessageTVC.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = QQYYMessageTVC.m; sourceTree = "<group>"; };
 		583F7F1B234F0F6200E8FA19 /* AAAAFMDBSignle.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AAAAFMDBSignle.h; sourceTree = "<group>"; };
 		583F7F1C234F0F6200E8FA19 /* AAAAFMDBSignle.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AAAAFMDBSignle.m; sourceTree = "<group>"; };
-		583F7F1E234F107100E8FA19 /* AAAA.db */ = {isa = PBXFileReference; lastKnownFileType = file; path = AAAA.db; sourceTree = "<group>"; };
 		583F7F20234F109D00E8FA19 /* AAAAModel.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AAAAModel.h; sourceTree = "<group>"; };
 		583F7F21234F109D00E8FA19 /* AAAAModel.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AAAAModel.m; sourceTree = "<group>"; };
+		5840E754238286D800821A16 /* 花与蛇 推送测试.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = "花与蛇 推送测试.entitlements"; sourceTree = "<group>"; };
 		58435DF022DDACF6003E7412 /* QQYYHomeTVC.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = QQYYHomeTVC.h; sourceTree = "<group>"; };
 		58435DF122DDACF7003E7412 /* QQYYHomeTVC.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = QQYYHomeTVC.m; sourceTree = "<group>"; };
 		584B9C3D234C573300EDB9E3 /* HHHHLJOneTvc.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = HHHHLJOneTvc.h; sourceTree = "<group>"; };
@@ -1019,6 +1020,7 @@
 		337F3E5820E9FE3B00C5526A /* QIYU */ = {
 			isa = PBXGroup;
 			children = (
+				5840E754238286D800821A16 /* 花与蛇 推送测试.entitlements */,
 				583ADD4E22A7507F0064E60F /* 发帖 */,
 				58333297229FBDD3008DD9CF /* 通用 */,
 				337F3E8F20E9FF3500C5526A /* 基类 */,
@@ -1593,7 +1595,7 @@
 		58321CBB2338959D00E77553 /* GW */ = {
 			isa = PBXGroup;
 			children = (
-				583F7F1E234F107100E8FA19 /* AAAA.db */,
+				582D18A8238376C2002B5271 /* BBBB.db */,
 				583F7F20234F109D00E8FA19 /* AAAAModel.h */,
 				583F7F21234F109D00E8FA19 /* AAAAModel.m */,
 				58321CBC233895C200E77553 /* QQYYGouWuTVC.h */,
@@ -2055,7 +2057,6 @@
 				5838A1F222DD79F400239A20 /* qy64@2x.png in Resources */,
 				5838A22322DD79F400239A20 /* qy43@2x.png in Resources */,
 				583ADD4922A7479F0064E60F /* gesture_normal@2x.png in Resources */,
-				583F7F1F234F107100E8FA19 /* AAAA.db in Resources */,
 				5838A21222DD79F400239A20 /* qy56@2x.png in Resources */,
 				584B9CA7234C5E4D00EDB9E3 /* HHHHLJThirteenCell.xib in Resources */,
 				5838A1FB22DD79F400239A20 /* qy17@2x.png in Resources */,
@@ -2085,6 +2086,7 @@
 				58917ED222DC0D5600C46E04 /* QQYYMineOneCell.xib in Resources */,
 				584B9C7F234C5DA900EDB9E3 /* HHHHLJFiveCell.xib in Resources */,
 				5838A1F922DD79F400239A20 /* qy78@2x.png in Resources */,
+				582D18A9238376C3002B5271 /* BBBB.db in Resources */,
 				5838A1E922DD79F400239A20 /* qy1@2x.png in Resources */,
 				5838A20E22DD79F400239A20 /* qy9@2x.png in Resources */,
 				337F3EB920EA050000C5526A /* Podfile in Resources */,
@@ -2640,8 +2642,10 @@
 			baseConfigurationReference = C0333005ECB5A67F63F21483 /* Pods-QIYU.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_ENTITLEMENTS = "QIYU/花与蛇 推送测试.entitlements";
 				CODE_SIGN_IDENTITY = "iPhone Developer";
 				CODE_SIGN_STYLE = Manual;
+				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_TEAM = N6ZU25A67U;
 				ENABLE_BITCODE = YES;
 				FRAMEWORK_SEARCH_PATHS = (
@@ -2665,10 +2669,11 @@
 					"$(PROJECT_DIR)/QIYU/消息/环信/EaseUI/EMUIKit/3rdparty/DeviceHelper/VoiceConvert/opencore-amrwb",
 					"$(PROJECT_DIR)/QIYU/消息/环信/EaseUI/EMUIKit/3rdparty/DeviceHelper/VoiceConvert/opencore-amrnb",
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = com.yiqu.app;
+				MARKETING_VERSION = 1.3;
+				PRODUCT_BUNDLE_IDENTIFIER = com.hhhyyysss.app;
 				PRODUCT_NAME = "花与蛇";
 				PROVISIONING_PROFILE = "3bdcf4b3-e396-4d7a-ab2b-739f2269ddaa";
-				PROVISIONING_PROFILE_SPECIFIER = xuxuecom;
+				PROVISIONING_PROFILE_SPECIFIER = hhhhhdev;
 				TARGETED_DEVICE_FAMILY = 1;
 			};
 			name = Debug;
@@ -2678,9 +2683,11 @@
 			baseConfigurationReference = 93517C6A5478579AE5177242 /* Pods-QIYU.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
-				CODE_SIGN_IDENTITY = "iPhone Developer";
+				CODE_SIGN_ENTITLEMENTS = "QIYU/花与蛇 推送测试.entitlements";
+				CODE_SIGN_IDENTITY = "iPhone Distribution";
 				CODE_SIGN_STYLE = Manual;
-				DEVELOPMENT_TEAM = KXWZ464PKG;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = N6ZU25A67U;
 				ENABLE_BITCODE = YES;
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
@@ -2703,9 +2710,10 @@
 					"$(PROJECT_DIR)/QIYU/消息/环信/EaseUI/EMUIKit/3rdparty/DeviceHelper/VoiceConvert/opencore-amrwb",
 					"$(PROJECT_DIR)/QIYU/消息/环信/EaseUI/EMUIKit/3rdparty/DeviceHelper/VoiceConvert/opencore-amrnb",
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = com.yiqu.app;
+				MARKETING_VERSION = 1.3;
+				PRODUCT_BUNDLE_IDENTIFIER = com.hhhyyysss.app;
 				PRODUCT_NAME = "花与蛇";
-				PROVISIONING_PROFILE_SPECIFIER = comcomzk;
+				PROVISIONING_PROFILE_SPECIFIER = hhhhdis;
 				TARGETED_DEVICE_FAMILY = 1;
 			};
 			name = Release;
