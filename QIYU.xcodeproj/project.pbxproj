@@ -46,7 +46,6 @@
 		58035E9222C45182006F1F6F /* zkDanLiaoVC.m in Sources */ = {isa = PBXBuildFile; fileRef = 58035E9022C4517F006F1F6F /* zkDanLiaoVC.m */; };
 		581B2924236801BB00953EE8 /* QQYYMineNewTVC.m in Sources */ = {isa = PBXBuildFile; fileRef = 581B2923236801BB00953EE8 /* QQYYMineNewTVC.m */; };
 		581B29272368027C00953EE8 /* QQYYHomeNewTVC.m in Sources */ = {isa = PBXBuildFile; fileRef = 581B29262368027C00953EE8 /* QQYYHomeNewTVC.m */; };
-		582D18A9238376C3002B5271 /* BBBB.db in Resources */ = {isa = PBXBuildFile; fileRef = 582D18A8238376C2002B5271 /* BBBB.db */; };
 		582E2E6422E0105500E99273 /* QQYYMovieVC.m in Sources */ = {isa = PBXBuildFile; fileRef = 582E2E6322E0105500E99273 /* QQYYMovieVC.m */; };
 		582FC34122C33F7900729757 /* CoreLocation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 582FC34022C33F7800729757 /* CoreLocation.framework */; };
 		582FD55022C0A68D00A29CC1 /* UIViewController+NewWorkTwo.m in Sources */ = {isa = PBXBuildFile; fileRef = 582FD54F22C0A68D00A29CC1 /* UIViewController+NewWorkTwo.m */; };
@@ -173,6 +172,7 @@
 		583ADD4922A7479F0064E60F /* gesture_normal@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 583ADD3D22A7479F0064E60F /* gesture_normal@2x.png */; };
 		583AF15523559D3C006AB337 /* QQYYRegistProtocolVC.m in Sources */ = {isa = PBXBuildFile; fileRef = 583AF15323559D3C006AB337 /* QQYYRegistProtocolVC.m */; };
 		583AF15623559D3C006AB337 /* QQYYRegistProtocolVC.xib in Resources */ = {isa = PBXBuildFile; fileRef = 583AF15423559D3C006AB337 /* QQYYRegistProtocolVC.xib */; };
+		583B77A02390A03100F98AC7 /* GGGGVC.m in Sources */ = {isa = PBXBuildFile; fileRef = 583B779F2390A03100F98AC7 /* GGGGVC.m */; };
 		583BF0E122C996E80033D2F3 /* CoreTelephony.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 583BF0E022C996E80033D2F3 /* CoreTelephony.framework */; };
 		583E256023613F8E00F2136F /* QQYYMessageTVC.m in Sources */ = {isa = PBXBuildFile; fileRef = 583E255F23613F8E00F2136F /* QQYYMessageTVC.m */; };
 		583F7F1D234F0F6200E8FA19 /* AAAAFMDBSignle.m in Sources */ = {isa = PBXBuildFile; fileRef = 583F7F1C234F0F6200E8FA19 /* AAAAFMDBSignle.m */; };
@@ -365,6 +365,43 @@
 		589ABFEE2297AF20000BBD89 /* BSCustom.m in Sources */ = {isa = PBXBuildFile; fileRef = 589ABFED2297AF20000BBD89 /* BSCustom.m */; };
 		589ABFF12297B02D000BBD89 /* TabBarController.m in Sources */ = {isa = PBXBuildFile; fileRef = 589ABFEF2297B02C000BBD89 /* TabBarController.m */; };
 		58BAF3BE22CDEAB800FAFEDD /* gesture_selected@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 58BAF3BD22CDEAB800FAFEDD /* gesture_selected@2x.png */; };
+		58CFF49D2397874A001DF684 /* zkLoginVC.xib in Resources */ = {isa = PBXBuildFile; fileRef = 58CFF46423978749001DF684 /* zkLoginVC.xib */; };
+		58CFF49E2397874A001DF684 /* kkMyCarCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 58CFF46723978749001DF684 /* kkMyCarCell.xib */; };
+		58CFF49F2397874A001DF684 /* YJOutVC.xib in Resources */ = {isa = PBXBuildFile; fileRef = 58CFF46823978749001DF684 /* YJOutVC.xib */; };
+		58CFF4A02397874A001DF684 /* NewsVC.m in Sources */ = {isa = PBXBuildFile; fileRef = 58CFF46923978749001DF684 /* NewsVC.m */; };
+		58CFF4A12397874A001DF684 /* kkRenZhengVC.xib in Resources */ = {isa = PBXBuildFile; fileRef = 58CFF46A23978749001DF684 /* kkRenZhengVC.xib */; };
+		58CFF4A22397874A001DF684 /* YJNewsCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 58CFF46B23978749001DF684 /* YJNewsCell.m */; };
+		58CFF4A32397874A001DF684 /* YJAddressCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 58CFF46D23978749001DF684 /* YJAddressCell.m */; };
+		58CFF4A42397874A001DF684 /* kkSearchTVC.m in Sources */ = {isa = PBXBuildFile; fileRef = 58CFF46F23978749001DF684 /* kkSearchTVC.m */; };
+		58CFF4A52397874A001DF684 /* yjMineCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 58CFF47423978749001DF684 /* yjMineCell.xib */; };
+		58CFF4A62397874A001DF684 /* kkJieSuanVC.xib in Resources */ = {isa = PBXBuildFile; fileRef = 58CFF47623978749001DF684 /* kkJieSuanVC.xib */; };
+		58CFF4A72397874A001DF684 /* MineVC.m in Sources */ = {isa = PBXBuildFile; fileRef = 58CFF47723978749001DF684 /* MineVC.m */; };
+		58CFF4A82397874A001DF684 /* YJOutVC.m in Sources */ = {isa = PBXBuildFile; fileRef = 58CFF47C23978749001DF684 /* YJOutVC.m */; };
+		58CFF4AA2397874A001DF684 /* yjMineCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 58CFF47E23978749001DF684 /* yjMineCell.m */; };
+		58CFF4AB2397874A001DF684 /* YJGouWuChe.m in Sources */ = {isa = PBXBuildFile; fileRef = 58CFF47F23978749001DF684 /* YJGouWuChe.m */; };
+		58CFF4AC2397874A001DF684 /* YJWenTiVC.m in Sources */ = {isa = PBXBuildFile; fileRef = 58CFF48023978749001DF684 /* YJWenTiVC.m */; };
+		58CFF4AD2397874A001DF684 /* kkMineGouWuListTVC.m in Sources */ = {isa = PBXBuildFile; fileRef = 58CFF48223978749001DF684 /* kkMineGouWuListTVC.m */; };
+		58CFF4AE2397874A001DF684 /* YJXieYiVC.xib in Resources */ = {isa = PBXBuildFile; fileRef = 58CFF48323978749001DF684 /* YJXieYiVC.xib */; };
+		58CFF4AF2397874A001DF684 /* YJWenTiVC.xib in Resources */ = {isa = PBXBuildFile; fileRef = 58CFF48423978749001DF684 /* YJWenTiVC.xib */; };
+		58CFF4B02397874A001DF684 /* YJNewsCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 58CFF48623978749001DF684 /* YJNewsCell.xib */; };
+		58CFF4B12397874A001DF684 /* YJAddressCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 58CFF48723978749001DF684 /* YJAddressCell.xib */; };
+		58CFF4B22397874A001DF684 /* YJHomeCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 58CFF48823978749001DF684 /* YJHomeCell.xib */; };
+		58CFF4B32397874A001DF684 /* YJXieYiVC.m in Sources */ = {isa = PBXBuildFile; fileRef = 58CFF48A23978749001DF684 /* YJXieYiVC.m */; };
+		58CFF4B42397874A001DF684 /* YJHomeModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 58CFF48B23978749001DF684 /* YJHomeModel.m */; };
+		58CFF4B52397874A001DF684 /* zkLoginVC.m in Sources */ = {isa = PBXBuildFile; fileRef = 58CFF48C23978749001DF684 /* zkLoginVC.m */; };
+		58CFF4B62397874A001DF684 /* YJHomeCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 58CFF48D23978749001DF684 /* YJHomeCell.m */; };
+		58CFF4B72397874A001DF684 /* YJAddAddressVC.m in Sources */ = {isa = PBXBuildFile; fileRef = 58CFF48E23978749001DF684 /* YJAddAddressVC.m */; };
+		58CFF4B82397874A001DF684 /* kkMyCarCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 58CFF48F23978749001DF684 /* kkMyCarCell.m */; };
+		58CFF4B92397874A001DF684 /* kkJieSuanVC.m in Sources */ = {isa = PBXBuildFile; fileRef = 58CFF49023978749001DF684 /* kkJieSuanVC.m */; };
+		58CFF4BA2397874A001DF684 /* YJAddressTVC.m in Sources */ = {isa = PBXBuildFile; fileRef = 58CFF49223978749001DF684 /* YJAddressTVC.m */; };
+		58CFF4BB2397874A001DF684 /* YJhelpVC.xib in Resources */ = {isa = PBXBuildFile; fileRef = 58CFF49323978749001DF684 /* YJhelpVC.xib */; };
+		58CFF4BC2397874A001DF684 /* YJhelpVC.m in Sources */ = {isa = PBXBuildFile; fileRef = 58CFF49523978749001DF684 /* YJhelpVC.m */; };
+		58CFF4BD2397874A001DF684 /* YJAddAddressVC.xib in Resources */ = {isa = PBXBuildFile; fileRef = 58CFF49823978749001DF684 /* YJAddAddressVC.xib */; };
+		58CFF4BE2397874A001DF684 /* kkRenZhengVC.m in Sources */ = {isa = PBXBuildFile; fileRef = 58CFF49B23978749001DF684 /* kkRenZhengVC.m */; };
+		58CFF4BF2397874A001DF684 /* YJGoodDetailTVC.m in Sources */ = {isa = PBXBuildFile; fileRef = 58CFF49C23978749001DF684 /* YJGoodDetailTVC.m */; };
+		58CFF4EC23979EAD001DF684 /* YQZJGouWuTwoCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 58CFF4EA23979EAD001DF684 /* YQZJGouWuTwoCell.m */; };
+		58CFF4ED23979EAD001DF684 /* YQZJGouWuTwoCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 58CFF4EB23979EAD001DF684 /* YQZJGouWuTwoCell.xib */; };
+		58CFF4EF23979F2E001DF684 /* BBBB.db in Resources */ = {isa = PBXBuildFile; fileRef = 58CFF4EE23979F2E001DF684 /* BBBB.db */; };
 		AE1A7CF29DF9D6E7166E507C /* libPods-QIYU.a in Frameworks */ = {isa = PBXBuildFile; fileRef = D3E49E1E01514DB2F4C7786C /* libPods-QIYU.a */; };
 /* End PBXBuildFile section */
 
@@ -452,7 +489,6 @@
 		581B2923236801BB00953EE8 /* QQYYMineNewTVC.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = QQYYMineNewTVC.m; sourceTree = "<group>"; };
 		581B29252368027C00953EE8 /* QQYYHomeNewTVC.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = QQYYHomeNewTVC.h; sourceTree = "<group>"; };
 		581B29262368027C00953EE8 /* QQYYHomeNewTVC.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = QQYYHomeNewTVC.m; sourceTree = "<group>"; };
-		582D18A8238376C2002B5271 /* BBBB.db */ = {isa = PBXFileReference; lastKnownFileType = file; path = BBBB.db; sourceTree = "<group>"; };
 		582E2E6222E0105500E99273 /* QQYYMovieVC.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = QQYYMovieVC.h; sourceTree = "<group>"; };
 		582E2E6322E0105500E99273 /* QQYYMovieVC.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = QQYYMovieVC.m; sourceTree = "<group>"; };
 		582FC34022C33F7800729757 /* CoreLocation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreLocation.framework; path = System/Library/Frameworks/CoreLocation.framework; sourceTree = SDKROOT; };
@@ -610,6 +646,8 @@
 		583AF15223559D3C006AB337 /* QQYYRegistProtocolVC.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = QQYYRegistProtocolVC.h; sourceTree = "<group>"; };
 		583AF15323559D3C006AB337 /* QQYYRegistProtocolVC.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = QQYYRegistProtocolVC.m; sourceTree = "<group>"; };
 		583AF15423559D3C006AB337 /* QQYYRegistProtocolVC.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = QQYYRegistProtocolVC.xib; sourceTree = "<group>"; };
+		583B779E2390A03100F98AC7 /* GGGGVC.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = GGGGVC.h; sourceTree = "<group>"; };
+		583B779F2390A03100F98AC7 /* GGGGVC.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = GGGGVC.m; sourceTree = "<group>"; };
 		583BF0E022C996E80033D2F3 /* CoreTelephony.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreTelephony.framework; path = System/Library/Frameworks/CoreTelephony.framework; sourceTree = SDKROOT; };
 		583E255E23613F8E00F2136F /* QQYYMessageTVC.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = QQYYMessageTVC.h; sourceTree = "<group>"; };
 		583E255F23613F8E00F2136F /* QQYYMessageTVC.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = QQYYMessageTVC.m; sourceTree = "<group>"; };
@@ -947,6 +985,65 @@
 		589ABFEF2297B02C000BBD89 /* TabBarController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TabBarController.m; sourceTree = "<group>"; };
 		589ABFF02297B02C000BBD89 /* TabBarController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TabBarController.h; sourceTree = "<group>"; };
 		58BAF3BD22CDEAB800FAFEDD /* gesture_selected@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "gesture_selected@2x.png"; sourceTree = "<group>"; };
+		58CFF46423978749001DF684 /* zkLoginVC.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = zkLoginVC.xib; sourceTree = "<group>"; };
+		58CFF46523978749001DF684 /* YJXieYiVC.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = YJXieYiVC.h; sourceTree = "<group>"; };
+		58CFF46623978749001DF684 /* YJHomeModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = YJHomeModel.h; sourceTree = "<group>"; };
+		58CFF46723978749001DF684 /* kkMyCarCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = kkMyCarCell.xib; sourceTree = "<group>"; };
+		58CFF46823978749001DF684 /* YJOutVC.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = YJOutVC.xib; sourceTree = "<group>"; };
+		58CFF46923978749001DF684 /* NewsVC.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = NewsVC.m; sourceTree = "<group>"; };
+		58CFF46A23978749001DF684 /* kkRenZhengVC.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = kkRenZhengVC.xib; sourceTree = "<group>"; };
+		58CFF46B23978749001DF684 /* YJNewsCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = YJNewsCell.m; sourceTree = "<group>"; };
+		58CFF46C23978749001DF684 /* kkMineGouWuListTVC.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = kkMineGouWuListTVC.h; sourceTree = "<group>"; };
+		58CFF46D23978749001DF684 /* YJAddressCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = YJAddressCell.m; sourceTree = "<group>"; };
+		58CFF46E23978749001DF684 /* YJWenTiVC.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = YJWenTiVC.h; sourceTree = "<group>"; };
+		58CFF46F23978749001DF684 /* kkSearchTVC.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = kkSearchTVC.m; sourceTree = "<group>"; };
+		58CFF47023978749001DF684 /* kkJieSuanVC.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = kkJieSuanVC.h; sourceTree = "<group>"; };
+		58CFF47123978749001DF684 /* kkMyCarCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = kkMyCarCell.h; sourceTree = "<group>"; };
+		58CFF47223978749001DF684 /* YJAddAddressVC.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = YJAddAddressVC.h; sourceTree = "<group>"; };
+		58CFF47323978749001DF684 /* YJHomeCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = YJHomeCell.h; sourceTree = "<group>"; };
+		58CFF47423978749001DF684 /* yjMineCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = yjMineCell.xib; sourceTree = "<group>"; };
+		58CFF47523978749001DF684 /* zkLoginVC.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = zkLoginVC.h; sourceTree = "<group>"; };
+		58CFF47623978749001DF684 /* kkJieSuanVC.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = kkJieSuanVC.xib; sourceTree = "<group>"; };
+		58CFF47723978749001DF684 /* MineVC.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MineVC.m; sourceTree = "<group>"; };
+		58CFF47823978749001DF684 /* YJhelpVC.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = YJhelpVC.h; sourceTree = "<group>"; };
+		58CFF47923978749001DF684 /* YJAddressTVC.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = YJAddressTVC.h; sourceTree = "<group>"; };
+		58CFF47A23978749001DF684 /* YJGoodDetailTVC.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = YJGoodDetailTVC.h; sourceTree = "<group>"; };
+		58CFF47B23978749001DF684 /* kkRenZhengVC.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = kkRenZhengVC.h; sourceTree = "<group>"; };
+		58CFF47C23978749001DF684 /* YJOutVC.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = YJOutVC.m; sourceTree = "<group>"; };
+		58CFF47E23978749001DF684 /* yjMineCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = yjMineCell.m; sourceTree = "<group>"; };
+		58CFF47F23978749001DF684 /* YJGouWuChe.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = YJGouWuChe.m; sourceTree = "<group>"; };
+		58CFF48023978749001DF684 /* YJWenTiVC.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = YJWenTiVC.m; sourceTree = "<group>"; };
+		58CFF48123978749001DF684 /* YJAddressCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = YJAddressCell.h; sourceTree = "<group>"; };
+		58CFF48223978749001DF684 /* kkMineGouWuListTVC.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = kkMineGouWuListTVC.m; sourceTree = "<group>"; };
+		58CFF48323978749001DF684 /* YJXieYiVC.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = YJXieYiVC.xib; sourceTree = "<group>"; };
+		58CFF48423978749001DF684 /* YJWenTiVC.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = YJWenTiVC.xib; sourceTree = "<group>"; };
+		58CFF48523978749001DF684 /* YJNewsCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = YJNewsCell.h; sourceTree = "<group>"; };
+		58CFF48623978749001DF684 /* YJNewsCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = YJNewsCell.xib; sourceTree = "<group>"; };
+		58CFF48723978749001DF684 /* YJAddressCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = YJAddressCell.xib; sourceTree = "<group>"; };
+		58CFF48823978749001DF684 /* YJHomeCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = YJHomeCell.xib; sourceTree = "<group>"; };
+		58CFF48923978749001DF684 /* NewsVC.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NewsVC.h; sourceTree = "<group>"; };
+		58CFF48A23978749001DF684 /* YJXieYiVC.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = YJXieYiVC.m; sourceTree = "<group>"; };
+		58CFF48B23978749001DF684 /* YJHomeModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = YJHomeModel.m; sourceTree = "<group>"; };
+		58CFF48C23978749001DF684 /* zkLoginVC.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = zkLoginVC.m; sourceTree = "<group>"; };
+		58CFF48D23978749001DF684 /* YJHomeCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = YJHomeCell.m; sourceTree = "<group>"; };
+		58CFF48E23978749001DF684 /* YJAddAddressVC.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = YJAddAddressVC.m; sourceTree = "<group>"; };
+		58CFF48F23978749001DF684 /* kkMyCarCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = kkMyCarCell.m; sourceTree = "<group>"; };
+		58CFF49023978749001DF684 /* kkJieSuanVC.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = kkJieSuanVC.m; sourceTree = "<group>"; };
+		58CFF49123978749001DF684 /* kkSearchTVC.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = kkSearchTVC.h; sourceTree = "<group>"; };
+		58CFF49223978749001DF684 /* YJAddressTVC.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = YJAddressTVC.m; sourceTree = "<group>"; };
+		58CFF49323978749001DF684 /* YJhelpVC.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = YJhelpVC.xib; sourceTree = "<group>"; };
+		58CFF49423978749001DF684 /* MineVC.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MineVC.h; sourceTree = "<group>"; };
+		58CFF49523978749001DF684 /* YJhelpVC.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = YJhelpVC.m; sourceTree = "<group>"; };
+		58CFF49623978749001DF684 /* YJGouWuChe.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = YJGouWuChe.h; sourceTree = "<group>"; };
+		58CFF49723978749001DF684 /* yjMineCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = yjMineCell.h; sourceTree = "<group>"; };
+		58CFF49823978749001DF684 /* YJAddAddressVC.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = YJAddAddressVC.xib; sourceTree = "<group>"; };
+		58CFF49A23978749001DF684 /* YJOutVC.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = YJOutVC.h; sourceTree = "<group>"; };
+		58CFF49B23978749001DF684 /* kkRenZhengVC.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = kkRenZhengVC.m; sourceTree = "<group>"; };
+		58CFF49C23978749001DF684 /* YJGoodDetailTVC.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = YJGoodDetailTVC.m; sourceTree = "<group>"; };
+		58CFF4E923979EAD001DF684 /* YQZJGouWuTwoCell.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = YQZJGouWuTwoCell.h; sourceTree = "<group>"; };
+		58CFF4EA23979EAD001DF684 /* YQZJGouWuTwoCell.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = YQZJGouWuTwoCell.m; sourceTree = "<group>"; };
+		58CFF4EB23979EAD001DF684 /* YQZJGouWuTwoCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = YQZJGouWuTwoCell.xib; sourceTree = "<group>"; };
+		58CFF4EE23979F2E001DF684 /* BBBB.db */ = {isa = PBXFileReference; lastKnownFileType = file; path = BBBB.db; sourceTree = "<group>"; };
 		93517C6A5478579AE5177242 /* Pods-QIYU.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-QIYU.release.xcconfig"; path = "Pods/Target Support Files/Pods-QIYU/Pods-QIYU.release.xcconfig"; sourceTree = "<group>"; };
 		C0333005ECB5A67F63F21483 /* Pods-QIYU.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-QIYU.debug.xcconfig"; path = "Pods/Target Support Files/Pods-QIYU/Pods-QIYU.debug.xcconfig"; sourceTree = "<group>"; };
 		D3E49E1E01514DB2F4C7786C /* libPods-QIYU.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-QIYU.a"; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -1595,7 +1692,7 @@
 		58321CBB2338959D00E77553 /* GW */ = {
 			isa = PBXGroup;
 			children = (
-				582D18A8238376C2002B5271 /* BBBB.db */,
+				58CFF452239786F9001DF684 /* 地址 */,
 				583F7F20234F109D00E8FA19 /* AAAAModel.h */,
 				583F7F21234F109D00E8FA19 /* AAAAModel.m */,
 				58321CBC233895C200E77553 /* QQYYGouWuTVC.h */,
@@ -1603,6 +1700,9 @@
 				58321CBF233896CB00E77553 /* QQYYGouWuCell.h */,
 				58321CC0233896CB00E77553 /* QQYYGouWuCell.m */,
 				58321CC1233896CB00E77553 /* QQYYGouWuCell.xib */,
+				58CFF4E923979EAD001DF684 /* YQZJGouWuTwoCell.h */,
+				58CFF4EA23979EAD001DF684 /* YQZJGouWuTwoCell.m */,
+				58CFF4EB23979EAD001DF684 /* YQZJGouWuTwoCell.xib */,
 				58321CC72338B87700E77553 /* QQYYGouWuDetailTVC.h */,
 				58321CC82338B87700E77553 /* QQYYGouWuDetailTVC.m */,
 				584B9C3D234C573300EDB9E3 /* HHHHLJOneTvc.h */,
@@ -1677,6 +1777,8 @@
 				584B9CAA234C5E7000EDB9E3 /* HHHHLJFourteenCell.xib */,
 				583F7F1B234F0F6200E8FA19 /* AAAAFMDBSignle.h */,
 				583F7F1C234F0F6200E8FA19 /* AAAAFMDBSignle.m */,
+				583B779E2390A03100F98AC7 /* GGGGVC.h */,
+				583B779F2390A03100F98AC7 /* GGGGVC.m */,
 			);
 			path = GW;
 			sourceTree = "<group>";
@@ -1926,6 +2028,77 @@
 			path = VCs;
 			sourceTree = "<group>";
 		};
+		58CFF452239786F9001DF684 /* 地址 */ = {
+			isa = PBXGroup;
+			children = (
+				58CFF4EE23979F2E001DF684 /* BBBB.db */,
+				58CFF46323978749001DF684 /* JZKJ */,
+			);
+			path = "地址";
+			sourceTree = "<group>";
+		};
+		58CFF46323978749001DF684 /* JZKJ */ = {
+			isa = PBXGroup;
+			children = (
+				58CFF46423978749001DF684 /* zkLoginVC.xib */,
+				58CFF46523978749001DF684 /* YJXieYiVC.h */,
+				58CFF46623978749001DF684 /* YJHomeModel.h */,
+				58CFF46723978749001DF684 /* kkMyCarCell.xib */,
+				58CFF46823978749001DF684 /* YJOutVC.xib */,
+				58CFF46923978749001DF684 /* NewsVC.m */,
+				58CFF46A23978749001DF684 /* kkRenZhengVC.xib */,
+				58CFF46B23978749001DF684 /* YJNewsCell.m */,
+				58CFF46C23978749001DF684 /* kkMineGouWuListTVC.h */,
+				58CFF46D23978749001DF684 /* YJAddressCell.m */,
+				58CFF46E23978749001DF684 /* YJWenTiVC.h */,
+				58CFF46F23978749001DF684 /* kkSearchTVC.m */,
+				58CFF47023978749001DF684 /* kkJieSuanVC.h */,
+				58CFF47123978749001DF684 /* kkMyCarCell.h */,
+				58CFF47223978749001DF684 /* YJAddAddressVC.h */,
+				58CFF47323978749001DF684 /* YJHomeCell.h */,
+				58CFF47423978749001DF684 /* yjMineCell.xib */,
+				58CFF47523978749001DF684 /* zkLoginVC.h */,
+				58CFF47623978749001DF684 /* kkJieSuanVC.xib */,
+				58CFF47723978749001DF684 /* MineVC.m */,
+				58CFF47823978749001DF684 /* YJhelpVC.h */,
+				58CFF47923978749001DF684 /* YJAddressTVC.h */,
+				58CFF47A23978749001DF684 /* YJGoodDetailTVC.h */,
+				58CFF47B23978749001DF684 /* kkRenZhengVC.h */,
+				58CFF47C23978749001DF684 /* YJOutVC.m */,
+				58CFF47E23978749001DF684 /* yjMineCell.m */,
+				58CFF47F23978749001DF684 /* YJGouWuChe.m */,
+				58CFF48023978749001DF684 /* YJWenTiVC.m */,
+				58CFF48123978749001DF684 /* YJAddressCell.h */,
+				58CFF48223978749001DF684 /* kkMineGouWuListTVC.m */,
+				58CFF48323978749001DF684 /* YJXieYiVC.xib */,
+				58CFF48423978749001DF684 /* YJWenTiVC.xib */,
+				58CFF48523978749001DF684 /* YJNewsCell.h */,
+				58CFF48623978749001DF684 /* YJNewsCell.xib */,
+				58CFF48723978749001DF684 /* YJAddressCell.xib */,
+				58CFF48823978749001DF684 /* YJHomeCell.xib */,
+				58CFF48923978749001DF684 /* NewsVC.h */,
+				58CFF48A23978749001DF684 /* YJXieYiVC.m */,
+				58CFF48B23978749001DF684 /* YJHomeModel.m */,
+				58CFF48C23978749001DF684 /* zkLoginVC.m */,
+				58CFF48D23978749001DF684 /* YJHomeCell.m */,
+				58CFF48E23978749001DF684 /* YJAddAddressVC.m */,
+				58CFF48F23978749001DF684 /* kkMyCarCell.m */,
+				58CFF49023978749001DF684 /* kkJieSuanVC.m */,
+				58CFF49123978749001DF684 /* kkSearchTVC.h */,
+				58CFF49223978749001DF684 /* YJAddressTVC.m */,
+				58CFF49323978749001DF684 /* YJhelpVC.xib */,
+				58CFF49423978749001DF684 /* MineVC.h */,
+				58CFF49523978749001DF684 /* YJhelpVC.m */,
+				58CFF49623978749001DF684 /* YJGouWuChe.h */,
+				58CFF49723978749001DF684 /* yjMineCell.h */,
+				58CFF49823978749001DF684 /* YJAddAddressVC.xib */,
+				58CFF49A23978749001DF684 /* YJOutVC.h */,
+				58CFF49B23978749001DF684 /* kkRenZhengVC.m */,
+				58CFF49C23978749001DF684 /* YJGoodDetailTVC.m */,
+			);
+			path = JZKJ;
+			sourceTree = "<group>";
+		};
 		58E2D1BC229D30210060BAD4 /* showViews */ = {
 			isa = PBXGroup;
 			children = (
@@ -2065,12 +2238,14 @@
 				583ADD4122A7479F0064E60F /* YWUnlockView.xib in Resources */,
 				5838A23522DD79F400239A20 /* qy26@2x.png in Resources */,
 				58917E3A22DC0D0B00C46E04 /* QQYYChangePasswordVC.xib in Resources */,
+				58CFF4B12397874A001DF684 /* YJAddressCell.xib in Resources */,
 				5838A1F722DD79F400239A20 /* qy3@2x.png in Resources */,
 				5838A21822DD79F400239A20 /* qy53@2x.png in Resources */,
 				5838A22122DD79F400239A20 /* qy75@2x.png in Resources */,
 				5838A20222DD79F400239A20 /* qy7@2x.png in Resources */,
 				584B9CA2234C5E3400EDB9E3 /* HHHHLJTwelveCell.xib in Resources */,
 				5838A23822DD79F400239A20 /* qy34@2x.png in Resources */,
+				58CFF4EF23979F2E001DF684 /* BBBB.db in Resources */,
 				5838A23D22DD79F400239A20 /* qy80@2x.png in Resources */,
 				5838A1F322DD79F400239A20 /* qy42@2x.png in Resources */,
 				5838A20D22DD79F400239A20 /* qy39@2x.png in Resources */,
@@ -2082,11 +2257,11 @@
 				5838A21F22DD79F400239A20 /* qy67@2x.png in Resources */,
 				5838A1F822DD79F400239A20 /* qy66@2x.png in Resources */,
 				5838A20922DD79F400239A20 /* qy11@2x.png in Resources */,
+				58CFF49F2397874A001DF684 /* YJOutVC.xib in Resources */,
 				5838A21422DD79F400239A20 /* qy69@2x.png in Resources */,
 				58917ED222DC0D5600C46E04 /* QQYYMineOneCell.xib in Resources */,
 				584B9C7F234C5DA900EDB9E3 /* HHHHLJFiveCell.xib in Resources */,
 				5838A1F922DD79F400239A20 /* qy78@2x.png in Resources */,
-				582D18A9238376C3002B5271 /* BBBB.db in Resources */,
 				5838A1E922DD79F400239A20 /* qy1@2x.png in Resources */,
 				5838A20E22DD79F400239A20 /* qy9@2x.png in Resources */,
 				337F3EB920EA050000C5526A /* Podfile in Resources */,
@@ -2097,10 +2272,14 @@
 				5838A22A22DD79F400239A20 /* qy28@2x.png in Resources */,
 				5838A21E22DD79F400239A20 /* qy79@2x.png in Resources */,
 				58917ED422DC0D5600C46E04 /* QQYYTiXianListCell.xib in Resources */,
+				58CFF4AE2397874A001DF684 /* YJXieYiVC.xib in Resources */,
 				5838A21D22DD79F400239A20 /* qy86@2x.png in Resources */,
 				5838A23622DD79F400239A20 /* qy57@2x.png in Resources */,
 				584B9C8E234C5DE400EDB9E3 /* HHHHLJEightCell.xib in Resources */,
+				58CFF49E2397874A001DF684 /* kkMyCarCell.xib in Resources */,
+				58CFF4BD2397874A001DF684 /* YJAddAddressVC.xib in Resources */,
 				5838A20F22DD79F400239A20 /* qy48@2x.png in Resources */,
+				58CFF4ED23979EAD001DF684 /* YQZJGouWuTwoCell.xib in Resources */,
 				58917E7022DC0D3A00C46E04 /* QQYYAddYinHangKaVC.xib in Resources */,
 				5838A21722DD79F400239A20 /* qy18@2x.png in Resources */,
 				5838A23C22DD79F400239A20 /* qy10@2x.png in Resources */,
@@ -2114,6 +2293,7 @@
 				5838A1F022DD79F400239A20 /* qy76@2x.png in Resources */,
 				5838A22522DD79F400239A20 /* qy2@2x.png in Resources */,
 				5838A23322DD79F400239A20 /* qy8@2x.png in Resources */,
+				58CFF4B02397874A001DF684 /* YJNewsCell.xib in Resources */,
 				582FFA55229B84170039971E /* mx_pic_selected_no@2x.png in Resources */,
 				5838A22722DD79F400239A20 /* qy82@2x.png in Resources */,
 				337F3EB020EA014600C5526A /* noneDataBg.png in Resources */,
@@ -2129,8 +2309,10 @@
 				58917ED922DC0D5600C46E04 /* QQYYHuiYuanThreeCell.xib in Resources */,
 				5838A1FA22DD79F400239A20 /* qy74@2x.png in Resources */,
 				584B9C70234C5A8700EDB9E3 /* HHHHLJTwoCell.xib in Resources */,
+				58CFF4A62397874A001DF684 /* kkJieSuanVC.xib in Resources */,
 				5838A21522DD79F400239A20 /* qy14@2x.png in Resources */,
 				584B9C6B234C59A100EDB9E3 /* HHHHLJOneCell.xib in Resources */,
+				58CFF49D2397874A001DF684 /* zkLoginVC.xib in Resources */,
 				5838A1ED22DD79F400239A20 /* qy40@2x.png in Resources */,
 				5838A1E822DD79F400239A20 /* qy85@2x.png in Resources */,
 				58917ED122DC0D5600C46E04 /* QQYYFlowerListCell.xib in Resources */,
@@ -2170,6 +2352,7 @@
 				337F3E6120E9FE3C00C5526A /* Main.storyboard in Resources */,
 				58917EC222DC0D5600C46E04 /* QQYYYingHangKaCell.xib in Resources */,
 				5838A1F422DD79F400239A20 /* qy21@2x.png in Resources */,
+				58CFF4BB2397874A001DF684 /* YJhelpVC.xib in Resources */,
 				5838A20422DD79F400239A20 /* qy58@2x.png in Resources */,
 				5838A1F122DD79F400239A20 /* qy19@2x.png in Resources */,
 				5838A20722DD79F400239A20 /* qy81@2x.png in Resources */,
@@ -2177,6 +2360,8 @@
 				58917ED622DC0D5600C46E04 /* QQYYTaskTCell.xib in Resources */,
 				5838A1FE22DD79F400239A20 /* qy62@2x.png in Resources */,
 				5838A22922DD79F400239A20 /* qy6@2x.png in Resources */,
+				58CFF4A12397874A001DF684 /* kkRenZhengVC.xib in Resources */,
+				58CFF4A52397874A001DF684 /* yjMineCell.xib in Resources */,
 				5838A21C22DD79F400239A20 /* qy84@2x.png in Resources */,
 				583ADD4622A7479F0064E60F /* gesture_indicator_selected@2x.png in Resources */,
 				58917E2D22DC0D0B00C46E04 /* QQYYBindQWXVC.xib in Resources */,
@@ -2204,7 +2389,9 @@
 				58917E1122DC0CF600C46E04 /* QQYYHomeTwoCell.xib in Resources */,
 				58917DC822DC0C9A00C46E04 /* QQYYRgisterVC.xib in Resources */,
 				5838A20C22DD79F400239A20 /* qy44@2x.png in Resources */,
+				58CFF4B22397874A001DF684 /* YJHomeCell.xib in Resources */,
 				5838A23922DD79F400239A20 /* qy49@2x.png in Resources */,
+				58CFF4AF2397874A001DF684 /* YJWenTiVC.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -2285,6 +2472,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				58917ECA22DC0D5600C46E04 /* QQYYZhuYeOneCell.m in Sources */,
+				58CFF4AA2397874A001DF684 /* yjMineCell.m in Sources */,
 				58917DCE22DC0CAA00C46E04 /* QQYYSearchHeadView.m in Sources */,
 				58917DA822DC0C5B00C46E04 /* QQYYTongYongCell.m in Sources */,
 				335010DA20EDF8E400F8486B /* UIViewController+AlertShow.m in Sources */,
@@ -2292,10 +2480,12 @@
 				58917EC822DC0D5600C46E04 /* QQYYZhuYeThreeCell.m in Sources */,
 				5831DAB622D56AA2001C5E4A /* CustomEmojiView.m in Sources */,
 				58917EC022DC0D5600C46E04 /* QQYYFlowerListCell.m in Sources */,
+				58CFF4AC2397874A001DF684 /* YJWenTiVC.m in Sources */,
 				582FFA53229B84170039971E /* MXALAsset.m in Sources */,
 				58917DAA22DC0C5B00C46E04 /* QQYYYongBaoView.m in Sources */,
 				582FFA5A229B8AA00039971E /* zkHomelModel.m in Sources */,
 				581B2924236801BB00953EE8 /* QQYYMineNewTVC.m in Sources */,
+				58CFF4A82397874A001DF684 /* YJOutVC.m in Sources */,
 				58917E3D22DC0D1E00C46E04 /* QQYYUserModel.m in Sources */,
 				58917E7822DC0D3A00C46E04 /* QQYYFlowerListTVC.m in Sources */,
 				584B9C79234C5D8D00EDB9E3 /* HHHHLJFourCell.m in Sources */,
@@ -2309,18 +2499,23 @@
 				58917E7B22DC0D3A00C46E04 /* QQYYReDuTVC.m in Sources */,
 				584B9C63234C591F00EDB9E3 /* HHHHLJThirteenTvc.m in Sources */,
 				583ADD4222A7479F0064E60F /* YWUnlockView.m in Sources */,
+				58CFF4BF2397874A001DF684 /* YJGoodDetailTVC.m in Sources */,
 				337F3EAA20EA014600C5526A /* BaseViewController.m in Sources */,
 				58917D9A22DC0C4000C46E04 /* QQYYHuaTiTVC.m in Sources */,
 				582FFA64229BAEE90039971E /* GuanZhuVC.m in Sources */,
+				58CFF4EC23979EAD001DF684 /* YQZJGouWuTwoCell.m in Sources */,
 				58917D9E22DC0C4000C46E04 /* QQYYTongXunLuTVC.m in Sources */,
 				58917E0722DC0CF600C46E04 /* QQYYHomeTwoCell.m in Sources */,
 				584B9C5D234C58C300EDB9E3 /* HHHHLJElevenTvc.m in Sources */,
 				584B9C45234C575F00EDB9E3 /* HHHHLJThreeTvc.m in Sources */,
 				5874FDF4233C980A00E21537 /* QQYYReportAndCollectVIew.m in Sources */,
+				58CFF4B42397874A001DF684 /* YJHomeModel.m in Sources */,
 				58917E3322DC0D0B00C46E04 /* QQYYQuanZiGuiZeListTVC.m in Sources */,
 				58917E3122DC0D0B00C46E04 /* QQYYAboutUsVC.m in Sources */,
 				58035E9222C45182006F1F6F /* zkDanLiaoVC.m in Sources */,
 				58917E7322DC0D3A00C46E04 /* QQYYXiaoFeiListTVC.m in Sources */,
+				58CFF4B32397874A001DF684 /* YJXieYiVC.m in Sources */,
+				58CFF4A32397874A001DF684 /* YJAddressCell.m in Sources */,
 				58917E1022DC0CF600C46E04 /* QQYYHomeOneCell.m in Sources */,
 				58917EBD22DC0D5600C46E04 /* QQYYMineOneCell.m in Sources */,
 				58917ECF22DC0D5600C46E04 /* QQYYXiaoFeiListCell.m in Sources */,
@@ -2342,6 +2537,7 @@
 				58917E3922DC0D0B00C46E04 /* QQYYBindPoneTwoVC.m in Sources */,
 				337F3EAB20EA014600C5526A /* BaseNavigationController.m in Sources */,
 				583F7F22234F109D00E8FA19 /* AAAAModel.m in Sources */,
+				583B77A02390A03100F98AC7 /* GGGGVC.m in Sources */,
 				58917E0A22DC0CF600C46E04 /* QQYYPingLunTwoCell.m in Sources */,
 				58917E7D22DC0D3A00C46E04 /* QQYYXingQuBiaoQianTVC.m in Sources */,
 				58917DB222DC0C7300C46E04 /* QQYYShauiXuanView.m in Sources */,
@@ -2384,19 +2580,23 @@
 				58917EBE22DC0D5600C46E04 /* QQYYHuiYuanTwoCell.m in Sources */,
 				58917EFE22DC0D8B00C46E04 /* QQYYNewsTwoCell.m in Sources */,
 				58917DE722DC0CDE00C46E04 /* QQYYGuanZhuHeadTVC.m in Sources */,
+				58CFF4B82397874A001DF684 /* kkMyCarCell.m in Sources */,
 				337F3E5B20E9FE3B00C5526A /* AppDelegate.m in Sources */,
 				58917ED722DC0D5600C46E04 /* QQYYHuiYuanThreeCell.m in Sources */,
 				58917DB322DC0C7300C46E04 /* QQYYShowView.m in Sources */,
+				58CFF4AD2397874A001DF684 /* kkMineGouWuListTVC.m in Sources */,
 				58917EC922DC0D5600C46E04 /* QQYYZhuYeTwoCell.m in Sources */,
 				58917E3722DC0D0B00C46E04 /* QQYYBindQWXVC.m in Sources */,
 				58917EC122DC0D5600C46E04 /* QQYYPhotoCell.m in Sources */,
 				58917E7422DC0D3A00C46E04 /* QQYYMineCollectTVC.m in Sources */,
 				335010EE20EE05C100F8486B /* NSString+Size.m in Sources */,
+				58CFF4BC2397874A001DF684 /* YJhelpVC.m in Sources */,
 				58917ED022DC0D5600C46E04 /* QQYYYingHangKaCell.m in Sources */,
 				58321CC92338B87700E77553 /* QQYYGouWuDetailTVC.m in Sources */,
 				58917E7622DC0D3A00C46E04 /* QQYYXiaoFeiVC.m in Sources */,
 				5831DAB922D575BD001C5E4A /* WZCustomEmojiView.m in Sources */,
 				58917DD622DC0CC000C46E04 /* QQYYFriendsSearchTVC.m in Sources */,
+				58CFF4A02397874A001DF684 /* NewsVC.m in Sources */,
 				58917EC422DC0D5600C46E04 /* QQYYZhuYeFourCell.m in Sources */,
 				58321CBE233895C200E77553 /* QQYYGouWuTVC.m in Sources */,
 				337F3EAE20EA014600C5526A /* BaseCollectionReusableView.m in Sources */,
@@ -2404,6 +2604,8 @@
 				58917E0922DC0CF600C46E04 /* QQYYGongGaoTwoCell.m in Sources */,
 				5838A24322DD7C5800239A20 /* QQYYHomeHeadView.m in Sources */,
 				58917E8022DC0D3A00C46E04 /* QQYYMineTaskTVC.m in Sources */,
+				58CFF4A72397874A001DF684 /* MineVC.m in Sources */,
+				58CFF4A42397874A001DF684 /* kkSearchTVC.m in Sources */,
 				5874FDF1233C955900E21537 /* QQYYShowViewNew.m in Sources */,
 				58917EE922DC0D7A00C46E04 /* QQYYAiTeMeTVC.m in Sources */,
 				584B9C60234C58E500EDB9E3 /* HHHHLJTwelveTvc.m in Sources */,
@@ -2420,19 +2622,24 @@
 				58917DE822DC0CDE00C46E04 /* QQYYDetailTVC.m in Sources */,
 				58917E0E22DC0CF600C46E04 /* QQYYGongGaoThreeCell.m in Sources */,
 				584B9C4B234C57FC00EDB9E3 /* HHHHLJFiveTvc.m in Sources */,
+				58CFF4B72397874A001DF684 /* YJAddAddressVC.m in Sources */,
+				58CFF4B92397874A001DF684 /* kkJieSuanVC.m in Sources */,
 				58917E7F22DC0D3A00C46E04 /* QQYYMineFriendsTVC.m in Sources */,
 				58917EEC22DC0D7A00C46E04 /* QQYYReceiveZanTVC.m in Sources */,
 				58917DE622DC0CDE00C46E04 /* QQYYMineDongTaiTVC.m in Sources */,
 				584B9C51234C584B00EDB9E3 /* HHHHLJSevenTvc.m in Sources */,
+				58CFF4AB2397874A001DF684 /* YJGouWuChe.m in Sources */,
 				58917E2F22DC0D0B00C46E04 /* QQYYChangePasswordVC.m in Sources */,
 				582FFA56229B84170039971E /* MXPhotoPickerController.m in Sources */,
 				58435DF222DDACF7003E7412 /* QQYYHomeTVC.m in Sources */,
+				58CFF4BA2397874A001DF684 /* YJAddressTVC.m in Sources */,
 				58917E8122DC0D3A00C46E04 /* QQYYKaiTongHuiYuanTVC.m in Sources */,
 				58917DA922DC0C5B00C46E04 /* QQYYTongYongTwoCell.m in Sources */,
 				58917DB122DC0C7300C46E04 /* QQYYSerachShowView.m in Sources */,
 				584B9C4E234C582E00EDB9E3 /* HHHHLJSixTvc.m in Sources */,
 				58917EED22DC0D7A00C46E04 /* QQYYSysMsgTVC.m in Sources */,
 				584B9C92234C5DF500EDB9E3 /* HHHHLJNineCell.m in Sources */,
+				58CFF4BE2397874A001DF684 /* kkRenZhengVC.m in Sources */,
 				58917DC322DC0C9A00C46E04 /* QQYYForGetPassVC.m in Sources */,
 				584B9C97234C5E0700EDB9E3 /* HHHHLJTenCell.m in Sources */,
 				58917F0322DC0D8B00C46E04 /* QQYYNewsOneCell.m in Sources */,
@@ -2449,6 +2656,7 @@
 				58917E6E22DC0D3A00C46E04 /* QQYYShiMingRenZhengTVC.m in Sources */,
 				58917DE922DC0CDE00C46E04 /* QQYYGongGaoTVC.m in Sources */,
 				58917ED322DC0D5600C46E04 /* QQYYTaskTCell.m in Sources */,
+				58CFF4A22397874A001DF684 /* YJNewsCell.m in Sources */,
 				58917E6F22DC0D3A00C46E04 /* QQYYTiXianTVC.m in Sources */,
 				582FFA38229B84100039971E /* zkPhotoShowCell.m in Sources */,
 				584B9C66234C596A00EDB9E3 /* HHHHLJFourteenTvc.m in Sources */,
@@ -2463,6 +2671,7 @@
 				584B9C3F234C573300EDB9E3 /* HHHHLJOneTvc.m in Sources */,
 				58917DDD22DC0CCF00C46E04 /* QQYYTongYongModel.m in Sources */,
 				58321CC2233896CB00E77553 /* QQYYGouWuCell.m in Sources */,
+				58CFF4B52397874A001DF684 /* zkLoginVC.m in Sources */,
 				589ABFF12297B02D000BBD89 /* TabBarController.m in Sources */,
 				335010EF20EE05C100F8486B /* UIButton+Badge.m in Sources */,
 				58917ED822DC0D5600C46E04 /* QQYYMineTwoCell.m in Sources */,
@@ -2473,6 +2682,7 @@
 				582FFA37229B84100039971E /* zkPhotoShowVC.m in Sources */,
 				58917EEA22DC0D7A00C46E04 /* QQYYReceivePingLunTVC.m in Sources */,
 				58917E8322DC0D3A00C46E04 /* QQYYAddYinHangKaVC.m in Sources */,
+				58CFF4B62397874A001DF684 /* YJHomeCell.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -2645,7 +2855,7 @@
 				CODE_SIGN_ENTITLEMENTS = "QIYU/花与蛇 推送测试.entitlements";
 				CODE_SIGN_IDENTITY = "iPhone Developer";
 				CODE_SIGN_STYLE = Manual;
-				CURRENT_PROJECT_VERSION = 1;
+				CURRENT_PROJECT_VERSION = 3;
 				DEVELOPMENT_TEAM = N6ZU25A67U;
 				ENABLE_BITCODE = YES;
 				FRAMEWORK_SEARCH_PATHS = (
@@ -2669,11 +2879,11 @@
 					"$(PROJECT_DIR)/QIYU/消息/环信/EaseUI/EMUIKit/3rdparty/DeviceHelper/VoiceConvert/opencore-amrwb",
 					"$(PROJECT_DIR)/QIYU/消息/环信/EaseUI/EMUIKit/3rdparty/DeviceHelper/VoiceConvert/opencore-amrnb",
 				);
-				MARKETING_VERSION = 1.3;
-				PRODUCT_BUNDLE_IDENTIFIER = com.hhhyyysss.app;
+				MARKETING_VERSION = 1.1;
+				PRODUCT_BUNDLE_IDENTIFIER = com.xx.qy.app;
 				PRODUCT_NAME = "花与蛇";
 				PROVISIONING_PROFILE = "3bdcf4b3-e396-4d7a-ab2b-739f2269ddaa";
-				PROVISIONING_PROFILE_SPECIFIER = hhhhhdev;
+				PROVISIONING_PROFILE_SPECIFIER = xxqydev;
 				TARGETED_DEVICE_FAMILY = 1;
 			};
 			name = Debug;
@@ -2686,7 +2896,7 @@
 				CODE_SIGN_ENTITLEMENTS = "QIYU/花与蛇 推送测试.entitlements";
 				CODE_SIGN_IDENTITY = "iPhone Distribution";
 				CODE_SIGN_STYLE = Manual;
-				CURRENT_PROJECT_VERSION = 1;
+				CURRENT_PROJECT_VERSION = 3;
 				DEVELOPMENT_TEAM = N6ZU25A67U;
 				ENABLE_BITCODE = YES;
 				FRAMEWORK_SEARCH_PATHS = (
@@ -2710,10 +2920,10 @@
 					"$(PROJECT_DIR)/QIYU/消息/环信/EaseUI/EMUIKit/3rdparty/DeviceHelper/VoiceConvert/opencore-amrwb",
 					"$(PROJECT_DIR)/QIYU/消息/环信/EaseUI/EMUIKit/3rdparty/DeviceHelper/VoiceConvert/opencore-amrnb",
 				);
-				MARKETING_VERSION = 1.3;
-				PRODUCT_BUNDLE_IDENTIFIER = com.hhhyyysss.app;
+				MARKETING_VERSION = 1.1;
+				PRODUCT_BUNDLE_IDENTIFIER = com.xx.qy.app;
 				PRODUCT_NAME = "花与蛇";
-				PROVISIONING_PROFILE_SPECIFIER = hhhhdis;
+				PROVISIONING_PROFILE_SPECIFIER = xxqydis;
 				TARGETED_DEVICE_FAMILY = 1;
 			};
 			name = Release;

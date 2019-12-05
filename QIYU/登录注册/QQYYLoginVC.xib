@@ -1,11 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="14490.70" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
-    <device id="retina6_1" orientation="portrait">
-        <adaptation id="fullscreen"/>
-    </device>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="14868" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+    <device id="retina6_1" orientation="portrait" appearance="light"/>
     <dependencies>
         <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14490.49"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14824"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
@@ -13,11 +11,16 @@
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="QQYYLoginVC">
             <connections>
                 <outlet property="confrimBt" destination="BOL-90-cdr" id="J2M-Kk-WyK"/>
+                <outlet property="lineV" destination="fmy-qg-cLy" id="VXV-eJ-eHi"/>
                 <outlet property="passWordTF" destination="fXg-jb-gcG" id="yFF-e9-Z4V"/>
                 <outlet property="phoneTF" destination="gxX-QY-zeV" id="5nB-pO-zkT"/>
+                <outlet property="qqbt" destination="8af-mX-IJp" id="xdR-fN-kfk"/>
+                <outlet property="sanLB" destination="dnj-Bx-4kP" id="zYg-sk-YLc"/>
                 <outlet property="view" destination="i5M-Pr-FkT" id="sfx-zR-JGt"/>
                 <outlet property="view1" destination="q7E-F3-hOT" id="8No-ls-jp5"/>
                 <outlet property="view2" destination="SVb-SU-wFo" id="nUw-qe-gi4"/>
+                <outlet property="weibobt" destination="iv2-r4-FWV" id="eOd-fA-D1G"/>
+                <outlet property="weixinbt" destination="SJN-jq-5eb" id="sVu-x9-eSy"/>
             </connections>
         </placeholder>
         <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
@@ -33,7 +36,6 @@
                             <constraints>
                                 <constraint firstAttribute="height" constant="30" id="et3-IL-YD1"/>
                             </constraints>
-                            <nil key="textColor"/>
                             <fontDescription key="fontDescription" type="system" pointSize="14"/>
                             <textInputTraits key="textInputTraits" keyboardType="phonePad"/>
                         </textField>
@@ -75,7 +77,6 @@
                                 <constraint firstAttribute="height" constant="30" id="3GU-Wr-H1v"/>
                                 <constraint firstAttribute="height" relation="greaterThanOrEqual" constant="30" id="Qw0-tm-24x"/>
                             </constraints>
-                            <nil key="textColor"/>
                             <fontDescription key="fontDescription" type="system" pointSize="14"/>
                             <textInputTraits key="textInputTraits" secureTextEntry="YES"/>
                         </textField>

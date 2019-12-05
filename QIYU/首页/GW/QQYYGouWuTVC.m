@@ -21,12 +21,17 @@
 #import "HHHHLJTwelveTvc.h"
 #import "HHHHLJThirteenTvc.h"
 #import "HHHHLJFourteenTvc.h"
-
+#import "YQZJGouWuTwoCell.h"
 #import "AAAAModel.h"
-
+#import "YJAddressTVC.h"
+#import "YJGouWuChe.h"
+#import "kkMineGouWuListTVC.h"
 @interface QQYYGouWuTVC ()<QQYYGouWuCheCellDelegate>
 @property(nonatomic,strong)NSMutableArray<AAAAModel *> *dataArray;
 @property(nonatomic,assign)NSInteger pageNo;
+
+
+
 @end
 
 @implementation QQYYGouWuTVC
@@ -44,6 +49,7 @@
     self.navigationItem.title = @"疯狂购物";
     
     [self.tableView registerNib:[UINib nibWithNibName:@"QQYYGouWuCell" bundle:nil] forCellReuseIdentifier:@"cell"];
+     [self.tableView registerNib:[UINib nibWithNibName:@"YQZJGouWuTwoCell" bundle:nil] forCellReuseIdentifier:@"YQZJGouWuTwoCell"];
     self.tableView.separatorStyle = UITableViewCellSeparatorStyleNone;
     [self getGoodsList];
     self.tableView.mj_header = [MJRefreshNormalHeader headerWithRefreshingBlock:^{
@@ -69,7 +75,35 @@
     }];
     
     
+    UIView * headV = [[UIView alloc] initWithFrame:CGRectMake(0, 0, ScreenW, 50)];
+    headV.backgroundColor = [UIColor whiteColor];
+    UIView * backV =[[UIView alloc] initWithFrame:CGRectMake(0, 0, ScreenW, 1)];
+    backV.backgroundColor = [UIColor lightGrayColor];
+    [headV addSubview:backV];
+    
+    UIView * backV1 =[[UIView alloc] initWithFrame:CGRectMake(0, 49, ScreenW, 1)];
+    backV1.backgroundColor = [UIColor lightGrayColor];
+    [headV addSubview:backV1];
+    NSArray * arr = @[@"我的购物车",@"历史购物",@"我的地址"];
+    for (int i = 0 ; i < arr.count; i++) {
+        
+        UIButton * button =[[UIButton alloc] initWithFrame:CGRectMake((ScreenW /3) * (i%3), 1, ScreenW /3, 48)];
+        button.titleLabel.font = kFont(15);
+        [button setTitle:arr[i] forState:UIControlStateNormal];
+        [button setTitleColor:TabberGreen forState:UIControlStateNormal];
+        [headV addSubview:button];
+        button.tag = i+100;
+        [button addTarget:self action:@selector(goVCAction:) forControlEvents:UIControlEventTouchUpInside];
+        
+        
+    }
+    [self.view addSubview:headV];
+    self.tableView.contentInset = UIEdgeInsetsMake(50, 0, 0,   0);
+    
 }
+
+
+
 
 - (void)getGoodsList {
     
@@ -104,24 +138,38 @@
 }
 
 - (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView {
-    return 1;
+    return 2;
 }
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
+    if (section == 0) {
+        return 1;
+    }
     return self.dataArray.count / 2 + self.dataArray.count % 2;
 }
 
 - (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath {
+    if (indexPath.section == 0) {
+        return 50;
+    }
     return 85 + (ScreenW - 30 )/2.0;
 }
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
     
+    if (indexPath.section == 0) {
+        YQZJGouWuTwoCell * cell =[tableView dequeueReusableCellWithIdentifier:@"YQZJGouWuTwoCell" forIndexPath:indexPath];
+        cell.bt1.tag = 100;
+        cell.bt2.tag = 101;
+        cell.bt3.tag = 103;
+        [cell.bt1 addTarget:self action:@selector(goVCAction:) forControlEvents:UIControlEventTouchUpInside];
+        [cell.bt2 addTarget:self action:@selector(goVCAction:) forControlEvents:UIControlEventTouchUpInside];
+        [cell.bt3 addTarget:self action:@selector(goVCAction:) forControlEvents:UIControlEventTouchUpInside];
+        return cell;
+    }
+    
     QQYYGouWuCell * cell =[tableView dequeueReusableCellWithIdentifier:@"cell" forIndexPath:indexPath];
     cell.delegate = self;
-    
-    
-    
     AAAAModel * model1 = self.dataArray[indexPath.row * 2];
     AAAAModel * model2 = nil;
     if (self.dataArray.count >=  (indexPath.row * 2 + 1)) {
@@ -142,6 +190,24 @@
     return cell;
     
 }
+
+- (void)goVCAction:(UIButton *)button {
+    if (button.tag == 101) {
+        kkMineGouWuListTVC * vc =[[kkMineGouWuListTVC alloc] init];
+        vc.hidesBottomBarWhenPushed = YES;
+        [self.navigationController pushViewController:vc animated:YES];
+    }else if (button.tag == 100) {
+        YJGouWuChe * vc =[[YJGouWuChe alloc] init];
+        vc.hidesBottomBarWhenPushed = YES;
+        [self.navigationController pushViewController:vc animated:YES];
+    }else {
+        
+        YJAddressTVC * vc =[[YJAddressTVC alloc] init];
+        vc.hidesBottomBarWhenPushed = YES;
+        [self.navigationController pushViewController:vc animated:YES];
+    }
+}
+
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
     [tableView deselectRowAtIndexPath:indexPath animated:YES];
     

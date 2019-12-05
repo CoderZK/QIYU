@@ -129,9 +129,53 @@
             }else {
                 [QQYYSignleToolNew shareTool].isppp = NO;
             }
+            
+//            [QQYYSignleToolNew shareTool].isppp = NO;
+//            [UIApplication sharedApplication].keyWindow.rootViewController = [[TabBarController alloc] init];
+            
+            
+            
+            TabBarController * tvc = (TabBarController *)[UIApplication sharedApplication].keyWindow.rootViewController;
+            NSMutableArray * arr = tvc.viewControllers.mutableCopy;
+            
+            if (arr.count == 5) {
+                if (isDDDDDDDD) {
+                    
+                }else {
+                    [arr removeObjectAtIndex:2];
+                    tvc.viewControllers = arr;
+                }
+               
+            }
+            
+//            //此处创建控制器要根据自己的情况确定是否带tableView
+//            QQYYGouWuTVC * vc=[[QQYYGouWuTVC alloc] init];
+//            NSString *str1= @"gouwu_0";
+//            NSMutableDictionary *attrs = [NSMutableDictionary dictionary];
+//            attrs[NSFontAttributeName] = [UIFont systemFontOfSize:12];
+//            attrs[NSForegroundColorAttributeName] = CharacterBlackColor;
+//            NSMutableDictionary *selectedAttrs = [NSMutableDictionary dictionary];
+//            selectedAttrs[NSFontAttributeName] = attrs[NSFontAttributeName];
+//            selectedAttrs[NSForegroundColorAttributeName] = TabberGreen;
+//            UITabBarItem *item = [UITabBarItem appearance];
+//            [item setTitleTextAttributes:attrs forState:UIControlStateNormal];
+//            [item setTitleTextAttributes:selectedAttrs forState:UIControlStateSelected];
+//            //让图片保持原来的模样，未选中的图片
+//            vc.tabBarItem.image=[[UIImage imageNamed:str1] imageWithRenderingMode:UIImageRenderingModeAlwaysOriginal];
+//            //图片选中时的图片
+//            NSString *str2=@"gouwu_1";
+//            vc.tabBarItem.selectedImage=[[UIImage imageNamed:str2] imageWithRenderingMode:UIImageRenderingModeAlwaysOriginal];
+//            //页面的bar上面的title值
+//            NSString *str3=@"商城";
+//            vc.tabBarItem.title=str3;
+//            //给每个页面添加导航栏
+//            BaseNavigationController *nav=[[BaseNavigationController alloc] initWithRootViewController:vc];
+//            [arr insertObject:nav atIndex:2];
+//            tvc.viewControllers = arr;
+            
             //测试用
             [QQYYSignleToolNew shareTool].downUrl = [NSString stringWithFormat:@"%@",responseObject[@"object"][@"downUrl"]];
-            [self setHeadView];
+//            [self setHeadView];
         }
         
     } failure:^(NSURLSessionDataTask *task, NSError *error) {
@@ -256,12 +300,12 @@
     self.headView =[[UIView alloc] initWithFrame:CGRectMake(0,0, ScreenW, 250)];
     self.headView.clipsToBounds = YES;
     self.headView.backgroundColor = [UIColor groupTableViewBackgroundColor];
-    if (isDDDDDDDD) {
-        self.headView.mj_h =  250;
-    }else {
-        self.headView.mj_h =  0.01;
-        return;
-    }
+//    if (isDDDDDDDD) {
+//        self.headView.mj_h =  250;
+//    }else {
+//        self.headView.mj_h =  0.01;
+//        return;
+//    }
     UIButton * imgBt = [[UIButton alloc] initWithFrame:CGRectMake(0, 0, ScreenW, 250)];
     [imgBt addTarget:self action:@selector(goShoping) forControlEvents:UIControlEventTouchUpInside];
     [imgBt setBackgroundImage:[UIImage imageNamed:@"11111"] forState:UIControlStateNormal];
@@ -614,7 +658,7 @@
     
     BaseTableViewController * tvc = (BaseTableViewController *)[vc.childViewControllers firstObject];
     
-    if (([tvc isKindOfClass:[QQYYMessageTVC class]] || [tvc isKindOfClass:[QQYYMineNewTVC class]]) && ![QQYYSignleToolNew shareTool].isLogin) {
+    if (([tvc isKindOfClass:[QQYYMessageTVC class]] || [tvc isKindOfClass:[QQYYMineNewTVC class]] || [tvc isKindOfClass:[QQYYGouWuTVC class]] ) && ![QQYYSignleToolNew shareTool].isLogin) {
         [self gotoLoginVC];
         return NO;
     }

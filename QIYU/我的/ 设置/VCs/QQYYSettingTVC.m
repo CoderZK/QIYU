@@ -87,6 +87,9 @@
     if (indexPath.section == 1 && indexPath.row == 0) {
         return 0;
     }
+    if (indexPath.section == 0 && indexPath.row == 2 && isDDDDDDDD) {
+        return 0;
+    }
     return 50;
 }
 - (CGFloat)tableView:(UITableView *)tableView heightForFooterInSection:(NSInteger)section {

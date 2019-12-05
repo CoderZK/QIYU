@@ -15,6 +15,11 @@
 @property (weak, nonatomic) IBOutlet UITextField *phoneTF;
 @property (weak, nonatomic) IBOutlet UITextField *passWordTF;
 @property (weak, nonatomic) IBOutlet UIButton *confrimBt;
+@property (weak, nonatomic) IBOutlet UIButton *qqbt;
+@property (weak, nonatomic) IBOutlet UIButton *weixinbt;
+@property (weak, nonatomic) IBOutlet UIButton *weibobt;
+@property (weak, nonatomic) IBOutlet UILabel *sanLB;
+@property (strong, nonatomic) IBOutlet UIView *lineV;
 @property(nonatomic,strong)UMSocialUserInfoResponse *resp;
 @end
 
@@ -39,6 +44,13 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
+    
+    if (isDDDDDDDD) {
+        self.qqbt.hidden = self.weibobt.hidden = self.weixinbt.hidden =YES;
+        self.sanLB.hidden = self.lineV.hidden = YES;
+    }
+    
+    
     self.navigationItem.title = @"注册";
     self.view1.layer.cornerRadius = self.view2.layer.cornerRadius =  25;
     self.confrimBt.layer.cornerRadius = 22.5;

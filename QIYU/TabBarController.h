@@ -9,4 +9,5 @@
 #import <UIKit/UIKit.h>
 
 @interface TabBarController : UITabBarController
+- (instancetype)initWithType:(NSInteger )type;
 @end

@@ -175,6 +175,7 @@
         QQYYKaiTongHuiYuanTVC * vc =[[QQYYKaiTongHuiYuanTVC alloc] init];
         vc.hidesBottomBarWhenPushed = YES;
         vc.nickName = self.dataModel.nickName;
+        vc.imgStr = self.dataModel.avatar;
         [self.navigationController pushViewController:vc animated:YES];
     }else if (indexPath.section == 2) {
         if (indexPath.row == 0) {
@@ -197,6 +198,8 @@
                     
                     QQYYKaiTongHuiYuanTVC * vc =[[QQYYKaiTongHuiYuanTVC alloc] init];
                     vc.hidesBottomBarWhenPushed = YES;
+                    vc.nickName = self.dataModel.nickName;
+                    vc.imgStr = self.dataModel.avatar;
                     [self.navigationController pushViewController:vc animated:YES];
                             
                             
@@ -254,6 +257,7 @@
             QQYYKaiTongHuiYuanTVC * vc =[[QQYYKaiTongHuiYuanTVC alloc] init];
             vc.hidesBottomBarWhenPushed = YES;
             vc.nickName = self.dataModel.nickName;
+            vc.imgStr = self.dataModel.avatar;
             [self.navigationController pushViewController:vc animated:YES];
             
         }else if (indexPath.row == 3) {
@@ -328,6 +332,7 @@
         QQYYKaiTongHuiYuanTVC * vc =[[QQYYKaiTongHuiYuanTVC alloc] init];
         vc.hidesBottomBarWhenPushed = YES;
         vc.nickName = self.dataModel.nickName;
+        vc.imgStr = self.dataModel.avatar;
         [self.navigationController pushViewController:vc animated:YES];
     }else {
         //点击了修改资料

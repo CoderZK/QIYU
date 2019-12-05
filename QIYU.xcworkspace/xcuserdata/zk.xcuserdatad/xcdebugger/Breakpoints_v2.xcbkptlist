@@ -59,7 +59,7 @@
                   endingColumnNumber = "9223372036854775807"
                   startingLineNumber = "161"
                   endingLineNumber = "161"
-                  offsetFromSymbolStart = "2139">
+                  offsetFromSymbolStart = "1980">
                </Location>
                <Location
                   uuid = "AA1D414A-F350-4714-B586-FF08B423D867 - 36090275e3e93a5c"
@@ -74,7 +74,7 @@
                   endingColumnNumber = "9223372036854775807"
                   startingLineNumber = "161"
                   endingLineNumber = "161"
-                  offsetFromSymbolStart = "15">
+                  offsetFromSymbolStart = "20">
                </Location>
             </Locations>
          </BreakpointContent>
@@ -308,8 +308,8 @@
             filePath = "QIYU/&#x4ea4;&#x53cb;/VC/QQYYHomeTVC.m"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "172"
-            endingLineNumber = "172"
+            startingLineNumber = "216"
+            endingLineNumber = "216"
             landmarkName = "-updateNewAppWith:"
             landmarkType = "7">
          </BreakpointContent>
@@ -324,8 +324,8 @@
             filePath = "QIYU/&#x4ea4;&#x53cb;/VC/QQYYHomeTVC.m"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "167"
-            endingLineNumber = "167"
+            startingLineNumber = "211"
+            endingLineNumber = "211"
             landmarkName = "-updateNewAppWith:"
             landmarkType = "7">
          </BreakpointContent>
@@ -340,8 +340,8 @@
             filePath = "QIYU/&#x4ea4;&#x53cb;/VC/QQYYHomeTVC.m"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "180"
-            endingLineNumber = "180"
+            startingLineNumber = "224"
+            endingLineNumber = "224"
             landmarkName = "-updateNewAppWith:"
             landmarkType = "7">
          </BreakpointContent>
@@ -356,8 +356,8 @@
             filePath = "QIYU/&#x4ea4;&#x53cb;/VC/QQYYHomeTVC.m"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "185"
-            endingLineNumber = "185"
+            startingLineNumber = "229"
+            endingLineNumber = "229"
             landmarkName = "-updateNewAppWith:"
             landmarkType = "7">
          </BreakpointContent>
@@ -372,9 +372,9 @@
             filePath = "QIYU/&#x9996;&#x9875;/GW/QQYYGouWuTVC.m"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "90"
-            endingLineNumber = "90"
-            landmarkName = "-getGoodsList"
+            startingLineNumber = "96"
+            endingLineNumber = "96"
+            landmarkName = "-viewDidLoad"
             landmarkType = "7">
          </BreakpointContent>
       </BreakpointProxy>
@@ -388,9 +388,9 @@
             filePath = "QIYU/&#x9996;&#x9875;/GW/QQYYGouWuTVC.m"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "96"
-            endingLineNumber = "96"
-            landmarkName = "-getGoodsList"
+            startingLineNumber = "102"
+            endingLineNumber = "102"
+            landmarkName = "-viewDidLoad"
             landmarkType = "7">
          </BreakpointContent>
       </BreakpointProxy>
@@ -406,7 +406,7 @@
             endingColumnNumber = "9223372036854775807"
             startingLineNumber = "106"
             endingLineNumber = "106"
-            landmarkName = "-action:"
+            landmarkName = "-setFootV"
             landmarkType = "7">
          </BreakpointContent>
       </BreakpointProxy>
@@ -422,40 +422,8 @@
             endingColumnNumber = "9223372036854775807"
             startingLineNumber = "104"
             endingLineNumber = "104"
-            landmarkName = "-action:"
+            landmarkName = "-setFootV"
             landmarkType = "7">
-            <Locations>
-               <Location
-                  uuid = "A8AC45AA-F680-4359-A460-1E6243319881 - 20609eb03eeba680"
-                  shouldBeEnabled = "Yes"
-                  ignoreCount = "0"
-                  continueAfterRunningActions = "No"
-                  symbolName = "__29-[QQYYGouWuDetailTVC action:]_block_invoke"
-                  moduleName = "&#x82b1;&#x4e0e;&#x86c7;"
-                  usesParentBreakpointCondition = "Yes"
-                  urlString = "file:///Users/zk/Documents/QIYU/QIYU/%E9%A6%96%E9%A1%B5/GW/QQYYGouWuDetailTVC.m"
-                  startingColumnNumber = "9223372036854775807"
-                  endingColumnNumber = "9223372036854775807"
-                  startingLineNumber = "104"
-                  endingLineNumber = "104"
-                  offsetFromSymbolStart = "733">
-               </Location>
-               <Location
-                  uuid = "A8AC45AA-F680-4359-A460-1E6243319881 - 661769bfb6435ef3"
-                  shouldBeEnabled = "Yes"
-                  ignoreCount = "0"
-                  continueAfterRunningActions = "No"
-                  symbolName = "__29-[QQYYGouWuDetailTVC action:]_block_invoke_2"
-                  moduleName = "&#x82b1;&#x4e0e;&#x86c7;"
-                  usesParentBreakpointCondition = "Yes"
-                  urlString = "file:///Users/zk/Documents/QIYU/QIYU/%E9%A6%96%E9%A1%B5/GW/QQYYGouWuDetailTVC.m"
-                  startingColumnNumber = "9223372036854775807"
-                  endingColumnNumber = "9223372036854775807"
-                  startingLineNumber = "105"
-                  endingLineNumber = "105"
-                  offsetFromSymbolStart = "72">
-               </Location>
-            </Locations>
          </BreakpointContent>
       </BreakpointProxy>
       <BreakpointProxy
@@ -477,48 +445,80 @@
       <BreakpointProxy
          BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
          <BreakpointContent
-            uuid = "CAB379FA-443A-488D-9467-0969D60110F0"
+            uuid = "30878CEE-C1D5-4A6E-9C59-3A58215D1530"
             shouldBeEnabled = "Yes"
             ignoreCount = "0"
             continueAfterRunningActions = "No"
-            filePath = "QIYU/&#x4ea4;&#x53cb;/VC/QQYYHomeTVC.m"
+            filePath = "QIYU/&#x9996;&#x9875;/GW/&#x5730;&#x5740;/JZKJ/YJGouWuChe.m"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "312"
-            endingLineNumber = "312"
-            landmarkName = "-tableView:cellForRowAtIndexPath:"
+            startingLineNumber = "102"
+            endingLineNumber = "102"
+            landmarkName = "-getData"
             landmarkType = "7">
          </BreakpointContent>
       </BreakpointProxy>
       <BreakpointProxy
          BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
          <BreakpointContent
-            uuid = "D4401E55-683B-4A18-BD76-928CE3D33EE6"
+            uuid = "70D3A826-FD33-4F78-9995-A66C5C764677"
             shouldBeEnabled = "Yes"
             ignoreCount = "0"
             continueAfterRunningActions = "No"
-            filePath = "QIYU/&#x9996;&#x9875;/Views/QQYYHomeFiveCell.m"
+            filePath = "QIYU/&#x6211;&#x7684;/VC/QQYYKaiTongHuiYuanTVC.m"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "44"
+            endingLineNumber = "44"
+            landmarkName = "-viewDidLoad"
+            landmarkType = "7">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            uuid = "B9565F81-CC09-41E3-A551-7B2EE4E42437"
+            shouldBeEnabled = "Yes"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "QIYU/&#x6211;&#x7684;/VC/QQYYMineNewTVC.m"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "85"
+            endingLineNumber = "85"
+            landmarkName = "-acquireDataFromServe"
+            landmarkType = "7">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            uuid = "A640EBBA-E82C-44D6-A173-CB13DCBEDCF2"
+            shouldBeEnabled = "Yes"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "QIYU/&#x6211;&#x7684;/VC/QQYYMineNewTVC.m"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
             startingLineNumber = "75"
             endingLineNumber = "75"
-            landmarkName = "-setDataArray:"
+            landmarkName = "-acquireDataFromServe"
             landmarkType = "7">
          </BreakpointContent>
       </BreakpointProxy>
       <BreakpointProxy
          BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
          <BreakpointContent
-            uuid = "DF1F6708-EBC8-4FBA-BB19-415FCE496931"
+            uuid = "6DB5DC8D-1F89-47B6-9A69-0A5A527DC2BC"
             shouldBeEnabled = "Yes"
             ignoreCount = "0"
             continueAfterRunningActions = "No"
-            filePath = "QIYU/&#x4ea4;&#x53cb;/VC/QQYYHomeTVC.m"
+            filePath = "QIYU/&#x9996;&#x9875;/GW/&#x5730;&#x5740;/JZKJ/kkJieSuanVC.m"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "685"
-            endingLineNumber = "685"
-            landmarkName = "-acquireDataFromServeDaLei"
+            startingLineNumber = "72"
+            endingLineNumber = "72"
+            landmarkName = "-conAction:"
             landmarkType = "7">
          </BreakpointContent>
       </BreakpointProxy>

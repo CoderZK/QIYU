@@ -14,10 +14,12 @@
 #import "GuanZhuVC.h"
 #import "BSCustom.h"
 #import "QQYYHomeTVC.h"
+#import "QQYYGouWuTVC.h"
 @interface TabBarController ()
 {
     BaseNavigationController * _mineNavi;
     UIButton * button;
+    NSInteger _type;
 }
 @end
 
@@ -34,13 +36,25 @@
 
 }
 
+- (instancetype)initWithType:(NSInteger )type {
+    _type = type;
+    self = [[TabBarController alloc] init];
+    NSLog(@"\n\n\n-----%@",@"321");
+    return self;
+
+    
+}
+
 - (void)viewDidLoad
 {
+     NSLog(@"\n\n\n+++++%@",@"123");
+    
     [super viewDidLoad];
-    NSArray *imgArr=@[@"qy35",@"qy36",@"qy37",@"qy38"];
-    NSArray *selectedImgArr=@[@"qy39",@"qy40",@"qy41",@"qy42"];
-    NSArray *barTitleArr=@[@"交友",@"消息",@"社区",@"我"];
-    NSArray *className=@[@"QQYYHomeTVC",@"QQYYMessageTVC",@"QQYYHomeNewTVC",@"QQYYMineNewTVC"];
+     NSArray *   imgArr=@[@"qy35",@"qy36",@"gouwu_0",@"qy37",@"qy38"];
+     NSArray *   selectedImgArr=@[@"qy39",@"qy40",@"gouwu_1",@"qy41",@"qy42"];
+     NSArray *   barTitleArr=@[@"交友",@"消息",@"商城",@"社区",@"我"];
+     NSArray *   className=@[@"QQYYHomeTVC",@"QQYYMessageTVC",@"QQYYGouWuTVC",@"QQYYHomeNewTVC",@"QQYYMineNewTVC"];
+ 
     NSMutableArray *arr=[[NSMutableArray alloc] init];
     for (int i=0; i<className.count; i++)
     {
