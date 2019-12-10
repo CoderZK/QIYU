@@ -407,6 +407,11 @@
     
 }
 
+    /** 上传推送token*/
++(NSString *)GETapi_user_upTokenURL {
+    return [NSString stringWithFormat:@"%@%@",URLOne,@"/api/userInfo/updatePushToken"];
+}
+
 
 //图片地址
 +(NSString *)getImgURLWithStr:(NSString * )str{

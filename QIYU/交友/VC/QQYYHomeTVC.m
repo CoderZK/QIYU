@@ -234,7 +234,7 @@
                         });
                         
                     }else {
-                        [SVProgressHUD showSuccessWithStatus:@"目前安装的已是最新版本"];
+                       
                     }
                     
                     

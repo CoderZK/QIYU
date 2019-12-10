@@ -115,6 +115,18 @@
         Weak(weakSelf);
         selectTimeV.block = ^(NSString *timeStr) {
             
+            NSDateFormatter * formatter = [[NSDateFormatter alloc] init];
+                                      [formatter setDateFormat:@"yyyy-mm-dd"];
+                                      NSString * nowSate = [formatter stringFromDate:[NSDate date]];
+                                      NSInteger nowY = [[nowSate substringToIndex:4] intValue];
+                                      if (timeStr.length >= 10) {
+                                          NSInteger oldY = [[timeStr substringToIndex:4] intValue];
+                                          if (nowY - oldY <18) {
+                                              [SVProgressHUD showErrorWithStatus:@"我们不允许18岁以下人员注册"];
+                                              return ;
+                                          }
+                                      }
+            
             if (timeStr) {
                 weakSelf.birthday = timeStr;
                 [weakSelf.tableView reloadData];
@@ -297,6 +309,9 @@
         if ([self isCanUsePhotos]) {
             [self showMXPhotoCameraAndNeedToEdit:YES completion:^(UIImage *image, UIImage *originImage, CGRect cutRect) {
                  [self.headBt setBackgroundImage:image forState:UIControlStateNormal];
+                
+                [self uploadHeadImageWithImage:image];
+                [self.headBt setBackgroundImage:image forState:UIControlStateNormal];
                 
             }];
         }else{

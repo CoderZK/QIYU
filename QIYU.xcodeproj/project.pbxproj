@@ -2879,11 +2879,11 @@
 					"$(PROJECT_DIR)/QIYU/消息/环信/EaseUI/EMUIKit/3rdparty/DeviceHelper/VoiceConvert/opencore-amrwb",
 					"$(PROJECT_DIR)/QIYU/消息/环信/EaseUI/EMUIKit/3rdparty/DeviceHelper/VoiceConvert/opencore-amrnb",
 				);
-				MARKETING_VERSION = 1.1;
+				MARKETING_VERSION = 1.2;
 				PRODUCT_BUNDLE_IDENTIFIER = com.xx.qy.app;
 				PRODUCT_NAME = "花与蛇";
 				PROVISIONING_PROFILE = "3bdcf4b3-e396-4d7a-ab2b-739f2269ddaa";
-				PROVISIONING_PROFILE_SPECIFIER = xxqydev;
+				PROVISIONING_PROFILE_SPECIFIER = 1210xxqydev;
 				TARGETED_DEVICE_FAMILY = 1;
 			};
 			name = Debug;
@@ -2920,10 +2920,10 @@
 					"$(PROJECT_DIR)/QIYU/消息/环信/EaseUI/EMUIKit/3rdparty/DeviceHelper/VoiceConvert/opencore-amrwb",
 					"$(PROJECT_DIR)/QIYU/消息/环信/EaseUI/EMUIKit/3rdparty/DeviceHelper/VoiceConvert/opencore-amrnb",
 				);
-				MARKETING_VERSION = 1.1;
+				MARKETING_VERSION = 1.2;
 				PRODUCT_BUNDLE_IDENTIFIER = com.xx.qy.app;
 				PRODUCT_NAME = "花与蛇";
-				PROVISIONING_PROFILE_SPECIFIER = xxqydis;
+				PROVISIONING_PROFILE_SPECIFIER = 1210xxyydis;
 				TARGETED_DEVICE_FAMILY = 1;
 			};
 			name = Release;

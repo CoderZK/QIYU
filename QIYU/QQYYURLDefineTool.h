@@ -225,7 +225,8 @@ NS_ASSUME_NONNULL_BEGIN
 
     /** 领取奖励*/
 +(NSString *)getMyTaskRewardURL;
-
+    /** 上传推送token*/
++(NSString *)GETapi_user_upTokenURL;
 
 
 +(NSString *)getImgURLWithStr:(NSString * )str;

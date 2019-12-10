@@ -93,18 +93,18 @@ static QQYYSignleToolNew * tool = nil;
 {
     if (self.isLogin&&self.session_token&&self.deviceToken)
     {
-        NSDictionary * dic = @{
-                               @"token":self.session_token,
-                               @"type":@1,
-                               @"deviceToken":self.deviceToken
-                               };
-        //        [QQYYRequestTool networkingPOST:[zkFMURL GETapi_user_upTokenURL] parameters:dic success:^(NSURLSessionDataTask *task, id responseObject) {
-        //
-        //            NSLog(@"上传友盟推送成功\n%@",responseObject);
-        //
-        //        } failure:^(NSURLSessionDataTask *task, NSError *error) {
-        //            NSLog(@"%@",error);
-        //        }];
+         NSDictionary * dic = @{
+                                      @"userId":self.session_uid,
+                                      @"type":@1,
+                                      @"pushToken":self.deviceToken
+                                      };
+                [QQYYRequestTool networkingPOST:[QQYYURLDefineTool GETapi_user_upTokenURL] parameters:dic success:^(NSURLSessionDataTask *task, id responseObject) {
+        
+                    NSLog(@"上传友盟推送成功\n%@",responseObject);
+        
+                } failure:^(NSURLSessionDataTask *task, NSError *error) {
+                    NSLog(@"%@",error);
+                }];
     }
     
 }

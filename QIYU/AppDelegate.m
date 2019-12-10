@@ -18,7 +18,7 @@
 #import <MediaPlayer/MediaPlayer.h>
 #import "QQYYMovieVC.h"
 
-#define UMKey @"5dd20ecd570df37fe800001c"
+#define UMKey @"5deeef9f0cafb2db25000018"
 //友盟安全密钥//r6xbw5gy0zenei6x56xtm9wmkrrz653y
 #define SinaAppKey @"2593734403"
 #define SinaAppSecret @"f021858321817f3b0e3bdb570fb87401"
@@ -232,29 +232,15 @@
 -(void)application:(UIApplication *)application didRegisterForRemoteNotificationsWithDeviceToken:(NSData *)deviceToken
 {
     
-            [UMessage registerDeviceToken:deviceToken];
-            //2.获取到deviceToken
-            NSString *token = [[[deviceToken description] stringByTrimmingCharactersInSet:[NSCharacterSet characterSetWithCharactersInString:@"<>"]] stringByReplacingOccurrencesOfString:@" " withString:@""];
-            //将deviceToken给后台
-            NSLog(@"send_token:%@",token);
-    
-//    self.pushToken = deviceToken;
-//    if (![LxmTool ShareTool].isClosePush)
-//    {
-//        [UMessage registerDeviceToken:deviceToken];
-//        //2.获取到deviceToken
-//        NSString *token = [[[deviceToken description] stringByTrimmingCharactersInSet:[NSCharacterSet characterSetWithCharactersInString:@"<>"]] stringByReplacingOccurrencesOfString:@" " withString:@""];
-//        //将deviceToken给后台
-//        NSLog(@"send_token:%@",token);
-//        [LxmTool ShareTool].deviceToken = token;
-//        //[[LxmTool ShareTool] uploadDeviceToken];
-//    }
-//    else
-//    {
-//        [UMessage registerDeviceToken:nil];
-//        [LxmTool ShareTool].deviceToken = @"";
-//        //[[LxmTool ShareTool] uploadDeviceToken];
-//    }
+                 self.pushToken = deviceToken;
+            
+                 [UMessage registerDeviceToken:deviceToken];
+                 //2.获取到deviceToken
+                 NSString *token = [[[deviceToken description] stringByTrimmingCharactersInSet:[NSCharacterSet characterSetWithCharactersInString:@"<>"]] stringByReplacingOccurrencesOfString:@" " withString:@""];
+                     //将deviceToken给后台
+                 NSLog(@"send_token:%@",token);
+                 [QQYYSignleToolNew shareTool].deviceToken = token;
+                 [[QQYYSignleToolNew shareTool] uploadDeviceToken];
     
     
 }
