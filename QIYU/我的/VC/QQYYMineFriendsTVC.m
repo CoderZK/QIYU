@@ -119,7 +119,7 @@
             [self.tableView reloadData];
             
         }else {
-            [self showAlertWithKey:[NSString stringWithFormat:@"%@",responseObject[@"code"]] message:responseObject[@"message"]];
+//            [self showAlertWithKey:[NSString stringWithFormat:@"%@",responseObject[@"code"]] message:responseObject[@"message"]];
         }
         
     } failure:^(NSURLSessionDataTask *task, NSError *error) {

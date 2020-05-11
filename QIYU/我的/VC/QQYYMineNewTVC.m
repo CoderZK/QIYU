@@ -13,7 +13,7 @@
 #import "QQYYMineFourCell.h"
 #import "QQYYMineFriendsTVC.h"
 #import "QQYYReDuTVC.h"
-#import "QQYYKaiTongHuiYuanTVC.h"
+#import "QQYYHYFWTVC.h"
 #import "QQYYZhuYeTVC.h"
 #import "QQYYXiuGaiZiLiaoTVC.h"
 #import "QQYYMineCollectTVC.h"
@@ -138,7 +138,7 @@
 
 - (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath {
     
-    if ((indexPath.section == 1 && indexPath.row == 0 && isDDDDDDDD) || (indexPath.section == 3 && indexPath.row == 2 && isDDDDDDDD) ||(indexPath.section == 3 && indexPath.row == 3 && isDDDDDDDD)||(indexPath.section == 3 && indexPath.row == 4 && isDDDDDDDD)|| (indexPath.section == 3 && indexPath.row == 0 && isDDDDDDDD)){
+    if ((indexPath.section == 1 && indexPath.row == 0 && isDDDDDDDD) || (indexPath.section == 3 && indexPath.row == 2 && isDDDDDDDD) ||(indexPath.section == 3 && indexPath.row == 3 && isDDDDDDDD)||(indexPath.section == 3 && indexPath.row == 4 && isDDDDDDDD)|| (indexPath.section == 3 && indexPath.row == 0 && isDDDDDDDD) ){
         return 0;
     }
     
@@ -157,6 +157,7 @@
         cell.model = self.dataModel;
         cell.delegate = self;
         cell.imgV.hidden = !self.dataModel.isVip;
+        cell.clipsToBounds = YES;
         return cell;
     }else {
         QQYYMineThreeCell * cell =[tableView dequeueReusableCellWithIdentifier:@"cellThree" forIndexPath:indexPath];
@@ -172,7 +173,7 @@
     [tableView deselectRowAtIndexPath:indexPath animated:YES];
     
     if (indexPath.section == 1) {
-        QQYYKaiTongHuiYuanTVC * vc =[[QQYYKaiTongHuiYuanTVC alloc] init];
+        QQYYHYFWTVC * vc =[[QQYYHYFWTVC alloc] init];
         vc.hidesBottomBarWhenPushed = YES;
         vc.nickName = self.dataModel.nickName;
         vc.imgStr = self.dataModel.avatar;
@@ -187,16 +188,14 @@
             [self.navigationController pushViewController:vc animated:YES];
         }else if (indexPath.row == 2) {
             
-            if (!self.dataModel.isVip) {
+            if (!self.dataModel.isVip && !isDDDDDDDD) {
                
                 UIAlertController *ac = [UIAlertController alertControllerWithTitle:@"温馨提示" message:@"只有开通Vip会员才能查看谁看过我" preferredStyle:UIAlertControllerStyleAlert];
                 UIAlertAction *action1 = [UIAlertAction actionWithTitle:@"取消" style:UIAlertActionStyleDefault handler:^(UIAlertAction * _Nonnull action) {
-                    
-                    
                 }];
                 UIAlertAction *action2 = [UIAlertAction actionWithTitle:@"开通会员" style:UIAlertActionStyleDefault handler:^(UIAlertAction * _Nonnull action) {
                     
-                    QQYYKaiTongHuiYuanTVC * vc =[[QQYYKaiTongHuiYuanTVC alloc] init];
+                    QQYYHYFWTVC * vc =[[QQYYHYFWTVC alloc] init];
                     vc.hidesBottomBarWhenPushed = YES;
                     vc.nickName = self.dataModel.nickName;
                     vc.imgStr = self.dataModel.avatar;
@@ -212,13 +211,15 @@
                 [self.navigationController presentViewController:ac animated:YES completion:nil];
                 
                 
+            }else {
+                QQYYMineFriendsTVC * vc =[[QQYYMineFriendsTVC alloc] init];
+                vc.type = 3;
+                vc.userNo = self.dataModel.userNo;
+                vc.hidesBottomBarWhenPushed = YES;
+                [self.navigationController pushViewController:vc animated:YES];
             }
             
-            QQYYMineFriendsTVC * vc =[[QQYYMineFriendsTVC alloc] init];
-            vc.type = 3;
-            vc.userNo = self.dataModel.userNo;
-            vc.hidesBottomBarWhenPushed = YES;
-            [self.navigationController pushViewController:vc animated:YES];
+            
             
         }else if (indexPath.row == 3) {
             
@@ -254,7 +255,7 @@
             [self.navigationController pushViewController:vc animated:YES];
         }else if (indexPath.row == 2) {
             
-            QQYYKaiTongHuiYuanTVC * vc =[[QQYYKaiTongHuiYuanTVC alloc] init];
+            QQYYHYFWTVC * vc =[[QQYYHYFWTVC alloc] init];
             vc.hidesBottomBarWhenPushed = YES;
             vc.nickName = self.dataModel.nickName;
             vc.imgStr = self.dataModel.avatar;
@@ -329,7 +330,7 @@
 - (void)huiYuanOrZiLiaoAction:(UIButton *)button {
     if (button.tag == 100) {
         //点击了开通会员
-        QQYYKaiTongHuiYuanTVC * vc =[[QQYYKaiTongHuiYuanTVC alloc] init];
+        QQYYHYFWTVC * vc =[[QQYYHYFWTVC alloc] init];
         vc.hidesBottomBarWhenPushed = YES;
         vc.nickName = self.dataModel.nickName;
         vc.imgStr = self.dataModel.avatar;

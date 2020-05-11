@@ -64,6 +64,7 @@
 		582FFA57229B84170039971E /* MXImageGroupController.m in Sources */ = {isa = PBXBuildFile; fileRef = 582FFA4C229B84170039971E /* MXImageGroupController.m */; };
 		582FFA5A229B8AA00039971E /* zkHomelModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 582FFA59229B8AA00039971E /* zkHomelModel.m */; };
 		582FFA64229BAEE90039971E /* GuanZhuVC.m in Sources */ = {isa = PBXBuildFile; fileRef = 582FFA63229BAEE90039971E /* GuanZhuVC.m */; };
+		583090C923A1C77200F1D838 /* QQYYHYFWTVC.m in Sources */ = {isa = PBXBuildFile; fileRef = 583090C823A1C77200F1D838 /* QQYYHYFWTVC.m */; };
 		5831DAB622D56AA2001C5E4A /* CustomEmojiView.m in Sources */ = {isa = PBXBuildFile; fileRef = 5831DAB522D56AA2001C5E4A /* CustomEmojiView.m */; };
 		5831DAB922D575BD001C5E4A /* WZCustomEmojiView.m in Sources */ = {isa = PBXBuildFile; fileRef = 5831DAB722D575BD001C5E4A /* WZCustomEmojiView.m */; };
 		58321CBE233895C200E77553 /* QQYYGouWuTVC.m in Sources */ = {isa = PBXBuildFile; fileRef = 58321CBD233895C200E77553 /* QQYYGouWuTVC.m */; };
@@ -308,7 +309,6 @@
 		58917E7E22DC0D3A00C46E04 /* QQYYYiJianTVC.m in Sources */ = {isa = PBXBuildFile; fileRef = 58917E5822DC0D3800C46E04 /* QQYYYiJianTVC.m */; };
 		58917E7F22DC0D3A00C46E04 /* QQYYMineFriendsTVC.m in Sources */ = {isa = PBXBuildFile; fileRef = 58917E5A22DC0D3900C46E04 /* QQYYMineFriendsTVC.m */; };
 		58917E8022DC0D3A00C46E04 /* QQYYMineTaskTVC.m in Sources */ = {isa = PBXBuildFile; fileRef = 58917E5B22DC0D3900C46E04 /* QQYYMineTaskTVC.m */; };
-		58917E8122DC0D3A00C46E04 /* QQYYKaiTongHuiYuanTVC.m in Sources */ = {isa = PBXBuildFile; fileRef = 58917E5C22DC0D3900C46E04 /* QQYYKaiTongHuiYuanTVC.m */; };
 		58917E8222DC0D3A00C46E04 /* QQYYZhuYeTVC.m in Sources */ = {isa = PBXBuildFile; fileRef = 58917E5F22DC0D3900C46E04 /* QQYYZhuYeTVC.m */; };
 		58917E8322DC0D3A00C46E04 /* QQYYAddYinHangKaVC.m in Sources */ = {isa = PBXBuildFile; fileRef = 58917E6222DC0D3900C46E04 /* QQYYAddYinHangKaVC.m */; };
 		58917E8422DC0D3A00C46E04 /* QQYYTiXianTwoTVC.m in Sources */ = {isa = PBXBuildFile; fileRef = 58917E6322DC0D3900C46E04 /* QQYYTiXianTwoTVC.m */; };
@@ -521,6 +521,8 @@
 		582FFA59229B8AA00039971E /* zkHomelModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = zkHomelModel.m; sourceTree = "<group>"; };
 		582FFA62229BAEE90039971E /* GuanZhuVC.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GuanZhuVC.h; sourceTree = "<group>"; };
 		582FFA63229BAEE90039971E /* GuanZhuVC.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GuanZhuVC.m; sourceTree = "<group>"; };
+		583090C723A1C77200F1D838 /* QQYYHYFWTVC.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = QQYYHYFWTVC.h; sourceTree = "<group>"; };
+		583090C823A1C77200F1D838 /* QQYYHYFWTVC.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = QQYYHYFWTVC.m; sourceTree = "<group>"; };
 		5831DAB422D56AA2001C5E4A /* CustomEmojiView.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = CustomEmojiView.h; sourceTree = "<group>"; };
 		5831DAB522D56AA2001C5E4A /* CustomEmojiView.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = CustomEmojiView.m; sourceTree = "<group>"; };
 		5831DAB722D575BD001C5E4A /* WZCustomEmojiView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WZCustomEmojiView.m; sourceTree = "<group>"; };
@@ -881,12 +883,10 @@
 		58917E5922DC0D3800C46E04 /* QQYYMineTaskTVC.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = QQYYMineTaskTVC.h; sourceTree = "<group>"; };
 		58917E5A22DC0D3900C46E04 /* QQYYMineFriendsTVC.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = QQYYMineFriendsTVC.m; sourceTree = "<group>"; };
 		58917E5B22DC0D3900C46E04 /* QQYYMineTaskTVC.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = QQYYMineTaskTVC.m; sourceTree = "<group>"; };
-		58917E5C22DC0D3900C46E04 /* QQYYKaiTongHuiYuanTVC.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = QQYYKaiTongHuiYuanTVC.m; sourceTree = "<group>"; };
 		58917E5D22DC0D3900C46E04 /* QQYYMineFriendsTVC.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = QQYYMineFriendsTVC.h; sourceTree = "<group>"; };
 		58917E5E22DC0D3900C46E04 /* QQYYXingQuBiaoQianTVC.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = QQYYXingQuBiaoQianTVC.h; sourceTree = "<group>"; };
 		58917E5F22DC0D3900C46E04 /* QQYYZhuYeTVC.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = QQYYZhuYeTVC.m; sourceTree = "<group>"; };
 		58917E6022DC0D3900C46E04 /* QQYYYinHangKaTVC.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = QQYYYinHangKaTVC.h; sourceTree = "<group>"; };
-		58917E6122DC0D3900C46E04 /* QQYYKaiTongHuiYuanTVC.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = QQYYKaiTongHuiYuanTVC.h; sourceTree = "<group>"; };
 		58917E6222DC0D3900C46E04 /* QQYYAddYinHangKaVC.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = QQYYAddYinHangKaVC.m; sourceTree = "<group>"; };
 		58917E6322DC0D3900C46E04 /* QQYYTiXianTwoTVC.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = QQYYTiXianTwoTVC.m; sourceTree = "<group>"; };
 		58917E6422DC0D3A00C46E04 /* QQYYAddYinHangKaVC.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = QQYYAddYinHangKaVC.h; sourceTree = "<group>"; };
@@ -1358,8 +1358,8 @@
 				58917E5422DC0D3800C46E04 /* QQYYJuBaoVC.h */,
 				58917E4A22DC0D3700C46E04 /* QQYYJuBaoVC.m */,
 				58917E3F22DC0D3600C46E04 /* QQYYJuBaoVC.xib */,
-				58917E6122DC0D3900C46E04 /* QQYYKaiTongHuiYuanTVC.h */,
-				58917E5C22DC0D3900C46E04 /* QQYYKaiTongHuiYuanTVC.m */,
+				583090C723A1C77200F1D838 /* QQYYHYFWTVC.h */,
+				583090C823A1C77200F1D838 /* QQYYHYFWTVC.m */,
 				58917E4822DC0D3700C46E04 /* QQYYMineCollectTVC.h */,
 				58917E4922DC0D3700C46E04 /* QQYYMineCollectTVC.m */,
 				58917E5D22DC0D3900C46E04 /* QQYYMineFriendsTVC.h */,
@@ -2616,6 +2616,7 @@
 				583ADD4522A7479F0064E60F /* YWUnlockPreviewView.m in Sources */,
 				337F3EA920EA014600C5526A /* BaseCollectionViewController.m in Sources */,
 				584B9C5A234C589200EDB9E3 /* HHHHLJTenTvc.m in Sources */,
+				583090C923A1C77200F1D838 /* QQYYHYFWTVC.m in Sources */,
 				58917DD522DC0CC000C46E04 /* QQYYMakeFriendsTVC.m in Sources */,
 				58917D9C22DC0C4000C46E04 /* QQYYAddLinkVC.m in Sources */,
 				58917EC722DC0D5600C46E04 /* QQYYMineFriendsCell.m in Sources */,
@@ -2633,7 +2634,6 @@
 				582FFA56229B84170039971E /* MXPhotoPickerController.m in Sources */,
 				58435DF222DDACF7003E7412 /* QQYYHomeTVC.m in Sources */,
 				58CFF4BA2397874A001DF684 /* YJAddressTVC.m in Sources */,
-				58917E8122DC0D3A00C46E04 /* QQYYKaiTongHuiYuanTVC.m in Sources */,
 				58917DA922DC0C5B00C46E04 /* QQYYTongYongTwoCell.m in Sources */,
 				58917DB122DC0C7300C46E04 /* QQYYSerachShowView.m in Sources */,
 				584B9C4E234C582E00EDB9E3 /* HHHHLJSixTvc.m in Sources */,
@@ -2855,7 +2855,7 @@
 				CODE_SIGN_ENTITLEMENTS = "QIYU/花与蛇 推送测试.entitlements";
 				CODE_SIGN_IDENTITY = "iPhone Developer";
 				CODE_SIGN_STYLE = Manual;
-				CURRENT_PROJECT_VERSION = 3;
+				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_TEAM = N6ZU25A67U;
 				ENABLE_BITCODE = YES;
 				FRAMEWORK_SEARCH_PATHS = (
@@ -2879,7 +2879,7 @@
 					"$(PROJECT_DIR)/QIYU/消息/环信/EaseUI/EMUIKit/3rdparty/DeviceHelper/VoiceConvert/opencore-amrwb",
 					"$(PROJECT_DIR)/QIYU/消息/环信/EaseUI/EMUIKit/3rdparty/DeviceHelper/VoiceConvert/opencore-amrnb",
 				);
-				MARKETING_VERSION = 1.2;
+				MARKETING_VERSION = 2.0;
 				PRODUCT_BUNDLE_IDENTIFIER = com.xx.qy.app;
 				PRODUCT_NAME = "花与蛇";
 				PROVISIONING_PROFILE = "3bdcf4b3-e396-4d7a-ab2b-739f2269ddaa";
@@ -2896,7 +2896,7 @@
 				CODE_SIGN_ENTITLEMENTS = "QIYU/花与蛇 推送测试.entitlements";
 				CODE_SIGN_IDENTITY = "iPhone Distribution";
 				CODE_SIGN_STYLE = Manual;
-				CURRENT_PROJECT_VERSION = 3;
+				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_TEAM = N6ZU25A67U;
 				ENABLE_BITCODE = YES;
 				FRAMEWORK_SEARCH_PATHS = (
@@ -2920,7 +2920,7 @@
 					"$(PROJECT_DIR)/QIYU/消息/环信/EaseUI/EMUIKit/3rdparty/DeviceHelper/VoiceConvert/opencore-amrwb",
 					"$(PROJECT_DIR)/QIYU/消息/环信/EaseUI/EMUIKit/3rdparty/DeviceHelper/VoiceConvert/opencore-amrnb",
 				);
-				MARKETING_VERSION = 1.2;
+				MARKETING_VERSION = 2.0;
 				PRODUCT_BUNDLE_IDENTIFIER = com.xx.qy.app;
 				PRODUCT_NAME = "花与蛇";
 				PROVISIONING_PROFILE_SPECIFIER = 1210xxyydis;

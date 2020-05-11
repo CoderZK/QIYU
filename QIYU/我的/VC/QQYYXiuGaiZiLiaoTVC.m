@@ -568,9 +568,20 @@
             [alert show];
         }
     }];
+    
+    UIAlertAction * action4 = [UIAlertAction actionWithTitle:@"看大图" style:(UIAlertActionStyleDefault) handler:^(UIAlertAction * _Nonnull action) {
+           if(self.type == 1) {
+              [[zkPhotoShowVC alloc] initWithArray:@[[QQYYURLDefineTool getImgURLWithStr:self.dataModel.avatar]] index:0];
+           }else {
+               [[zkPhotoShowVC alloc] initWithArray:@[[QQYYURLDefineTool getImgURLWithStr:self.dataModel.background]] index:0];
+              
+           }
+          }];
+    
     UIAlertAction *action3 = [UIAlertAction actionWithTitle:@"取消" style:UIAlertActionStyleCancel handler:nil];
     [ac addAction:action1];
     [ac addAction:action2];
+    [ac addAction:action4];
     [ac addAction:action3];
     
     [self.navigationController presentViewController:ac animated:YES completion:nil];

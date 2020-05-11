@@ -18,7 +18,7 @@
 #import "QQYYAddFriendsTVC.h"
 #import "QQYYMinePhotoTVC.h"
 #import "QQYYXingQuBiaoQianTVC.h"
-#import "QQYYKaiTongHuiYuanTVC.h"
+#import "QQYYHYFWTVC.h"
 @interface QQYYZhuYeTVC ()<QQYYHomeDongTaiCellDelegate,QQYYYongBaoViewDeletage,QQYYHomeDongTaiCellDelegate,QQYYZhuYeTwoCellDelegate>
 @property(nonatomic,strong)UILabel *LB1,*LB2,*LB3;
 @property(nonatomic,strong)UIButton *headBt ,*editBt,*addFriendBt,*attentionBt,*cancelGuanZhuBt;
@@ -474,13 +474,17 @@
     UIAlertAction *action3 = [UIAlertAction actionWithTitle:@"取消" style:UIAlertActionStyleCancel handler:nil];
     
     UIAlertAction * action4 = [UIAlertAction actionWithTitle:@"看大图" style:(UIAlertActionStyleDefault) handler:^(UIAlertAction * _Nonnull action) {
-
+        if(self.type == 1) {
            [[zkPhotoShowVC alloc] initWithArray:@[[QQYYURLDefineTool getImgURLWithStr:self.dataModel.avatar]] index:0];
-
+        }else {
+            [[zkPhotoShowVC alloc] initWithArray:@[[QQYYURLDefineTool getImgURLWithStr:self.dataModel.background]] index:0];
+           
+        }
        }];
     [ac addAction:action1];
     [ac addAction:action2];
     [ac addAction:action4];
+   
     [ac addAction:action3];
     
     [self.navigationController presentViewController:ac animated:YES completion:nil];
@@ -633,7 +637,7 @@
         }];
         UIAlertAction *action2 = [UIAlertAction actionWithTitle:@"开通会员" style:UIAlertActionStyleDefault handler:^(UIAlertAction * _Nonnull action) {
             
-            QQYYKaiTongHuiYuanTVC * vc =[[QQYYKaiTongHuiYuanTVC alloc] init];
+            QQYYHYFWTVC * vc =[[QQYYHYFWTVC alloc] init];
             vc.hidesBottomBarWhenPushed = YES;
             [self.navigationController pushViewController:vc animated:YES];
 
@@ -988,6 +992,17 @@
             }
         }else {
             
+            if (isDDDDDDDD) {
+                
+                QQYYAddFriendsTVC * vc =[[QQYYAddFriendsTVC alloc] init];
+                vc.hidesBottomBarWhenPushed = YES;
+                vc.model = self.model;
+                [self.navigationController pushViewController:vc animated:YES];
+                return;
+                
+            }
+            
+            
             if (!self.dataModel.currentUserIsVip  && ![[QQYYSignleToolNew shareTool].session_uid isEqualToString:self.dataModel.userId]) {
                 
                 UIAlertController *ac = [UIAlertController alertControllerWithTitle:@"温馨提示" message:@"只有开通Vip会员才能添加好友" preferredStyle:UIAlertControllerStyleAlert];
@@ -997,7 +1012,7 @@
                 }];
                 UIAlertAction *action2 = [UIAlertAction actionWithTitle:@"开通会员" style:UIAlertActionStyleDefault handler:^(UIAlertAction * _Nonnull action) {
                     
-                    QQYYKaiTongHuiYuanTVC * vc =[[QQYYKaiTongHuiYuanTVC alloc] init];
+                    QQYYHYFWTVC * vc =[[QQYYHYFWTVC alloc] init];
                     vc.hidesBottomBarWhenPushed = YES;
                     [self.navigationController pushViewController:vc animated:YES];
                     

@@ -115,7 +115,10 @@
         [self acquireDataFromServe];
     }];
     [self acquireDataFromServeDaLei];
-    [self getConfig];
+    
+     [QQYYSignleToolNew shareTool].isppp = YES;
+    
+//    [self getConfig];
     
     [self updateNewAppWith:appStoreID];
     

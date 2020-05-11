@@ -1,19 +1,19 @@
 //
-//  QQYYKaiTongHuiYuanTVC.m
-//  HouHuaYuanAPP
+//  QQYYHYFWTVC.m
+//  QIYU
 //
-//  Created by zk on 2019/5/30.
+//  Created by zk on 2019/12/12.
 //  Copyright © 2019 kunzhang. All rights reserved.
 //
 
-#import "QQYYKaiTongHuiYuanTVC.h"
+#import "QQYYHYFWTVC.h"
 #import "QQYYZhiFuCell.h"
 #import "QQYYHuiYuanOneCell.h"
 #import "QQYYHuiYuanTwoCell.h"
 #import "QQYYHuiYuanThreeCell.h"
 #import <AlipaySDK/AlipaySDK.h>
 #import "WXApi.h"
-@interface QQYYKaiTongHuiYuanTVC ()
+@interface QQYYHYFWTVC ()
 @property(nonatomic,strong)UILabel *LB1,*LB2,*LB3;
 @property(nonatomic,assign)NSInteger selectIndexZhiFu;
 @property(nonatomic,strong)UIButton *headBt;
@@ -21,8 +21,14 @@
 @property (nonatomic,strong)NSDictionary *payDic;
 @end
 
-@implementation QQYYKaiTongHuiYuanTVC
+@implementation QQYYHYFWTVC
 
+- (void)viewWillDisappear:(BOOL)animated {
+    [super viewWillDisappear:animated];
+    self.navigationController.navigationBar.hidden = NO;
+    [UIApplication sharedApplication].statusBarStyle = UIStatusBarStyleDefault;
+    [[NSNotificationCenter defaultCenter] removeObserver:self];
+}
 - (void)viewWillAppear:(BOOL)animated {
     [super viewWillAppear:animated];
     self.navigationController.navigationBar.hidden = YES;
@@ -31,18 +37,22 @@
     [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(ZFBZFBZFBZFB:) name:@"ZFBPAY" object:nil];
 }
 
-- (void)viewWillDisappear:(BOOL)animated {
-    [super viewWillDisappear:animated];
-    self.navigationController.navigationBar.hidden = NO;
-    [UIApplication sharedApplication].statusBarStyle = UIStatusBarStyleDefault;
-    [[NSNotificationCenter defaultCenter] removeObserver:self];
+
+- (void)createBackNavigation{
+    
+    UILabel * labe =[[UILabel alloc] init];
+    labe.font = kFont(14);
+    UIButton * LeftOrRightBT=[[UIButton alloc] initWithFrame:CGRectMake(10, sstatusHeight + 2 , 40, 40)];
+    [LeftOrRightBT setImage:[UIImage imageNamed:@"nav_back"] forState:UIControlStateNormal];
+    [LeftOrRightBT addTarget:self action:@selector(leftOrRightClickAction:) forControlEvents:UIControlEventTouchUpInside];
+    LeftOrRightBT.tag = 10;
+    [self.view addSubview:LeftOrRightBT];
+    
 }
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-    
     self.dataArray = @[].mutableCopy;
-    
     self.selectIndexZhiFu = 0;
     [self.tableView registerClass:[QQYYZhiFuCell class] forCellReuseIdentifier:@"cellZhiFu"];
     [self.tableView registerClass:[QQYYHuiYuanOneCell class] forCellReuseIdentifier:@"cell"];
@@ -57,17 +67,6 @@
     self.tableView.mj_header = [MJRefreshNormalHeader headerWithRefreshingBlock:^{
         [self acquireDataFromServe];
     }];
-    
-}
-
-- (void)createBackNavigation{
-    
-    UIButton * LeftOrRightBT=[[UIButton alloc] initWithFrame:CGRectMake(10, sstatusHeight + 2 , 40, 40)];
-    [LeftOrRightBT setImage:[UIImage imageNamed:@"nav_back"] forState:UIControlStateNormal];
-    [LeftOrRightBT addTarget:self action:@selector(leftOrRightClickAction:) forControlEvents:UIControlEventTouchUpInside];
-    LeftOrRightBT.tag = 10;
-    [self.view addSubview:LeftOrRightBT];
-    
 }
 
 - (void)leftOrRightClickAction:(UIButton *)button {
@@ -80,19 +79,14 @@
         [self.tableView.mj_header endRefreshing];
         [self.tableView.mj_footer endRefreshing];
         if ([responseObject[@"code"] intValue]== 0) {
-            
             self.dataArray = [QQYYTongYongModel mj_objectArrayWithKeyValuesArray:responseObject[@"object"]];
             [self.tableView reloadData];
-            
         }else {
             [self showAlertWithKey:[NSString stringWithFormat:@"%@",responseObject[@"code"]] message:responseObject[@"message"]];
         }
-        
     } failure:^(NSURLSessionDataTask *task, NSError *error) {
-        
         [self.tableView.mj_header endRefreshing];
         [self.tableView.mj_footer endRefreshing];
-        
     }];
     
 }
@@ -104,22 +98,17 @@
     UIImageView *imgV = [[UIImageView alloc] initWithFrame:NewHeadView.bounds];
     imgV.image = [UIImage imageNamed:@"96"];
     [NewHeadView addSubview:imgV];
-    
     UILabel * NameLB  =[[UILabel alloc] initWithFrame:CGRectMake(60, sstatusHeight + 2 , ScreenW-120, 40)];
     NameLB.font =[UIFont systemFontOfSize:18];
     NameLB.textColor = WhiteColor;
     [NewHeadView addSubview:NameLB];
     NameLB.textAlignment = NSTextAlignmentCenter;
     NameLB.text = @"会员服务";
-    
-    
-    
     self.headBt = [[UIButton alloc] initWithFrame:CGRectMake(15, (Kscale(192) - 70 )/2 ,70, 70)];
     self.headBt.layer.cornerRadius = 35;
     self.headBt.clipsToBounds = YES;
     [NewHeadView addSubview:self.headBt];
     [self.headBt sd_setImageWithURL:[NSURL URLWithString:[QQYYURLDefineTool getImgURLWithStr:self.imgStr]] forState:UIControlStateNormal placeholderImage:[UIImage imageNamed:@"369"]];
-    
     UILabel * lb = [[UILabel alloc] initWithFrame:CGRectMake(CGRectGetMaxX(self.headBt.frame) + 15 , CGRectGetMinY(self.headBt.frame) + 10, 150, 20)];
     lb.textColor = WhiteColor;
     lb.font = kFont(16);
@@ -127,7 +116,6 @@
     lb.textAlignment = NSTextAlignmentLeft;
     [NewHeadView addSubview:lb];
     self.LB1 = lb;
-    
     UILabel * lb2 = [[UILabel alloc] initWithFrame:CGRectMake(CGRectGetMaxX(self.headBt.frame) + 15,CGRectGetMaxY(self.LB1.frame) + 5, ScreenW -CGRectGetMaxX(self.headBt.frame) -30, 40)];
     lb2.textColor = WhiteColor;
     lb2.font = kFont(14);
@@ -135,13 +123,10 @@
     lb2.textAlignment =  NSTextAlignmentLeft;
     [NewHeadView addSubview:lb2];
     self.LB2 = lb2;
-    
     self.tableView.tableHeaderView = NewHeadView;
 }
 
-- (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView {
-    return 4;
-}
+
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
     if (section == 0 || section == 1) {
@@ -153,6 +138,10 @@
         return self.dataArray.count;
     }
     
+}
+
+- (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView {
+    return 4;
 }
 
 - (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath {
@@ -203,6 +192,19 @@
     
 }
 
+
+
+
+- (void)buzhidaoxieshaWithIndex:(int)index{
+    
+    for (int i = 0; i<index; i++) {
+        int f = i*100+arc4random() % 8;
+        if (f % 3 == 0) {
+            NSLog(@"%d",f);
+        }
+    }
+}
+
 - (void)clickRightBtAction:(UIButton *)button {
     
     QQYYTongYongModel * model = self.dataArray[button.tag - 100];
@@ -239,17 +241,6 @@
     }];
     
     
-}
-
-
-- (void)buzhidaoxieshaWithIndex:(int)index{
-    
-    for (int i = 0; i<index; i++) {
-        int f = i*100+arc4random() % 8;
-        if (f % 3 == 0) {
-            NSLog(@"%d",f);
-        }
-    }
 }
 
 - (void)shishiLaJiDaiMaDeXiaoGuo{

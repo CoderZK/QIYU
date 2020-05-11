@@ -66,6 +66,8 @@
     if (button.tag == 100) {
         //叉
         [self dismissViewControllerAnimated:YES completion:nil];
+        TabBarController * vc = (TabBarController*)[UIApplication sharedApplication].keyWindow.rootViewController;
+        vc.selectedIndex = 0;
     }else if (button.tag == 101) {
         button.selected = !button.selected;
         self.passWordTF.secureTextEntry = !button.selected;

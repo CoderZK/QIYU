@@ -1,8 +1,8 @@
 //
-//  QQYYKaiTongHuiYuanTVC.h
-//  HouHuaYuanAPP
+//  QQYYHYFWTVC.h
+//  QIYU
 //
-//  Created by zk on 2019/5/30.
+//  Created by zk on 2019/12/12.
 //  Copyright © 2019 kunzhang. All rights reserved.
 //
 
@@ -10,7 +10,7 @@
 
 NS_ASSUME_NONNULL_BEGIN
 
-@interface QQYYKaiTongHuiYuanTVC : BaseTableViewController
+@interface QQYYHYFWTVC : BaseTableViewController
 @property(nonatomic,strong)NSString *nickName,*imgStr;
 @end
 
