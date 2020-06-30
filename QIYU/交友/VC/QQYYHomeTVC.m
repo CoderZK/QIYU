@@ -118,7 +118,7 @@
     
      [QQYYSignleToolNew shareTool].isppp = YES;
     
-//    [self getConfig];
+    [self getConfig];
     
     [self updateNewAppWith:appStoreID];
     
